@@ -1,0 +1,15 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Word {
+  id    Int      @id @default(autoincrement())
+  uuid  String   @unique
+  words String[]
+    @@map("word")
+}
