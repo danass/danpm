@@ -1,64 +1,32 @@
-'use client'
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useWordStore } from '../store';
-import WordList from '../WordList';
-import { nanoid } from 'nanoid';
+import Head from 'next/head';
+import Link from 'next/link';
 
-export default function HomePage() {
-  const [input, setInput] = useState('');
-  const { addWords, uuid, words, setUuid, setWords } = useWordStore();
-  const router = useRouter();
-
-  const generateWords = async () => {
-    const newWords = input.split(/[,;\n]+/).map(word => word.trim()).filter(Boolean);
-    const uniqueWords = [...new Set(newWords)]; // Exclure les doublons
-    setWords(uniqueWords);
-    const newUuid = nanoid(10); // Utiliser des UUID plus courts
-    setUuid(newUuid);
-    await fetch('/api/words', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ uuid: newUuid, words: uniqueWords }),
-    });
-    router.push(`/${newUuid}`);
-  };
-
-  const shareUrl = () => {
-    const url = `${window.location.origin}/${uuid}`;
-    navigator.clipboard.writeText(url);
-    alert('URL copiée dans le presse-papiers');
-  };
-
+export default function Page() {
   return (
-    <div className="p-4 flex flex-col min-h-screen">
-      <WordList />
-      <div className="mt-auto">
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="w-full p-2 border rounded"
-          placeholder="Collez votre liste de mots ici..."
-        />
-        <button
-          onClick={generateWords}
-          className="mt-2 p-2 border rounded"
-        >
-          Générer la liste
-        </button>
-      </div>
-      {uuid && (
-        <div className="mt-2">
-          <button
-            onClick={shareUrl}
-            className="p-2 border rounded"
-          >
-            Partager
-          </button>
-        </div>
-      )}
-    </div>
+    <main className="min-h-screen p-10 font-inter bg-white text-[#1a1a1a]">
+      <Head>
+        <title>Daniel Assayag</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+      </Head>
+      <nav className="flex gap-5 mb-20">
+        <a href="#" className="font-bold text-[#1a1a1a] lowercase bg-[#e6f0ff] py-1 px-3 rounded-md">work</a>
+        <a href="#" className="font-bold text-[#1a1a1a] lowercase">contact</a>
+      </nav>
+      <h1 className="text-[48px] font-bold leading-snug max-w-3xl mb-16">
+        daniel assayag, product manager at <span className="text-transparent" style={{ WebkitTextStroke: '1px #1a1a1a' }}>homeexchange</span>
+      </h1>
+      
+      <section>
+        <h2 className="text-2xl font-bold mb-4">Work</h2>
+        <ul>
+          <li>
+            <Link href="/top" className="text-lg text-blue-600 hover:underline">
+              /top
+            </Link>
+            <span className="ml-2 text-gray-600">(a tool for...)</span>
+          </li>
+        </ul>
+      </section>
+    </main>
   );
 }

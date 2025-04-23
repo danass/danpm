@@ -1,4 +1,4 @@
-import { useWordStore } from './store';
+import { useWordStore } from '@/lib/store';
 import { DndContext, closestCenter } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import SortableItem from './SortableItem';

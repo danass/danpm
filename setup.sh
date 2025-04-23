@@ -9,4 +9,6 @@ source .env
 envsubst < setup.sql | psql -U postgres
 
 # Initialiser Prisma
+cd lib/prisma
+npx prisma generate
 npx prisma migrate deploy

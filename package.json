@@ -14,10 +14,8 @@
     "@dnd-kit/modifiers": "^9.0.0",
     "@dnd-kit/sortable": "^10.0.0",
     "@prisma/client": "^6.5.0",
-    "autoprefixer": "^10.4.21",
     "next": "15.2.4",
     "pg": "^8.14.1",
-    "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sequelize": "^6.37.6",
@@ -26,10 +24,12 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.0.16",
+    "@tailwindcss/postcss": "^4.1.4",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
+    "postcss": "^8.5.3",
     "prisma": "^6.5.0",
-    "tailwindcss": "^4.0.16"
+    "tailwindcss": "^4.1.4"
   }
 }

@@ -1,4 +1,4 @@
-import prisma from '../../../lib/db';
+import prisma from '@/lib/db'
 
 export async function POST(request) {
   const { uuid, words } = await request.json();
