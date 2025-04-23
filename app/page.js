@@ -17,13 +17,19 @@ export default function Page() {
       </h1>
       
       <section>
-        <h2 className="text-2xl font-bold mb-4">Work</h2>
-        <ul>
+        <h2 className="text-2xl font-bold mb-6">Work</h2>
+        <ul className="space-y-3">
           <li>
             <Link href="/top" className="text-lg text-blue-600 hover:underline">
               /top
             </Link>
-            <span className="ml-2 text-gray-600">(a tool for...)</span>
+            <span className="ml-3 text-gray-700">- A tool for creating and sharing ranked lists.</span>
+          </li>
+          <li>
+            <Link href="/gethomes" className="text-lg text-blue-600 hover:underline">
+              /gethomes
+            </Link>
+            <span className="ml-3 text-gray-700">- Tool for fetching HomeExchange listings data.</span>
           </li>
         </ul>
       </section>
