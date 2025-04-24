@@ -39,12 +39,12 @@ export default function Page() {
             </Link>
             <span className="ml-3 text-gray-700">- A tool for creating and sharing ranked lists.</span>
           </li>
-          <li>
+          {/* <li>
             <Link href="/gethomes" className="text-lg text-blue-600 hover:underline">
               /gethomes
             </Link>
             <span className="ml-3 text-gray-700">- Tool for fetching HomeExchange listings data.</span>
-          </li>
+          </li> */}
         </ul>
       </section>
     </main>
