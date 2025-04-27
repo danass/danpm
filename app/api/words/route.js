@@ -1,74 +1,77 @@
+import { NextResponse } from 'next/server';
 import prisma from '@/lib/db'
 
-export async function POST(request) {
-  const { uuid, words } = await request.json();
-  try {
-    const existingWord = await prisma.word.findUnique({
-      where: { uuid },
-    });
+// In-memory store (replace with a real database for persistence)
+let db = {};
 
-    if (existingWord) {
-      return new Response(JSON.stringify({ error: 'UUID already exists' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-
-    await prisma.word.create({
-      data: { uuid, words },
-    });
-    return new Response(JSON.stringify({ words }), {
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-}
-
+// GET handler to retrieve a list
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const uuid = searchParams.get('uuid');
+
+  if (!uuid || !db[uuid]) {
+    return NextResponse.json({ message: 'List not found' }, { status: 404 });
+  }
+
+  // Return words and finalized status
+  return NextResponse.json({ 
+    words: db[uuid].words || [], 
+    isFinalized: db[uuid].isFinalized || false 
+  });
+}
+
+// POST handler to create a new list
+export async function POST(request) {
   try {
-    const wordDoc = await prisma.word.findUnique({
-      where: { uuid },
-    });
-    const words = wordDoc ? wordDoc.words : [];
-    return new Response(JSON.stringify({ words }), {
-      headers: { 'Content-Type': 'application/json' },
-    });
+    const { uuid: newUuid, words } = await request.json();
+
+    if (!newUuid || !words || !Array.isArray(words)) {
+      return NextResponse.json({ message: 'Missing or invalid uuid or words' }, { status: 400 });
+    }
+
+    // Initialize with isFinalized: false
+    db[newUuid] = { words: words, isFinalized: false }; 
+    console.log('DB after POST:', db); // Log db state after creation
+    return NextResponse.json({ message: 'List created', uuid: newUuid }, { status: 201 });
+
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+     console.error("Error parsing POST request body:", error);
+     return NextResponse.json({ message: 'Invalid request body' }, { status: 400 });
   }
 }
 
+// PUT handler to update/finalize a list
 export async function PUT(request) {
   const { searchParams } = new URL(request.url);
   const uuid = searchParams.get('uuid');
-  const { words } = await request.json();
+
+  if (!uuid || !db[uuid]) {
+    return NextResponse.json({ message: 'List not found' }, { status: 404 });
+  }
+
   try {
-    const updatedWord = await prisma.word.update({
-      where: { uuid },
-      data: { words },
-    });
-    return new Response(JSON.stringify({ words: updatedWord.words }), {
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (error) {
-    if (error.code === 'P2025') {
-      return new Response(JSON.stringify({ error: 'Record not found' }), {
-        status: 404,
-        headers: { 'Content-Type': 'application/json' },
-      });
+    const { words, finalize } = await request.json();
+
+    // Prevent updates if already finalized (unless it's the finalization request itself)
+    if (db[uuid].isFinalized && !finalize) {
+       return NextResponse.json({ message: 'List is finalized and cannot be modified.' }, { status: 403 });
     }
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+
+    // Update words if provided (and not finalizing an already final list)
+    if (words && Array.isArray(words) && !db[uuid].isFinalized) {
+      db[uuid].words = words;
+    }
+
+    // Set finalized flag if requested
+    if (finalize === true) {
+       db[uuid].isFinalized = true;
+    }
+    
+    console.log(`DB after PUT for ${uuid}:`, db[uuid]); // Log db state after update
+    return NextResponse.json({ message: 'List updated' });
+
+  } catch (error) {
+     console.error("Error parsing PUT request body:", error);
+     return NextResponse.json({ message: 'Invalid request body' }, { status: 400 });
   }
 }

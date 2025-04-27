@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes move-hand {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+    20% { opacity: 1; }
+    /* Target vertical center of 3rd item (index 2) - Approx 141px */
+    50% { transform: translateY(141px) translateX(0); opacity: 1; } 
+    80% { opacity: 1; }
+    95% { opacity: 0; }
+  }
+
+  @keyframes lift-item {
+    0%, 45%, 100% { transform: translateY(0) scale(1); box-shadow: theme('boxShadow.sm'); background-color: theme('colors.white'); }
+    /* Lift */
+    55%, 75% { transform: translateY(-4px) scale(1.03); box-shadow: theme('boxShadow.md'); background-color: theme('colors.gray.100'); }
+    /* Simulate move up to position 1 (adjust translateY if needed) */
+    /* Needs to move past item 1 & 2 heights + 2*spacing = ~96px? */
+    80% { transform: translateY(-96px) scale(1.03); box-shadow: theme('boxShadow.md'); background-color: theme('colors.gray.100'); }
+  }
+
+  /* Classes for smooth example toggle */
+  .example-container {
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin 0.5s ease-in-out, border-width 0.5s ease-in-out;
+    overflow: hidden;
+    max-height: 1000px; /* Adjust if content might exceed this */
+    opacity: 1;
+    margin-bottom: 3rem; /* mb-12 */
+    border-width: 1px;
+  }
+
+  .example-container-hidden {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
+    border-width: 0;
+ }
+} 
