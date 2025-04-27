@@ -141,7 +141,7 @@ export default function HomePage() {
            value={input}
            onChange={(e) => setInput(e.target.value)}
            className="w-full p-2 border rounded"
-           placeholder="Paste your list here. Separate items with commas, semicolons, or new lines. e.g.&#10;Salad, Tomato, Onions&#10;or&#10;Salad;Tomato;Onions&#10;or&#10;Salad&#10;Tomato&#10;Onions"
+           placeholder="List your items here. Separate with commas, semicolons, or new lines. e.g.&#10;Salad, Tomato, Onions&#10;"
            autoFocus
          />
          <Button
