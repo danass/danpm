@@ -141,16 +141,15 @@ export default function HomePage() {
            value={input}
            onChange={(e) => setInput(e.target.value)}
            className="w-full p-2 border rounded"
-           placeholder="Write your list here. 
-           Separate items with commas.
-           Example: &#10;Salad, Tomato, Onions"
+           placeholder="Paste your list here. Separate items with commas, semicolons, or new lines. e.g.&#10;Salad, Tomato, Onions&#10;or&#10;Salad;Tomato;Onions&#10;or&#10;Salad&#10;Tomato&#10;Onions"
+           autoFocus
          />
          <Button
            onClick={generateWords}
            disabled={!input.trim()}
            className={`${!input.trim() ? '' : 'hover:bg-gray-900 hover:text-white'}`}
          >
-           Create List
+           Generate List
          </Button>
       </div>
     </div>

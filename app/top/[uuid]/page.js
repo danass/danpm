@@ -168,14 +168,14 @@ export default function UuidPage() {
       </div>
 
       <div className="mt-4 flex justify-center space-x-4">
-        <Button onClick={shareUrl}>
-          Share This List
-        </Button>
         <Button 
           onClick={createNewList} 
           className="bg-gray-900 text-white hover:bg-gray-800"
          > 
           Create a New List
+        </Button>
+        <Button onClick={shareUrl}>
+          Share This List
         </Button>
       </div>
     </div>
