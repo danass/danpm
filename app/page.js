@@ -15,7 +15,7 @@ export default function Page() {
           linkedin
         </a>
       </nav>
-      <h1 className="text-[48px] font-bold leading-snug max-w-3xl mb-16">
+      <h1 className="text-[48px] text-[clamp(1rem,10vw,3rem)] font-bold leading-snug max-w-3xl mb-16">
         daniel assayag, product manager at{' '}
         <a href="https://homeexchange.com" target="_blank" rel="noopener noreferrer" className="inline-block">
           <span
