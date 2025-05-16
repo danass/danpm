@@ -41,6 +41,18 @@ export default function HomePage() {
           <br className="hidden md:block" /> focused on crafting user-centered digital experiences.
         </p>
         
+
+        <div className="mt-8 flex flex-wrap justify-start gap-4">
+          <Button variant="primary" onClick={() => window.open('https://www.linkedin.com/in/daniel-assayag/', '_blank')} className="text-sm sm:text-base">
+            <UserCircleIcon className="h-5 w-5 mr-2" /> LinkedIn
+          </Button>
+          <Button variant="secondary" onClick={() => router.push('/about')} className="text-sm sm:text-base"> 
+            <InformationCircleIcon className="h-5 w-5 mr-2" /> About Me
+          </Button>
+          {/* Add other relevant links here if needed */}
+        </div>
+
+
         {/* Apps Section (Simplified) */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-6 text-gray-800">Apps</h2>
@@ -54,17 +66,9 @@ export default function HomePage() {
             {/* Add other projects here if needed */}
           </ul>
         </section>
-
-        <div className="mt-8 flex flex-wrap justify-start gap-4">
-          <Button variant="primary" onClick={() => window.open('https://www.linkedin.com/in/daniel-assayag/', '_blank')} className="text-sm sm:text-base">
-            <UserCircleIcon className="h-5 w-5 mr-2" /> LinkedIn
-          </Button>
-          <Button variant="secondary" onClick={() => router.push('/about')} className="text-sm sm:text-base"> 
-            <InformationCircleIcon className="h-5 w-5 mr-2" /> About Me
-          </Button>
-          {/* Add other relevant links here if needed */}
-        </div>
       </div>
+
+      
 
       {/* Design Case Studies Section */}
       <header id="case-studies-section" className="mb-12 w-full max-w-4xl text-center md:text-left">

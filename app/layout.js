@@ -1,7 +1,8 @@
 import './globals.css'
 import { Inter, Manrope } from 'next/font/google';
 import Footer from './components/layout/Footer';
-import ConditionalHomeLink from './components/layout/ConditionalHomeLink'; // Import the new component
+import GlobalHomeLink from './components/layout/ConditionalHomeLink'; // Path is still ConditionalHomeLink.js, but component is GlobalHomeLink
+// import ScrollAwareBackButton from './components/layout/ScrollAwareBackButton'; // This will be removed
 
 export const metadata = {
   title: 'Portfolio – HomeExchange Case Study',
@@ -21,9 +22,10 @@ export default function RootLayout({ children }) {
           <title>{metadata.title}</title><meta name="description" content={metadata.description} /><link rel="icon" href="/favicon.ico" />
         </head>
         <body className={`${manrope.className} bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-100 relative`}>
-          <ConditionalHomeLink /> {/* Use the new component here */}
+          <GlobalHomeLink /> {/* Use the global home link component */}
+          {/* <ScrollAwareBackButton /> Remove if present */}
           
-          <main >{children}</main> {/* pt-16 was added to prevent overlap with a potential fixed header */}
+          <main className="pt-16">{children}</main> {/* Ensure pt-16 for spacing */}
           <Footer />
         </body>
       </html>
