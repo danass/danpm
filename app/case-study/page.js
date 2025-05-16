@@ -69,7 +69,7 @@ export default function CaseStudyPage() {
         <div className="aspect-video w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-gray-200">
           <video 
             className="w-full h-full object-cover"
-            src="/video.mov" 
+            src="/video.mp4" 
             autoPlay 
             muted 
             loop 
