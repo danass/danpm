@@ -1,4 +1,62 @@
-export default function CheckListCard({ title, subtitle, items, icon }) {
+export default function CheckListCard({ title, subtitle, items, icon, isEditing = false, onPropChange }) {
+  const handleFieldChange = (fieldName, value) => {
+    if (onPropChange) {
+      onPropChange(fieldName, value); // For title, subtitle
+    }
+  };
+
+  const handleItemLabelChange = (itemIndex, value) => {
+    if (onPropChange) {
+      // This specific signature needs to be handled by the parent (CheckListCardGrid)
+      onPropChange(itemIndex, 'label', value);
+    }
+  };
+
+  if (isEditing) {
+    return (
+      <div className="w-full max-w-xl mx-auto flex flex-col items-center p-4 border-2 border-dashed border-blue-300 bg-blue-50/50 rounded-lg my-2">
+        {/* Icon is not typically text-editable */}
+        <div className="mb-2 w-full">
+          <label className="block text-xs font-medium text-gray-700 mb-0.5">Title:</label>
+          <input
+            type="text"
+            value={title || ''}
+            onChange={(e) => handleFieldChange('title', e.target.value)}
+            placeholder="Enter title"
+            className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-900"
+          />
+        </div>
+        <div className="mb-4 w-full">
+          <label className="block text-xs font-medium text-gray-700 mb-0.5">Subtitle:</label>
+          <textarea
+            value={subtitle || ''}
+            onChange={(e) => handleFieldChange('subtitle', e.target.value)}
+            rows={2}
+            placeholder="Enter subtitle"
+            className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-900"
+          />
+        </div>
+        <div className="bg-white rounded-xl shadow p-6 w-full flex flex-col gap-3">
+          <h4 className="text-sm font-medium text-gray-600 mb-1">List Items:</h4>
+          {items.map((item, i) => (
+            <div key={i} className="flex items-center justify-between border-b last:border-b-0 border-gray-200 py-2">
+              <input
+                type="text"
+                value={item.label || ''}
+                onChange={(e) => handleItemLabelChange(i, e.target.value)}
+                placeholder={`Enter label for item ${i+1}`}
+                className="flex-grow mr-2 px-1 py-0.5 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-900"
+              />
+              <span className={`text-sm ${item.checked ? 'text-green-500' : 'text-gray-400'}`}>
+                (Checked: {item.checked ? 'Yes' : 'No'}) {/* Not editable here */}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
       {icon && <div className="mb-4">{icon}</div>}

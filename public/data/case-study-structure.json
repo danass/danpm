@@ -1,0 +1,1203 @@
+{
+  "pageSchemaVersion": "1.0",
+  "seo": {
+    "title": "Understanding Our Users Through Their Homes - Case Study",
+    "description": "A product case study detailing the design and development of a tool to understand HomeExchange Collection user personas by analyzing home images."
+  },
+  "blocks": [
+    {
+      "componentName": "HeroSplitLayout",
+      "props": {
+        "id": "block-0",
+        "title": "Understanding Our Users Through Their Homes",
+        "subtitle": "A Research Tool for HomeExchange Collection",
+        "text": [
+          "Project Context: HomeExchange Collection and the need to better understand users.",
+          "My role and intention: to design a bridge between visual data and the teams.",
+          "Problem: How can we make sense of home images to better understand our user profiles?",
+          "Objectives: Create a tool to analyze, classify, validate, export — for the team's benefit."
+        ],
+        "imageSrc": "/case-study-screenshot-prototype.png",
+        "imageAlt": "Screenshot of the HomeExchange Collection styles tool interface",
+        "imagePosition": "right",
+        "backgroundColor": "bg-gray-50",
+        "className": "mb-20 md:mb-32 pt-12 md:pt-0"
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-1",
+        "className": "mb-12 md:mb-16 w-full -mt-16 md:-mt-20 relative z-0",
+        "content": [
+          {
+            "componentName": "Video",
+            "props": {
+              "containerClassName": "aspect-video w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-gray-200",
+              "videoClassName": "w-full h-full object-cover",
+              "src": "/video.mp4",
+              "autoPlay": true,
+              "muted": true,
+              "loop": true,
+              "playsInline": true,
+              "controls": true,
+              "fallbackText": "Your browser does not support the video tag."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-2",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "01",
+              "children": "The Initial Intuition"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "paragraphs": [
+                "Why can homes be a key to understanding personas?",
+                "Initial observation: aesthetic diversity, weak signals in images.",
+                "First hypothesis: can we identify coherent home styles and make them meaningful?"
+              ]
+            }
+          },
+          {
+            "componentName": "CardGrid",
+            "props": {
+              "wrapperClassName": "my-12 md:my-16",
+              "cards": [
+                {
+                  "image": "/case-study-homedetails.png",
+                  "badge": "Initial Insight",
+                  "title": "The Styles Intuition",
+                  "description": "Homes as a reflection of our members' personalities and expectations."
+                },
+                {
+                  "image": "/case-study-filtersonly.png",
+                  "badge": "Main Challenge",
+                  "title": "From Image to Data",
+                  "description": "Transforming the visual richness of homes into actionable data for the team."
+                },
+                {
+                  "image": "/ui-cards-view.png",
+                  "badge": "Designed Solution",
+                  "title": "The Navigation Tool",
+                  "description": "An interface to explore, validate, and export style classifications."
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "info",
+              "title": "Insight",
+              "iconName": "LightBulbIcon",
+              "children": "Insight: \"A very contemporary house with a mirror pool in the Landes region evokes a very different type of user than a renovated English cottage in Brittany.\""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-3",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "02",
+              "children": "Data Collection & Exploration"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-6",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "The journey began by understanding the landscape of available data. What raw materials did we have to work with? This involved an inventory of:"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside space-y-2 pl-4",
+                  "items": [
+                    "Vast quantities of home photographs submitted by users.",
+                    "Associated metadata: textual descriptions, declared amenities, and existing (often broad) categorizations.",
+                    "Geolocational data, offering context about the home's environment."
+                  ]
+                },
+                {
+                  "type": "p",
+                  "content": "Our initial toolkit for sifting through this information included:"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside space-y-2 pl-4",
+                  "items": [
+                    "Spreadsheet software (Excel/Google Sheets) for initial data organization and pattern spotting.",
+                    "Design tools (Figma) for manual image visualization, grouping, and moodboarding.",
+                    "Collaboration platforms (Notion, Google Drive) for sharing findings and documentation."
+                  ]
+                },
+                {
+                  "type": "p",
+                  "content": "Early explorations revealed a wide spectrum of home types, but also significant challenges. The primary hurdles included:"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside space-y-2 pl-4",
+                  "items": [
+                    "Visual 'noise': Inconsistent image quality, staging, and lighting conditions.",
+                    "Data disparities: Variable levels of detail in descriptions and metadata.",
+                    "Subjectivity: The inherent difficulty in objectively categorizing aesthetic and experiential qualities."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "info",
+              "title": "Key Insight",
+              "iconName": "LightBulbIcon",
+              "className": "mb-8",
+              "children": "A critical early realization was the highly variable quality of user-submitted photos. Many were stunning, but others were poorly lit, cluttered, or didn't effectively showcase the home's style. This highlighted the need for robust filtering, cleaning, and potentially a guided upload process in the future to ensure data quality for analysis."
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "fail",
+              "title": "Early Obstacle",
+              "iconName": "ExclamationTriangleIcon",
+              "children": "Initial attempts to use existing metadata for fine-grained style classification proved insufficient. Tags were often too broad or inconsistently applied, leading to noisy and unreliable groupings. This underscored the necessity of deriving insights directly from the visual content of the images themselves."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-4",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "03",
+              "children": "Visual Categories: Giving Meaning to Images"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "The first crucial step was to move beyond simple metadata and truly <span class=\"font-semibold\">see</span> the homes through the eyes of our users. This involved manually sifting through thousands of photos to identify recurring visual themes and atmospheres that define different home styles."
+                },
+                {
+                  "type": "p",
+                  "content": "We started by creating broad categories based on common search terms and intuitive groupings (e.g., \"beachfront,\" \"city apartment,\" \"rustic charm\"). Then, we refined these into more evocative and specific \"HomeExchange Styles.\" Each style was defined by a set of visual characteristics, example images, and a descriptive name that resonated with potential desires of our members."
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "IconFeatureGrid",
+            "props": {
+              "className": "my-12",
+              "items": [
+                {
+                  "iconName": "LightBulbIcon",
+                  "iconProps": {
+                    "className": "w-8 h-8 text-indigo-600"
+                  },
+                  "title": "AI-Powered Style Classification",
+                  "description": "Leverage image recognition (CLIP, ResNet) to automatically categorize homes into nuanced visual styles, moving beyond manual tagging."
+                },
+                {
+                  "iconName": "TableCellsIcon",
+                  "iconProps": {
+                    "className": "w-8 h-8 text-indigo-600"
+                  },
+                  "title": "Intuitive Navigation Interface",
+                  "description": "Provide internal teams (CRM, Sales, Product) with a web-based tool to easily browse, filter, and visualize home style classifications."
+                },
+                {
+                  "iconName": "UsersIcon",
+                  "iconProps": {
+                    "className": "w-8 h-8 text-indigo-600"
+                  },
+                  "title": "Collaborative Validation Loop",
+                  "description": "Enable teams to validate or refute AI-generated classifications (True/False), directly contributing to the retraining and refinement of the algorithm."
+                },
+                {
+                  "iconName": "ShieldCheckIcon",
+                  "iconProps": {
+                    "className": "w-8 h-8 text-indigo-600"
+                  },
+                  "title": "Secure Team Access & Data Protection",
+                  "description": "Implement Google OAuth with domain restriction to ensure that the tool and its sensitive user data are accessible only by authorized internal personnel."
+                },
+                {
+                  "iconName": "ArrowDownTrayIcon",
+                  "iconProps": {
+                    "className": "w-8 h-8 text-indigo-600"
+                  },
+                  "title": "Targeted Data Export",
+                  "description": "Allow teams to export classified home data and insights in usable formats (e.g., CSV) for targeted marketing campaigns, product development, and sales strategies."
+                },
+                {
+                  "iconName": "ChartBarIcon",
+                  "iconProps": {
+                    "className": "w-8 h-8 text-indigo-600"
+                  },
+                  "title": "Data-Driven Category Discovery",
+                  "description": "Continuously analyze image data and validation feedback to identify emerging trends and automatically suggest new, relevant home style categories."
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4 mt-10",
+              "paragraphs": [
+                "This initial taxonomy, although informal, became our first framework for trying to understand our users' lifestyles and aspirations through the aesthetics of their homes. Here are a few examples of the styles identified:"
+              ]
+            }
+          },
+          {
+            "componentName": "StylePreviewCardGrid",
+            "props": {
+              "wrapperClassName": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-12",
+              "styles": [
+                {
+                  "styleName": "Lovers Cocoon",
+                  "imageUrl": "/homes-illustration/loverscocoon.webp",
+                  "imageAlt": "Preview of Lovers Cocoon style home"
+                },
+                {
+                  "styleName": "Sport court",
+                  "imageUrl": "/homes-illustration/sportcourt.webp",
+                  "imageAlt": "Preview of Supercharged Modern style home with a sport court"
+                },
+                {
+                  "styleName": "Rustic Charm",
+                  "imageUrl": "/homes-illustration/rustic.webp",
+                  "imageAlt": "Preview of Rustic Charm style home"
+                },
+                {
+                  "styleName": "Full Light ",
+                  "imageUrl": "/homes-illustration/fulllight.webp",
+                  "imageAlt": "Preview of Full Light style home"
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "ImageCarousel",
+            "props": {
+              "className": "my-12",
+              "images": [
+                {
+                  "src": "/homes-illustration/loverscocoon.webp",
+                  "caption": "Style: Lovers Cocoon",
+                  "alt": "Lovers Cocoon Home"
+                },
+                {
+                  "src": "/homes-illustration/home-extravaganzza.jpg",
+                  "caption": "Style: Supercharged Modern",
+                  "alt": "Supercharged Modern Home"
+                },
+                {
+                  "src": "/homes-illustration/rustic.webp",
+                  "caption": "Style: Rustic Charm",
+                  "alt": "Rustic Home"
+                },
+                {
+                  "src": "/homes-illustration/fulllight.webp",
+                  "caption": "Style: Full Light",
+                  "alt": "Full Light Home"
+                },
+                {
+                  "src": "/homes-illustration/ancient.webp",
+                  "caption": "Style: Ancient Influences",
+                  "alt": "Home with Ancient Influences"
+                },
+                {
+                  "src": "/homes-illustration/chalet.webp",
+                  "caption": "Style: Cozy Chalet",
+                  "alt": "Chalet Style Home"
+                },
+                {
+                  "src": "/homes-illustration/home-loverscocoon.jpg",
+                  "caption": "Style: Lovers Cocoon",
+                  "alt": "Lovers Cocoon Home Detail"
+                },
+                {
+                  "src": "/homes-illustration/home-privateparadise.jpg",
+                  "caption": "Style: Private Paradise",
+                  "alt": "Private Paradise Home"
+                },
+                {
+                  "src": "/homes-illustration/home-privatepool.jpg",
+                  "caption": "Style: Private Pool Oasis",
+                  "alt": "Home with Private Pool"
+                },
+                {
+                  "src": "/homes-illustration/home-volumes.jpeg",
+                  "caption": "Style: Volumes Houses",
+                  "alt": "Home with Voluminous Spaces"
+                },
+                {
+                  "src": "/homes-illustration/privateland.webp",
+                  "caption": "Style: Expansive Private Land",
+                  "alt": "Home on Private Land"
+                },
+                {
+                  "src": "/homes-illustration/sportcourt.webp",
+                  "caption": "Style: Sport Court Feature",
+                  "alt": "Home with Sport Court"
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "CheckListCardGrid",
+            "props": {
+              "wrapperClassName": "grid md:grid-cols-2 gap-8 items-start",
+              "cards": [
+                {
+                  "title": "Quality Criteria for a Category",
+                  "iconName": "CheckCircleIcon",
+                  "iconProps": {
+                    "className": "w-10 h-10 text-green-500"
+                  },
+                  "items": [
+                    {
+                      "label": "Clear Visual Distinction",
+                      "checked": true
+                    },
+                    {
+                      "label": "Strong Internal Coherence",
+                      "checked": true
+                    },
+                    {
+                      "label": "Easily Understandable",
+                      "checked": true
+                    },
+                    {
+                      "label": "Business Relevance",
+                      "checked": true
+                    },
+                    {
+                      "label": "Scalability Potential",
+                      "checked": false
+                    }
+                  ]
+                },
+                {
+                  "title": "User Needs Addressed by Styles",
+                  "iconName": "UsersIcon",
+                  "iconProps": {
+                    "className": "w-8 h-8 text-blue-500"
+                  },
+                  "items": [
+                    {
+                      "label": "Quickly grasp the ambiance of a home",
+                      "checked": true
+                    },
+                    {
+                      "label": "Filter based on aesthetic preferences",
+                      "checked": true
+                    },
+                    {
+                      "label": "Discover homes matching a desired lifestyle",
+                      "checked": true
+                    },
+                    {
+                      "label": "Inspire travel and exchange possibilities",
+                      "checked": true
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "question",
+              "title": "Question",
+              "iconName": "QuestionMarkCircleIcon",
+              "children": "Challenge: \"How to create a taxonomy that is both inspiring for users and practical for internal teams? How to balance creativity with rigor?\""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-5",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "04",
+              "children": "The Leap to Automation: Machine Learning for Style Recognition"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "Manual categorization was a necessary starting point, but not scalable for the entire HomeExchange Collection. The next crucial step was to explore how Artificial Intelligence, specifically machine learning and computer vision, could automate and enhance this process."
+                },
+                {
+                  "type": "p",
+                  "content": "<strong>Approach:</strong>"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "<strong>Model Selection:</strong> Researched and experimented with various image recognition models (e.g., CLIP, ResNet) known for their ability to understand image content and context.",
+                    "<strong>Training Data:</strong> Utilized the manually curated and validated home styles as the initial training dataset. The quality of this data was key.",
+                    "<strong>Feature Extraction:</strong> The models learned to identify visual patterns, textures, color palettes, objects, and architectural elements associated with each style.",
+                    "<strong>Classification & Confidence Scoring:</strong> For any given home image, the AI could predict its most likely style(s) and provide a confidence score for each prediction."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "info",
+              "title": "Technological Empowerment",
+              "iconName": "CodeBracketIcon",
+              "children": "AI acted as a powerful accelerator, enabling us to process and classify thousands of images far more rapidly than humanly possible, while also uncovering subtle patterns that might have been missed."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-6",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "05",
+              "children": "Initial Prototype: From Excel to Web App"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "The initial insights from the manual categorization and data exploration were promising but clearly not scalable. The first step towards a more robust solution was to move away from disparate spreadsheets and visual boards."
+                },
+                {
+                  "type": "p",
+                  "content": "We envisioned a simple web application that could serve as a centralized platform for our internal teams. The primary goal was to provide an intuitive interface to:"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside space-y-2 mb-6 my-8",
+                  "items": [
+                    "View homes and their AI-suggested style classifications.",
+                    "Manually validate or correct these classifications.",
+                    "Filter and search homes based on styles or other criteria.",
+                    "Potentially export lists of homes for specific campaigns."
+                  ]
+                },
+                {
+                  "type": "p",
+                  "content": "This first prototype was basic, focusing on core functionality rather than polished design. It was essential to get a working tool into the hands of the teams quickly to gather feedback and iterate."
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "ImageGallery",
+            "props": {
+              "images": [
+                {
+                  "src": "/case-study-screenshot-excel.png",
+                  "caption": "Early data in spreadsheets",
+                  "alt": "Excel Screenshot"
+                },
+                {
+                  "src": "/case-study-screenshot-prototype.png",
+                  "caption": "First web app prototype",
+                  "alt": "Prototype Screenshot"
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "info",
+              "title": "Proof of Concept",
+              "iconName": "ComputerDesktopIcon",
+              "children": "The first prototype, though rudimentary, proved the viability of a dedicated tool and generated crucial early feedback from the CRM and Sales teams."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-7",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "06",
+              "children": "Data-Driven Category Refinement"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "While manual curation provided the foundational understanding of home styles, the ambition was to create a scalable and evolving system. We leveraged the data itself to uncover and refine categories. By analyzing the naming patterns of internal CSV datasets (e.g., <code class=\"text-sm bg-gray-100 p-1 rounded\">Collection Image Similarity - Styles Ancient.csv</code>), we could programmatically extract potential style and amenity tags."
+                },
+                {
+                  "type": "p",
+                  "content": "This approach allowed for a more dynamic and comprehensive taxonomy, reflecting the diverse characteristics present in the HomeExchange Collection. The system was designed to adapt as new data became available, ensuring our understanding of user preferences remained current."
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "IconFeatureGrid",
+            "props": {
+              "className": "my-12",
+              "useDerivedCategories": true
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "info",
+              "title": "Future Vision",
+              "iconName": "MagnifyingGlassIcon",
+              "children": "The aspiration was to eventually use these data-derived tags to automatically suggest relevant icons or visual cues in the UI, further enhancing the browsing experience for internal teams and, potentially, for members."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-8",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "07",
+              "children": "Learning from the Landscape: Competitor Insights"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "To ensure our approach was grounded and to identify potential best practices (and pitfalls to avoid), we analyzed how other platforms handle visual search, categorization, and presentation of homes. This included looking at direct competitors in the home exchange space, as well as leaders in travel and real estate who excel at visual storytelling."
+                },
+                {
+                  "type": "p",
+                  "content": "Key observations included:"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "The importance of high-quality, aspirational imagery.",
+                    "Varied approaches to tagging and filtering by style or amenities.",
+                    "Some platforms used very granular categories, others broader themes.",
+                    "A trend towards more immersive visual browsing experiences."
+                  ]
+                },
+                {
+                  "type": "p",
+                  "content": "This analysis revealed an opportunity for HomeExchange Collection to differentiate by offering a more curated, evocative, and visually rich way for internal teams to understand and segment homes based on nuanced styles that resonate with member aspirations."
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "ImageGallery",
+            "props": {
+              "images": [
+                {
+                  "src": "/competitors/competitor-screenshot-1.png",
+                  "caption": "Example of a competitor platform's search interface",
+                  "alt": "Competitor Screenshot 1"
+                },
+                {
+                  "src": "/competitors/competitor-screenshot-2.png",
+                  "caption": "Competitor platform amenities filtering",
+                  "alt": "Competitor Screenshot 2"
+                },
+                {
+                  "src": "/competitors/competitor-screenshot-3.png",
+                  "caption": "Visual style presentation on another travel site",
+                  "alt": "Competitor Screenshot 3"
+                },
+                {
+                  "src": "/competitors/competitor-screenshot-4.png",
+                  "caption": "Detailed property page from a real estate leader",
+                  "alt": "Competitor Screenshot 4"
+                },
+                {
+                  "src": "/competitors/competitor-screenshot-5.png",
+                  "caption": "User review interface highlighting home features",
+                  "alt": "Competitor Screenshot 5"
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "info",
+              "title": "Key Takeaway",
+              "iconName": "MagnifyingGlassIcon",
+              "children": "Competitor analysis reinforced the value of visual data but also highlighted the need for HomeExchange Collection to develop a unique classification system tailored to its specific user base and inventory."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-9",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "08",
+              "children": "Team Synergy: The Collaborative Validation Interface"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "A core principle of the tool was to blend AI efficiency with human expertise. The classifications made by the image recognition models were not final; they were starting points. To refine accuracy and ensure the system learned from nuanced human understanding, a collaborative validation interface was designed."
+                },
+                {
+                  "type": "p",
+                  "content": "This interface allowed members of the CRM, Sales, and Product teams to easily review AI-suggested style tags for individual homes. They could:"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "View the primary images of a home alongside its AI-assigned style categories.",
+                    "Confirm (True) or reject (False) each AI suggestion with a simple click.",
+                    "Optionally add notes or suggest alternative categories if a classification was deemed incorrect."
+                  ]
+                },
+                {
+                  "type": "p",
+                  "content": "The interface provided clear visual cues for these actions, as well as ways to integrate this validation step into their existing home exploration workflows, for instance, through a modal view when examining a home in detail."
+                },
+                {
+                  "type": "p",
+                  "content": "This feedback loop was crucial. Each validation or correction directly contributed to a dataset used for retraining and fine-tuning the AI models, creating a system that became smarter and more aligned with expert human perception over time."
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "ImageFigureGroup",
+            "props": {
+              "wrapperClassName": "my-12 flex flex-col sm:flex-row justify-around items-start gap-6 sm:gap-4",
+              "figures": [
+                {
+                  "src": "/validation-1.png",
+                  "alt": "Validation UI - Accept Action",
+                  "caption": "1. Accept AI classification.",
+                  "imageContainerClassName": "rounded-lg overflow-hidden shadow-xl border border-gray-200 bg-gray-50 p-2",
+                  "imageWidth": 300,
+                  "imageHeight": 200
+                },
+                {
+                  "src": "/validation-2.png",
+                  "alt": "Validation UI - Reject Action",
+                  "caption": "2. Reject AI classification.",
+                  "imageContainerClassName": "rounded-lg overflow-hidden shadow-xl border border-gray-200 bg-gray-50 p-2",
+                  "imageWidth": 300,
+                  "imageHeight": 200
+                },
+                {
+                  "src": "/validation-3.png",
+                  "alt": "Validation UI - Modal in Detail View",
+                  "caption": "3. Validation options in home detail modal.",
+                  "imageContainerClassName": "rounded-lg overflow-hidden shadow-xl border border-gray-200 bg-gray-50 p-2",
+                  "imageWidth": 300,
+                  "imageHeight": 200
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "success",
+              "title": "Continuous Improvement",
+              "iconName": "CheckCircleIcon",
+              "children": "The validation interface transformed the tool from a static classification system into a dynamic learning platform, ensuring long-term accuracy and relevance through continuous team input."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-10",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "09",
+              "children": "The Heart of the Tool: Navigation & Visualization Design"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "With a growing understanding of styles and AI capabilities, the focus shifted to designing the core user experience of the internal navigation tool. The goal was to empower teams to explore, analyze, and utilize the classified home data effectively."
+                },
+                {
+                  "type": "p",
+                  "content": "Key design principles included:"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "<strong>Intuitive Filtering & Search:</strong> Allow users to easily find homes based on specific styles, AI confidence scores, or other relevant metadata.",
+                    "<strong>Clear Visual Presentation:</strong> Prominently display home images, their assigned styles, and confidence levels in an easy-to-scan format.",
+                    "<strong>Seamless Validation Access:</strong> Integrate the validation process smoothly within the browsing experience.",
+                    "<strong>Actionable Insights:</strong> Make it simple to select groups of homes and export data for targeted campaigns or further analysis."
+                  ]
+                },
+                {
+                  "type": "p",
+                  "content": "Wireframes and interactive prototypes (Figma) were used extensively to iterate on layouts, user flows, and component designs, ensuring the tool was both powerful and user-friendly."
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "ImageCarousel",
+            "props": {
+              "className": "my-12",
+              "images": [
+                {
+                  "src": "/ui-cards-view.png",
+                  "caption": "Card-based view for browsing classified homes",
+                  "alt": "Tool UI - Cards View"
+                },
+                {
+                  "src": "/ui-search-bar.png",
+                  "caption": "Advanced search and filtering capabilities",
+                  "alt": "Tool UI - Search Bar"
+                },
+                {
+                  "src": "/ui-detail-view.png",
+                  "caption": "Detailed view of a single home with style information",
+                  "alt": "Tool UI - Detail View"
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Button",
+            "props": {
+              "wrapperClassName": "mt-12 text-center",
+              "variant": "secondary",
+              "href": "https://www.figma.com/proto/LIb5OUNDL1Y6a811vAtHTX/HE---Styles-Tool?type=design&node-id=1-2&t=yVI6GkxsYYV8tA4t-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A2",
+              "target": "_blank",
+              "children": "View Figma Prototype"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-11",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "10",
+              "children": "Ensuring Secure Access: Google Authentication"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "Given the internal nature of the tool and the sensitivity of user data, robust and straightforward authentication was paramount. We opted for Google OAuth, restricting access to users with a HomeExchange company email address."
+                },
+                {
+                  "type": "p",
+                  "content": "<strong>Implementation Details:</strong>"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "Utilized NextAuth.js for streamlined integration of Google Sign-In.",
+                    "Configured OAuth credentials within the Google Cloud Platform console.",
+                    "Implemented domain whitelisting to ensure only `homeexchange.com` accounts could authenticate.",
+                    "Designed a simple and clear sign-in flow, with user profile information displayed upon successful authentication."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "ImageFigureGroup",
+            "props": {
+              "wrapperClassName": "my-12 flex flex-col sm:flex-row justify-around items-start gap-6 sm:gap-4",
+              "figures": [
+                {
+                  "src": "/ui-oauth-flow.png",
+                  "alt": "Google OAuth Sign-in Flow",
+                  "caption": "1. Google Sign-in prompt.",
+                  "imageContainerClassName": "rounded-lg overflow-hidden shadow-xl border border-gray-200 bg-gray-50 p-2",
+                  "imageWidth": 300,
+                  "imageHeight": 200
+                },
+                {
+                  "src": "/ui-oauth-bar.png",
+                  "alt": "Authenticated User Profile/Logout UI Element",
+                  "caption": "2. Authenticated user access bar.",
+                  "imageContainerClassName": "rounded-lg overflow-hidden shadow-xl border border-gray-200 bg-gray-50 p-2",
+                  "imageWidth": 300,
+                  "imageHeight": 200
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "secure",
+              "title": "Data Protection Achieved",
+              "iconName": "ShieldCheckIcon",
+              "children": "By integrating Google OAuth with domain restriction, we provided a seamless and secure access experience for internal teams, safeguarding sensitive company data while facilitating tool adoption."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-13",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "11",
+              "children": "Team Integration & Feedback: Bridging Tech and Operations"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "The true measure of the tool's success was its adoption by the CRM, Sales, and Product teams and the tangible impact it had on their workflows. The rollout involved training sessions, documentation, and an open channel for feedback."
+                },
+                {
+                  "type": "p",
+                  "content": "<strong>Initial Reactions & Adoption:</strong>"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "Positive reception to the intuitive interface and the ability to visually explore home styles.",
+                    "Sales and CRM teams began using style insights to better understand member preferences and tailor communications.",
+                    "Product teams used the data to inform discussions about site features and content strategy related to home discovery."
+                  ]
+                },
+                {
+                  "type": "p",
+                  "content": "<strong>Feedback & Iterative Improvements:</strong>"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "Requests for more granular filtering options and the ability to combine style tags.",
+                    "Desire for direct export to CRM tools or marketing platforms.",
+                    "Feedback on specific AI classifications, further fueling the model retraining loop."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Quote",
+            "props": {
+              "text": "\"This tool has given us a completely new way to understand our members' tastes. Being able to quickly see homes grouped by style is invaluable for targeted communication and has sparked a lot of new ideas for our team.\"",
+              "author": "CRM Team Lead",
+              "className": "my-10"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-15",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "12",
+              "children": "Continuous Learning & Future Iterations"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "The project was envisioned not as a one-time delivery but as an evolving platform. The data, the AI models, and the user interface were all designed with continuous improvement in mind."
+                },
+                {
+                  "type": "p",
+                  "content": "<strong>Planned Future Enhancements:</strong>"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "<strong>Automated Tagging for New Listings:</strong> Integrating the AI classification directly into the new home onboarding process.",
+                    "<strong>Trend Analysis:</strong> Developing dashboards to track the popularity and evolution of home styles over time.",
+                    "<strong>Personalized Recommendations:</strong> Exploring how style data could eventually power personalized home recommendations for members on the main platform.",
+                    "<strong>Integration with External Data:</strong> Potentially linking home styles with neighborhood characteristics or local points of interest."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Callout",
+            "props": {
+              "type": "info",
+              "title": "A Living System",
+              "iconName": "ChartBarIcon",
+              "children": "The HomeExchange Styles tool was built to adapt and grow, reflecting new data, evolving user needs, and advancements in AI technology, ensuring its long-term value to the organization."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-17",
+        "className": "mb-20",
+        "content": [
+          {
+            "componentName": "SectionTitle",
+            "props": {
+              "eyebrow": "13",
+              "children": "Personal Reflection & Key Learnings"
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8 space-y-4",
+              "elements": [
+                {
+                  "type": "p",
+                  "content": "This project was a significant learning experience, blending user research, data analysis, AI exploration, and iterative design. Key takeaways for me included:"
+                },
+                {
+                  "type": "ul",
+                  "className": "list-disc list-inside ml-4 space-y-2",
+                  "items": [
+                    "<strong>The Power of Visual Data:</strong> Unlocking insights hidden within images can lead to a much deeper understanding of users.",
+                    "<strong>Human-AI Collaboration:</strong> The most effective systems often combine the strengths of AI (scale, pattern recognition) with human expertise (nuance, contextual understanding).",
+                    "<strong>Iterative Development:</strong> Starting small, validating assumptions, and building incrementally is crucial, especially when dealing with new technologies.",
+                    "<strong>Cross-Functional Impact:</strong> A well-designed internal tool can have far-reaching benefits, improving efficiency and decision-making across multiple teams."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Quote",
+            "props": {
+              "text": "Bridging the gap between raw data and actionable team insights is one of the most rewarding challenges in product design. This project solidified my passion for creating tools that empower users through information.",
+              "author": "Daniel Assayag, Product Manager",
+              "className": "my-10"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "CustomSection",
+      "props": {
+        "id": "block-19",
+        "className": "text-center",
+        "content": [
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "elements": [
+                {
+                  "type": "h2",
+                  "className": "text-3xl font-bold text-gray-900 mb-6",
+                  "content": "Explore More or Get in Touch"
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "HtmlContent",
+            "props": {
+              "className": "text-lg text-gray-700 mb-8",
+              "paragraphs": [
+                "Thank you for exploring this case study. If you're interested in discussing product design, user research, or how AI can transform user understanding, I'd love to connect."
+              ]
+            }
+          },
+          {
+            "componentName": "ButtonGroup",
+            "props": {
+              "wrapperClassName": "flex justify-center space-x-4",
+              "buttons": [
+                {
+                  "href": "/about",
+                  "variant": "primary",
+                  "children": "About Me"
+                },
+                {
+                  "href": "mailto:dseyag+pm@gmail.com",
+                  "variant": "secondary",
+                  "children": "Contact Me"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "Separator",
+      "props": {
+        "id": "block-12",
+        "className": "w-full max-w-5xl mx-auto my-16 border-t border-gray-200"
+      }
+    },
+    {
+      "componentName": "Separator",
+      "props": {
+        "id": "block-14",
+        "className": "w-full max-w-5xl mx-auto my-16 border-t border-gray-200"
+      }
+    },
+    {
+      "componentName": "Separator",
+      "props": {
+        "id": "block-16",
+        "className": "w-full max-w-5xl mx-auto my-16 border-t border-gray-200"
+      }
+    },
+    {
+      "componentName": "Separator",
+      "props": {
+        "id": "block-18",
+        "className": "w-full max-w-5xl mx-auto my-16 border-t border-gray-200"
+      }
+    },
+    {
+      "componentName": "Separator",
+      "props": {
+        "id": "block-20",
+        "className": "w-full max-w-5xl mx-auto my-16 border-t border-gray-200"
+      }
+    }
+  ]
+}

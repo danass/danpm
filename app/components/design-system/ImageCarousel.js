@@ -2,7 +2,12 @@
 import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 
-export default function ImageCarousel({ images, className = '' }) {
+export default function ImageCarousel({
+  images,
+  className = '',
+  isEditing = false,
+  onItemPropChange // (itemIndex, propName, value)
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = useCallback(() => {
@@ -17,12 +22,57 @@ export default function ImageCarousel({ images, className = '' }) {
     return <div className="text-center py-8 text-gray-500">No images to display in the carousel.</div>;
   }
 
+  const handleCaptionChange = (slideIndex, value) => {
+    if (onItemPropChange) {
+      onItemPropChange(slideIndex, 'caption', value);
+    }
+  };
+
+  const handleAltChange = (slideIndex, value) => {
+    if (onItemPropChange) {
+      onItemPropChange(slideIndex, 'alt', value);
+    }
+  };
+
+  if (isEditing) {
+    return (
+      <div className={`relative w-full max-w-3xl mx-auto ${className} p-4 border-2 border-dashed border-blue-300 bg-blue-50/50 rounded-lg my-2`}>
+        <h4 className="text-sm font-medium text-gray-700 mb-2">Edit Carousel Slides:</h4>
+        {images.map((image, index) => (
+          <div key={`edit-${image.src}-${index}`} className="mb-4 p-3 border border-gray-200 rounded bg-white shadow-sm">
+            <p className="text-xs text-gray-600 mb-1">Slide {index + 1} (Image: {image.src})</p>
+            <div className="mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-0.5">Alt Text:</label>
+              <input
+                type="text"
+                value={image.alt || ''}
+                onChange={(e) => handleAltChange(index, e.target.value)}
+                placeholder="Enter alt text"
+                className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-xs text-gray-900"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-gray-700 mb-0.5">Caption:</label>
+              <textarea
+                value={image.caption || ''}
+                onChange={(e) => handleCaptionChange(index, e.target.value)}
+                rows={2}
+                placeholder="Enter caption"
+                className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-xs text-gray-900"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className={`relative w-full max-w-3xl mx-auto ${className}`}>
       <div className="overflow-hidden relative rounded-2xl shadow-xl aspect-[16/10] bg-gray-100">
         {images.map((image, index) => (
           <div
-            key={image.src + index}
+            key={image.id || image.src + index}
             className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
           >
             <Image 
@@ -68,9 +118,9 @@ export default function ImageCarousel({ images, className = '' }) {
             </svg>
           </button>
           <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 flex space-x-2">
-            {images.map((_, index) => (
+            {images.map((image, index) => (
               <button
-                key={`dot-${index}`}
+                key={`dot-${image.id || index}`}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? 'bg-black/80' : 'bg-black/30 hover:bg-black/50'}`}
                 aria-label={`Go to image ${index + 1}`}

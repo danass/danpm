@@ -1,13 +1,20 @@
 import React from 'react';
 import FeatureCard from './FeatureCard';
 
-export default function CardGrid({ cards, className = '' }) {
+export default function CardGrid({ 
+  cards, 
+  className = '', 
+  isEditing = false,
+  onPropChange
+}) {
+  const basePropPathForCardsArray = ['cards'];
+
   return (
     <div className={`flex flex-col items-center w-full ${className}`}>
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-0 md:gap-[-48px] w-full max-w-4xl">
         {cards.map((card, i) => (
           <div
-            key={i}
+            key={card.id || i}
             className={
               `md:-mx-6 md:scale-100 ${
                 i === 1
@@ -17,7 +24,15 @@ export default function CardGrid({ cards, className = '' }) {
             }
             style={{ flex: 1, minWidth: 0 }}
           >
-            <FeatureCard {...card} />
+            <FeatureCard 
+              {...card} 
+              isEditing={isEditing}
+              onPropChange={isEditing ? (propName, value) => {
+                if (onPropChange) {
+                  onPropChange([...basePropPathForCardsArray, i, propName], value);
+                }
+              } : undefined}
+            />
           </div>
         ))}
       </div>

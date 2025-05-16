@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Button from './Button'; // Assuming Button component is in the same directory or accessible
 
 export default function HeroSplitLayout({ 
   title,
@@ -11,10 +12,76 @@ export default function HeroSplitLayout({
   backgroundColor = 'bg-white',
   textColor = 'text-gray-800',
   titleColor = 'text-black',
-  className = '' 
+  ctaButton, // { text: string, href: string, variant?: string }
+  className = '',
+  isEditing = false,
+  onPropChange // (propPathArray, value)
 }) {
   const textOrder = imagePosition === 'right' ? 'order-1' : 'order-2';
   const imageOrder = imagePosition === 'right' ? 'order-2' : 'order-1';
+
+  const handleFieldChange = (path, value) => {
+    if (onPropChange) {
+      onPropChange(Array.isArray(path) ? path : [path], value);
+    }
+  };
+
+  if (isEditing) {
+    return (
+      <section className={`w-full ${backgroundColor} ${className} p-4 border-2 border-dashed border-blue-300 bg-blue-50/50 rounded-lg my-2`}>
+        <div className="container mx-auto">
+          <h4 className="text-sm font-medium text-gray-700 mb-2">Editing Hero Split Layout:</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
+            <div className="space-y-3"> {/* Text editing column */}
+              <div>
+                <label className="block text-xs font-medium text-gray-700 mb-0.5">Title:</label>
+                <input type="text" value={title || ''} onChange={(e) => handleFieldChange('title', e.target.value)} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-gray-700 mb-0.5">Subtitle:</label>
+                <textarea value={subtitle || ''} onChange={(e) => handleFieldChange('subtitle', e.target.value)} rows={2} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
+              </div>
+              {Array.isArray(text) && text.map((paragraph, index) => (
+                <div key={`paragraph-${index}`}>
+                  <label className="block text-xs font-medium text-gray-700 mb-0.5">Paragraph {index + 1}:</label>
+                  <textarea value={paragraph} onChange={(e) => handleFieldChange(['text', index], e.target.value)} rows={3} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
+                </div>
+              ))}
+              {/* CTA Button Editing */}
+              <div className="border-t pt-3 mt-3">
+                <p className="text-xs font-medium text-gray-700 mb-1">CTA Button:</p>
+                <div>
+                  <label className="block text-xs font-medium text-gray-700 mb-0.5">Button Text:</label>
+                  <input type="text" value={ctaButton?.text || ''} onChange={(e) => handleFieldChange(['ctaButton', 'text'], e.target.value)} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
+                </div>
+                <div className="mt-2">
+                  <label className="block text-xs font-medium text-gray-700 mb-0.5">Button Link (href):</label>
+                  <input type="text" value={ctaButton?.href || ''} onChange={(e) => handleFieldChange(['ctaButton', 'href'], e.target.value)} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
+                </div>
+                <div className="mt-2">
+                  <label className="block text-xs font-medium text-gray-700 mb-0.5">Button Variant (e.g., primary, secondary):</label>
+                  <input type="text" value={ctaButton?.variant || ''} onChange={(e) => handleFieldChange(['ctaButton', 'variant'], e.target.value)} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
+                </div>
+              </div>
+            </div>
+            <div className="space-y-3"> {/* Image editing column */}
+              <div>
+                <label className="block text-xs font-medium text-gray-700 mb-0.5">Image Source URL:</label>
+                <input type="text" value={imageSrc || ''} onChange={(e) => handleFieldChange('imageSrc', e.target.value)} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-gray-700 mb-0.5">Image Alt Text:</label>
+                <input type="text" value={imageAlt || ''} onChange={(e) => handleFieldChange('imageAlt', e.target.value)} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
+              </div>
+              <div className="mt-2 w-full aspect-[3/4] bg-gray-200 flex items-center justify-center text-gray-400 text-sm rounded">
+                <img src={imageSrc || '/he-styles-preview.png'} alt="preview" className="w-full h-full object-cover rounded" onError={e => { e.target.onerror = null; e.target.src = '/he-styles-preview.png'; }} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={`w-full ${backgroundColor} ${className}`}>
@@ -34,7 +101,14 @@ export default function HeroSplitLayout({
             )}
             {text && (
               <div className={`text-lg ${textColor} opacity-70 space-y-4`}>
-                {typeof text === 'string' ? <p>{text}</p> : text}
+                {Array.isArray(text) ? text.map((p, i) => <p key={i}>{p}</p>) : <p>{text}</p>}
+              </div>
+            )}
+            {ctaButton && ctaButton.text && ctaButton.href && (
+              <div className="mt-8">
+                <Button href={ctaButton.href} variant={ctaButton.variant || 'primary'}>
+                  {ctaButton.text}
+                </Button>
               </div>
             )}
           </div>
