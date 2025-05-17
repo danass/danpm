@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function FeatureCard({ 
   image, 
@@ -59,7 +60,15 @@ export default function FeatureCard({
   return (
     <div className={`relative bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl ${className}`} style={{ minWidth: 280, maxWidth: 340 }}>
       <div className="relative w-full aspect-[4/5] bg-gray-100">
-        <img src={image} alt={title} className="w-full h-full object-cover" loading="lazy" onError={e => { e.target.onerror = null; e.target.src = '/he-styles-preview.png'; }} />
+        <Image 
+            src={image || '/he-styles-preview.png'}
+            alt={title || 'Feature image'}
+            layout="fill"
+            objectFit="cover"
+            className="w-full h-full"
+            loading="lazy"
+            onError={e => { e.target.onerror = null; e.target.src = '/he-styles-preview.png'; }}
+        />
         {badge && (
           <span className="absolute top-4 left-4 bg-white/90 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full shadow">{badge}</span>
         )}

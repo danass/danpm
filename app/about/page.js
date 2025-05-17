@@ -105,6 +105,7 @@ export default function AboutPage() {
       </Section>
 
       <Section className="text-center pb-16">
+         {/* eslint-disable-next-line react/no-unescaped-entities */}
          <SectionTitle eyebrow="04" titleColor="text-gray-900">Let's Connect</SectionTitle>
          <p className="text-lg mb-6">Interested in learning more or collaborating? Feel free to reach out.</p>
         <div className="flex justify-center gap-4">

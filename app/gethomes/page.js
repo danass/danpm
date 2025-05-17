@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function GetHomes() {
     const [homeId, setHomeId] = useState('');
@@ -142,11 +143,13 @@ export default function GetHomes() {
                             </div>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                 {photos.map((photo, index) => (
-                                    <div key={index} className="relative group">
-                                        <img
+                                    <div key={index} className="relative group w-full h-48">
+                                        <Image
                                             src={`${photo.url}?quality=100&height=1080`}
                                             alt={`Home photo ${index + 1}`}
-                                            className="w-full h-48 object-cover rounded-lg"
+                                            layout="fill"
+                                            objectFit="cover"
+                                            className="rounded-lg"
                                         />
                                         <button
                                             onClick={() => downloadPhoto(photo.url, `home-${homeId}-photo-${index + 1}.jpg`)}

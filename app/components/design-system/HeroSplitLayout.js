@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Button from './Button'; // Assuming Button component is in the same directory or accessible
+import Image from 'next/image'; // Added import for Next/Image
 
 export default function HeroSplitLayout({ 
   title,
@@ -74,7 +75,14 @@ export default function HeroSplitLayout({
                 <input type="text" value={imageAlt || ''} onChange={(e) => handleFieldChange('imageAlt', e.target.value)} className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900" />
               </div>
               <div className="mt-2 w-full aspect-[3/4] bg-gray-200 flex items-center justify-center text-gray-400 text-sm rounded">
-                <img src={imageSrc || '/he-styles-preview.png'} alt="preview" className="w-full h-full object-cover rounded" onError={e => { e.target.onerror = null; e.target.src = '/he-styles-preview.png'; }} />
+                <Image 
+                  src={imageSrc || '/he-styles-preview.png'} 
+                  alt="preview" 
+                  width={300} // Provide appropriate width
+                  height={400} // Provide appropriate height, maintaining aspect ratio
+                  className="w-full h-full object-cover rounded"
+                  onError={e => { e.target.onerror = null; e.target.src = '/he-styles-preview.png'; }}
+                 />
               </div>
             </div>
           </div>
@@ -127,11 +135,12 @@ export default function HeroSplitLayout({
               }}
             />
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] md:aspect-auto md:h-full z-10">
-              <img 
-                src={imageSrc}
-                alt={imageAlt}
-                className="w-full h-full object-cover"
-                loading="eager" // Eager load for hero images
+              <Image 
+                src={imageSrc || '/he-styles-preview.png'}
+                alt={imageAlt || 'Hero image'}
+                layout="fill"
+                objectFit="cover"
+                priority // Eager load for hero images, equivalent to loading="eager"
                 onError={e => { e.target.onerror = null; e.target.src = '/he-styles-preview.png'; }}
               />
             </div>
