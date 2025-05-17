@@ -26,6 +26,31 @@ import {
 
 import { ChevronUpIcon, ChevronDownIcon, Bars3Icon } from '@heroicons/react/24/solid';
 
+// Helper function to render mixed content (strings and simple inline formatted elements)
+function renderMixedContent(content) {
+  if (Array.isArray(content)) {
+    return content.map((item, index) => {
+      if (typeof item === 'string') {
+        return item;
+      }
+      if (typeof item === 'object' && item !== null) {
+        if (item.format === 'strong') {
+          return <strong key={index} className="font-semibold">{item.text}</strong>;
+        }
+        if (item.format === 'italic') {
+          return <em key={index} className="italic">{item.text}</em>;
+        }
+        // Example for link format (can be expanded)
+        // if (item.format === 'link' && item.href) {
+        //   return <a key={index} href={item.href} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">{item.text}</a>;
+        // }
+      }
+      return null; // Fallback for unrecognised format objects
+    });
+  }
+  return content; // If it's just a string, return it directly
+}
+
 // Helper to format derived category names
 function formatCategoryName(csvFileName) {
   return csvFileName
@@ -181,43 +206,13 @@ export function HtmlContent({ className, paragraphs, elements, listItems, isEdit
     if (listItems) {
       return (
           <ul className={className}>
-              {listItems.map((item, i) => (
-                // ListItem is a component, making its 'text' prop directly editable 
-                // would mean modifying ListItem itself.
-                // For now, let's assume listItems are simple strings if they are to be contentEditable directly here.
-                // If item is an object { text: '...' }, we'd edit item.text
-                // This part might need adjustment based on ListItem's structure and whether it's a simple string or object.
-                // Assuming item is a string for direct contentEditable:
-                typeof item === 'string' ? (
-                  <li 
-                    key={i}
-                    contentEditable={true}
-                    suppressContentEditableWarning={true}
-                    dangerouslySetInnerHTML={{ __html: item }}
-                    onBlur={(e) => handleBlur(e, ['listItems', i])} // If item is string path is ['listItems', i]
-                    style={editableStyle}
-                    {...(item.props || {})} // Spread any existing props from item.props if it was an object
-                  />
-                ) : (
-                  // If item is an object like { text: '...', props: {...} }
-                  // and ListItem component is used, we'd need to make ListItem's text part editable.
-                  // This is the original ListItem rendering. To make this editable, ListItem needs to be enhanced.
-                  // For now, we'll assume simple string list items for direct editability,
-                  // or that onPropChange for ListItem handles editing its 'text' prop.
-                  <ListItem 
-                    key={i} 
-                    text={item.text || item} // Assuming item could be {text: '...'} or just '...'
-                    isEditing={isEditing} // Pass isEditing
-                    onPropChange={(propName, value) => { // Assuming ListItem can handle onPropChange for its text
-                        if (propName === 'text' && onPropChange) {
-                           onPropChange(['listItems', i, 'text'], value);
-                        }
-                    }}
-                    editableTextClass={isEditing ? 'outline-dashed outline-1 outline-gray-400 p-0.5 min-h-[1em] cursor-text' : ''}
-                    {...item.props} 
-                   />
-                )
-              ))}
+              {listItems.map((item, i) => {
+                const itemText = item.text || item;
+                const renderedText = typeof itemText === 'string' || React.isValidElement(itemText) 
+                                     ? itemText 
+                                     : renderMixedContent(itemText);
+                return <ListItem key={i} text={renderedText} {...item.props} />;
+              })}
           </ul>
       );
     }
@@ -251,7 +246,13 @@ export function HtmlContent({ className, paragraphs, elements, listItems, isEdit
    if (listItems) {
     return (
         <ul className={className}>
-            {listItems.map((item, i) => <ListItem key={i} text={item.text || item} {...item.props} />)}
+            {listItems.map((item, i) => {
+              const itemText = item.text || item;
+              const renderedText = typeof itemText === 'string' || React.isValidElement(itemText) 
+                                   ? itemText 
+                                   : renderMixedContent(itemText);
+              return <ListItem key={i} text={renderedText} {...item.props} />;
+            })}
         </ul>
     );
   }
