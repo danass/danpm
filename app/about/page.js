@@ -2,13 +2,11 @@
 import Image from 'next/image';
 import SectionTitle from '../components/design-system/SectionTitle';
 import Button from '../components/design-system/Button';
+import Section from '../components/design-system/Section';
+import ExperienceItem from '../components/design-system/ExperienceItem';
+import EducationItem from '../components/design-system/EducationItem';
+import SkillItem from '../components/design-system/SkillItem';
 import { BriefcaseIcon, AcademicCapIcon, SparklesIcon, LinkIcon } from '@heroicons/react/24/outline';
-
-
-
-function Section({ children, className = '' }) {
-  return <section className={`w-full max-w-3xl mx-auto px-4 py-8 md:py-12 ${className}`}>{children}</section>;
-}
 
 export default function AboutPage() {
   return (
@@ -25,9 +23,9 @@ export default function AboutPage() {
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">Daniel Assayag</h1>
         <p className="text-xl text-gray-600 mb-8">Product Manager with a passion for user-centric design and innovative solutions.</p>
         <div className="flex justify-center gap-3">
-            <Button variant="primary" onClick={() => window.open('https://www.linkedin.com/in/daniel-assayag', '_blank')}>LinkedIn</Button>
-            <Button variant="secondary" onClick={() => window.open('https://github.com/danass', '_blank')}>Github</Button>
-            {/* <Button variant="secondary" onClick={() => window.open('https://api.assayag.org/uploads/CV_Daniel_Assayag_2023_0f5aec0fdb.pdf', '_blank')}>Portfolio (PDF)</Button> */}
+            <Button variant="primary" href="https://www.linkedin.com/in/daniel-assayag" target="_blank" rel="noopener noreferrer">LinkedIn</Button>
+            <Button variant="secondary" href="https://github.com/danass" target="_blank" rel="noopener noreferrer">Github</Button>
+            {/* <Button variant="secondary" href="https://api.assayag.org/uploads/CV_Daniel_Assayag_2023_0f5aec0fdb.pdf" target="_blank" rel="noopener noreferrer">Portfolio (PDF)</Button> */}
         </div>
       </Section>
 
@@ -109,42 +107,10 @@ export default function AboutPage() {
          <SectionTitle eyebrow="04" titleColor="text-gray-900">Let's Connect</SectionTitle>
          <p className="text-lg mb-6">Interested in learning more or collaborating? Feel free to reach out.</p>
         <div className="flex justify-center gap-4">
-            <Button variant="primary" onClick={() => window.location.href = 'mailto:dseyag+pm@gmail.com'}>Email Me</Button>
-            <Button variant="secondary" onClick={() => window.open('https://www.linkedin.com/in/daniel-assayag', '_blank')}>LinkedIn</Button>
+            <Button variant="primary" href="mailto:dseyag+pm@gmail.com">Email Me</Button>
+            <Button variant="secondary" href="https://www.linkedin.com/in/daniel-assayag" target="_blank" rel="noopener noreferrer">LinkedIn</Button>
         </div>
       </Section>
     </div>
   );
-}
-
-const ExperienceItem = ({ icon, company, roles, location, description }) => (
-  <div className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-    <div className="flex-shrink-0 pt-1">{icon}</div>
-    <div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-1">{company}</h3>
-      {roles.map(role => (
-        <p key={role.title} className="text-md text-indigo-700 font-medium">{role.title} <span className="text-sm text-gray-500">({role.duration})</span></p>
-      ))}
-      <p className="text-sm text-gray-500 mb-2">{location}</p>
-      <p className="text-gray-700 leading-relaxed">{description}</p>
-    </div>
-  </div>
-);
-
-const EducationItem = ({ icon, institution, degree, duration }) => (
-  <div className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-    <div className="flex-shrink-0 pt-1">{icon}</div>
-    <div>
-      <h3 className="text-lg font-semibold text-gray-900">{institution}</h3>
-      <p className="text-indigo-700">{degree}</p>
-      <p className="text-sm text-gray-500">{duration}</p>
-    </div>
-  </div>
-);
-
-const SkillItem = ({ icon, skill }) => (
-    <div className="flex items-center gap-3 p-3 bg-white rounded-md shadow-sm">
-        {icon}
-        <span>{skill}</span>
-    </div>
-); 
+} 

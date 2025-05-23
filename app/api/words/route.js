@@ -31,7 +31,6 @@ export async function POST(request) {
 
     // Initialize with isFinalized: false
     db[newUuid] = { words: words, isFinalized: false }; 
-    console.log('DB after POST:', db); // Log db state after creation
     return NextResponse.json({ message: 'List created', uuid: newUuid }, { status: 201 });
 
   } catch (error) {
@@ -67,8 +66,7 @@ export async function PUT(request) {
        db[uuid].isFinalized = true;
     }
     
-    console.log(`DB after PUT for ${uuid}:`, db[uuid]); // Log db state after update
-    return NextResponse.json({ message: 'List updated' });
+    return NextResponse.json(db[uuid]);
 
   } catch (error) {
      console.error("Error parsing PUT request body:", error);

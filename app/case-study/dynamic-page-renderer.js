@@ -16,15 +16,20 @@ import HeroSplitLayout from '../components/design-system/HeroSplitLayout';
 import StylePreviewCard from '../components/design-system/StylePreviewCard';
 import IconFeatureGrid from '../components/design-system/IconFeatureGrid';
 import ImageGallery from '../components/design-system/ImageGallery';
+import MobileScreenLayout from '../components/design-system/MobileScreenLayout';
+import MobileScreenGrid from '../components/design-system/MobileScreenGrid';
+import FeatureMobileScreens from '../components/design-system/FeatureMobileScreens';
+import ContentCard from '../components/design-system/ContentCard';
+import Paragraph from '../components/design-system/Paragraph';
+import PlaceholderImage from '../components/design-system/PlaceholderImage';
 
-// Import Heroicons
-import {
-  LightBulbIcon, ExclamationTriangleIcon, QuestionMarkCircleIcon, MagnifyingGlassIcon, 
-  ChartBarIcon, CheckCircleIcon, ArrowDownTrayIcon, MapIcon, LinkIcon, 
-  CodeBracketIcon, TableCellsIcon, UsersIcon, ShieldCheckIcon, ComputerDesktopIcon
-} from '@heroicons/react/24/outline';
+// Import the shared iconMap
+import { iconMap } from '../components/design-system/icon-map'; // Import shared iconMap
 
-import { ChevronUpIcon, ChevronDownIcon, Bars3Icon } from '@heroicons/react/24/solid';
+// Heroicons (only those NOT in iconMap or used directly by name string lookup if any)
+// Most direct Heroicon imports can be removed if iconMap covers all needs or if components get icons directly.
+// Keep specific ones if used uniquely here, e.g. solid variants not in the main map.
+import { ChevronUpIcon, ChevronDownIcon, Bars3Icon as DraggableIcon } from '@heroicons/react/24/solid'; // Renamed Bars3Icon to avoid clash if it exists in iconMap
 
 // Helper function to render mixed content (strings and simple inline formatted elements)
 function renderMixedContent(content) {
@@ -60,32 +65,14 @@ function formatCategoryName(csvFileName) {
     .trim();
 }
 
+// const derivedCategoriesData = [ ... ]; // This might use iconName strings that iconMap will resolve
+// Ensure iconName strings in derivedCategoriesData match keys in the new iconMap
 const derivedCategoriesData = [
   { name: formatCategoryName('Styles Ancient.csv'), description: 'Homes with historical character and timeless appeal.', iconName: 'TableCellsIcon' },
   { name: formatCategoryName('Styles Family Friendly.csv'), description: 'Properties suitable for families with children.', iconName: 'TableCellsIcon' },
   { name: formatCategoryName('Styles Supercharged.csv'), description: 'Modern, high-tech, and luxurious homes.', iconName: 'TableCellsIcon' },
-  { name: formatCategoryName('Amenities Ski.csv'), description: 'Residences with easy access to ski resorts or amenities.', iconName: 'TableCellsIcon' },
-  { name: formatCategoryName('Styles Full light.csv'), description: 'Bright homes with abundant natural light.', iconName: 'TableCellsIcon' },
-  { name: formatCategoryName('Styles Lovers cocoon.csv'), description: 'Romantic and cozy getaways for couples.', iconName: 'TableCellsIcon' },
+  // ... more data, ensure iconName values are valid keys in the new iconMap.js
 ];
-
-export const iconMap = {
-  LightBulbIcon,
-  ExclamationTriangleIcon,
-  QuestionMarkCircleIcon,
-  MagnifyingGlassIcon,
-  ChartBarIcon,
-  CheckCircleIcon,
-  ArrowDownTrayIcon,
-  MapIcon,
-  LinkIcon,
-  CodeBracketIcon,
-  TableCellsIcon,
-  UsersIcon,
-  ShieldCheckIcon,
-  ComputerDesktopIcon,
-  Bars3Icon
-};
 
 export function CustomSection({ className, content, isEditing, onMoveBlock, index, totalBlocks }) {
   const sectionContent = (
@@ -118,7 +105,7 @@ export function CustomSection({ className, content, isEditing, onMoveBlock, inde
           </button>
         </div>
         <div className="absolute top-2 left-2 z-10 opacity-50 group-hover:opacity-100 transition-opacity">
-           <Bars3Icon className="h-6 w-6 text-gray-500 cursor-grab" aria-label="Drag to reorder"/>
+           <DraggableIcon className="h-6 w-6 text-gray-500 cursor-grab" aria-label="Drag to reorder"/>
         </div>
         {sectionContent}
       </div>
@@ -133,6 +120,9 @@ export function HtmlContent({ className, paragraphs, elements, listItems, isEdit
       onPropChange(path, e.currentTarget.innerHTML);
     }
   };
+
+  // Import Paragraph component for consistent styling
+  const Paragraph = React.lazy(() => import('../components/design-system/Paragraph'));
 
   if (isEditing) {
     const editableStyle = {
@@ -223,7 +213,11 @@ export function HtmlContent({ className, paragraphs, elements, listItems, isEdit
   if (paragraphs) {
     return (
       <div className={className}>
-        {paragraphs.map((p, i) => <p key={i} dangerouslySetInnerHTML={{ __html: p }} />)}
+        {paragraphs.map((p, i) => (
+          <React.Suspense key={i} fallback={<p dangerouslySetInnerHTML={{ __html: p }} />}>
+            <Paragraph dangerouslySetInnerHTML={{ __html: p }} />
+          </React.Suspense>
+        ))}
       </div>
     );
   }
@@ -231,7 +225,16 @@ export function HtmlContent({ className, paragraphs, elements, listItems, isEdit
     return (
       <div className={className}>
         {elements.map((el, i) => {
-          if (el.type === 'p') return <p key={i} dangerouslySetInnerHTML={{ __html: el.content }} />;
+          if (el.type === 'p') {
+            return (
+              <React.Suspense key={i} fallback={<p dangerouslySetInnerHTML={{ __html: el.content }} />}>
+                <Paragraph 
+                  className={el.className} 
+                  dangerouslySetInnerHTML={{ __html: el.content }} 
+                />
+              </React.Suspense>
+            );
+          }
           if (el.type === 'ul') return (
             <ul key={i} className={el.className}>
               {el.items.map((item, idx) => <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />)}
@@ -279,7 +282,7 @@ export function VideoComponent({ containerClassName, videoClassName, src, autoPl
 
 export function StylePreviewCardGrid({ wrapperClassName, styles }) {
   return (
-    <div className={wrapperClassName}>
+    <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ${wrapperClassName}`}>
       {styles.map((style, index) => (
         <StylePreviewCard key={index} {...style} />
       ))}
@@ -291,14 +294,10 @@ export function CheckListCardGrid({ wrapperClassName, cards }) {
   return (
     <div className={wrapperClassName}>
       {cards.map((card, index) => {
-        const IconComponent = card.iconName ? iconMap[card.iconName] : null;
-        const iconProps = card.iconProps || {};
         return (
           <CheckListCard 
             key={index} 
-            title={card.title} 
             items={card.items} 
-            icon={IconComponent ? <IconComponent {...iconProps} /> : null}
           />
         );
       })}
@@ -310,11 +309,35 @@ export function ImageFigureGroup({
   wrapperClassName, 
   figures, 
   isEditing = false, 
-  onItemPropChange // (itemIndex, propName, value)
+  onItemPropChange
 }) {
+  // Use an array of booleans for error states, matching the figures array length
+  const [imageErrors, setImageErrors] = React.useState(() => figures.map(() => false));
+
+  const handleImageError = (index) => {
+    setImageErrors(prevErrors => {
+      const newErrors = [...prevErrors];
+      newErrors[index] = true;
+      return newErrors;
+    });
+  };
+  
+  // Reset error states if figures array changes (e.g. in editing mode)
+  React.useEffect(() => {
+    setImageErrors(figures.map(() => false));
+  }, [figures]);
+
   const handlePropChange = (itemIndex, propName, value) => {
     if (onItemPropChange) {
       onItemPropChange(itemIndex, propName, value);
+      // If src changes, reset error state for that image
+      if (propName === 'src') {
+        setImageErrors(prevErrors => {
+          const newErrors = [...prevErrors];
+          newErrors[itemIndex] = false;
+          return newErrors;
+        });
+      }
     }
   };
 
@@ -327,14 +350,18 @@ export function ImageFigureGroup({
             <div key={`edit-fig-${index}`} className="p-3 border border-gray-200 rounded bg-white shadow-sm">
               <p className="text-xs text-gray-600 mb-1">Figure {index + 1} (Src: {figure.src})</p>
               <div className="relative w-full aspect-[4/3] bg-gray-100 rounded overflow-hidden mb-2">
-                <Image 
-                  src={figure.src}
-                  alt={figure.alt || 'Preview'} // Display current alt
-                  width={figure.imageWidth || 300} 
-                  height={figure.imageHeight || 200} 
-                  className={`w-full h-auto ${figure.imageClassName || 'object-contain'}`}
-                  onError={(e) => { if (e.currentTarget.src !== '/he-styles-preview.png') e.currentTarget.src = '/he-styles-preview.png'; }}
-                />
+                {imageErrors[index] ? (
+                  <PlaceholderImage icon="photo" message="Image not available" />
+                ) : (
+                  <Image 
+                    src={figure.src || '/he-styles-preview.png'}
+                    alt={figure.alt || 'Preview'}
+                    width={figure.imageWidth || 300} 
+                    height={figure.imageHeight || 200} 
+                    className={`w-full h-auto ${figure.imageClassName || 'object-contain'}`}
+                    onError={() => handleImageError(index)}
+                  />
+                )}
               </div>
               <div className="mb-2">
                 <label className="block text-xs font-medium text-gray-700 mb-0.5">Alt Text:</label>
@@ -364,20 +391,26 @@ export function ImageFigureGroup({
   }
 
   return (
-    <div className={wrapperClassName}>
+    <div className={wrapperClassName || 'flex flex-col md:flex-row gap-6 justify-center items-start'}>
       {figures.map((figure, index) => (
-        <figure key={figure.id || index} className={`flex-1 text-center ${figure.figureClassName || 'max-w-xs mx-auto'}`}>
-          <div className={figure.imageContainerClassName || 'rounded-lg overflow-hidden shadow-xl border border-gray-200 bg-gray-50 p-2'}>
-            <Image 
-              src={figure.src}
-              alt={figure.alt}
-              width={figure.imageWidth || 300} 
-              height={figure.imageHeight || 200} 
-              className={`w-full h-auto ${figure.imageClassName || 'object-contain'}`}
-              onError={(e) => e.target.src = '/he-styles-preview.png'} // Fallback image
-            />
+        <figure key={figure.id || index} className={`flex flex-col ${figure.figureClassName || 'w-full md:max-w-sm mx-auto'}`}>
+          <div className={figure.imageContainerClassName || 'rounded-lg overflow-hidden shadow-md border border-gray-200 bg-white'}>
+            {imageErrors[index] ? (
+              <PlaceholderImage icon="photo" message="Figure not available" />
+            ) : (
+              <div className="relative">
+                <Image 
+                  src={figure.src || '/he-styles-preview.png'}
+                  alt={figure.alt || 'Figure image'}
+                  width={figure.imageWidth || 400} 
+                  height={figure.imageHeight || 300} 
+                  className={`w-full h-auto object-contain ${figure.imageClassName || ''}`}
+                  onError={() => handleImageError(index)}
+                />
+              </div>
+            )}
           </div>
-          {figure.caption && <figcaption className={`mt-2 text-sm text-gray-600 italic ${figure.captionClassName || ''}`}>{figure.caption}</figcaption>}
+          {figure.caption && <figcaption className={`mt-3 text-sm text-gray-700 text-center ${figure.captionClassName || ''}`}>{figure.caption}</figcaption>}
         </figure>
       ))}
     </div>
@@ -416,7 +449,13 @@ export const componentMap = {
   ListItem,
   Button, 
   ButtonGroup,
-  Separator
+  Separator,
+  MobileScreenLayout,
+  MobileScreenGrid,
+  FeatureMobileScreens,
+  ContentCard,
+  Paragraph,
+  PlaceholderImage
 };
 
 export function BlockRenderer({ 
@@ -440,30 +479,55 @@ export function BlockRenderer({
     return <div className="bg-red-200 p-4 my-2">Component not found: {block.componentName}</div>;
   }
 
-  // Icon mapping for components that use it (e.g., IconFeatureGrid items)
+  // Icon mapping for components that use it (e.g., IconFeatureGrid items, CheckListCardGrid cards)
+  // This will now use the imported iconMap
   if (processedProps.iconName && iconMap[processedProps.iconName]) {
-    processedProps.icon = React.createElement(iconMap[processedProps.iconName], { className: 'w-6 h-6' });
+    const IconComponent = iconMap[processedProps.iconName];
+    // Ensure iconProps are passed correctly; provide sensible defaults if not present
+    const defaultIconProps = { className: 'w-6 h-6' };
+    const finalIconProps = { ...defaultIconProps, ...(processedProps.iconProps || {}) };
+    processedProps.icon = <IconComponent {...finalIconProps} />;
+    // delete processedProps.iconName; // Optionally remove to prevent spreading if not destructured by target
+    // delete processedProps.iconProps; // Optionally remove
+  } else if (processedProps.iconName) {
+    console.warn(`Icon named "${processedProps.iconName}" not found in iconMap for component ${block.componentName}.`);
   }
-  if (Array.isArray(processedProps.items)) {
-    processedProps.items = processedProps.items.map(item => {
-      if (item.iconName && iconMap[item.iconName]) {
-        return { ...item, icon: React.createElement(iconMap[item.iconName], { className: 'w-5 h-5' }) };
-      }
-      return item;
-    });
-  }
-  if (processedProps.icon && typeof processedProps.icon === 'string' && iconMap[processedProps.icon]) {
-     processedProps.icon = React.createElement(iconMap[processedProps.icon], { className: 'w-6 h-6' });
-  }
-  
+
   // Special handling for IconFeatureGrid data transformation
   if (block.componentName === 'IconFeatureGrid' && block.props.useDerivedCategories) {
-    processedProps.features = derivedCategoriesData.map(cat => ({
+    processedProps.items = derivedCategoriesData.map(cat => ({
       ...cat, // name, description
-      icon: iconMap[cat.iconName] ? React.createElement(iconMap[cat.iconName], {className: 'w-8 h-8 mb-2 text-indigo-600'}) : null,
+      icon: iconMap[cat.iconName] ? React.createElement(iconMap[cat.iconName], {className: 'w-8 h-8 text-indigo-600'}) : null,
       // title is used as key in IconFeatureGrid, ensure it exists
       title: cat.name // Ensure title is mapped for key prop
     }));
+    
+    // Default to light blue background if not specified
+    if (!processedProps.backgroundColor) {
+      processedProps.backgroundColor = 'bg-white';
+    }
+  }
+
+  // For any IconFeatureGrid, ensure icons have proper sizing and color
+  if (block.componentName === 'IconFeatureGrid' && Array.isArray(processedProps.items)) {
+    processedProps.items = processedProps.items.map(item => {
+      // If icon is already a React element, don't modify it
+      if (item.icon && React.isValidElement(item.icon)) {
+        return item;
+      }
+      
+      // If item has iconName but no icon, create the icon
+      if (item.iconName && iconMap[item.iconName]) {
+        return { 
+          ...item, 
+          icon: React.createElement(iconMap[item.iconName], {
+            className: item.iconProps?.className || 'w-8 h-8 text-indigo-600'
+          })
+        };
+      }
+      
+      return item;
+    });
   }
 
   if (isEditing) {
@@ -547,7 +611,7 @@ export function BlockRenderer({
           </button>
         </div>
         <div className="absolute top-2 left-2 z-10 opacity-50 group-hover:opacity-100 transition-opacity">
-           <Bars3Icon className="h-6 w-6 text-gray-500 cursor-grab" aria-label="Drag to reorder"/>
+           <DraggableIcon className="h-6 w-6 text-gray-500 cursor-grab" aria-label="Drag to reorder"/>
         </div>
         <ComponentToRender {...processedProps} />
       </div>

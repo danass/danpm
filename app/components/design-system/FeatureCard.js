@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import PlaceholderImage from './PlaceholderImage';
 
 export default function FeatureCard({ 
   image, 
@@ -10,12 +11,18 @@ export default function FeatureCard({
   isEditing = false, 
   onPropChange // This will be a function like (propName, value) => {} specific to this card
 }) {
+  const [imageError, setImageError] = useState(false);
 
   const handleChange = (propName, value) => {
     if (onPropChange) {
       onPropChange(propName, value);
     }
   };
+
+  // Reset image error state if image url changes
+  React.useEffect(() => {
+    setImageError(false);
+  }, [image]);
 
   if (isEditing) {
     return (
@@ -48,7 +55,7 @@ export default function FeatureCard({
             onChange={(e) => handleChange('description', e.target.value)} 
             rows={3}
             placeholder="Enter description"
-            className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-900"
+            className="mt-0.5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-xs text-gray-900"
           />
         </div>
         {/* Display a placeholder for the image in editing mode? */}
@@ -58,24 +65,29 @@ export default function FeatureCard({
   }
 
   return (
-    <div className={`relative bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl ${className}`} style={{ minWidth: 280, maxWidth: 340 }}>
-      <div className="relative w-full aspect-[4/5] bg-gray-100">
-        <Image 
-            src={image || '/he-styles-preview.png'}
+    <div className={`feature-card ${className}`}>
+      <div className="feature-card-image">
+        {imageError ? (
+          <PlaceholderImage icon="photo" message="Feature image" />
+        ) : (
+          <Image 
+            src={image || '/he-styles-preview.png'} 
             alt={title || 'Feature image'}
-            layout="fill"
-            objectFit="cover"
-            className="w-full h-full"
+            fill
+            className="object-cover"
             loading="lazy"
-            onError={e => { e.target.onerror = null; e.target.src = '/he-styles-preview.png'; }}
-        />
+            onError={() => setImageError(true)}
+          />
+        )}
         {badge && (
-          <span className="absolute top-4 left-4 bg-white/90 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full shadow">{badge}</span>
+          <span className="feature-card-badge">
+            {badge}
+          </span>
         )}
       </div>
-      <div className="p-5 flex-1 flex flex-col justify-end">
-        <div className="font-bold text-lg mb-1 leading-tight">{title}</div>
-        <div className="text-gray-500 text-sm leading-snug">{description}</div>
+      <div className="feature-card-content">
+        <h3 className="font-medium text-lg mb-2 text-gray-900">{title}</h3>
+        <p className="text-gray-600 text-sm line-clamp-2">{description}</p>
       </div>
     </div>
   );

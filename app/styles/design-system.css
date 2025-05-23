@@ -1,0 +1,288 @@
+/* Design System CSS */
+
+/* Font Family */
+.font-manrope {
+  font-family: var(--font-manrope), var(--font-inter), system-ui, sans-serif;
+}
+
+/* ImageCarousel Navigation Styles */
+.nav-outside .pp-image-carousel {
+  position: static;
+}
+.nav-outside .pp-swiper-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.nav-outside .pp-swiper-button.swiper-button-next {
+  right: -60px;
+}
+.nav-outside .pp-swiper-button.swiper-button-prev {
+  left: -60px;
+}
+
+/* Adjust spacing for navigating elements */
+@media (max-width: 768px) {
+  .nav-outside .pp-swiper-button.swiper-button-next {
+    right: -20px;
+  }
+  .nav-outside .pp-swiper-button.swiper-button-prev {
+    left: -20px;
+  }
+  
+  /* Make buttons smaller on mobile */
+  .nav-outside .pp-swiper-button {
+    padding: 6px !important;
+  }
+  
+  /* Ensure proper space for carousel on small screens */
+  .nav-outside {
+    padding: 0 25px;
+  }
+}
+
+/* Button Standardization */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px; /* Full rounded */
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #333333;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #e5e5e5;
+}
+
+.btn-secondary:hover {
+  background-color: #f5f5f5;
+}
+
+/* Card standardization */
+.card {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Feature Card Styles */
+.feature-card {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-card-image img {
+  transform: scale(1.05);
+}
+
+.feature-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.feature-card-image img {
+  transition: transform 0.5s ease;
+}
+
+.feature-card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: white;
+  color: #333;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.feature-card-content {
+  padding: 1.25rem;
+}
+
+/* Common text styles */
+.heading-xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.heading-lg {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.heading-md {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.heading-sm {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.body-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #333333;
+}
+
+.caption-text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #6b7280;
+}
+
+/* Image styling */
+.image-rounded {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* ImageFigureGroup adjustments */
+.image-figure-group-item {
+  /* Add any specific styles for figure items if needed */
+}
+
+/* Custom Card styles for the new CardGrid */
+.custom-card {
+  /* Base styles for the card container */
+}
+
+.custom-card-media {
+  /* Styles for the media (image) container within the card */
+}
+
+.custom-card-content {
+  /* Styles for the content area (title, description) within the card */
+}
+
+/* Icon Map related styling (if any global styles are needed) */
+
+/* ImageCarousel styles */
+.image-carousel-caption {
+  /* Basic styling for caption text below image */
+}
+
+/* Remove old .nav-outside arrow styles if they solely rely on negative left/right */
+/* Commenting them out or deleting, ensure no other components rely on these exact class combinations in unintended ways */
+/* 
+.nav-outside .carousel-arrow.left-arrow {
+  left: -60px; 
+}
+.nav-outside .carousel-arrow.right-arrow {
+  right: -60px; 
+}
+@media (max-width: 767px) {
+  .nav-outside .carousel-arrow.left-arrow {
+    left: -20px;
+  }
+  .nav-outside .carousel-arrow.right-arrow {
+    right: -20px;
+  }
+}
+*/
+
+/* New Carousel Control Styling */
+.carousel-controls-wrapper {
+  /* Wrapper for both arrows and dots, sits below the image container */
+  margin-top: 0.5rem; /* Adjust as needed for space between image and caption/dots */
+}
+
+.carousel-arrows-container {
+  position: absolute; /* Position relative to the image container (.overflow-hidden.relative) */
+  bottom: 1rem; /* Distance from the bottom of the image, adjust as needed */
+  left: 0;
+  right: 0;
+  width: auto; /* Let padding define the width relative to parent */
+  margin-left: 1rem; /* Inset from left */
+  margin-right: 1rem; /* Inset from right */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none; /* Allow clicks to pass through to buttons themselves */
+  z-index: 10; /* Ensure arrows are above the image if structure changes, but below modal popups etc. */
+  /* Removed top, left:50%, transform:translate, and explicit width/margin for stretching */
+}
+
+.carousel-arrow {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  color: black;
+  padding: 0.5rem; /* 8px, smaller for on-image placement */
+  border-radius: 9999px; /* full */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Softer shadow for on-image */
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  pointer-events: auto; /* Arrows themselves are clickable */
+}
+
+.carousel-arrow:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+/* .carousel-arrow.left-arrow and .right-arrow don't need specific positioning now */
+
+.carousel-dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.75rem; /* Space between caption (if present) and dots */
+  padding-bottom: 0.5rem; /* Some space at the very bottom */
+}
+
+/* Caption specific styling if it's within carousel-controls-wrapper or separate */
+/* If ImageCarousel.js places caption then dots: */
+.image-carousel-caption + .carousel-dots-container {
+  margin-top: 0.5rem; /* Adjust spacing if caption is directly before dots */
+}
+
+.carousel-dot {
+  width: 0.5rem; /* 8px */
+  height: 0.5rem; /* 8px */
+  border-radius: 9999px; /* full */
+  background-color: #D1D5DB; /* gray-300 */
+  transition: all 0.3s ease;
+  margin: 0 0.25rem; /* 4px */
+  cursor: pointer;
+}
+
+.carousel-dot:hover {
+  background-color: #9CA3AF; /* gray-400 */
+}
+
+.carousel-dot.active {
+  background-color: black;
+  width: 1rem; /* 16px, make active dot wider */
+} 

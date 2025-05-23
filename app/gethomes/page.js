@@ -147,9 +147,8 @@ export default function GetHomes() {
                                         <Image
                                             src={`${photo.url}?quality=100&height=1080`}
                                             alt={`Home photo ${index + 1}`}
-                                            layout="fill"
-                                            objectFit="cover"
-                                            className="rounded-lg"
+                                            fill
+                                            className="object-cover rounded-lg"
                                         />
                                         <button
                                             onClick={() => downloadPhoto(photo.url, `home-${homeId}-photo-${index + 1}.jpg`)}

@@ -14,6 +14,13 @@ const caseStudies = [
     imageUrl: '/homes-illustration/home-volumes.jpeg',
     imageAlt: 'Preview of HomeExchange Collection styles tool interface with card grid view'
   },
+  {
+    title: 'Building a Reusable Component Library: The Design System',
+    description: 'A comprehensive showcase of the UI components, patterns, and guidelines powering this application, built with Next.js and Tailwind CSS.',
+    href: '/design-system',
+    imageUrl: '/this-is-a.png',
+    imageAlt: 'Preview of the design system component library'
+  },
   // Add more case studies here in the future
 ];
 
@@ -63,9 +70,8 @@ export default function HomePage() {
                   <Image
                     src={study.imageUrl} 
                     alt={study.imageAlt}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="md:w-7/12 p-6 py-8 md:p-10 flex flex-col justify-center">
@@ -90,17 +96,19 @@ export default function HomePage() {
       {/* Apps Section (Simplified & Polished - Moved Down) */}
       <section className="w-full max-w-4xl mb-20 md:mb-28 px-4 text-center md:text-left">
         <h2 className="text-2xl sm:text-3xl font-semibold mb-8 text-gray-800">Mini Projects & Tools</h2>
-        <div className="bg-white p-6 rounded-xl shadow-lg max-w-md mx-auto md:mx-0">
-          <div className="flex items-center justify-between">
-            <div>
-              <Link href="/top" className="text-xl font-semibold text-blue-600 hover:text-blue-700 hover:underline">
-                /top
-              </Link>
-              <p className="text-gray-600 mt-1">A micro-app for creating and sharing ranked lists.</p>
+        <Link href="/top" className="block max-w-md mx-auto md:mx-0 group">
+          <div className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-0.5">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-xl font-semibold text-blue-600 group-hover:text-blue-700 group-hover:underline">
+                  /top
+                </h3>
+                <p className="text-gray-600 mt-1">A micro-app for creating and sharing ranked lists.</p>
+              </div>
+              <CodeBracketIcon className="h-8 w-8 text-blue-500" />
             </div>
-            <CodeBracketIcon className="h-8 w-8 text-blue-500" />
           </div>
-        </div>
+            </Link>
         {/* Add other projects here if needed, perhaps in a grid or list */}
       </section>
     </div>

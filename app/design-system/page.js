@@ -1,6 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
+import DebugHighlightWrapper from '../components/dev/DebugHighlightWrapper';
+
+// Design System Components
 import SectionTitle from '../components/design-system/SectionTitle';
 import Button from '../components/design-system/Button';
 import Callout from '../components/design-system/Callout';
@@ -15,369 +18,492 @@ import HeroSplitLayout from '../components/design-system/HeroSplitLayout';
 import StylePreviewCard from '../components/design-system/StylePreviewCard';
 import IconFeatureGrid from '../components/design-system/IconFeatureGrid';
 import IconFeatureItem from '../components/design-system/IconFeatureItem';
+import MobileScreenLayout from '../components/design-system/MobileScreenLayout';
+import MobileScreenGrid from '../components/design-system/MobileScreenGrid';
+import FeatureMobileScreens from '../components/design-system/FeatureMobileScreens';
+import TextSection from '../components/design-system/TextSection';
+import ContentCard from '../components/design-system/ContentCard';
+import Paragraph from '../components/design-system/Paragraph';
+import PlaceholderImage from '../components/design-system/PlaceholderImage';
+import Section from '../components/design-system/Section';
+import ExperienceItem from '../components/design-system/ExperienceItem';
+import EducationItem from '../components/design-system/EducationItem';
+import SkillItem from '../components/design-system/SkillItem';
+import ImageCard from '../components/design-system/ImageCard';
 
-// Helpers from dynamic-page-renderer might be needed for some component props or iconMap
-import { iconMap } from '../case-study/dynamic-page-renderer';
+// Helpers & Components from dynamic-page-renderer
+// Note: CheckListCardGrid is imported here, but CheckListCard itself should be direct.
+// Make sure CheckListCard is NOT in the import list below
+import { iconMap, HtmlContent, StylePreviewCardGrid, CheckListCardGrid, ImageFigureGroup, ButtonGroup, Separator } from '../case-study/dynamic-page-renderer'; 
+
+// Heroicons
 import {
-  LightBulbIcon, ExclamationTriangleIcon, QuestionMarkCircleIcon, CheckCircleIcon, CodeBracketIcon, 
-  UsersIcon, ShieldCheckIcon, LinkIcon, ArrowDownTrayIcon, ChartBarIcon, TableCellsIcon, ComputerDesktopIcon, MapIcon
+  LightBulbIcon, ExclamationTriangleIcon, QuestionMarkCircleIcon, CheckCircleIcon, CodeBracketIcon,
+  UsersIcon, ShieldCheckIcon, LinkIcon, ArrowDownTrayIcon, ChartBarIcon, TableCellsIcon, ComputerDesktopIcon, MapIcon,
+  BriefcaseIcon, AcademicCapIcon, SparklesIcon
 } from '@heroicons/react/24/outline';
 
-import { HtmlContent, VideoComponent, StylePreviewCardGrid, CheckListCardGrid, ImageFigureGroup, ButtonGroup, Separator } from '../case-study/dynamic-page-renderer';
-
-const FallbackImage = '/he-styles-preview.png';
+// Add a fallback component for Suspense
+function DesignSystemFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <p className="text-xl font-semibold text-gray-700">Loading Design System...</p>
+    </div>
+  );
+}
 
 export default function DesignSystemPage() {
-  const commonImageOnError = (e) => {
-    e.target.src = FallbackImage;
-  };
+  return (
+    <Suspense fallback={<DesignSystemFallback />}>
+      <DesignSystemContent />
+    </Suspense>
+  );
+}
 
+// Move the main content to a separate component
+function DesignSystemContent() {
   const sampleImages = [
-    { src: '/case-study-homedetails.png', alt: 'Sample Image 1', caption: 'Home Details', onError: commonImageOnError },
-    { src: '/case-study-filtersonly.png', alt: 'Sample Image 2', caption: 'Filters Only', onError: commonImageOnError },
-    { src: '/ui-cards-view.png', alt: 'Sample Image 3', caption: 'UI Cards View', onError: commonImageOnError },
+    { src: '/case-study-homedetails.png', alt: 'Sample Image 1', caption: 'Home Details' },
+    { src: '/case-study-filtersonly.png', alt: 'Sample Image 2', caption: 'Filters Only' },
+    { src: '/ui-cards-view.png', alt: 'Sample Image 3', caption: 'UI Cards View' },
   ];
-  
   const sampleCarouselImages = [
-    { src: "/homes-illustration/loverscocoon.webp", caption: "Style: Lovers Cocoon", alt: "Lovers Cocoon Home", onError: commonImageOnError },
-    { src: "/homes-illustration/home-extravaganzza.jpg", caption: "Style: Supercharged Modern", alt: "Supercharged Modern Home", onError: commonImageOnError },
-    { src: "/homes-illustration/rustic.webp", caption: "Style: Rustic Charm", alt: "Rustic Home", onError: commonImageOnError },
+    { src: "/homes-illustration/loverscocoon.webp", caption: "Style: Lovers Cocoon", alt: "Lovers Cocoon Home" },
+    { src: "/homes-illustration/home-extravaganzza.jpg", caption: "Style: Supercharged Modern", alt: "Supercharged Modern Home" },
+    { src: "/homes-illustration/rustic.webp", caption: "Style: Rustic Charm", alt: "Rustic Home" },
   ];
+  const sampleMobileScreens = [
+    { title: "Suivez vos voyages étape par étape", subtitle: "Consultez le programme détaillé de votre voyage", description: "avec toutes vos réservations.", imageSrc: "/case-study-homedetails.png", imageAlt: "Travel app details screen" },
+    { title: "Un message ne s&apos;exprime pas qu&apos;avec des mots", subtitle: "Partage de photos, vidéos et offres personnalisées : la messagerie évolue.", imageSrc: "/case-study-filtersonly.png", imageAlt: "Messaging screen" },
+    { title: "Votre profil fait peau neuve", subtitle: "Modifiez votre profil, partagez vos voyages passés et retrouvez des connaissances.", imageSrc: "/ui-cards-view.png", imageAlt: "Profile screen" }
+  ];
+  const featureMobileScreensData = [
+    { title: "Modifiez vos annonces en toute simplicité", description: "Ajustez facilement le lieu, les prix et autres informations sur la page Annonces.", imageSrc: "/case-study-homedetails.png", imageAlt: "Property edit screen" },
+    { title: "Un aperçu de vos performances", description: "Obtenez un aperçu rapide de vos revenus et informations en haut de l'écran.", imageSrc: "/case-study-filtersonly.png", imageAlt: "Performance dashboard screen" }
+  ];
+  const sampleExperience = { icon: <BriefcaseIcon className="w-8 h-8 text-indigo-600" />, company: "Sample Company Inc.", roles: [{ title: 'Senior Product Manager', duration: 'Jan 2022 - Present' }, { title: 'Product Manager', duration: 'Jun 2020 - Dec 2021' }], location: "San Francisco, CA", description: "Led product strategy and execution for a suite of B2B SaaS products." };
+  const sampleEducation = { icon: <AcademicCapIcon className="w-8 h-8 text-indigo-600" />, institution: "University of Example", degree: "M.S. in Human-Computer Interaction", duration: "2018 - 2020" };
+  const sampleSkills = [ { icon: <SparklesIcon className="w-6 h-6 text-indigo-500" />, skill: "Product Discovery" }, { icon: <SparklesIcon className="w-6 h-6 text-indigo-500" />, skill: "UX Research" }, { icon: <SparklesIcon className="w-6 h-6 text-indigo-500" />, skill: "Agile Leadership" }];
+
+  // Helper for repeated section wrapper
+  const ComponentShowcase = ({ title, children }) => (
+    <div className="p-6 border rounded-lg shadow-sm">
+      <h2 className="text-2xl font-semibold mb-6 text-gray-700">{title}</h2>
+      {/* <DebugHighlightWrapper componentName={title}> */}
+        {children}
+      {/* </DebugHighlightWrapper> */}
+    </div>
+  );
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-12">
-      <SectionTitle eyebrow="Showcase" className="mb-12 text-center">
-        Design System Components
-      </SectionTitle>
+    <div className="container mx-auto px-4 py-12 space-y-16"> {/* Increased main spacing */}
+      <header className="text-center my-12">
+        <h1 className="text-5xl font-bold text-gray-900 mb-4">Minimalist Design System</h1>
+        <Paragraph textSize="text-xl" textColor="text-gray-600" className="max-w-3xl mx-auto">
+          Welcome to the component library. This page showcases the reusable UI elements that form the building blocks of this application. Each component is designed to be flexible, accessible, and aligned with a modern, clean aesthetic.
+        </Paragraph>
+      </header>
 
-      {/* SectionTitle */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">SectionTitle</h2>
-        <SectionTitle eyebrow="01" className="mb-2">This is a Section Title</SectionTitle>
-        <SectionTitle>Title Without Eyebrow</SectionTitle>
-      </div>
+      {/* --- Section 01: Core Elements / Atoms --- */}
+      <section>
+        <SectionTitle eyebrow="01" titleColor="text-gray-800" className="mb-10 text-center">Core Elements</SectionTitle>
+        <div className="space-y-10"> {/* Spacing between showcases */}
+          <ComponentShowcase title="SectionTitle">
+            <DebugHighlightWrapper componentName="SectionTitle">
+              <SectionTitle eyebrow="Eyebrow Example" className="mb-3">This is a Section Title</SectionTitle>
+            </DebugHighlightWrapper>
+            <DebugHighlightWrapper componentName="SectionTitle">
+              <SectionTitle>Title Without Eyebrow</SectionTitle>
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="Paragraph">
+            <div className="max-w-2xl space-y-4">
+              <DebugHighlightWrapper componentName="Paragraph">
+                <Paragraph>This is a default paragraph with standard styling.</Paragraph>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Paragraph">
+                <Paragraph textColor="text-indigo-700" textSize="text-lg" spacing="mb-6">This paragraph has custom text color, size, and spacing.</Paragraph>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Paragraph">
+                <Paragraph textColor="text-gray-500" textSize="text-sm" className="italic">A smaller, gray, italic paragraph.</Paragraph>
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
 
-      {/* Button */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">Button</h2>
-        <div className="flex gap-4 items-center">
-          <Button variant="primary">Primary Button</Button>
-          <Button variant="secondary">Secondary Button</Button>
-          <Button href="/about">Link Button (Primary)</Button>
-          <Button href="/case-study" variant="secondary">Link Button (Secondary)</Button>
-          <Button variant="primary" icon={<LinkIcon className="w-5 h-5" />}>Primary With Icon</Button>
-          <Button variant="secondary" icon={<CheckCircleIcon className="w-5 h-5" />} iconPosition="right">Secondary Icon Right</Button>
+          <ComponentShowcase title="Button">
+            <div className="flex flex-wrap gap-4 items-center">
+              <DebugHighlightWrapper componentName="Button">
+                <Button variant="primary">Primary Button</Button>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Button">
+                <Button variant="secondary">Secondary Button</Button>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Button">
+                <Button variant="ghost">Ghost Button</Button>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Button">
+                <Button href="/about">Link Button</Button>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Button">
+                <Button variant="primary" icon={<LinkIcon className="w-5 h-5" />}>Icon Left</Button>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Button">
+                <Button variant="secondary" icon={<CheckCircleIcon className="w-5 h-5" />} iconPosition="right">Icon Right</Button>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Button">
+                <Button variant="primary" icon={<LinkIcon className="w-5 h-5" />} />
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="ListItem">
+            <ul className="space-y-2 max-w-md">
+              <DebugHighlightWrapper componentName="ListItem">
+                <ListItem text="Simple list item." />
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="ListItem">
+                <ListItem text="List item with custom props." className="text-blue-600 font-medium" />
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="ListItem">
+                <ListItem>List item as children</ListItem>
+              </DebugHighlightWrapper>
+            </ul>
+          </ComponentShowcase>
         </div>
-      </div>
+      </section>
 
-      {/* Callout */}
-      <div className="p-6 border rounded-lg shadow-sm space-y-4">
-        <h2 className="text-2xl font-semibold mb-4">Callout</h2>
-        <Callout type="info" title="Info Callout" icon={<LightBulbIcon className="w-6 h-6"/>}>This is an informational message.</Callout>
-        <Callout type="success" title="Success Callout" icon={<CheckCircleIcon className="w-6 h-6"/>}>The operation was successful.</Callout>
-        <Callout type="warning" title="Warning Callout" icon={<ExclamationTriangleIcon className="w-6 h-6"/>}>This is a warning message.</Callout>
-        <Callout type="fail" title="Fail/Error Callout" icon={<ExclamationTriangleIcon className="w-6 h-6"/>}>An error occurred.</Callout>
-        <Callout type="question" title="Question Callout" icon={<QuestionMarkCircleIcon className="w-6 h-6"/>}>Do you have any questions?</Callout>
-        <Callout type="secure" title="Secure Callout" icon={<ShieldCheckIcon className="w-6 h-6"/>}>This information is secure.</Callout>
-      </div>
+      {/* --- Section 02: Layout Components --- */}
+      <section>
+        <SectionTitle eyebrow="02" titleColor="text-gray-800" className="mt-20 mb-10 text-center">Layout Components</SectionTitle>
+        <div className="space-y-10">
+          <ComponentShowcase title="Section (Wrapper)">
+            <DebugHighlightWrapper componentName="Section">
+              <Section className="bg-slate-100 !py-8 !max-w-none rounded-lg">
+                <h3 className="text-xl font-semibold text-center text-slate-700">This content is inside a &apos;Section&apos; component.</h3>
+                <Paragraph className="text-center text-slate-600 mt-2 max-w-xl mx-auto">It provides consistent max-width, horizontal padding, and vertical padding for content blocks, ensuring visual rhythm.</Paragraph>
+              </Section>
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="TextSection">
+            <DebugHighlightWrapper componentName="TextSection">
+              <TextSection title="Default Text Section" subtitle="With a clear title and engaging subtitle." />
+            </DebugHighlightWrapper>
+            <DebugHighlightWrapper componentName="TextSection">
+              <TextSection title="Centered & Styled" subtitle="This one is centered with a custom background color." textAlign="text-center" backgroundColor="bg-sky-50" className="mt-6 rounded-lg p-6" />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="HeroSplitLayout">
+            <DebugHighlightWrapper componentName="HeroSplitLayout">
+              <HeroSplitLayout
+                title="Engaging Hero Title Here"
+                subtitle="An impactful subtitle to immediately capture user attention and convey value."
+                text="Some descriptive text explaining the main value proposition. This could also be a React node for more complex content structures, like a list or a small form."
+                imageSrc="/case-study-screenshot-prototype.png"
+                imageAlt="Abstract representation of product interface"
+                imagePosition="right"
+                ctaButton={{ text: "Learn More", href:"#", variant: "primary"}}
+                backgroundColor="bg-gray-50"
+                className="rounded-xl overflow-hidden"
+              />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+        </div>
+      </section>
+
+      {/* --- Section 03: Informational & Feedback --- */}
+      <section>
+        <SectionTitle eyebrow="03" titleColor="text-gray-800" className="mt-20 mb-10 text-center">Informational & Feedback</SectionTitle>
+        <div className="space-y-10">
+          <ComponentShowcase title="Callout">
+            <div className="space-y-4">
+              <DebugHighlightWrapper componentName="Callout">
+                <Callout type="info" title="Informational Callout" icon={<LightBulbIcon className="w-6 h-6" />}>This is an informational message to guide the user.</Callout>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Callout">
+                <Callout type="success" title="Success!" icon={<CheckCircleIcon className="w-6 h-6" />}>The operation was completed successfully.</Callout>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Callout">
+                <Callout type="warning" title="Warning Advisory" icon={<ExclamationTriangleIcon className="w-6 h-6" />}>Consider this important warning before proceeding.</Callout>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="Callout">
+                <Callout type="fail" title="Error / Failure" icon={<ExclamationTriangleIcon className="w-6 h-6" />}>Something went wrong, and the action could not be completed.</Callout>
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="Quote">
+            <DebugHighlightWrapper componentName="Quote">
+              <Quote author="A Wise Person" source="Their Life Experience" className="max-w-2xl">
+                This is an inspiring quote that shares some wisdom. It can span multiple lines and still look great, providing a moment of reflection or emphasis.
+              </Quote>
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="PlaceholderImage">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <DebugHighlightWrapper componentName="PlaceholderImage">
+                <div className="aspect-video bg-gray-100 rounded-md"><PlaceholderImage message="Default" /></div>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="PlaceholderImage">
+                <div className="aspect-square bg-gray-100 rounded-md"><PlaceholderImage message="Device" icon="device" /></div>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="PlaceholderImage">
+                <div className="h-32 bg-gray-100 rounded-md"><PlaceholderImage message="Document" icon="document" /></div>
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="PlaceholderImage">
+                <div className="w-full h-24 bg-gray-100 rounded-md"><PlaceholderImage message="Error" icon="error" /></div>
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
+        </div>
+      </section>
+
+      {/* --- Section 04: Card Components --- */}
+      <section>
+        <SectionTitle eyebrow="04" titleColor="text-gray-800" className="mt-20 mb-10 text-center">Card Components</SectionTitle>
+        <div className="space-y-10">
+          <ComponentShowcase title="ContentCard">
+            <div className="grid md:grid-cols-2 gap-6">
+              <DebugHighlightWrapper componentName="ContentCard">
+                <ContentCard title="Informative Content" subtitle="Key details summarized" description="This card is ideal for presenting concise blocks of information with a clear hierarchy." />
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="ContentCard">
+                <ContentCard title="Styled Content Card" subtitle="With custom background" description="Backgrounds and text alignment can be adjusted for varied presentation needs." backgroundColor="bg-indigo-50" textAlign="text-left" />
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="FeatureCard">
+            <div className="max-w-sm"> {/* Constrain width for single card demo */}
+              <DebugHighlightWrapper componentName="FeatureCard">
+                <FeatureCard image="/case-study-homedetails.png" badge="New Feature" title="Interactive Home Previews" description="Explore home details with our new interactive preview mode, offering a richer visual experience." />
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="StylePreviewCard (Used in StylePreviewCardGrid)">
+             <Paragraph textColor="text-gray-600" textSize="text-sm" className="mb-4">Individual StylePreviewCards are typically used within a StylePreviewCardGrid (shown under &apos;Dynamic Helpers&apos;). Here&apos;s how one looks:</Paragraph>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="max-w-xs"> {/* Wrap for consistent sizing in demo */}
+                <DebugHighlightWrapper componentName="StylePreviewCard">
+                  <StylePreviewCard styleName="Lovers Cocoon" imageUrl="/homes-illustration/loverscocoon.webp" imageAlt="Lovers Cocoon Style" />
+                </DebugHighlightWrapper>
+              </div>
+            </div>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="CheckListCard (Used in CheckListCardGrid)">
+             <Paragraph textColor="text-gray-600" textSize="text-sm" className="mb-4">Individual CheckListCards are typically used within a CheckListCardGrid (shown under &apos;Dynamic Helpers&apos;). Here&apos;s how one looks:</Paragraph>
+            <div className="max-w-md">
+              <DebugHighlightWrapper componentName="CheckListCard">
+                <CheckListCard items={[{ label: "Item One Checked" }, { label: "Item Two Checked" }, { label: "A much longer item description to verify text wrapping and visual balance within the card." }]} />
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="CardGrid">
+            <DebugHighlightWrapper componentName="CardGrid">
+              <CardGrid cards={[
+                  { image: "/case-study-homedetails.png", badge: "Insight", title: "Overlapping Card 1", description: "Presents key information with an engaging visual stack." },
+                  { image: "/case-study-filtersonly.png", badge: "Challenge", title: "Overlapping Card 2", description: "Highlights a challenge or a problem statement effectively." },
+                  { image: "/ui-cards-view.png", badge: "Solution", title: "Overlapping Card 3", description: "Showcases a solution or a positive outcome." },
+                  { image: "/placeholder-image.png", badge: "Fallback", title: "Card with Fallback", description: "Demonstrates graceful image error handling." },
+              ]} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+        </div>
+      </section>
+
+      {/* --- Section 05: Media Display --- */}
+      <section>
+        <SectionTitle eyebrow="05" titleColor="text-gray-800" className="mt-20 mb-10 text-center">Media Display</SectionTitle>
+        <div className="space-y-10">
+          <ComponentShowcase title="ImageGallery">
+            <DebugHighlightWrapper componentName="ImageGallery">
+              <ImageGallery images={sampleImages} />
+            </DebugHighlightWrapper>
+            <h3 className="text-xl font-medium mt-8 mb-3 text-gray-700">Gallery with Fallback Image</h3>
+            <DebugHighlightWrapper componentName="ImageGallery">
+              <ImageGallery images={[...sampleImages, {src: '/this-image-is-intentionally-missing.webp', alt: 'Broken image example', caption: 'This image will use fallback'}]} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="ImageCarousel">
+            <div className="max-w-2xl mx-auto">
+              <DebugHighlightWrapper componentName="ImageCarousel">
+                <ImageCarousel images={sampleCarouselImages} navOutside={true} />
+              </DebugHighlightWrapper>
+            </div>
+            <h3 className="text-xl font-medium mt-8 mb-3 text-gray-700">Carousel with Fallback & Inside Nav</h3>
+            <div className="max-w-xl mx-auto">
+              <DebugHighlightWrapper componentName="ImageCarousel">
+                <ImageCarousel images={[...sampleCarouselImages, {src: '/this-image-is-intentionally-missing.webp', alt: 'Broken image example', caption: 'This image uses fallback'}]} navOutside={false} />
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="ImageFigureGroup">
+            <DebugHighlightWrapper componentName="ImageFigureGroup">
+              <ImageFigureGroup figures={[
+                { src: '/case-study-homedetails.png', caption: 'Caption for Image 1' },
+                { src: '/case-study-filtersonly.png', caption: 'Another caption for Image 2' },
+                { src: '/ui-cards-view.png', caption: 'And a final one for Image 3' },
+              ]} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+        </div>
+      </section>
+
+      {/* --- Section 06: Mobile-focused Components --- */}
+      <section>
+        <SectionTitle eyebrow="06" titleColor="text-gray-800" className="mt-20 mb-10 text-center">Mobile-focused Components</SectionTitle>
+        <div className="space-y-10">
+          <ComponentShowcase title="MobileScreenLayout">
+            <DebugHighlightWrapper componentName="MobileScreenLayout">
+              <MobileScreenLayout
+                title="Organisez vos séjours"
+                subtitle="Un aperçu de toutes vos réservations, passées et à venir."
+                imageSrc="/case-study-homedetails.png"
+                imageAlt="Mobile screen showing travel plans"
+              />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="MobileScreenGrid">
+            <DebugHighlightWrapper componentName="MobileScreenGrid">
+              <MobileScreenGrid screens={sampleMobileScreens} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="FeatureMobileScreens">
+            <DebugHighlightWrapper componentName="FeatureMobileScreens">
+              <FeatureMobileScreens 
+                features={featureMobileScreensData}
+                title="Host tools on the go"
+                description="Access essential hosting features directly from the Airbnb app, anytime and anywhere."
+                link={{ href: "#", text: "Explore hosting tools"}}
+              />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+        </div>
+      </section>
       
-      {/* ListItem */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">ListItem</h2>
-        <ul className="space-y-2">
-          <ListItem text="Simple list item." />
-          <ListItem text="List item with custom props." className="text-blue-600 font-medium" />
-          <ListItem>List item as children</ListItem>
-        </ul>
-      </div>
+      {/* --- Section 07: Specialized Content & Info Display --- */}
+      <section>
+        <SectionTitle eyebrow="07" titleColor="text-gray-800" className="mt-20 mb-10 text-center">Specialized Content & Info Display</SectionTitle>
+        <div className="space-y-10">
+          <ComponentShowcase title="IconFeatureItem (Standalone)">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+              <DebugHighlightWrapper componentName="IconFeatureItem">
+                <IconFeatureItem icon={<LightBulbIcon className="w-10 h-10 text-indigo-600" />} title="Innovative Idea" description="A single feature item highlighting a key concept or service." />
+              </DebugHighlightWrapper>
+              <DebugHighlightWrapper componentName="IconFeatureItem">
+                <IconFeatureItem icon={<ComputerDesktopIcon className="w-10 h-10 text-sky-600" />} title="Tech Integration" description="Showcases use of specific technology or platform features." />
+              </DebugHighlightWrapper>
+            </div>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="IconFeatureGrid">
+            <DebugHighlightWrapper componentName="IconFeatureGrid">
+              <IconFeatureGrid items={[
+                  { icon: <LightBulbIcon className="w-10 h-10 text-indigo-500" />, title: "Smart Classification", description: "Leverage AI image recognition for accurate style tagging." },
+                  { icon: <TableCellsIcon className="w-10 h-10 text-indigo-500" />, title: "Intuitive Interface", description: "User-friendly browsing, filtering, and data interaction." },
+                  { icon: <UsersIcon className="w-10 h-10 text-indigo-500" />, title: "Collaborative Input", description: "Team-based AI model refinement and validation workflows." },
+                   { iconName: "ShieldCheckIcon", iconProps:{className:"w-10 h-10 text-indigo-500"}, title: "Secure & Reliable", description: "Built with security and data integrity as top priorities." },
+                ]} backgroundColor="bg-slate-50" />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="ExperienceItem">
+            <DebugHighlightWrapper componentName="ExperienceItem">
+              <ExperienceItem {...sampleExperience} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="EducationItem">
+            <DebugHighlightWrapper componentName="EducationItem">
+              <EducationItem {...sampleEducation} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="SkillItem">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              {sampleSkills.map((skill, index) => (
+                <DebugHighlightWrapper key={index} componentName="SkillItem">
+                  <SkillItem {...skill} />
+                </DebugHighlightWrapper>
+              ))}
+              <SkillItem icon={<CodeBracketIcon className="w-6 h-6 text-teal-500"/>} skill="React & Next.js"/>
+            </div>
+          </ComponentShowcase>
+        </div>
+      </section>
       
-      {/* Quote */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">Quote</h2>
-        <Quote author="John Doe" source="Source Magazine">
-          This is an inspiring quote that shares some wisdom. It can span multiple lines and still look great.
-        </Quote>
-      </div>
+      {/* --- Section 08: Dynamic Rendering Helpers --- */}
+      <section>
+        <SectionTitle eyebrow="08" titleColor="text-gray-800" className="mt-20 mb-10 text-center">Dynamic Rendering Helpers</SectionTitle>
+        <div className="space-y-10">
+          <ComponentShowcase title="HtmlContent">
+            <DebugHighlightWrapper componentName="HtmlContent">
+              <HtmlContent html="<p>This is <strong>HTML</strong> rendered from a string. Useful for CMS content. It supports basic tags like <em>italics</em>, <b>bold</b>, and <a href=&apos;#&apos; class=&apos;text-blue-600 hover:underline&apos;>links</a>.</p><ul><li>Item 1</li><li>Item 2</li></ul>" />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="StylePreviewCardGrid">
+            <DebugHighlightWrapper componentName="StylePreviewCardGrid">
+              <StylePreviewCardGrid styles={[
+                { styleName: "Bohemian Rhapsody", imageUrl: "/homes-illustration/home-extravaganzza.jpg", imageAlt: "Bohemian Style" },
+                { styleName: "Minimalist Dream", imageUrl: "/homes-illustration/minimalist.webp", imageAlt: "Minimalist Style" },
+                { styleName: "Coastal Escape", imageUrl: "/homes-illustration/loverscocoon.webp", imageAlt: "Coastal Style" },
+                { styleName: "Urban Jungle", imageUrl: "/homes-illustration/rustic.webp", imageAlt: "Urban Style" },
+              ]} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+          
+          <ComponentShowcase title="CheckListCardGrid">
+            <DebugHighlightWrapper componentName="CheckListCardGrid">
+              <CheckListCardGrid cards={[
+                  { title: "Feature Set A", items: [{ label: "Sub-feature A1" }, { label: "Sub-feature A2"}] },
+                  { title: "Feature Set B", items: [{ label: "Sub-feature B1" }, { label: "Sub-feature B2"}, {label: "Sub-feature B3"}] },
+              ]} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
 
-      {/* CheckListCard */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">CheckListCard</h2>
-        <div className="max-w-md">
-        <CheckListCard 
-          title="Feature Checklist"
-          icon={<CheckCircleIcon className="w-10 h-10 text-green-500" />}
-          items={[
-            { label: "Feature One", checked: true },
-            { label: "Feature Two", checked: true },
-            { label: "Feature Three", checked: false },
-            { label: "A much longer feature description to check wrapping", checked: true }
-          ]}
-        />
+          <ComponentShowcase title="ButtonGroup">
+            <DebugHighlightWrapper componentName="ButtonGroup">
+              <ButtonGroup buttons={[
+                { text: 'Primary Action', variant: 'primary', href: '#', iconName: 'ArrowDownTrayIcon' },
+                { text: 'Secondary', variant: 'secondary', href: '#' },
+                { text: 'Ghost Link', variant: 'ghost', href: '#', iconName: 'LinkIcon', iconPosition: 'right' },
+              ]} />
+            </DebugHighlightWrapper>
+          </ComponentShowcase>
+
+          <ComponentShowcase title="Separator">
+            <Paragraph>Content before separator.</Paragraph>
+            <DebugHighlightWrapper componentName="Separator">
+              <Separator />
+            </DebugHighlightWrapper>
+            <Paragraph>Content after separator.</Paragraph>
+          </ComponentShowcase>
         </div>
-      </div>
-      
-      {/* StylePreviewCard */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">StylePreviewCard</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <StylePreviewCard 
-            styleName="Lovers Cocoon" 
-            imageUrl="/homes-illustration/loverscocoon.webp" 
-            imageAlt="Lovers Cocoon Style"
-            onError={commonImageOnError}
-          />
-          <StylePreviewCard 
-            styleName="Rustic Charm" 
-            imageUrl="/homes-illustration/rustic.webp" 
-            imageAlt="Rustic Charm Style"
-            onError={commonImageOnError}
-          />
-           <StylePreviewCard 
-            styleName="Missing Image" 
-            imageUrl="/non-existent-image.webp" 
-            imageAlt="Non Existent Image"
-            onError={commonImageOnError}
-          />
-        </div>
-      </div>
+      </section>
 
-      {/* FeatureCard */}
-       <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">FeatureCard</h2>
-        <div className="max-w-sm">
-          <FeatureCard 
-            image="/case-study-homedetails.png"
-            badge="Featured"
-            title="Amazing Feature"
-            description="This card highlights an amazing feature with a badge, title, and description."
-            onError={commonImageOnError}
-          />
-        </div>
-      </div>
-
-      {/* CardGrid */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">CardGrid</h2>
-        <CardGrid 
-          cards={[
-            { image: "/case-study-homedetails.png", badge: "Insight", title: "Card 1", description: "Description for card 1.", onError: commonImageOnError },
-            { image: "/case-study-filtersonly.png", badge: "Challenge", title: "Card 2", description: "Description for card 2.", onError: commonImageOnError },
-            { image: "/ui-cards-view.png", badge: "Solution", title: "Card 3", description: "Description for card 3.", onError: commonImageOnError },
-            { image: "/non-existent-image.png", badge: "Fallback", title: "Card 4 (Fallback)", description: "This card will use a fallback image.", onError: commonImageOnError },
-          ]}
-        />
-      </div>
-
-      {/* ImageGallery */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">ImageGallery</h2>
-        <ImageGallery images={sampleImages} />
-        <h3 className="text-xl font-medium mt-6 mb-2">Gallery with Fallback</h3>
-        <ImageGallery images={[...sampleImages, {src: '/broken.png', alt: 'Broken image', caption: 'This uses fallback', onError: commonImageOnError}]} />
-      </div>
-
-      {/* ImageCarousel */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">ImageCarousel</h2>
-        <div className="max-w-2xl mx-auto">
-          <ImageCarousel images={sampleCarouselImages} />
-        </div>
-         <h3 className="text-xl font-medium mt-6 mb-2">Carousel with Fallback</h3>
-         <div className="max-w-2xl mx-auto">
-          <ImageCarousel images={[...sampleCarouselImages, {src: '/broken.png', alt: 'Broken image', caption: 'This uses fallback', onError: commonImageOnError}]} />
-        </div>
-      </div>
-      
-      {/* IconFeatureItem (usually part of IconFeatureGrid) */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">IconFeatureItem</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <IconFeatureItem 
-            icon={<LightBulbIcon className="w-8 h-8 text-indigo-600" />}
-            title="Standalone Feature"
-            description="This is a single feature item, often used within IconFeatureGrid."
-          />
-           <IconFeatureItem 
-            iconSrc="/icons/lightbulb.png" // Example with iconSrc, will likely fail as path might be wrong
-            iconAlt="Lightbulb"
-            title="Feature with Image Icon"
-            description="This item uses an image source for its icon (path needs to be correct)."
-            onError={commonImageOnError}
-          />
-        </div>
-      </div>
-
-      {/* IconFeatureGrid */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">IconFeatureGrid</h2>
-        <IconFeatureGrid 
-          items={[
-            { icon: <LightBulbIcon className="w-8 h-8 text-indigo-600" />, title: "AI Classification", description: "Leverage image recognition for styles." },
-            { icon: <TableCellsIcon className="w-8 h-8 text-indigo-600" />, title: "Intuitive Navigation", description: "Easy browsing and filtering." },
-            { icon: <UsersIcon className="w-8 h-8 text-indigo-600" />, title: "Collaborative Validation", description: "Team-based AI refinement." },
-          ]}
-        />
-         <h3 className="text-xl font-medium mt-6 mb-2">Grid using iconName (via iconMap)</h3>
-         <IconFeatureGrid 
-          items={[
-            { iconName: "ShieldCheckIcon", iconProps: { className: "w-8 h-8 text-red-500" }, title: "Secure Access", description: "Google OAuth for team members." },
-            { iconName: "ArrowDownTrayIcon", title: "Data Export", description: "Export classified data." },
-            { iconName: "ChartBarIcon", title: "Data-Driven Discovery", description: "Identify emerging trends.", icon: iconMap["ChartBarIcon"] ? React.createElement(iconMap["ChartBarIcon"], {className: 'w-8 h-8 text-blue-500'}) : null },
-          ]}
-        />
-      </div>
-
-      {/* HeroSplitLayout */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">HeroSplitLayout</h2>
-        <HeroSplitLayout
-          title="Hero Title Goes Here"
-          subtitle="An engaging subtitle to draw attention."
-          text="Some descriptive text explaining the main value proposition. This can be a React node for more complex content."
-          imageSrc="/case-study-screenshot-prototype.png"
-          imageAlt="Hero Image Alt Text"
-          imagePosition="right"
-          buttons={[
-            <Button key="1" variant="primary" href="#">Get Started</Button>,
-            <Button key="2" variant="secondary" href="#">Learn More</Button>,
-          ]}
-          backgroundColor="bg-slate-50"
-          onError={commonImageOnError}
-        />
-        <HeroSplitLayout
-          title="Hero with Image Left"
-          subtitle="Another example"
-          text="Text can also be a simple string, or an array of strings for multiple paragraphs."
-          imageSrc="/ui-cards-view.png"
-          imageAlt="Hero Image Alt Text"
-          imagePosition="left"
-          backgroundColor="bg-sky-50"
-          className="mt-8"
-          onError={commonImageOnError}
-        />
-      </div>
-
-      {/* --- Components from dynamic-page-renderer.js --- */}
-      <SectionTitle eyebrow="Dynamic Page Helpers" className="my-12 text-center">
-        Helper Components for Dynamic Rendering
-      </SectionTitle>
-
-      {/* HtmlContent */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">HtmlContent</h2>
-        <h3 className="text-lg font-medium mt-4 mb-2">Paragraphs:</h3>
-        <HtmlContent 
-          paragraphs={[
-            "This is a simple paragraph.",
-            ["This paragraph has ", { format: "strong", text: "bold text" }, " and ", { format: "italic", text: "italic text" }, "."],
-          ]}
-          className="space-y-2 text-gray-700"
-        />
-        <h3 className="text-lg font-medium mt-4 mb-2">Elements (p, ul, h2):</h3>
-        <HtmlContent 
-          elements={[
-            { type: "h2", content: "A Subheading via HtmlContent", className: "text-xl font-semibold text-gray-800 mt-4 mb-2" },
-            { type: "p", content: ["This is a paragraph within an elements array, with a ", {format: "strong", text: "strong part"}, "."] },
-            { 
-              type: "ul", 
-              className: "list-disc list-inside space-y-1 text-gray-600 pl-4", 
-              items: ["List item 1", ["List item 2 with ", {format: "italic", text: "emphasis"}], "List item 3"]
-            }
-          ]}
-          className="space-y-3"
-        />
-        <h3 className="text-lg font-medium mt-4 mb-2">ListItems prop:</h3>
-        <HtmlContent 
-            listItems={[
-                { text: "ListItem via HtmlContent (simple string)." },
-                { text: ["ListItem with ", {"format": "strong", "text": "formatted text"}, " via HtmlContent."] },
-                { text: "Another item", props: { className: "text-purple-600" } }
-            ]}
-            className="space-y-1 text-sm text-gray-500"
-        />
-      </div>
-      
-      {/* VideoComponent */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">VideoComponent</h2>
-        <div className="max-w-xl mx-auto">
-          <VideoComponent 
-            containerClassName="aspect-video w-full rounded-lg overflow-hidden shadow-lg border border-gray-200"
-            videoClassName="w-full h-full object-cover"
-            src="/video.mp4" // Make sure this video exists
-            autoPlay={false} // Set to false for design system page to avoid multiple videos playing
-            muted={true}
-            loop={true}
-            playsInline={true}
-            controls={true}
-            fallbackText="Your browser does not support the video tag."
-          />
-        </div>
-      </div>
-
-      {/* StylePreviewCardGrid (uses StylePreviewCard internally) */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">StylePreviewCardGrid</h2>
-        <StylePreviewCardGrid 
-          wrapperClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-6"
-          styles={[
-            { styleName: "Lovers Cocoon", imageUrl: "/homes-illustration/loverscocoon.webp", imageAlt: "Lovers Cocoon", onError: commonImageOnError },
-            { styleName: "Sport Court", imageUrl: "/homes-illustration/sportcourt.webp", imageAlt: "Sport Court", onError: commonImageOnError },
-            { styleName: "Rustic Charm", imageUrl: "/homes-illustration/rustic.webp", imageAlt: "Rustic Charm", onError: commonImageOnError },
-            { styleName: "Full Light", imageUrl: "/homes-illustration/fulllight.webp", imageAlt: "Full Light", onError: commonImageOnError },
-            { styleName: "Broken Image Style", imageUrl: "/broken.webp", imageAlt: "Broken Style", onError: commonImageOnError },
-          ]}
-        />
-      </div>
-      
-      {/* CheckListCardGrid (uses CheckListCard internally) */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">CheckListCardGrid</h2>
-        <CheckListCardGrid 
-          wrapperClassName="grid md:grid-cols-2 gap-8 items-start my-6"
-          cards={[
-            { title: "Quality Criteria", iconName: "CheckCircleIcon", iconProps: {className:"w-10 h-10 text-green-500"}, items: [{ label: "Clear Visuals", checked: true }, { label: "Coherent Theme", checked: true }] },
-            { title: "User Needs", iconName: "UsersIcon", iconProps: {className:"w-8 h-8 text-blue-500"}, items: [{ label: "Ambiance Grasp", checked: true }, { label: "Aesthetic Filter", checked: true }] }
-          ]}
-        />
-      </div>
-
-      {/* ImageFigureGroup */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">ImageFigureGroup</h2>
-        <ImageFigureGroup 
-          wrapperClassName="flex flex-col md:flex-row gap-6 items-start justify-center my-6"
-          figures={[
-            { src: "/validation-1.png", alt: "Validation UI 1", caption: "Main card view.", imageWidth: 250, imageHeight: 180, onError: commonImageOnError },
-            { src: "/validation-2.png", alt: "Validation UI 2", caption: "Correction dropdown.", imageWidth: 250, imageHeight: 180, onError: commonImageOnError },
-            { src: "/validation-3.png", alt: "Validation UI 3", caption: "Style details example.", imageWidth: 250, imageHeight: 180, onError: commonImageOnError },
-            { src: "/broken.png", alt: "Broken Figure", caption: "This uses fallback.", imageWidth: 250, imageHeight: 180, onError: commonImageOnError },
-          ]}
-        />
-      </div>
-      
-      {/* ButtonGroup (uses Button internally) */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">ButtonGroup</h2>
-        <ButtonGroup 
-          wrapperClassName="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6"
-          buttons={[
-            { children: "Primary Action", href: "#", variant: "primary" },
-            { children: "Secondary Action", href: "#", variant: "secondary" },
-            { children: "External Link", href: "https://example.com", variant: "primary", iconName: "LinkIcon" }
-          ]}
-        />
-      </div>
-
-      {/* Separator */}
-      <div className="p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-4">Separator</h2>
-        <p>Content before separator.</p>
-        <Separator className="my-8 border-t border-dashed border-gray-300" />
-        <p>Content after separator (dashed example).</p>
-        <Separator className="my-8 border-t-2 border-indigo-500" />
-        <p>Content after separator (colored solid example).</p>
-      </div>
+      <ComponentShowcase title="ImageCard">
+        <DebugHighlightWrapper componentName="ImageCard">
+          <div className="max-w-md mx-auto">
+            <ImageCard
+              imageSrc="/case-study-homedetails.png"
+              imageAlt="Sample image card"
+              title="Design System Components"
+              subtitle="A collection of reusable UI elements built with Next.js and Tailwind CSS"
+            />
+          </div>
+        </DebugHighlightWrapper>
+      </ComponentShowcase>
 
     </div>
   );

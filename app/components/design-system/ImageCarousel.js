@@ -1,6 +1,45 @@
 'use client';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
+import PlaceholderImage from './PlaceholderImage';
+
+// Sub-component to handle individual image loading and error state
+function CarouselImageItem({ image, isActive, priority }) {
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    setHasError(false); // Reset error state if src changes (e.g. in editing mode or dynamic updates)
+  }, [image.src]);
+
+  const handleError = () => {
+    setHasError(true);
+  };
+
+  return (
+    <div
+      className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+    >
+      {hasError ? (
+        <PlaceholderImage icon="photo" message="Image not available" />
+      ) : (
+        <div className="relative w-full h-full">
+          <Image
+            src={image.src}
+            alt={image.alt || image.caption || `Image`}
+            fill
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 1024px) 100vw, 896px"
+            priority={priority}
+            onError={handleError}
+            className="z-0"
+          />
+          
+          {/* Caption overlay removed - only showing caption below the carousel */}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ImageCarousel({
   images,
@@ -69,65 +108,65 @@ export default function ImageCarousel({
 
   return (
     <div className={`relative w-full max-w-3xl mx-auto ${className}`}>
-      <div className="overflow-hidden relative rounded-2xl shadow-xl aspect-[16/10] bg-gray-100">
+      <div className="overflow-hidden relative rounded-2xl shadow-xl aspect-[4/3] bg-gray-100">
         {images.map((image, index) => (
-          <div
-            key={image.id || image.src + index}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <Image 
-              src={image.src}
-              alt={image.alt || image.caption || `Image ${index + 1}`}
-              fill
-              style={{ objectFit: 'cover' }}
-              sizes="(max-width: 1024px) 100vw, 896px"
-              priority={index === 0}
-              onError={(e) => {
-                if (e.currentTarget.src !== '/he-styles-preview.png') {
-                  e.currentTarget.src = '/he-styles-preview.png';
-                }
-              }}
-            />
-            {image.caption && (
-              <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm p-3 text-center">
-                {image.caption}
-              </div>
-            )}
-          </div>
+          <CarouselImageItem 
+            key={image.id || image.src + index} 
+            image={image} 
+            isActive={index === currentIndex}
+            priority={index === 0}
+          />
         ))}
+
+        {/* Arrow Container - Centered vertically */}
+        {images.length > 1 && (
+          <div className="absolute inset-0 flex items-center justify-between px-4">
+            <button
+              onClick={prevSlide}
+              className="carousel-arrow bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+              aria-label="Previous image"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              className="carousel-arrow bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+              aria-label="Next image"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
 
+      {/* Caption Section - Below the image */}
+      {images[currentIndex]?.caption && (
+        <div className="mt-4 text-center">
+          <h3 className="text-xl font-medium text-gray-800">{images[currentIndex].caption}</h3>
+          {images[currentIndex].subcaption && (
+            <p className="text-sm text-gray-600 mt-1">{images[currentIndex].subcaption}</p>
+          )}
+        </div>
+      )}
+
+      {/* Pagination Dots - Below image & caption */}
       {images.length > 1 && (
-        <>
-          <button
-            onClick={prevSlide}
-            className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full shadow-md transition focus:outline-none focus:ring-2 focus:ring-black"
-            aria-label="Previous image"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full shadow-md transition focus:outline-none focus:ring-2 focus:ring-black"
-            aria-label="Next image"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
-          <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 flex space-x-2">
-            {images.map((image, index) => (
-              <button
-                key={`dot-${image.id || index}`}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? 'bg-black/80' : 'bg-black/30 hover:bg-black/50'}`}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
-          </div>
-        </>
+        <div className="flex justify-center gap-2 mt-4">
+          {images.map((image, index) => (
+            <button
+              key={`dot-${image.id || index}`}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
+              }`}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
+        </div>
       )}
     </div>
   );

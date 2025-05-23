@@ -6,31 +6,31 @@ import Image from 'next/image'; // Import next/image
 export default function IconFeatureItem({ icon, title, description, isEditing = false, onPropChange }) {
   let iconDisplay = null;
 
-  if (icon) { // Prioritize direct icon prop (e.g., Heroicon component)
+  if (icon) {
     iconDisplay = (
-      <div className="relative w-12 h-12 mb-4 text-gray-700">
-        {/* Adjust size/color as needed for direct icon components */}
+      <div className="relative w-10 h-10 text-indigo-600 flex-shrink-0">
         {icon}
       </div>
     );
-  } else { // Placeholder if no icon or iconSrc is provided
+  } else {
     iconDisplay = (
       <div 
-        className="relative w-16 h-16 mb-4 md:w-20 md:h-20 bg-gray-100 rounded flex items-center justify-center text-gray-400 text-xs"
+        className="relative w-10 h-10 flex-shrink-0 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-500"
         aria-label={title || 'Icon placeholder'}
       >
-        No Icon
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
       </div>
     );
   }
 
   if (isEditing) {
     return (
-      <div className="flex flex-col items-center text-center p-4 md:items-start md:text-left border-2 border-dashed border-blue-300 bg-blue-50/50 rounded-lg my-2">
-        {/* Icon editing is complex, deferring. Display placeholder or current icon info. */}
+      <div className="flex flex-col p-4 border-2 border-dashed border-blue-300 bg-blue-50/50 rounded-lg my-2">
         <div className="mb-2 text-xs text-gray-500">(Icon not directly editable here)</div>
-        {iconDisplay} {/* Show current icon or placeholder */}
-        <div className="w-full mb-2">
+        {iconDisplay}
+        <div className="w-full mb-2 mt-3">
           <label className="block text-xs font-medium text-gray-700 mb-0.5">Title:</label>
           <input 
             type="text" 
@@ -55,10 +55,12 @@ export default function IconFeatureItem({ icon, title, description, isEditing = 
   }
 
   return (
-    <div className="flex flex-col items-center text-center p-4 md:items-start md:text-left">
+    <div className="flex gap-4 items-start py-2">
       {iconDisplay}
-      <h3 className="text-lg font-semibold text-gray-900 mb-1.5">{title}</h3>
-      <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+      <div>
+        <h3 className="text-base font-medium text-gray-900">{title}</h3>
+        <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">{description}</p>
+      </div>
     </div>
   );
 } 

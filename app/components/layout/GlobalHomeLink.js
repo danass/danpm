@@ -5,7 +5,7 @@ import Link from 'next/link';
 // import { usePathname } from 'next/navigation'; // No longer needed as it applies to all paths
 import { HomeIcon, BriefcaseIcon } from '@heroicons/react/24/solid';
 
-export default function HeaderLinks() { // Renamed component
+export default function GlobalHomeLink() { // Renamed component
   // const pathname = usePathname(); // No longer needed
   const [visible, setVisible] = useState(true);
 

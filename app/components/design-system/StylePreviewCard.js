@@ -1,11 +1,20 @@
 import Image from 'next/image';
+import React, { useState } from 'react';
+import PlaceholderImage from './PlaceholderImage';
 
 export default function StylePreviewCard({ styleName, imageUrl, imageAlt, isEditing = false, onPropChange }) {
+  const [imageError, setImageError] = useState(false);
+
   const handleChange = (propName, value) => {
     if (onPropChange) {
       onPropChange(propName, value);
     }
   };
+
+  // Reset imageError state if imageUrl changes (relevant for editing mode if URL becomes editable)
+  React.useEffect(() => {
+    setImageError(false);
+  }, [imageUrl]);
 
   if (isEditing) {
     return (
@@ -31,30 +40,44 @@ export default function StylePreviewCard({ styleName, imageUrl, imageAlt, isEdit
           />
         </div>
         <div className="text-xs text-gray-500">(Image URL: {imageUrl} - not editable here)</div>
-        {/* Placeholder for image preview in edit mode if desired */}
-        <div className="mt-2 w-full aspect-[4/3] bg-gray-200 flex items-center justify-center text-gray-400 text-sm">(Image Preview)</div>
+        <div className="mt-2 w-full aspect-[4/3] bg-gray-100 rounded overflow-hidden flex items-center justify-center">
+          { /* Preview of the image, also with error handling */}
+          {imageUrl && !imageError ? (
+            <Image 
+              src={imageUrl} 
+              alt={imageAlt || 'Preview'} 
+              fill 
+              style={{ objectFit: 'cover' }} 
+              onError={() => setImageError(true)} 
+            />
+          ) : (
+            <PlaceholderImage icon="photo" message="Image not available" />
+          )}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105">
-      <div className="relative w-full aspect-[4/3]">
-        <Image 
-          src={imageUrl}
-          alt={imageAlt || `Preview of ${styleName}`}
-          fill
-          style={{ objectFit: 'cover' }}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          onError={(e) => {
-            if (e.currentTarget.src !== '/he-styles-preview.png') {
-              e.currentTarget.src = '/he-styles-preview.png';
-            }
-          }} // Fallback image
-        />
+    <div className="group overflow-hidden rounded-xl shadow-sm transition duration-300 hover:shadow-md">
+      <div className="relative w-full aspect-[3/2]">
+        {imageError ? (
+          <PlaceholderImage icon="photo" message="Image not available" />
+        ) : (
+          <Image 
+            src={imageUrl}
+            alt={imageAlt || `Preview of ${styleName}`}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            onError={() => setImageError(true)}
+          />
+        )}
       </div>
+      
+      {/* Clean bottom section with style name */}
       <div className="p-4">
-        <p className="text-md font-semibold text-gray-800 text-center">{styleName}</p>
+        <h3 className="text-base font-medium text-gray-900 group-hover:text-black">{styleName}</h3>
       </div>
     </div>
   );

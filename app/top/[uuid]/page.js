@@ -28,12 +28,7 @@ export default function UuidPage() {
       try {
         const response = await fetch(`/api/words?uuid=${currentUuid}`);
         if (!response.ok) {
-          if (response.status === 404) {
-             console.log('List not found, redirecting...');
-          } else {
-             console.error('Failed to fetch words:', response.status);
-          }
-          router.push('/top');
+          notFound();
           return;
         }
         const data = await response.json();
