@@ -6,6 +6,7 @@ export default function Experience({ defaultCollapsed = false }) {
   const [expandedExps, setExpandedExps] = useState({})
   const [expandedHomeExchange, setExpandedHomeExchange] = useState(!defaultCollapsed)
   const [expandedSections, setExpandedSections] = useState({})
+  const [expandedAchievements, setExpandedAchievements] = useState({})
   
   useEffect(() => {
     setExpandedHomeExchange(!defaultCollapsed)
@@ -159,23 +160,43 @@ export default function Experience({ defaultCollapsed = false }) {
             </div>
             {exp.sections ? (
               <div className="space-y-5 print:space-y-2">
-                {exp.sections.map((section, sIdx) => (
-                  <div key={sIdx} className="ml-1">
-                    <h4 className="text-base font-medium text-slate-800 mb-2.5 tracking-wide uppercase print:text-sm print:mb-1">{section.title}</h4>
-                    <div 
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${isHomeExchange(idx) && expandedHomeExchange ? 'max-h-[2000px] opacity-100' : isHomeExchange(idx) ? 'max-h-0 opacity-0' : 'max-h-[2000px] opacity-100'} print:!max-h-none print:!opacity-100`}
-                    >
-                      <ul className="list-none space-y-2.5 text-slate-600 ml-0 print:space-y-1.5">
-                        {section.achievements.map((achievement, i) => (
-                          <li key={i} className="text-base leading-relaxed flex items-center print:text-sm print:leading-relaxed">
-                            <span className="text-slate-400 mr-2.5 print:mr-2 flex-shrink-0">•</span>
-                            <span dangerouslySetInnerHTML={{ __html: achievement }} />
-                          </li>
-                        ))}
-                      </ul>
+                {exp.sections.map((section, sIdx) => {
+                  const sectionKey = `${idx}-${sIdx}`
+                  return (
+                    <div key={sIdx} className="ml-1">
+                      <h4 className="text-base font-medium text-slate-800 mb-2.5 tracking-wide uppercase print:text-sm print:mb-1">{section.title}</h4>
+                      <div 
+                        className={`overflow-hidden transition-all duration-300 ease-in-out ${isHomeExchange(idx) && expandedHomeExchange ? 'max-h-[2000px] opacity-100' : isHomeExchange(idx) ? 'max-h-0 opacity-0' : 'max-h-[2000px] opacity-100'} print:!max-h-none print:!opacity-100`}
+                      >
+                        <ul className="list-none space-y-2.5 text-slate-600 ml-0 print:space-y-1.5">
+                          {section.achievements.map((achievement, i) => {
+                            const achievementKey = `${sectionKey}-${i}`
+                            const isAchievementExpanded = expandedAchievements[achievementKey] !== false
+                            return (
+                              <li 
+                                key={i} 
+                                className="text-base leading-relaxed flex items-start print:text-sm print:leading-relaxed group/item"
+                              >
+                                <span className="text-slate-400 mr-2.5 print:mr-2 flex-shrink-0 mt-1">•</span>
+                                <div className="flex-1">
+                                  <div 
+                                    className="cursor-pointer hover:text-slate-700 hover:bg-slate-50 px-2 py-1 rounded transition-all print:cursor-default print:hover:bg-transparent inline-block"
+                                    onClick={() => setExpandedAchievements(prev => ({ ...prev, [achievementKey]: !isAchievementExpanded }))}
+                                  >
+                                    <span dangerouslySetInnerHTML={{ __html: achievement }} />
+                                    <span className="text-xs text-slate-400 group-hover/item:text-slate-600 transition-colors print:hidden ml-2">
+                                      {isAchievementExpanded ? '−' : '+'}
+                                    </span>
+                                  </div>
+                                </div>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             ) : (
               <div 
