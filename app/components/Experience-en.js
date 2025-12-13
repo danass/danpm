@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 export default function Experience({ defaultCollapsed = false }) {
   const [expandedExps, setExpandedExps] = useState({})
   const [expandedHomeExchange, setExpandedHomeExchange] = useState(!defaultCollapsed)
+  const [expandedSections, setExpandedSections] = useState({})
+  const [expandedSection, setExpandedSection] = useState(true)
   
   useEffect(() => {
     setExpandedHomeExchange(!defaultCollapsed)

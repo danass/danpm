@@ -2,9 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
-
-const CV = dynamic(() => import('../components/CV-en'), { ssr: false })
+import CV from '../components/CV-en'
 
 export default function Home() {
   const [version, setVersion] = useState('expanded')
