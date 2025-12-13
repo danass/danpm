@@ -158,27 +158,30 @@ export default function Experience({ defaultCollapsed = false }) {
               </div>
             </div>
             {exp.sections ? (
-              <div className="space-y-5 print:space-y-2">
-                {exp.sections.map((section, sIdx) => {
-                  const sectionKey = `${idx}-${sIdx}`
-                  const isExpanded = expandedSections[sectionKey] !== false
-                  return (
-                    <div key={sIdx} className="ml-1">
-                      <div className="flex items-center gap-2 mb-2.5 group">
-                        <span className="text-slate-400 text-xs flex-shrink-0">•</span>
-                        <h4 
-                          className="text-base font-medium text-slate-800 tracking-wide uppercase print:text-sm print:mb-1 cursor-pointer hover:text-slate-700 hover:bg-slate-50 px-2 py-1 rounded transition-all print:cursor-default print:hover:bg-transparent"
-                          onClick={() => setExpandedSections(prev => ({ ...prev, [sectionKey]: !isExpanded }))}
+              <div 
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${isHomeExchange(idx) && expandedHomeExchange ? 'max-h-[5000px] opacity-100' : isHomeExchange(idx) ? 'max-h-0 opacity-0' : 'max-h-[5000px] opacity-100'} print:!max-h-none print:!opacity-100`}
+              >
+                <div className="space-y-5 print:space-y-2">
+                  {exp.sections.map((section, sIdx) => {
+                    const sectionKey = `${idx}-${sIdx}`
+                    const isExpanded = expandedSections[sectionKey] !== false
+                    return (
+                      <div key={sIdx} className="ml-1">
+                        <div className="flex items-center gap-2 mb-2.5 group">
+                          <span className="text-slate-400 text-xs flex-shrink-0">•</span>
+                          <h4 
+                            className="text-base font-medium text-slate-800 tracking-wide uppercase print:text-sm print:mb-1 cursor-pointer hover:text-slate-700 hover:bg-slate-50 px-2 py-1 rounded transition-all print:cursor-default print:hover:bg-transparent"
+                            onClick={() => setExpandedSections(prev => ({ ...prev, [sectionKey]: !isExpanded }))}
+                          >
+                            {section.title}
+                            <span className="text-xs text-slate-400 group-hover:text-slate-600 transition-colors print:hidden ml-2">
+                              {isExpanded ? '−' : '+'}
+                            </span>
+                          </h4>
+                        </div>
+                        <div 
+                          className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'} print:!max-h-none print:!opacity-100`}
                         >
-                          {section.title}
-                          <span className="text-xs text-slate-400 group-hover:text-slate-600 transition-colors print:hidden ml-2">
-                            {isExpanded ? '−' : '+'}
-                          </span>
-                        </h4>
-                      </div>
-                      <div 
-                        className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'} print:!max-h-none print:!opacity-100`}
-                      >
                         <ul className="list-none space-y-2.5 text-slate-600 ml-0 print:space-y-1.5">
                           {section.achievements.map((achievement, i) => (
                             <li 
@@ -190,10 +193,11 @@ export default function Experience({ defaultCollapsed = false }) {
                             </li>
                           ))}
                         </ul>
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
             ) : (
               <div 
