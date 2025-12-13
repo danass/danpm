@@ -7,6 +7,7 @@ export default function Experience({ defaultCollapsed = false }) {
   const [expandedHomeExchange, setExpandedHomeExchange] = useState(!defaultCollapsed)
   const [expandedSections, setExpandedSections] = useState({})
   const [expandedSection, setExpandedSection] = useState(true)
+  const [expandedAchievements, setExpandedAchievements] = useState({})
   
   useEffect(() => {
     setExpandedHomeExchange(!defaultCollapsed)
@@ -180,7 +181,10 @@ export default function Experience({ defaultCollapsed = false }) {
                       >
                         <ul className="list-none space-y-2.5 text-slate-600 ml-0 print:space-y-1.5">
                           {section.achievements.map((achievement, i) => (
-                            <li key={i} className="text-base leading-relaxed flex items-center print:text-sm print:leading-relaxed">
+                            <li 
+                              key={i} 
+                              className="text-base leading-relaxed flex items-center print:text-sm print:leading-relaxed"
+                            >
                               <span className="text-slate-400 mr-2.5 print:mr-2 flex-shrink-0">•</span>
                               <span dangerouslySetInnerHTML={{ __html: achievement }} />
                             </li>
