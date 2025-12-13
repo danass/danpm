@@ -2,48 +2,295 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer utilities {
-  @keyframes move-hand {
-    0%, 100% { transform: translateY(0) translateX(5px); opacity: 0; }
-    20% { opacity: 1; }
-    50% { transform: translateY(90px) translateX(5px); opacity: 1; } /* Adjust translateY based on item height/spacing */
-    80% { opacity: 1; }
-    95% { opacity: 0; }
+  /* Override Next.js portal positioning */
+  nextjs-portal {
+    left: unset !important;
+    top: unset !important;
   }
 
-  @keyframes lift-item {
-    0%, 45%, 100% { transform: translateY(0) scale(1); box-shadow: theme('boxShadow.sm'); background-color: theme('colors.white'); }
-    55%, 75% { transform: translateY(-4px) scale(1.03); box-shadow: theme('boxShadow.md'); background-color: theme('colors.gray.100'); }
+  /* Styles pour l'impression PDF - Page continue */
+  @media print {
+    @page {
+      size: auto;
+      margin: 1.5cm 1cm;
+    }
+    
+    /* Page continue - désactiver tous les page breaks */
+    html, body {
+      height: auto !important;
+      overflow: visible !important;
+    }
+    
+    article {
+      height: auto !important;
+      overflow: visible !important;
+    }
+    
+    * {
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+    }
+    
+    html, body {
+      @apply bg-white text-black;
+      font-size: 10pt;
+      line-height: 1.4;
+      margin: 0;
+      padding: 0;
+      background: white !important;
+      background-color: white !important;
+    }
+    
+    /* Forcer le background blanc pour tous les éléments */
+    main {
+      background: white !important;
+      background-color: white !important;
+      background-image: none !important;
+    }
+    
+    /* Supprimer tous les gradients et backgrounds colorés */
+    .bg-gradient-to-br,
+    .bg-slate-50,
+    .from-slate-50,
+    .via-white,
+    .to-slate-50 {
+      background: white !important;
+      background-color: white !important;
+      background-image: none !important;
+    }
+    
+    .no-print {
+      display: none !important;
+    }
+    
+    /* Permettre un flux continu - éviter les breaks inutiles mais permettre le flux naturel */
+    * {
+      page-break-inside: auto;
+      break-inside: auto;
+      page-break-after: auto;
+      break-after: auto;
+      page-break-before: auto;
+      break-before: auto;
+    }
+    
+    /* Éviter de séparer le header du contenu */
+    header {
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+    }
+    
+    /* Éviter de séparer les titres de leur contenu */
+    h2, h3, h4 {
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+    }
+    
+    /* Permettre le flux dans les sections mais éviter les séparations inutiles */
+    section {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    
+    /* print-avoid-break : seulement pour éléments critiques (header) */
+    .print-avoid-break {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+    
+    /* Réduire les espacements pour l'impression */
+    article {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    article > div {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+    }
+    
+    /* Header compact pour impression - éviter la séparation */
+    header {
+      padding-bottom: 0.75rem !important;
+      margin-bottom: 0.75rem !important;
+      border-bottom: 1px solid #e2e8f0 !important;
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+    }
+    
+    /* Éviter de séparer le header du contenu suivant */
+    header + * {
+      page-break-before: avoid !important;
+      break-before: avoid !important;
+    }
+    
+    /* Éviter de séparer le header du div qui contient les sections */
+    header ~ div {
+      page-break-before: avoid !important;
+      break-before: avoid !important;
+    }
+    
+    /* S'assurer que le premier section (Profil) n'est pas séparé */
+    section:first-of-type {
+      page-break-before: avoid !important;
+      break-before: avoid !important;
+    }
+    
+    header > div {
+      gap: 1rem !important;
+    }
+    
+    /* Portrait pour impression - enlever le bleu */
+    img[itemprop="image"] {
+      width: 80px !important;
+      height: 80px !important;
+      object-fit: cover;
+      border: 2px solid #000 !important;
+      border-radius: 50% !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    /* Supprimer toutes les bordures bleues des images */
+    img {
+      border-color: #000 !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    /* Supprimer les styles de lien sur les images */
+    a img {
+      border-color: #000 !important;
+      outline: none !important;
+    }
+    
+    /* Titres plus compacts */
+    h1 {
+      font-size: 1.8rem !important;
+      margin-bottom: 0.25rem !important;
+    }
+    
+    h2 {
+      font-size: 1.2rem !important;
+      margin-bottom: 0.5rem !important;
+      padding-bottom: 0.25rem !important;
+    }
+    
+    h3 {
+      font-size: 1rem !important;
+      margin-bottom: 0.25rem !important;
+    }
+    
+    /* Réduire espacements entre sections */
+    section {
+      margin-bottom: 0.75rem !important;
+      margin-top: 0.5rem !important;
+    }
+    
+    /* Espacements réduits dans les listes */
+    ul, ol {
+      margin-top: 0.3rem !important;
+      margin-bottom: 0.3rem !important;
+    }
+    
+    li {
+      margin-bottom: 0.2rem !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+    
+    /* Espacement initial réduit */
+    main {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    main > div {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    /* S'assurer que le contenu commence en haut */
+    article {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    
+    /* Optimiser les couleurs pour l'impression */
+    .bg-slate-50 {
+      background-color: #f8fafc !important;
+    }
+    
+    /* Garder les couleurs grises pour les chips de compétences */
+    .bg-slate-100 {
+      background-color: #f1f5f9 !important;
+    }
+    
+    .text-slate-700 {
+      color: #334155 !important;
+    }
+    
+    /* Assurer la lisibilité */
+    a {
+      color: #000 !important;
+      text-decoration: none !important;
+    }
+    
+    /* Enlever les bordures bleues des images */
+    img {
+      border-color: #000 !important;
+      outline: none !important;
+    }
+    
+    /* Espacements compacts pour les compétences */
+    .flex.flex-wrap {
+      gap: 0.25rem !important;
+    }
+    
+    /* Badges compacts */
+    span.inline-block {
+      padding: 0.2rem 0.4rem !important;
+      font-size: 0.75rem !important;
+      margin: 0.1rem !important;
+    }
   }
-
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --font-sans-airbnb: var(--font-manrope), var(--font-inter), system-ui, sans-serif;
-  }
-
-  body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans-airbnb);
-  }
-  
-  .animate-hand-grab {
-    animation: move-hand 4s ease-in-out infinite;
-  }
-
-  .animate-item-lift {
-    animation: lift-item 4s ease-in-out infinite;
-  }
-} 
+}

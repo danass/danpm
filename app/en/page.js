@@ -2,10 +2,12 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import CV from './components/CV'
+import dynamic from 'next/dynamic'
+
+const CV = dynamic(() => import('../components/CV-en'), { ssr: false })
 
 export default function Home() {
-  const [version, setVersion] = useState('expanded') // 'expanded' ou 'collapsed'
+  const [version, setVersion] = useState('expanded')
 
   return (
     <>
@@ -15,19 +17,19 @@ export default function Home() {
             onClick={() => setVersion('expanded')}
             className={`px-3 py-1 text-xs rounded ${version === 'expanded' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'}`}
           >
-            Version Actuelle
+            Current Version
           </button>
           <button
             onClick={() => setVersion('collapsed')}
             className={`px-3 py-1 text-xs rounded ${version === 'collapsed' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'}`}
           >
-            Version Collapse
+            Collapsed Version
           </button>
           <Link
-            href="/en"
+            href="/"
             className="px-3 py-1 text-xs rounded bg-gray-100 text-gray-700 text-center hover:bg-gray-200 transition-colors"
           >
-            English
+            Français
           </Link>
         </div>
       </div>

@@ -1,24 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    // Or if using `src` directory:
-    // './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,jsx}',
+    './components/**/*.{js,jsx}',
+    './app/**/*.{js,jsx}',
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: [
-          'var(--font-sans-airbnb)',
-          'Manrope',
-          'Inter',
-          'Nunito',
-          'Arial',
-          'Helvetica',
-          'sans-serif',
-        ],
-      },
-    },
+    extend: {},
   },
   plugins: [],
-} 
+}

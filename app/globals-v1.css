@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Version 1 styles - seront appliqués via classes Tailwind dans les composants */
+}
+
+@layer utilities {
+  /* Override Next.js portal positioning */
+  nextjs-portal {
+    left: unset !important;
+    top: unset !important;
+  }
+
+  /* Styles pour l'impression PDF - Version 1 Minimaliste */
+  @media print {
+    @page {
+      size: A4;
+      margin: 1cm;
+    }
+    
+    * {
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+    }
+    
+    html, body {
+      @apply bg-white text-black;
+      font-size: 9pt;
+      line-height: 1.2;
+    }
+    
+    .no-print {
+      display: none !important;
+    }
+    
+    .print-break {
+      page-break-after: always;
+    }
+    
+    .print-avoid-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    
+    /* Portrait pour impression */
+    img[itemprop="image"] {
+      width: 70px !important;
+      height: 70px !important;
+      object-fit: cover;
+      border: 1px solid black !important;
+    }
+    
+    /* Titres compacts */
+    h1 {
+      font-size: 1.5rem !important;
+      margin-bottom: 0.25rem !important;
+    }
+    
+    h2 {
+      font-size: 0.9rem !important;
+      margin-bottom: 0.4rem !important;
+      padding-bottom: 0.2rem !important;
+      border-bottom: 2px solid black !important;
+    }
+    
+    h3 {
+      font-size: 0.75rem !important;
+      margin-bottom: 0.2rem !important;
+    }
+    
+    /* Espacements réduits */
+    section {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    ul, ol {
+      margin-top: 0.2rem !important;
+      margin-bottom: 0.2rem !important;
+    }
+    
+    li {
+      margin-bottom: 0.1rem !important;
+      page-break-inside: avoid;
+    }
+    
+    /* Assurer la lisibilité */
+    a {
+      color: black !important;
+      text-decoration: underline;
+    }
+  }
+}
