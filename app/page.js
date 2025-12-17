@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import CV from './components/CV'
+import { useLanguage } from './contexts/LanguageContext'
 
 export default function Home() {
   const [version, setVersion] = useState('expanded') // 'expanded' ou 'collapsed'
+  const { language, changeLanguage, t } = useLanguage()
 
   return (
     <>
@@ -15,20 +16,20 @@ export default function Home() {
             onClick={() => setVersion('expanded')}
             className={`px-3 py-1 text-xs rounded ${version === 'expanded' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'}`}
           >
-            Version Actuelle
+            {language === 'fr' ? 'Version Actuelle' : 'Current Version'}
           </button>
           <button
             onClick={() => setVersion('collapsed')}
             className={`px-3 py-1 text-xs rounded ${version === 'collapsed' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'}`}
           >
-            Version Collapse
+            {language === 'fr' ? 'Version Collapse' : 'Collapsed Version'}
           </button>
-          <Link
-            href="/en"
+          <button
+            onClick={() => changeLanguage(language === 'fr' ? 'en' : 'fr')}
             className="px-3 py-1 text-xs rounded bg-gray-100 text-gray-700 text-center hover:bg-gray-200 transition-colors"
           >
-            English
-          </Link>
+            {language === 'fr' ? 'English' : 'Français'}
+          </button>
         </div>
       </div>
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 print:bg-white">

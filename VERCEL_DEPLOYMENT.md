@@ -58,3 +58,6 @@ Pour vérifier :
 - Le CV est accessible sur `/` (français) et `/en` (anglais)
 - Le build fonctionne correctement (testé localement)
 - Tous les fichiers nécessaires sont dans la branche `cv`
+
+
+

@@ -1,56 +1,27 @@
 'use client'
 
 import { useState } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function Education() {
   const [expandedAdditional, setExpandedAdditional] = useState(false)
+  const { t, education: educationData } = useLanguage()
   
-  const education = [
-    {
-      degree: "Design et Recherche UX/UI",
-      institution: "Ironhack, Paris",
-      period: "2024",
-      details: "< 10% d'admis"
-    },
-    {
-      degree: "Diplômé avec félicitations du jury",
-      institution: "ENSBA Paris",
-      period: "2010 - 2015"
-    }
-  ]
+  const education = educationData.data
+  const additionalEducation = educationData.additional
 
-  const additionalEducation = [
-    {
-      degree: "Post-production et Traitement de l'image",
-      institution: "Les Gobelins, Paris",
-      period: "2008 - 2010",
-      details: ""
-    },
-    {
-      degree: "Licence en Lettres Modernes",
-      institution: "Sorbonne",
-      period: "2005 - 2008",
-      details: ""
-    },
-    {
-      degree: "Formation Agroforesterie",
-      institution: "SIL Agroforesterie",
-      period: "2023",
-      details: "QGIS, conception de projet agroforestier, gestion durable du bocage"
-    }
-  ]
 
   const [expandedSection, setExpandedSection] = useState(true)
 
   return (
     <section>
       <div className="flex items-center gap-2 mb-6 group">
-        <h2 className="text-2xl font-medium text-slate-800 tracking-tight border-b border-slate-200 pb-3 print:mb-2 print:pb-1 print:text-lg flex-1">
+        <h2 className="text-2xl font-medium text-slate-800 tracking-tight border-b border-slate-200 pb-3 flex-1">
           <span 
             className="cursor-pointer hover:text-slate-700 hover:bg-slate-50 px-2 py-1 rounded transition-all print:cursor-default print:hover:bg-transparent inline-block"
             onClick={() => setExpandedSection(!expandedSection)}
           >
-            Formation
+            {t.education.title}
             <span className="text-xs text-slate-400 group-hover:text-slate-600 transition-colors print:hidden ml-2">
               {expandedSection ? '−' : '+'}
             </span>
@@ -59,73 +30,117 @@ export default function Education() {
         <button
           onClick={() => setExpandedAdditional(!expandedAdditional)}
           className="text-xs text-slate-400 group-hover:text-slate-600 transition-colors print:hidden"
-          aria-label={expandedAdditional ? 'Réduire' : 'Développer'}
+          aria-label={expandedAdditional ? t.experience.collapse : t.experience.expand}
         >
           {expandedAdditional ? '−' : '+'}
         </button>
       </div>
       <div 
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSection ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'} print:!max-h-none print:!opacity-100`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSection ? 'max-h-[5000px] opacity-100 print:!max-h-none print:!opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <div className="space-y-5">
-        {education.map((edu, idx) => (
-          <div 
-            key={idx}
-            itemScope 
-            itemType="https://schema.org/EducationalOccupationalCredential"
-          >
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="text-lg font-light text-slate-900 mb-1" itemProp="credentialCategory">
-                  {edu.degree}
-                </h3>
-                <p className="text-slate-600 font-light" itemProp="educationalLevel">
-                  {edu.institution}
-                  {edu.location && ` | ${edu.location}`}
-                </p>
-                {edu.details && (
-                  <p className="text-slate-500 text-sm mt-1 font-light italic" itemProp="description">
-                    {edu.details}
+        {education.map((edu, idx) => {
+          const [startDate, endDate] = edu.period.includes(' - ') ? edu.period.split(' - ') : [edu.period, null];
+          const institutionParts = edu.institution.split(', ');
+          const institutionName = institutionParts[0];
+          const location = institutionParts[1] || null;
+          
+          return (
+            <div 
+              key={idx}
+              itemScope 
+              itemType="https://schema.org/Course"
+            >
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-lg font-light text-slate-900 mb-1" itemProp="name">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-slate-600 font-light">
+                    <span itemProp="provider" itemScope itemType="https://schema.org/EducationalOrganization">
+                      <span itemProp="name">{institutionName}</span>
+                      {location && (
+                        <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                          <meta itemProp="addressLocality" content={location} />
+                          <span> | {location}</span>
+                        </span>
+                      )}
+                    </span>
                   </p>
-                )}
+                  {edu.details && (
+                    <p className="text-slate-500 text-sm mt-1 font-light italic" itemProp="description">
+                      {edu.details}
+                    </p>
+                  )}
+                </div>
+                <p className="text-sm text-slate-500 font-light">
+                  {endDate ? (
+                    <>
+                      <time itemProp="courseStartDate" dateTime={startDate}>{startDate}</time>
+                      <span> - </span>
+                      <time itemProp="courseEndDate" dateTime={endDate}>{endDate}</time>
+                    </>
+                  ) : (
+                    <time itemProp="courseStartDate" dateTime={startDate}>{startDate}</time>
+                  )}
+                </p>
               </div>
-              <p className="text-sm text-slate-500 font-light" itemProp="dateCreated">
-                {edu.period}
-              </p>
             </div>
-          </div>
-        ))}
+          );
+        })}
         <div 
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedAdditional ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'} print:!max-h-0 print:!opacity-0 print:!hidden`}
+          className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedAdditional ? 'max-h-[500px] opacity-100 print:!max-h-none print:!opacity-100' : 'max-h-0 opacity-0'}`}
         >
           <div className="space-y-5">
-            {additionalEducation.map((edu, idx) => (
-              <div 
-                key={idx}
-                itemScope 
-                itemType="https://schema.org/EducationalOccupationalCredential"
-              >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg font-light text-slate-900 mb-1" itemProp="credentialCategory">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-slate-600 font-light" itemProp="educationalLevel">
-                      {edu.institution}
-                      {edu.location && ` | ${edu.location}`}
-                    </p>
-                    {edu.details && (
-                      <p className="text-slate-500 text-sm mt-1 font-light italic" itemProp="description">
-                        {edu.details}
+            {additionalEducation.map((edu, idx) => {
+              const [startDate, endDate] = edu.period.includes(' - ') ? edu.period.split(' - ') : [edu.period, null];
+              const institutionParts = edu.institution.split(', ');
+              const institutionName = institutionParts[0];
+              const location = institutionParts[1] || null;
+              
+              return (
+                <div 
+                  key={idx}
+                  itemScope 
+                  itemType="https://schema.org/Course"
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-lg font-light text-slate-900 mb-1" itemProp="name">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-slate-600 font-light">
+                        <span itemProp="provider" itemScope itemType="https://schema.org/EducationalOrganization">
+                          <span itemProp="name">{institutionName}</span>
+                          {location && (
+                            <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                              <meta itemProp="addressLocality" content={location} />
+                              <span> | {location}</span>
+                            </span>
+                          )}
+                        </span>
                       </p>
-                    )}
+                      {edu.details && (
+                        <p className="text-slate-500 text-sm mt-1 font-light italic" itemProp="description">
+                          {edu.details}
+                        </p>
+                      )}
+                    </div>
+                    <p className="text-sm text-slate-500 font-light">
+                      {endDate ? (
+                        <>
+                          <time itemProp="courseStartDate" dateTime={startDate}>{startDate}</time>
+                          <span> - </span>
+                          <time itemProp="courseEndDate" dateTime={endDate}>{endDate}</time>
+                        </>
+                      ) : (
+                        <time itemProp="courseStartDate" dateTime={startDate}>{startDate}</time>
+                      )}
+                    </p>
                   </div>
-                  <p className="text-sm text-slate-500 font-light" itemProp="dateCreated">
-                    {edu.period}
-                  </p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

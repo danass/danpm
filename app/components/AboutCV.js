@@ -1,10 +1,15 @@
+'use client'
+
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function AboutCV() {
+  const { t } = useLanguage()
   const stackInfo = "Next.js 15+, React 19, Tailwind CSS, PostCSS | ATS-friendly, Schema.org metadata, Print-optimized CSS"
   
   return (
-    <section className="mt-12 pt-8 border-t border-slate-200 print:mt-4 print:pt-2 print:border-t-0 print:pb-1">
+    <section className="mt-12 pt-8 border-t border-slate-200">
       <p className="text-xs text-slate-400 text-center font-light italic">
-        Mis en forme avec{' '}
+        {t.aboutCV.madeWith}{' '}
         <span className="relative inline-block group">
           <span className="text-slate-500 underline decoration-dotted cursor-help">
             Cursor

@@ -72,8 +72,8 @@
     
     html, body {
       @apply bg-white text-black;
-      font-size: 10pt;
-      line-height: 1.4;
+      font-size: 16px;
+      line-height: 1.5;
       margin: 0;
       padding: 0;
       background: white !important;
@@ -148,10 +148,8 @@
       max-width: 100% !important;
     }
     
-    /* Header compact pour impression - éviter la séparation */
+    /* Header pour impression - éviter la séparation */
     header {
-      padding-bottom: 0.75rem !important;
-      margin-bottom: 0.75rem !important;
       border-bottom: 1px solid #e2e8f0 !important;
       page-break-after: avoid !important;
       break-after: avoid !important;
@@ -175,9 +173,7 @@
       break-before: avoid !important;
     }
     
-    header > div {
-      gap: 1rem !important;
-    }
+    /* Les gaps sont gérés par les classes Tailwind dans les composants */
     
     /* Portrait pour impression - enlever le bleu */
     img[itemprop="image"] {
@@ -203,37 +199,30 @@
       outline: none !important;
     }
     
-    /* Titres plus compacts */
+    /* Garder les mêmes tailles de titres qu'à l'écran */
     h1 {
-      font-size: 1.8rem !important;
-      margin-bottom: 0.25rem !important;
+      /* Les tailles sont gérées par les classes Tailwind dans les composants */
     }
     
     h2 {
-      font-size: 1.2rem !important;
-      margin-bottom: 0.5rem !important;
-      padding-bottom: 0.25rem !important;
+      /* Les tailles sont gérées par les classes Tailwind dans les composants */
     }
     
     h3 {
-      font-size: 1rem !important;
-      margin-bottom: 0.25rem !important;
+      /* Les tailles sont gérées par les classes Tailwind dans les composants */
     }
     
-    /* Réduire espacements entre sections */
+    /* Garder les espacements normaux entre sections */
     section {
-      margin-bottom: 0.75rem !important;
-      margin-top: 0.5rem !important;
+      /* Les espacements sont gérés par les classes Tailwind dans les composants */
     }
     
-    /* Espacements réduits dans les listes */
+    /* Garder les espacements normaux dans les listes */
     ul, ol {
-      margin-top: 0.3rem !important;
-      margin-bottom: 0.3rem !important;
+      /* Les espacements sont gérés par les classes Tailwind dans les composants */
     }
     
     li {
-      margin-bottom: 0.2rem !important;
       page-break-inside: avoid !important;
       break-inside: avoid !important;
     }
@@ -281,16 +270,6 @@
       outline: none !important;
     }
     
-    /* Espacements compacts pour les compétences */
-    .flex.flex-wrap {
-      gap: 0.25rem !important;
-    }
-    
-    /* Badges compacts */
-    span.inline-block {
-      padding: 0.2rem 0.4rem !important;
-      font-size: 0.75rem !important;
-      margin: 0.1rem !important;
-    }
+    /* Les espacements sont gérés par les classes Tailwind dans les composants */
   }
 }

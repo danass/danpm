@@ -19,7 +19,7 @@ export default function CV({ defaultCollapsed = false }) {
         <div className="print-avoid-break">
           <Header />
           
-          <div className="mt-12 space-y-10 print:mt-0.5 print:space-y-4">
+          <div className="mt-12 space-y-10">
             <ProfileSection />
 
             <Experience defaultCollapsed={defaultCollapsed} />

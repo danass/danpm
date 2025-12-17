@@ -1,4 +1,6 @@
 import './globals.css'
+import { LanguageProvider } from './contexts/LanguageContext'
+import LanguageSetter from './components/LanguageSetter'
 
 export const metadata = {
   title: 'Daniel Assayag - Product Manager | CV',
@@ -14,10 +16,21 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children, params, searchParams }) {
+  // Unwrap params and searchParams (Next.js 15 requirement)
+  // They are promises that need to be awaited in server components
+  // Handle undefined values safely
+  if (params) await params
+  if (searchParams) await searchParams
+
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>
+          <LanguageSetter />
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   )
 }
