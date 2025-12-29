@@ -1,6 +1,9 @@
 import './globals.css'
-import { LanguageProvider } from './contexts/LanguageContext'
+import LanguageProviderWrapper from './components/LanguageProviderWrapper'
+import { CollapseProvider } from './contexts/CollapseContext'
+import { EditProvider } from './contexts/EditContext'
 import LanguageSetter from './components/LanguageSetter'
+import { Toaster } from './components/ui/toaster'
 
 export const metadata = {
   title: 'Daniel Assayag - Product Manager | CV',
@@ -26,10 +29,15 @@ export default async function RootLayout({ children, params, searchParams }) {
   return (
     <html lang="fr">
       <body>
-        <LanguageProvider>
-          <LanguageSetter />
-          {children}
-        </LanguageProvider>
+        <LanguageProviderWrapper>
+          <CollapseProvider>
+            <EditProvider>
+              <LanguageSetter />
+              {children}
+              <Toaster />
+            </EditProvider>
+          </CollapseProvider>
+        </LanguageProviderWrapper>
       </body>
     </html>
   )

@@ -1,0 +1,486 @@
+{
+  "fr": {
+    "short": {
+      "header": {
+        "name": "Daniel Assayag",
+        "jobTitle": "Product Manager",
+        "location": "Paris, 5ème, France",
+        "email": "dan@danpm.com",
+        "linkedin": "linkedin.com/in/daniel-assayag",
+        "github": "github.com/danass"
+      },
+      "profile": {
+        "title": "Résumé Professionnel",
+        "description": "Product Manager spécialisé dans la modernisation de systèmes legacy et l’optimisation de produits à grande échelle. Expert en rédaction de spécifications techniques, Product Ops, et conception data-driven. Background technique avancé (React, SQL, API) permettant une collaboration fluide avec les équipes d'ingénierie."
+      },
+      "experiences": [
+        {
+          "company": "HomeExchange",
+          "position": "Product Manager, Operations & Product Ops",
+          "period": "Février 2025 – Présent",
+          "location": "Paris",
+          "achievements": [
+            "<strong>Migration de Système Legacy</strong> : Pilotage de la transition d'un back-office complexe vers une infrastructure moderne pour 200 utilisateurs internes et 400k clients.",
+            "<strong>Rédaction Technique</strong> : Production de 120+ tickets Jira structurés avec critères d'acceptation et documentation de edge cases.",
+            "<strong>Optimisation Product Ops</strong> : Automatisation du flux Slack→Jira, réduisant les temps de réponse et améliorant la gestion des bugs/features pour 4 équipes.",
+            "<strong>Impact Business</strong> : Revamp du funnel de candidature \"Collection\" atteignant un taux de complétion de 87% et +25% d'exposition via de nouveaux touchpoints."
+          ]
+        },
+        {
+          "company": "Diplome (SaaS)",
+          "position": "Product Engineer & Designer",
+          "period": "2022 – 2024",
+          "location": "Paris",
+          "achievements": [
+            "<strong>Développement Fullstack</strong> : Architecture MVC et API backend avec Next.js et PostgreSQL pour une solution de certification de diplômes.",
+            "<strong>Product Delivery</strong> : Livraison de fonctionnalités critiques (intégration API RNCP, système d'émargement) avec plus de 100 diplômes émis."
+          ]
+        },
+        {
+          "company": "Villette Makerz",
+          "position": "Directeur de Formation",
+          "period": "2020 – 2021",
+          "location": "Paris",
+          "achievements": [
+            "<strong>Conception de référentiels de compétences</strong> et accompagnement pédagogique sur le Design Thinking."
+          ]
+        },
+        {
+          "company": "Projets Vibe Coding",
+          "position": "Développeur Fullstack",
+          "period": "2025 – Présent",
+          "location": "Paris",
+          "achievements": [
+            "<strong>textpad.cloud</strong> : Éditeur de texte décentralisé sur IPFS avec persistance permanente, gestion de folders, historique infini, et publication de blog personnalisé.",
+            "<strong>instapan.pics</strong> : Outil de transformation de photos panoramiques en carrousels Instagram, avec zoom 2x et export vidéo."
+          ]
+        }
+      ],
+      "skills": [
+        {
+          "category": "Gestion de Produit",
+          "skills": [
+            "Priorisation de Features",
+            "Planification sprints",
+            "Elaboration KPIs",
+            "Discovery",
+            " Interviews Stakeholders",
+            "Ingénierie des Fonctionnalités",
+            "Jira",
+            "Scrum"
+          ]
+        },
+        {
+          "category": "TECH FLUENCY",
+          "skills": [
+            "React, Next.js",
+            "PostgreSQL, Prisma",
+            "Design & Architecture API",
+            "Datadog",
+            "AWS",
+            "Git"
+          ]
+        },
+        {
+          "category": "Design & UX",
+          "skills": [
+            "Design de Produits",
+            "Recherche UX",
+            "Figma"
+          ]
+        },
+        {
+          "category": "Outils & Automatisation",
+          "skills": [
+            "Notion",
+            "Slack",
+            "IA Générative"
+          ]
+        }
+      ],
+      "education": {
+        "title": "Formation",
+        "data": [
+          {
+            "degree": "Design et Recherche UX/UI",
+            "institution": "Ironhack",
+            "period": "2024"
+          },
+          {
+            "degree": "Diplôme National Supérieur d'Arts Plastiques (Félicitations du jury)",
+            "institution": "ENSBA Paris",
+            "period": "2010 - 2015"
+          },
+          {
+            "degree": "Licence en Lettres Modernes",
+            "institution": "Sorbonne",
+            "period": "2005 - 2008"
+          }
+        ],
+        "additional": []
+      },
+      "certifications": {
+        "title": "Certifications",
+        "data": [
+          {
+            "name": "IBM Agile Development & Scrum",
+            "issuer": "IBM"
+          },
+          {
+            "name": "Product Management For UX People",
+            "issuer": "Packt",
+            "url": "https://www.coursera.org/account/accomplishments/verify/YW4BJ2WNZUYZ"
+          }
+        ]
+      },
+      "languages": {
+        "text": ""
+      },
+      "activities": {
+        "text": ""
+      },
+      "additional": {
+        "title": "Informations Complémentaires",
+        "text": "Anglais : Bilingue | Permis B | Photographie | Ceinture bleue de Jujitsu brésilien"
+      }
+    },
+    "long": {
+      "header": {
+        "name": "Daniel Assayag",
+        "jobTitle": "Product Manager",
+        "location": "Paris, 5ème, France",
+        "email": "dan@danpm.com",
+        "linkedin": "linkedin.com/in/daniel-assayag",
+        "github": "github.com/danass"
+      },
+      "profile": {
+        "title": "Profil",
+        "description": "Product Manager spécialisé dans la modernisation de systèmes legacy et l'<b><a href=\"https://jij\" target=\"_blank\" rel=\"noopener noreferrer\">optimisation</a></b> produit. <b>Expert</b> en rédaction de spécifications détaillées, accompagnement d'équipes techniques, conception de fonctionnalités data-driven, et prise en compte des besoins utilisateurs et objectifs business."
+      },
+      "experience": {
+        "title": "Expérience"
+      },
+      "skills": [
+        {
+          "category": "Gestion de Produit",
+          "skills": [
+            "Priorisation de Features",
+            "Planification sprints",
+            "Elaboration KPIs",
+            "Discovery",
+            " Interviews Stakeholders",
+            "Ingénierie des Fonctionnalités",
+            "Jira",
+            "Scrum"
+          ]
+        },
+        {
+          "category": "TECH FLUENCY",
+          "skills": [
+            "React, Next.js",
+            "PostgreSQL, Prisma",
+            "Design & Architecture API",
+            "Datadog",
+            "AWS",
+            "Git"
+          ]
+        },
+        {
+          "category": "Design & UX",
+          "skills": [
+            "Design de Produits",
+            "Recherche UX",
+            "Figma"
+          ]
+        },
+        {
+          "category": "Outils & Automatisation",
+          "skills": [
+            "Notion",
+            "Slack",
+            "IA Générative"
+          ]
+        }
+      ],
+      "education": {
+        "title": "Formation",
+        "additional": [
+          {
+            "degree": "Post-production et Traitement de l'image",
+            "institution": "Les Gobelins, Paris",
+            "period": "2008 - 2010",
+            "details": ""
+          },
+          {
+            "degree": "Licence en Lettres Modernes",
+            "institution": "Sorbonne",
+            "period": "2005 - 2008",
+            "details": ""
+          },
+          {
+            "degree": "Formation Agroforesterie",
+            "institution": "SIL Agroforesterie",
+            "period": "2023",
+            "details": "QGIS, conception de projet agroforestier, gestion durable du bocage"
+          }
+        ],
+        "data": [
+          {
+            "degree": "Design et Recherche UX/UI",
+            "institution": "Ironhack, Paris",
+            "period": "2024",
+            "details": "< 10% d'admis"
+          },
+          {
+            "degree": "Diplômé avec félicitations du jury",
+            "institution": "ENSBA Paris",
+            "period": "2010 - 2015",
+            "details": ""
+          }
+        ]
+      },
+      "certifications": {
+        "title": "Certifications",
+        "data": [
+          {
+            "name": "IBM Agile Development and Scrum",
+            "issuer": "IBM"
+          },
+          {
+            "name": "Product Management For UX People",
+            "issuer": "Packt",
+            "url": "https://www.coursera.org/account/accomplishments/verify/YW4BJ2WNZUYZ"
+          },
+          {
+            "name": "Noé (admis)",
+            "issuer": "École des Product Managers"
+          },
+          {
+            "name": "Airtable Certified Builder",
+            "issuer": "Airtable"
+          }
+        ]
+      },
+      "languages": {
+        "title": "Langues",
+        "text": "Français : Bilingue | Anglais : Bilingue | Espagnol : Débutant | Permis B"
+      },
+      "activities": {
+        "title": "Activités",
+        "text": "Pratiques artistiques : Photographie | Ceinture bleue de Jujitsu brésilien | Code"
+      },
+      "experiences": [
+        {
+          "company": "HomeExchange",
+          "position": "Product Manager, Operations & Product Ops",
+          "period": "Février 2025 – Présent",
+          "location": "Paris",
+          "sections": [
+            {
+              "title": "Migration du Back-Office & Modernisation Produit",
+              "achievements": [
+                "Migration d'un back-office legacy vers un système moderne, avec continuité opérationnelle pour ~200 utilisateurs internes (Customer Care, Sales, Marketing, Ops, PM). Livraison de ~80 fonctionnalités et optimisation de modules critiques : Utilisateurs, Maisons, Échanges, permissions, workflows internes",
+                "Expérience confirmée sur produit à grande échelle : 400k utilisateurs impactés (260k membres actifs + flux nouveaux membres + 2500 Collection). Gestion de 2,5 millions de comptes créés",
+                "Priorisation des fonctionnalités du BO : enquête métier approfondie, matrice de priorisation (impact business, fréquence, complexité, dépendances), roadmap phasée avec releases progressives",
+                "Accompagnement opérationnel de 5 développeurs (2 internes + 3 externes) : rédaction des tickets, clarification technique, investigation, résolution de problèmes, arbitrage fonctionnel",
+                "Production de spécifications complètes (120 tickets Jira structurés) : Contexte, Règles métier, Design, Critères d'acceptation, documentation edge cases, captures annotées, workflows",
+                "Utilisation intensive de l'IA générative pour accélérer la conception, la création de maquettes et la production de tickets (×3 plus rapide)",
+                "Refonte complète du système Roles &amp; Permissions : enquête métier, rationalisation, architecture \"moindre privilège\", réduction de 40% des permissions inutiles"
+              ]
+            },
+            {
+              "title": "Product Manager de Collection (Maisons d'exception) - 40 features livrées, 2500 clients",
+              "achievements": [
+                "Accompagnement opérationnel de 4 développeurs internes en collaboration avec un autre Product Manager : rédaction des tickets, clarification technique, investigation, résolution de problèmes, arbitrage fonctionnel",
+                "Réflexion et création de fonctionnalités pour permettre une autre manière de chercher avec des catégories de maisons testées avec un modèle d'IA",
+                "Revamp du funnel de candidature : application multi-étapes avec features comme la possibilité d'annuler sa candidature, sauvegarde/reprise, vérification éligibilité automatisée, suivi de statut, notifications contextuelles. Taux de complétion : 87%",
+                "Coordination avec autres équipes/squads : Squad Paiement pour intégrer le paiement du free trial, Squad User pour intégrer l'authentification et l'inscription avec Auth0",
+                "Algorithme data-driven de traitement de l'éligibilité Collection et du ranking des maisons : optimisation de l'affichage et du choix des maisons à mettre en avant",
+                "Exposition de la page Collection à l'intérieur du site homeexchange.com : création de nouveaux touchpoints pour exposition accrue. +25% d'exposition grâce à l'affichage de bannières pour tous les membres éligibles",
+                "Revamp de la page d'accueil : bannière principale de la section Collection"
+              ]
+            },
+            {
+              "title": "Product Ops, Opérations & Process",
+              "achievements": [
+                "Système d'automatisation Slack→Jira innovant : workflow automatisé collectant retours utilisateurs, création/liaison automatique de tickets, suivi état d'avancement visible dans Slack. Premier du genre chez HomeExchange",
+                "Système de gestion demandes : séparation bugs (#bug-report) et features (#run-bo-requests), amélioration temps de réponse pour 4 équipes business",
+                "Création d'outils pour création de comptes en staging : automatisation des processus de test et développement"
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Diplome (SaaS)",
+          "position": "Product Engineer et Designer",
+          "period": "2022 - 2024",
+          "location": "Paris",
+          "achievements": [
+            "Création SaaS d'authentification/certification pour organismes de formation. Architecture MVC, API backend Next.js, bases PostgreSQL/Prisma",
+            "Features livrées : authentification des diplômes, intégration API RNCP, système d'émargement, gestion des étudiants, génération des diplômes, édition et personnalisation des diplômes. Plus de 100 diplômes émis à ce jour"
+          ]
+        },
+        {
+          "company": "Villette Makerz",
+          "position": "Directeur de Formation",
+          "period": "2020 - 2021",
+          "location": "Paris",
+          "achievements": [
+            "Conception programme Circular Designer et référentiel compétences certification Qualiopi",
+            "Évaluation et suivi de 30 apprenants. Enseignement Design Thinking"
+          ]
+        },
+        {
+          "company": "Université de Paris | CRI / LPI",
+          "position": "Fablab Manager",
+          "period": "2016 - 2020",
+          "location": "Paris",
+          "achievements": [
+            "Enseignement de cours \"Learning by Doing\" : accompagnement d'étudiants (sciences de l'éducation, biologie, master EdTech) dans des projets utilisant les outils du FabLab",
+            "Projets réalisés avec les étudiants : conception, fabrication numérique (imprimantes 3D, découpeuses laser), électronique, programmation, usinage CNC",
+            "Création d'une interface de gestion Airtable (CRM) pour mesurer l'emprunt d'équipements, les réservations, les cours et sessions de cours"
+          ]
+        }
+      ]
+    }
+  },
+  "en": {
+    "short": {
+      "header": {
+        "name": "Daniel Assayag",
+        "jobTitle": "Product Manager",
+        "location": "Paris, France",
+        "email": "dan@danpm.com",
+        "linkedin": "linkedin.com/in/daniel-assayag",
+        "github": "github.com/danass"
+      },
+      "profile": {
+        "title": "Professional Summary",
+        "description": "Product Manager specialized in legacy system modernization and large-scale product optimization. Expert in technical specification writing, Product Ops, and data-driven design. Advanced technical background (React, SQL, API) enabling seamless collaboration with engineering teams."
+      },
+      "experiences": [
+        {
+          "company": "HomeExchange",
+          "position": "Product Manager, Operations & Product Ops",
+          "period": "February 2025 – Present",
+          "location": "Paris",
+          "achievements": [
+            "<strong>Legacy System Migration</strong>: Led the transition of a complex back-office to modern infrastructure for 200 internal users and 400k customers.",
+            "<strong>Technical Writing</strong>: Produced 120+ structured Jira tickets with acceptance criteria and edge case documentation.",
+            "<strong>Product Ops Optimization</strong>: Automated Slack→Jira workflow, reducing response times and improving bug/feature management for 4 teams.",
+            "<strong>Business Impact</strong>: Revamped \"Collection\" application funnel achieving 87% completion rate and +25% exposure through new touchpoints."
+          ]
+        },
+        {
+          "company": "Diplome (SaaS)",
+          "position": "Product Engineer & Designer",
+          "period": "2022 – 2024",
+          "location": "Paris",
+          "achievements": [
+            "<strong>Fullstack Development</strong>: MVC architecture and backend API with Next.js and PostgreSQL for diploma certification solution.",
+            "<strong>Product Delivery</strong>: Delivered critical features (RNCP API integration, attendance system) with 100+ diplomas issued."
+          ]
+        },
+        {
+          "company": "Villette Makerz",
+          "position": "Training Director",
+          "period": "2020 – 2021",
+          "location": "Paris",
+          "achievements": [
+            "<strong>Skills framework design</strong> and pedagogical support on Design Thinking."
+          ]
+        }
+      ],
+      "skills": [
+        {
+          "category": "Product",
+          "skills": [
+            "Strategy",
+            "Roadmap",
+            "Prioritization (Impact/Effort Matrix)",
+            "User Research",
+            "A/B Testing",
+            "KPI Tracking"
+          ]
+        },
+        {
+          "category": "Tools",
+          "skills": [
+            "JIRA (Expert)",
+            "Notion",
+            "Airtable",
+            "Figma",
+            "Dust AI",
+            "Metabase"
+          ]
+        },
+        {
+          "category": "Tech",
+          "skills": [
+            "React",
+            "Next.js",
+            "SQL",
+            "PostgreSQL",
+            "Prisma",
+            "API Design",
+            "Auth0",
+            "Datadog"
+          ]
+        },
+        {
+          "category": "Methodologies",
+          "skills": [
+            "Agile",
+            "Scrum",
+            "Product Ops"
+          ]
+        }
+      ],
+      "education": {
+        "title": "Education",
+        "data": [
+          {
+            "degree": "UX/UI Design and Research",
+            "institution": "Ironhack",
+            "period": "2024"
+          },
+          {
+            "degree": "National Diploma in Visual Arts (Honors)",
+            "institution": "ENSBA Paris",
+            "period": "2010 - 2015"
+          },
+          {
+            "degree": "Bachelor in Modern Literature",
+            "institution": "Sorbonne",
+            "period": "2005 - 2008"
+          }
+        ],
+        "additional": []
+      },
+      "certifications": {
+        "title": "Certifications",
+        "data": [
+          {
+            "name": "IBM Agile Development & Scrum",
+            "issuer": "IBM"
+          },
+          {
+            "name": "Atlassian Jira",
+            "issuer": "Atlassian"
+          },
+          {
+            "name": "Noé PM",
+            "issuer": "Noé"
+          }
+        ]
+      },
+      "languages": {
+        "text": ""
+      },
+      "activities": {
+        "text": ""
+      }
+    },
+    "long": {}
+  }
+}

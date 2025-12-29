@@ -4,7 +4,6 @@ export const cvData = {
     name: "Daniel Assayag",
     title: "Product Manager",
     email: "email@example.com",
-    phone: "+33 X XX XX XX XX",
     linkedin: "linkedin.com/in/danielassayag",
     location: "Paris, France"
   },

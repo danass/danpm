@@ -1,8 +1,12 @@
 export const translations = {
   fr: {
     header: {
+      name: "Daniel Assayag",
       jobTitle: "Product Manager",
       location: "Paris, 5ème",
+      email: "dan@danpm.com",
+      linkedin: "linkedin.com/in/daniel-assayag",
+      github: "github.com/danass",
       closeModal: "Fermer"
     },
     sections: {
@@ -106,8 +110,12 @@ export const translations = {
   },
   en: {
     header: {
+      name: "Daniel Assayag",
       jobTitle: "Product Manager",
       location: "Paris, 5th",
+      email: "dan@danpm.com",
+      linkedin: "linkedin.com/in/daniel-assayag",
+      github: "github.com/danass",
       closeModal: "Close"
     },
     sections: {
@@ -487,4 +495,8 @@ export const skillsData = {
     }
   ]
 }
+
+
+
+
 
