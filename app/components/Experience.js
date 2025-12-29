@@ -151,7 +151,7 @@ export default function Experience({ defaultCollapsed = false }) {
                 'september': '09', 'october': '10', 'november': '11', 'december': '12'
               };
 
-              const yearRangeMatch = periodStr.match(/(\d{4})\s*-\s*(\d{4})/);
+              const yearRangeMatch = periodStr.match(/(\d{4})\s*[–-]\s*(\d{4})/);
               if (yearRangeMatch) {
                 return {
                   start: `${yearRangeMatch[1]}-01-01`,
@@ -162,7 +162,7 @@ export default function Experience({ defaultCollapsed = false }) {
                 };
               }
 
-              const parts = periodStr.split(/\s*-\s*/);
+              const parts = periodStr.split(/\s*[–-]\s*/);
               if (parts.length === 2) {
                 const start = parts[0].trim();
                 const end = parts[1].trim();
