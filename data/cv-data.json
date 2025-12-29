@@ -20,10 +20,10 @@
           "period": "Février 2025 – Présent",
           "location": "Paris",
           "achievements": [
-            "<strong>Migration de Système Legacy</strong> : Pilotage de la transition d'un back-office complexe vers une infrastructure moderne pour 200 utilisateurs internes et 400k clients.",
-            "<strong>Rédaction Technique</strong> : Production de 120+ tickets Jira structurés avec critères d'acceptation et documentation de edge cases.",
-            "<strong>Optimisation Product Ops</strong> : Automatisation du flux Slack→Jira, réduisant les temps de réponse et améliorant la gestion des bugs/features pour 4 équipes.",
-            "<strong>Impact Business</strong> : Revamp du funnel de candidature \"Collection\" atteignant un taux de complétion de 87% et +25% d'exposition via de nouveaux touchpoints."
+            "<strong>Migration Système Legacy (4M comptes)</strong> : Pilotage de la transition d'un back-office complexe vers infrastructure moderne pour <strong>~200 utilisateurs internes</strong> et <strong>260k clients</strong> actifs. Gestion de <strong>4M de comptes créés</strong>. Livraison de <strong>~80 fonctionnalités critiques</strong>.",
+            "<strong>Leadership Technique & Product Ops</strong> : Accompagnement opérationnel de <strong>5 développeurs</strong> + création système d'automatisation Slack→Jira innovant (premier du genre). Production de <strong>120 tickets Jira structurés</strong>. Utilisation <strong>IA générative</strong> pour conception (<strong>×3 plus rapide</strong>).",
+            "<strong>Impact Business Collection</strong> : Revamp funnel candidature avec <strong>taux de complétion 87%</strong>. Coordination inter-squads (Paiement, User Auth0). Algorithme data-driven de ranking maisons. <strong>+25% d'exposition</strong> via nouveaux touchpoints.",
+            "<strong>Optimisation Architecture</strong> : Refonte système Roles & Permissions avec enquête métier, architecture \"moindre privilège\". <strong>Réduction 40% permissions inutiles</strong>. Priorisation via matrice impact/effort, roadmap phasée."
           ]
         },
         {

@@ -169,7 +169,7 @@ export default function Experience({ defaultCollapsed = false }) {
 
                 let startISO = null;
                 let startDisplay = start;
-                const startMatch = start.match(/(\w+)\s+(\d{4})/i);
+                const startMatch = start.match(/([a-zàâäéèêëïîôùûüÿçœæ]+)\s+(\d{4})/i);
                 if (startMatch) {
                   const monthName = startMatch[1].toLowerCase();
                   const year = startMatch[2];
@@ -193,7 +193,7 @@ export default function Experience({ defaultCollapsed = false }) {
                   endDisplay = t.experience.present;
                   endISO = new Date().toISOString().split('T')[0];
                 } else {
-                  const endMatch = end.match(/(\w+)\s+(\d{4})/i);
+                  const endMatch = end.match(/([a-zàâäéèêëïîôùûüÿçœæ]+)\s+(\d{4})/i);
                   if (endMatch) {
                     const monthName = endMatch[1].toLowerCase();
                     const year = endMatch[2];
@@ -240,7 +240,29 @@ export default function Experience({ defaultCollapsed = false }) {
               return { start: null, end: null, isPresent: false, startDisplay: periodStr, endDisplay: periodStr };
             };
 
+            const calculateDuration = (startDate, endDate, isPresent) => {
+              if (!startDate) return '';
+
+              const start = new Date(startDate);
+              const end = isPresent || !endDate ? new Date() : new Date(endDate);
+
+              const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+              const years = Math.floor(months / 12);
+              const remainingMonths = months % 12;
+
+              if (years === 0 && remainingMonths === 0) {
+                return '(< 1 mois)';
+              } else if (years === 0) {
+                return `(${remainingMonths} mois)`;
+              } else if (remainingMonths === 0) {
+                return `(${years} an${years > 1 ? 's' : ''})`;
+              } else {
+                return `(${years} an${years > 1 ? 's' : ''} ${remainingMonths} mois)`;
+              }
+            };
+
             const dates = parseDate(exp.period);
+            const duration = calculateDuration(dates.start, dates.end, dates.isPresent);
 
             return (
               <div
@@ -319,10 +341,13 @@ export default function Experience({ defaultCollapsed = false }) {
                               <>
                                 <time itemProp="startDate" dateTime={dates.start}>{dates.startDisplay}</time>
                                 {dates.end && !dates.isPresent && (
-                                  <span> - <time itemProp="endDate" dateTime={dates.end}>{dates.endDisplay}</time></span>
+                                  <span> – <time itemProp="endDate" dateTime={dates.end}>{dates.endDisplay}</time></span>
                                 )}
                                 {dates.isPresent && (
-                                  <span> - <time itemProp="endDate" dateTime={new Date().toISOString().split('T')[0]}>{dates.endDisplay}</time></span>
+                                  <span> – <time itemProp="endDate" dateTime={new Date().toISOString().split('T')[0]}>{dates.endDisplay}</time></span>
+                                )}
+                                {duration && (
+                                  <span className="text-slate-500 font-normal ml-1">{duration}</span>
                                 )}
                               </>
                             ) : (
