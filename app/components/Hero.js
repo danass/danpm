@@ -21,7 +21,7 @@ export default function Hero() {
 
                     {/* Sub-tagline */}
                     <p className="mt-8 text-lg text-slate-300 font-light leading-relaxed md:text-xl">
-                        Expert en <strong>Product Ops</strong> et <strong>Engineering</strong>, je fais le pont entre les besoins business complexes et l'excellence technique. De la migration de back-offices critiques à la conception de SaaS de A à Z.
+                        Expert en <strong>Product Ops</strong> et <strong>Engineering</strong>, je fais le pont entre les besoins business complexes et l'excellence technique. De la migration de back-offices critiques à l'optimisation de produits à grande échelle.
                     </p>
 
                     {/* Key Pillars */}
@@ -75,7 +75,7 @@ export default function Hero() {
                                     HomeExchange <ArrowRight className="h-4 w-4" />
                                 </h4>
                                 <p className="text-sm text-slate-300 font-light">
-                                    Migration du BO legacy impactant 400k utilisateurs et optimisation du funnel de candidature (+25% d'exposition).
+                                    Migration BO legacy (4M comptes, 260k clients actifs). Roadmap stratégique, frameworks Impact/Effort, discovery utilisateur. Funnel optimisé (87% complétion, +25% exposition).
                                 </p>
                             </div>
                             <div className="flex-1">

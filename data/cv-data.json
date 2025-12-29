@@ -21,9 +21,9 @@
           "location": "Paris",
           "achievements": [
             "<strong>Migration Système Legacy (4M comptes)</strong> : Pilotage de la transition d'un back-office complexe vers infrastructure moderne pour <strong>~200 utilisateurs internes</strong> et <strong>260k clients</strong> actifs. Gestion de <strong>4M de comptes créés</strong>. Livraison de <strong>~80 fonctionnalités critiques</strong>.",
-            "<strong>Leadership Technique & Product Ops</strong> : Accompagnement opérationnel de <strong>5 développeurs</strong> + création système d'automatisation Slack→Jira innovant (premier du genre). Production de <strong>120 tickets Jira structurés</strong>. Utilisation <strong>IA générative</strong> pour conception (<strong>×3 plus rapide</strong>).",
-            "<strong>Impact Business Collection</strong> : Revamp funnel candidature avec <strong>taux de complétion 87%</strong>. Coordination inter-squads (Paiement, User Auth0). Algorithme data-driven de ranking maisons. <strong>+25% d'exposition</strong> via nouveaux touchpoints.",
-            "<strong>Optimisation Architecture</strong> : Refonte système Roles & Permissions avec enquête métier, architecture \"moindre privilège\". <strong>Réduction 40% permissions inutiles</strong>. Priorisation via matrice impact/effort, roadmap phasée."
+            "<strong>Strategic Product Leadership</strong> : Construction roadmap trimestrielle BO avec framework <strong>priorisation Impact/Effort</strong>. Leadership cross-fonctionnel (<strong>5 devs + 4 squads</strong> : Paiement, User, Data, DevOps). <strong>16 epics structurés</strong> avec discovery formalisée. Système Slack→Jira innovant (premier du genre).",
+            "<strong>Discovery & Impact Business</strong> : Discovery utilisateur structurée (Strategic Briefs, HMW, User Stories) → Revamp funnel Collection (<strong>87% complétion, +25% exposition</strong>). Hypothèses testées via feature flags. Coordination inter-squads (Payment free trial, Auth0 User). Algorithme data-driven de ranking maisons.",
+            "<strong>Product Ops & Architecture</strong> : Production de <strong>120 tickets Jira structurés</strong> avec discovery complète. Utilisation <strong>IA générative</strong> (<strong>×3 plus rapide</strong>). Refonte Roles & Permissions avec enquête métier (<strong>-40% permissions inutiles</strong>). Roadmap phasée Q1-Q3."
           ]
         },
         {
@@ -33,7 +33,7 @@
           "location": "Paris",
           "achievements": [
             "<strong>Développement Fullstack</strong> : Architecture MVC et API backend avec Next.js et PostgreSQL pour une solution de certification de diplômes.",
-            "<strong>Product Delivery</strong> : Livraison de fonctionnalités critiques (intégration API RNCP, système d'émargement) avec plus de 100 diplômes émis."
+            "<strong>Product & Business Impact</strong> : Discovery utilisateur → Delivery fonctionnalités critiques (API RNCP, émargement digital). <strong>100+ diplômes émis</strong>. Tracking activation rate & success metrics via analytics."
           ]
         },
         {
@@ -44,30 +44,20 @@
           "achievements": [
             "<strong>Conception de référentiels de compétences</strong> et accompagnement pédagogique sur le Design Thinking."
           ]
-        },
-        {
-          "company": "Projets Vibe Coding",
-          "position": "Développeur Fullstack",
-          "period": "2025 – Présent",
-          "location": "Paris",
-          "achievements": [
-            "<strong>textpad.cloud</strong> : Éditeur de texte décentralisé sur IPFS avec persistance permanente, gestion de folders, historique infini, et publication de blog personnalisé.",
-            "<strong>instapan.pics</strong> : Outil de transformation de photos panoramiques en carrousels Instagram, avec zoom 2x et export vidéo."
-          ]
         }
       ],
       "skills": [
         {
-          "category": "Gestion de Produit",
+          "category": "Product Leadership & Methodologies",
           "skills": [
-            "Priorisation de Features",
-            "Planification sprints",
-            "Elaboration KPIs",
-            "Discovery",
-            " Interviews Stakeholders",
-            "Ingénierie des Fonctionnalités",
-            "Jira",
-            "Scrum"
+            "Roadmap Stratégique (Q1-Q4)",
+            "Framework Impact/Effort",
+            "Strategic Briefs (HMW, KPIs)",
+            "Discovery Utilisateur",
+            "Epic Structuring (16+ epics)",
+            "Cross-Squad Coordination",
+            "Jira Expert (343+ tickets)",
+            "Scrum/Agile"
           ]
         },
         {
