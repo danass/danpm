@@ -74,16 +74,48 @@ export default function Header() {
               <div className="flex items-center gap-2 print:hidden">
                 {isEditMode && <SaveButton />}
 
-                <a
-                  href="/Daniel_Assayag_CV.pdf"
-                  download="Daniel_Assayag_CV.pdf"
+                <button
+                  onClick={async () => {
+                    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+
+                    if (!isLocalhost) {
+                      // Production: use static pre-rendered PDF
+                      const a = document.createElement('a')
+                      a.href = '/Daniel_Assayag_CV.pdf'
+                      a.download = 'Daniel_Assayag_CV.pdf'
+                      document.body.appendChild(a)
+                      a.click()
+                      document.body.removeChild(a)
+                    } else {
+                      // Localhost: use Puppeteer API for fresh generation
+                      try {
+                        const baseUrl = window.location.origin
+                        const response = await fetch(`/api/pdf?baseUrl=${encodeURIComponent(baseUrl)}`)
+
+                        if (!response.ok) throw new Error('PDF generation failed')
+
+                        const blob = await response.blob()
+                        const url = URL.createObjectURL(blob)
+                        const a = document.createElement('a')
+                        a.href = url
+                        a.download = 'Daniel_Assayag_CV.pdf'
+                        document.body.appendChild(a)
+                        a.click()
+                        document.body.removeChild(a)
+                        URL.revokeObjectURL(url)
+                      } catch (error) {
+                        console.error('PDF download error:', error)
+                        alert('Erreur lors du téléchargement du PDF')
+                      }
+                    }
+                  }}
                   className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200 px-3 py-2 rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 print:hidden"
                   aria-label={language === 'fr' ? 'Télécharger PDF' : 'Download PDF'}
                   title={language === 'fr' ? 'Télécharger en PDF' : 'Download as PDF'}
                 >
                   <Printer className="h-4 w-4" />
                   <span className="text-xs">PDF</span>
-                </a>
+                </button>
 
                 <button
                   onClick={() => setIsContactOpen(true)}
