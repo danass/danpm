@@ -69,7 +69,7 @@ export default function Education() {
                 itemScope
                 itemType="https://schema.org/Course"
               >
-                <div className="flex justify-between items-start group">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start group">
                   <div className="flex-1">
                     <h3 className={`${isCompact ? 'text-base' : 'text-lg'} font-light text-slate-900 ${isCompact ? 'mb-0.5' : 'mb-1'}`} itemProp="name">
                       <EditableText
@@ -187,7 +187,7 @@ export default function Education() {
                   itemScope
                   itemType="https://schema.org/Course"
                 >
-                  <div className="flex justify-between items-start group">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start group">
                     <div className="flex-1">
                       <h3 className={`${isCompact ? 'text-base' : 'text-lg'} font-light text-slate-900 ${isCompact ? 'mb-0.5' : 'mb-1'}`} itemProp="name">
                         <EditableText

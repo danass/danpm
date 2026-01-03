@@ -69,6 +69,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -79,6 +80,7 @@
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -102,7 +104,87 @@
   }
 }
 
+/* Mobile-first responsive media queries */
 @layer utilities {
+
+  /* Extra small devices (phones, 480px and below) */
+  @media screen and (max-width: 480px) {
+
+    /* Typography adjustments */
+    h1 {
+      font-size: 1.5rem !important;
+      line-height: 1.2 !important;
+    }
+
+    h2 {
+      font-size: 1.25rem !important;
+    }
+
+    h3 {
+      font-size: 1rem !important;
+    }
+
+    /* Reduce padding/margin for small screens */
+    .container,
+    [class*="max-w-"] {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Stack flex items on mobile */
+    .mobile-stack {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+
+    /* Smaller gaps on mobile */
+    .gap-8 {
+      gap: 1rem;
+    }
+
+    .gap-6 {
+      gap: 0.75rem;
+    }
+  }
+
+  /* Small devices (landscape phones, 481px to 640px) */
+  @media screen and (min-width: 481px) and (max-width: 640px) {
+    h1 {
+      font-size: 1.75rem !important;
+    }
+
+    h2 {
+      font-size: 1.375rem !important;
+    }
+  }
+
+  /* Medium devices (tablets, 641px to 768px) */
+  @media screen and (min-width: 641px) and (max-width: 768px) {
+    h1 {
+      font-size: 2rem !important;
+    }
+  }
+
+  /* Touch device optimizations */
+  @media (hover: none) and (pointer: coarse) {
+
+    /* Larger touch targets */
+    button,
+    a,
+    [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Remove hover effects that don't work well on touch */
+    .hover\:scale-105:hover {
+      transform: none;
+    }
+  }
+}
+
+@layer utilities {
+
   /* Override Next.js portal positioning */
   nextjs-portal {
     left: unset !important;
@@ -115,25 +197,27 @@
       size: auto;
       margin: 1.5cm 1cm;
     }
-    
+
     /* Page continue - désactiver tous les page breaks */
-    html, body {
+    html,
+    body {
       height: auto !important;
       overflow: visible !important;
     }
-    
+
     article {
       height: auto !important;
       overflow: visible !important;
     }
-    
+
     * {
       print-color-adjust: exact;
       -webkit-print-color-adjust: exact;
       color-adjust: exact;
     }
-    
-    html, body {
+
+    html,
+    body {
       @apply bg-white text-black;
       font-size: 16px;
       line-height: 1.5;
@@ -142,14 +226,14 @@
       background: white !important;
       background-color: white !important;
     }
-    
+
     /* Forcer le background blanc pour tous les éléments */
     main {
       background: white !important;
       background-color: white !important;
       background-image: none !important;
     }
-    
+
     /* Supprimer tous les gradients et backgrounds colorés */
     .bg-gradient-to-br,
     .bg-slate-50,
@@ -160,11 +244,11 @@
       background-color: white !important;
       background-image: none !important;
     }
-    
+
     .no-print {
       display: none !important;
     }
-    
+
     /* Permettre un flux continu - éviter les breaks inutiles mais permettre le flux naturel */
     * {
       page-break-inside: auto;
@@ -174,70 +258,72 @@
       page-break-before: auto;
       break-before: auto;
     }
-    
+
     /* Éviter de séparer le header du contenu */
     header {
       page-break-after: avoid !important;
       break-after: avoid !important;
     }
-    
+
     /* Éviter de séparer les titres de leur contenu */
-    h2, h3, h4 {
+    h2,
+    h3,
+    h4 {
       page-break-after: avoid !important;
       break-after: avoid !important;
     }
-    
+
     /* Permettre le flux dans les sections mais éviter les séparations inutiles */
     section {
       page-break-inside: auto;
       break-inside: auto;
     }
-    
+
     /* print-avoid-break : seulement pour éléments critiques (header) */
     .print-avoid-break {
       page-break-inside: avoid !important;
       break-inside: avoid !important;
     }
-    
+
     /* Réduire les espacements pour l'impression */
     article {
       margin: 0 !important;
       padding: 0 !important;
     }
-    
-    article > div {
+
+    article>div {
       padding: 0 !important;
       margin: 0 !important;
       max-width: 100% !important;
     }
-    
+
     /* Header pour impression - éviter la séparation */
     header {
       border-bottom: 1px solid #e2e8f0 !important;
       page-break-after: avoid !important;
       break-after: avoid !important;
     }
-    
+
     /* Éviter de séparer le header du contenu suivant */
-    header + * {
+    header+* {
       page-break-before: avoid !important;
       break-before: avoid !important;
     }
-    
+
     /* Éviter de séparer le header du div qui contient les sections */
-    header ~ div {
+    header~div {
       page-break-before: avoid !important;
       break-before: avoid !important;
     }
-    
+
     /* S'assurer que le premier section (Profil) n'est pas séparé */
     section:first-of-type {
       page-break-before: avoid !important;
       break-before: avoid !important;
     }
-    
+
     /* Les gaps sont gérés par les classes Tailwind dans les composants */
-    
+
     /* Portrait pour impression - enlever le bleu */
     img[itemprop="image"] {
       width: 80px !important;
@@ -248,91 +334,92 @@
       outline: none !important;
       box-shadow: none !important;
     }
-    
+
     /* Supprimer toutes les bordures bleues des images */
     img {
       border-color: #000 !important;
       outline: none !important;
       box-shadow: none !important;
     }
-    
+
     /* Supprimer les styles de lien sur les images */
     a img {
       border-color: #000 !important;
       outline: none !important;
     }
-    
+
     /* Garder les mêmes tailles de titres qu'à l'écran */
     h1 {
       /* Les tailles sont gérées par les classes Tailwind dans les composants */
     }
-    
+
     h2 {
       /* Les tailles sont gérées par les classes Tailwind dans les composants */
     }
-    
+
     h3 {
       /* Les tailles sont gérées par les classes Tailwind dans les composants */
     }
-    
+
     /* Garder les espacements normaux entre sections */
     section {
       /* Les espacements sont gérés par les classes Tailwind dans les composants */
     }
-    
+
     /* Garder les espacements normaux dans les listes */
-    ul, ol {
+    ul,
+    ol {
       /* Les espacements sont gérés par les classes Tailwind dans les composants */
     }
-    
+
     li {
       page-break-inside: avoid !important;
       break-inside: avoid !important;
     }
-    
+
     /* Espacement initial réduit */
     main {
       margin: 0 !important;
       padding: 0 !important;
     }
-    
-    main > div {
+
+    main>div {
       margin: 0 !important;
       padding: 0 !important;
     }
-    
+
     /* S'assurer que le contenu commence en haut */
     article {
       margin-top: 0 !important;
       padding-top: 0 !important;
     }
-    
+
     /* Optimiser les couleurs pour l'impression */
     .bg-slate-50 {
       background-color: #f8fafc !important;
     }
-    
+
     /* Garder les couleurs grises pour les chips de compétences */
     .bg-slate-100 {
       background-color: #f1f5f9 !important;
     }
-    
+
     .text-slate-700 {
       color: #334155 !important;
     }
-    
+
     /* Assurer la lisibilité */
     a {
       color: #000 !important;
       text-decoration: none !important;
     }
-    
+
     /* Enlever les bordures bleues des images */
     img {
       border-color: #000 !important;
       outline: none !important;
     }
-    
+
     /* Les espacements sont gérés par les classes Tailwind dans les composants */
   }
 }

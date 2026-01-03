@@ -14,7 +14,7 @@ export default function Footer() {
 
     return (
         <footer className="mt-20 pb-8 print:hidden">
-            <div className="max-w-5xl mx-auto px-8">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
                 <div className="relative group">
                     {/* Glassmorphic card */}
                     <div className="absolute inset-0 bg-white/40 backdrop-blur-xl rounded-3xl border border-white/40 shadow-2xl shadow-slate-200/50 -z-10 transition-all duration-500 group-hover:shadow-blue-100/50"></div>

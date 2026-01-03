@@ -2,6 +2,7 @@
 
 import CV from './components/CV'
 import Footer from './components/Footer'
+import CoverLetterGenerator from './components/CoverLetterGenerator'
 
 export default function Home() {
   return (
@@ -12,6 +13,9 @@ export default function Home() {
       <div className="absolute right-1/3 bottom-32 h-96 w-96 rounded-full bg-purple-400/10 blur-3xl print:hidden"></div>
 
       <CV />
+      <div className="max-w-4xl mx-auto px-4">
+        <CoverLetterGenerator />
+      </div>
       <Footer />
     </main>
   )

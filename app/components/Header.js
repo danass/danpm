@@ -46,14 +46,14 @@ export default function Header() {
   return (
     <>
       <header className="print-avoid-break border-b border-slate-200 pb-8" itemScope itemType="https://schema.org/Person">
-        <div className="flex items-start gap-8">
+        <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 md:gap-8">
           <div className="flex-shrink-0">
             <Image
               src="/portrait.jpg"
               alt="Daniel Assayag"
               width={140}
               height={140}
-              className="rounded-full object-cover border-4 border-white shadow-lg print:!border-white print:shadow-none print:outline-none cursor-pointer hover:scale-105 transition-transform print:cursor-default print:hover:scale-100 w-[140px] h-[140px]"
+              className="rounded-full object-cover border-4 border-white shadow-lg print:!border-white print:shadow-none print:outline-none cursor-pointer hover:scale-105 transition-transform print:cursor-default print:hover:scale-100 w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px]"
               itemProp="image"
               priority
               onClick={() => setIsImageExpanded(true)}
@@ -61,7 +61,7 @@ export default function Header() {
           </div>
           <div className="flex-1 pt-2">
             <div className="flex items-center justify-between mb-2">
-              <h1 className="text-5xl font-light text-slate-900 tracking-tight" itemProp="name">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight" itemProp="name">
                 <EditableText
                   value={t.header?.name || "Daniel Assayag"}
                   onChange={(val) => {
@@ -71,7 +71,7 @@ export default function Header() {
                   className="inline"
                 />
               </h1>
-              <div className="flex items-center gap-2 print:hidden">
+              <div className="flex flex-wrap items-center gap-1 sm:gap-2 print:hidden">
                 {isEditMode && <SaveButton />}
 
                 <button
@@ -149,14 +149,14 @@ export default function Header() {
                 </button>
               </div>
             </div>
-            <p className="font-light text-2xl text-slate-600 mb-6" itemProp="jobTitle">
+            <p className="font-light text-lg sm:text-xl md:text-2xl text-slate-600 mb-4 sm:mb-6" itemProp="jobTitle">
               <EditableText
                 value={t.header.jobTitle}
                 onChange={handleJobTitleChange}
                 className="inline"
               />
             </p>
-            <div className={`flex flex-wrap ${isCompact ? 'gap-4' : 'gap-6'} text-slate-500 ${isCompact ? 'text-xs' : 'text-sm'}`}>
+            <div className={`flex flex-wrap ${isCompact ? 'gap-2 sm:gap-4' : 'gap-3 sm:gap-4 md:gap-6'} text-slate-500 ${isCompact ? 'text-xs' : 'text-xs sm:text-sm'}`}>
               <p itemProp="email">
                 📧{' '}
                 {isEditMode ? (

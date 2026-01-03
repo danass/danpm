@@ -20,10 +20,10 @@ export default function CV() {
       itemScope
       itemType="https://schema.org/Person"
     >
-      <div className="max-w-7xl mx-auto px-8 py-12 print:p-0 print:max-w-full print:px-0 print:py-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-12 print:p-0 print:max-w-full print:px-0 print:py-0">
         {/* CV Content for PDF export - excludes Hero and ProjectsShowcase */}
         <div id="cv-pdf-content">
-          <GlassCard className="p-10 print:bg-white print:shadow-none print:border-none print:p-0">
+          <GlassCard className="p-4 sm:p-6 md:p-8 lg:p-10 print:bg-white print:shadow-none print:border-none print:p-0">
             <div className="print-avoid-break">
               <Header />
 

@@ -272,7 +272,7 @@ export default function Experience({ defaultCollapsed = false }) {
                 itemType="https://schema.org/OrganizationRole"
                 className={`${idx > 0 ? (isCompact ? 'mt-6 pt-6' : 'mt-8 pt-8') : ''} ${idx > 0 ? 'border-t border-slate-100' : ''}`}
               >
-                <div className={`flex justify-between items-start ${isCompact ? 'mb-3' : 'mb-4'}`}>
+                <div className={`flex flex-col sm:flex-row sm:justify-between sm:items-start ${isCompact ? 'mb-3' : 'mb-4'}`}>
                   <div className="flex-1">
                     {/* Nom de l'entreprise - placé AVANT le titre du poste pour une meilleure détection ATS */}
                     <p className={`text-slate-700 font-semibold ${isCompact ? 'text-base mb-1' : 'text-lg mb-1.5'}`} itemProp="worksFor" itemScope itemType="https://schema.org/Organization">
@@ -327,7 +327,7 @@ export default function Experience({ defaultCollapsed = false }) {
                       )}
                     </div>
                   </div>
-                  <div className={`text-right ${isCompact ? 'text-xs' : 'text-sm'} text-slate-600 font-medium whitespace-nowrap`}>
+                  <div className={`text-left sm:text-right mt-2 sm:mt-0 ${isCompact ? 'text-xs' : 'text-xs sm:text-sm'} text-slate-600 font-medium sm:whitespace-nowrap`}>
                     {dates.start && (
                       <p>
                         {isEditMode ? (
