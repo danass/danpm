@@ -12,32 +12,27 @@ import SkillChip from './SkillChip'
 import { Plus } from 'lucide-react'
 
 export default function Skills({ defaultCollapsed = false }) {
-  const { t, skills, updateData, version } = useLanguage()
+  const { t, skills = [], updateData, isLoading } = useLanguage()
   const { isCompact } = useCollapse()
   const { isEditMode, setHasChanges } = useEdit()
-  // Par défaut, toutes les compétences sont visibles (sauf si defaultCollapsed)
-  const [expandedCategories, setExpandedCategories] = useState(
-    Object.fromEntries(Array.from({ length: skills.length }, (_, i) => [i, !defaultCollapsed]))
-  )
+
+  const [expandedCategories, setExpandedCategories] = useState({})
+  const [expandedSection, setExpandedSection] = useState(true)
 
   useEffect(() => {
-    setExpandedCategories(
-      Object.fromEntries(Array.from({ length: skills.length }, (_, i) => [i, !defaultCollapsed]))
-    )
+    if (skills && skills.length > 0) {
+      setExpandedCategories(
+        Object.fromEntries(Array.from({ length: skills.length }, (_, i) => [i, !defaultCollapsed]))
+      )
+    }
   }, [defaultCollapsed, skills.length])
 
-  useEffect(() => {
-    if (version === 'short') {
-      setExpandedCategories(
-        Object.fromEntries(Array.from({ length: skills.length }, (_, i) => [i, true]))
-      )
-      setExpandedSection(true)
-    }
-  }, [version, skills.length])
+  // Wait for data to load
+  if (isLoading || !skills || skills.length === 0) {
+    return null
+  }
 
   const skillCategories = skills
-
-  const [expandedSection, setExpandedSection] = useState(true)
 
   // Quand on clique sur le titre "Compétences", tout se collapse/expand
   const handleSectionToggle = () => {

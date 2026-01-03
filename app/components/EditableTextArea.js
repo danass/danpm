@@ -2,11 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useEdit } from '../contexts/EditContext'
+import AIImproveButton from './AIImproveButton'
 
-export default function EditableTextArea({ 
-  value, 
-  onChange, 
-  className = '', 
+export default function EditableTextArea({
+  value,
+  onChange,
+  className = '',
   placeholder = '...',
   preserveFormatting = false // Si true, préserve le formatage bold même en mode édition
 }) {
@@ -47,11 +48,10 @@ export default function EditableTextArea({
   }
 
   if (!isEditMode) {
-    // En mode non-édition, afficher avec le formatage
     return (
-      <div 
+      <div
         className={className}
-        dangerouslySetInnerHTML={{ __html: (value || '').replace(/(Ceinture bleue de Jujitsu brésilien|Blue belt in Brazilian Jiu-Jitsu)/g, '<strong class="font-medium text-slate-900">$1</strong>').replace(/\n/g, '<br>') }} 
+        dangerouslySetInnerHTML={{ __html: (value || '').replace(/(Ceinture bleue de Jujitsu brésilien|Blue belt in Brazilian Jiu-Jitsu)/g, '<strong class="font-medium text-slate-900">$1</strong>').replace(/\n/g, '<br>') }}
       />
     )
   }
@@ -72,18 +72,26 @@ export default function EditableTextArea({
   }
 
   return (
-    <div 
-      className={`${className} cursor-text hover:bg-blue-50 hover:outline hover:outline-2 hover:outline-blue-300 rounded whitespace-pre-wrap`}
-      onClick={handleClick}
-      title="Cliquez pour éditer"
-      style={{ 
-        padding: '1px 2px',
-        display: 'block',
-        minWidth: 'fit-content'
-      }}
-    >
-      {value || placeholder}
+    <div className="relative group/editable flex items-start gap-1">
+      <div
+        className={`${className} flex-1 cursor-text hover:bg-blue-50 hover:outline hover:outline-2 hover:outline-blue-300 rounded whitespace-pre-wrap`}
+        onClick={handleClick}
+        title="Cliquez pour éditer"
+        style={{
+          padding: '1px 2px',
+          display: 'block',
+          minWidth: 'fit-content'
+        }}
+      >
+        {value || placeholder}
+      </div>
+      {isEditMode && (
+        <AIImproveButton
+          text={value}
+          onApply={onChange}
+          className="opacity-0 group-hover/editable:opacity-100 transition-opacity mt-1"
+        />
+      )}
     </div>
   )
 }
-

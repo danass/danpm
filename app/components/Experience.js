@@ -138,7 +138,8 @@ export default function Experience({ defaultCollapsed = false }) {
             const parseDate = (periodStr) => {
               if (!periodStr) return { start: null, end: null, isPresent: false, startDisplay: '', endDisplay: '' };
 
-              const isPresent = periodStr.toLowerCase().includes(t.experience.present.toLowerCase()) ||
+              const presentWord = t.experience?.present || 'Présent';
+              const isPresent = periodStr.toLowerCase().includes(presentWord.toLowerCase()) ||
                 periodStr.toLowerCase().includes('présent') ||
                 periodStr.toLowerCase().includes('present');
 
@@ -308,11 +309,11 @@ export default function Experience({ defaultCollapsed = false }) {
                       </div>
                       {!exp.sections && exp.achievements.length > 0 && (
                         <button
-                          onClick={() => setExpandedExps(prev => ({ ...prev, [idx]: !prev[idx] }))}
+                          onClick={() => setExpandedExps(prev => ({ ...prev, [idx]: prev[idx] === false ? true : false }))}
                           className="text-xs text-slate-400 group-hover:text-slate-600 opacity-0 group-hover:opacity-100 transition-all print:hidden"
-                          aria-label={expandedExps[idx] ? t.experience.collapse : t.experience.expand}
+                          aria-label={expandedExps[idx] !== false ? t.experience?.collapse : t.experience?.expand}
                         >
-                          {expandedExps[idx] ? '−' : '+'}
+                          {expandedExps[idx] !== false ? '−' : '+'}
                         </button>
                       )}
                       {exp.sections && isHomeExchange(idx) && (
@@ -461,8 +462,8 @@ export default function Experience({ defaultCollapsed = false }) {
                   </div>
                 ) : (
                   <div
-                    className={`transition-all duration-300 ease-in-out ${expandedExps[idx] ? 'opacity-100' : 'max-h-0 opacity-0'}`}
-                    style={!expandedExps[idx] ? { overflow: 'hidden' } : {}}
+                    className={`transition-all duration-300 ease-in-out ${expandedExps[idx] !== false ? 'opacity-100' : 'max-h-0 opacity-0'}`}
+                    style={expandedExps[idx] === false ? { overflow: 'hidden' } : {}}
                     itemProp="description"
                   >
                     <ul className={`list-none ${isCompact ? 'space-y-1' : 'space-y-1.5'} text-slate-600 ml-0`}>
@@ -472,24 +473,28 @@ export default function Experience({ defaultCollapsed = false }) {
                           className={`${isCompact ? 'text-xs' : 'text-sm'} leading-relaxed flex items-center group`}
                         >
                           <span className={`text-slate-400 ${isCompact ? 'mr-1.5 print:mr-1' : 'mr-2 print:mr-1'} flex-shrink-0`}>•</span>
-                          <RichEditableText
-                            value={achievement}
-                            onChange={(val) => handleSimpleAchievementChange(idx, i, val)}
-                            multiline={true}
-                            className="flex-1"
-                            tag="span"
-                          />
-                          {isEditMode && (
-                            <AddRemoveButtons
-                              onAdd={() => {
-                                const newExps = [...experiences]
-                                newExps[idx].achievements.splice(i + 1, 0, '')
-                                updateData('experiences', newExps)
-                                setHasChanges(true)
-                              }}
-                              onRemove={() => removeAchievement(idx, null, i)}
-                              showAdd={true}
-                            />
+                          {isEditMode ? (
+                            <>
+                              <RichEditableText
+                                value={achievement}
+                                onChange={(val) => handleSimpleAchievementChange(idx, i, val)}
+                                multiline={true}
+                                className="flex-1"
+                                tag="span"
+                              />
+                              <AddRemoveButtons
+                                onAdd={() => {
+                                  const newExps = [...experiences]
+                                  newExps[idx].achievements.splice(i + 1, 0, '')
+                                  updateData('experiences', newExps)
+                                  setHasChanges(true)
+                                }}
+                                onRemove={() => removeAchievement(idx, null, i)}
+                                showAdd={true}
+                              />
+                            </>
+                          ) : (
+                            <span dangerouslySetInnerHTML={{ __html: achievement }} />
                           )}
                         </li>
                       ))}

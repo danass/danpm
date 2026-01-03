@@ -2,12 +2,13 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useEdit } from '../contexts/EditContext'
-import { Bold, Link as LinkIcon, ChevronDown } from 'lucide-react'
+import { Bold, Link as LinkIcon, ChevronDown, Sparkles } from 'lucide-react'
+import AIImproveButton from './AIImproveButton'
 
-export default function RichEditableText({ 
-  value, 
-  onChange, 
-  className = '', 
+export default function RichEditableText({
+  value,
+  onChange,
+  className = '',
   tag: Tag = 'span',
   multiline = false,
   placeholder = '...'
@@ -45,11 +46,19 @@ export default function RichEditableText({
   useEffect(() => {
     // Ne mettre à jour que si on n'est pas en train d'éditer
     if (elementRef.current && !isEditing) {
-      const newValue = decodeHTML(value || placeholder)
       const currentHtml = elementRef.current.innerHTML || ''
-      // Comparer directement le HTML décodé
-      if (currentHtml !== newValue) {
-        elementRef.current.innerHTML = newValue
+
+      // If we have a real value, update the content
+      if (value && value.trim() !== '') {
+        const newValue = decodeHTML(value)
+        if (currentHtml !== newValue) {
+          elementRef.current.innerHTML = newValue
+        }
+      }
+      // If no value but content exists from SSR, keep it (don't replace with placeholder)
+      // Only set placeholder if element is truly empty
+      else if (currentHtml.trim() === '' || currentHtml === placeholder) {
+        elementRef.current.innerHTML = placeholder
       }
     }
   }, [value, isEditing, placeholder])
@@ -82,7 +91,7 @@ export default function RichEditableText({
       const range = selection.getRangeAt(0)
       const container = range.commonAncestorContainer
       const element = container.nodeType === Node.TEXT_NODE ? container.parentElement : container
-      
+
       if (element) {
         const computedStyle = window.getComputedStyle(element)
         const fontSize = computedStyle.fontSize
@@ -102,7 +111,7 @@ export default function RichEditableText({
       const range = selection.getRangeAt(0)
       const container = range.commonAncestorContainer
       const element = container.nodeType === Node.TEXT_NODE ? container.parentElement : container
-      
+
       if (element) {
         const computedStyle = window.getComputedStyle(element)
         const fontFamily = computedStyle.fontFamily
@@ -124,15 +133,15 @@ export default function RichEditableText({
         const rect = range.getBoundingClientRect()
         const elementRect = elementRef.current.getBoundingClientRect()
         const toolbarRect = toolbarRef.current.getBoundingClientRect()
-        
+
         // Mettre à jour les valeurs depuis la sélection
         setCurrentSize(getSelectedFontSize())
         setCurrentFont(getSelectedFontFamily())
-        
+
         // Positionner la toolbar au-dessus de la sélection
         const top = rect.top - elementRect.top - toolbarRect.height - 8
         const left = rect.left - elementRect.left + (rect.width / 2) - (toolbarRect.width / 2)
-        
+
         setToolbarPosition({ top, left })
       }
     }
@@ -299,7 +308,7 @@ export default function RichEditableText({
   return (
     <div className="relative inline-block w-full">
       {isEditing && showToolbar && (
-        <div 
+        <div
           ref={toolbarRef}
           className="absolute z-50 bg-white border border-slate-300 rounded shadow-lg p-1.5 flex items-center gap-1.5 flex-wrap"
           style={{
@@ -336,7 +345,7 @@ export default function RichEditableText({
               <ChevronDown className="h-3 w-3 flex-shrink-0" />
             </button>
             {showFontDropdown && (
-              <div 
+              <div
                 className="fixed bg-white border border-slate-300 rounded shadow-lg max-h-48 overflow-y-auto min-w-[120px]"
                 style={{
                   zIndex: 9999,
@@ -404,7 +413,7 @@ export default function RichEditableText({
               <ChevronDown className="h-3 w-3" />
             </button>
             {showSizeDropdown && (
-              <div 
+              <div
                 className="fixed bg-white border border-slate-300 rounded shadow-lg max-h-48 overflow-y-auto min-w-[60px]"
                 style={{
                   zIndex: 9999,
@@ -450,9 +459,15 @@ export default function RichEditableText({
           >
             <LinkIcon className="h-3.5 w-3.5" />
           </button>
+          <div className="w-px h-5 bg-slate-300" />
+          <AIImproveButton
+            text={value}
+            onApply={onChange}
+            className="p-1.5 hover:bg-purple-100 rounded border border-purple-300"
+          />
         </div>
       )}
-      <Tag 
+      <Tag
         ref={elementRef}
         contentEditable={isEditing}
         suppressContentEditableWarning
@@ -464,7 +479,7 @@ export default function RichEditableText({
         style={{
           width: 'fit-content',
           minWidth: 'fit-content',
-          ...(multiline ? { 
+          ...(multiline ? {
             whiteSpace: 'pre-wrap',
             wordBreak: 'break-word'
           } : {

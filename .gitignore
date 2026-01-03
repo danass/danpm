@@ -44,3 +44,6 @@ opencats/
 # database
 data/cv.db
 data/cv.db-journal
+
+# Local Data Sources
+data/sources/

@@ -8,7 +8,7 @@ import { useToast } from '../hooks/use-toast'
 
 export default function SaveButton() {
   const { isEditMode, hasChanges, setHasChanges } = useEdit()
-  const { language, t, experiences, skills, education, certifications, languages, activities, savedData, loadSavedData } = useLanguage()
+  const { saveData, language, t, experiences, skills, education, certifications, languages, activities, cvData } = useLanguage()
   const [isSaving, setIsSaving] = useState(false)
   const [isSaved, setIsSaved] = useState(false)
   const { toast } = useToast()
@@ -18,62 +18,18 @@ export default function SaveButton() {
   const handleSave = async () => {
     setIsSaving(true)
     try {
-      // Récupérer toutes les données actuelles depuis le contexte
-      // Récupérer les valeurs actuelles depuis t (qui contient déjà les données fusionnées)
-      const currentData = {
-        header: {
-          name: t.header?.name || 'Daniel Assayag',
-          jobTitle: t.header.jobTitle,
-          location: t.header.location,
-          email: t.header?.email || 'dseyag@gmail.com',
-          linkedin: t.header?.linkedin || 'linkedin.com/in/daniel-assayag',
-          github: t.header?.github || 'github.com/danass'
-        },
-        profile: {
-          title: t.profile.title,
-          description: t.profile.description
-        },
-        experience: {
-          title: t.experience.title
-        },
-        skills: {
-          title: t.skills.title
-        },
-        education: education,
-        certifications: certifications,
-        languages: languages,
-        activities: activities,
-        experiences: experiences,
-        skills: skills
-      }
+      const result = await saveData()
 
-      // Préparer les données à sauvegarder - pour le moment, on ne garde que le français
-      const dataToSave = {
-        fr: currentData
-        // Temporairement, on ne sauvegarde pas la version anglaise
-        // en: savedData?.en || {}
-      }
-
-      const response = await fetch('/api/cv-data', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(dataToSave),
-      })
-
-      if (response.ok) {
+      if (result.success) {
         setIsSaved(true)
         setHasChanges(false)
-        // Recharger les données depuis la base de données pour synchroniser
-        loadSavedData()
         toast({
           title: "Sauvegardé",
-          description: "Les modifications ont été enregistrées avec succès.",
+          description: "Les modifications ont été enregistrées dans cv-data.json.",
         })
         setTimeout(() => setIsSaved(false), 2000)
       } else {
-        throw new Error('Erreur lors de la sauvegarde')
+        throw new Error(result.error || 'Erreur lors de la sauvegarde')
       }
     } catch (error) {
       console.error('Error saving:', error)
@@ -91,13 +47,12 @@ export default function SaveButton() {
     <button
       onClick={handleSave}
       disabled={isSaving || !hasChanges}
-      className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-        isSaved
+      className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${isSaved
           ? 'bg-green-500 text-white hover:bg-green-600'
           : hasChanges
-          ? 'bg-blue-600 text-white hover:bg-blue-700'
-          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-      }`}
+            ? 'bg-blue-600 text-white hover:bg-blue-700'
+            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+        }`}
       title={hasChanges ? 'Sauvegarder les modifications' : 'Aucune modification'}
     >
       {isSaved ? (
@@ -114,4 +69,3 @@ export default function SaveButton() {
     </button>
   )
 }
-

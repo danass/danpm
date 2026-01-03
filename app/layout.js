@@ -2,6 +2,7 @@ import './globals.css'
 import LanguageProviderWrapper from './components/LanguageProviderWrapper'
 import { CollapseProvider } from './contexts/CollapseContext'
 import { EditProvider } from './contexts/EditContext'
+import { AIReviewProvider } from './contexts/AIReviewContext'
 import LanguageSetter from './components/LanguageSetter'
 import { Toaster } from './components/ui/toaster'
 
@@ -32,9 +33,11 @@ export default async function RootLayout({ children, params, searchParams }) {
         <LanguageProviderWrapper>
           <CollapseProvider>
             <EditProvider>
-              <LanguageSetter />
-              {children}
-              <Toaster />
+              <AIReviewProvider>
+                <LanguageSetter />
+                {children}
+                <Toaster />
+              </AIReviewProvider>
             </EditProvider>
           </CollapseProvider>
         </LanguageProviderWrapper>

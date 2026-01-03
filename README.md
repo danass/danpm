@@ -1,88 +1,52 @@
-# CV - Daniel Assayag
+# Daniel Assayag - Product Manager CV
 
-CV optimisé pour ATS (Applicant Tracking Systems) créé avec Next.js 15+, React 19, et Tailwind CSS.
+Interactive CV built with Next.js 15, React 19, and Tailwind CSS.
 
-## 🚀 Démarrage Rapide
+**Live:** [danpm.com](https://danpm.com)
+
+## 🚀 Quick Start
 
 ```bash
-# Installer les dépendances
 npm install
-
-# Lancer le serveur de développement
 npm run dev
-
-# Ouvrir http://localhost:3000
+# Open http://localhost:3000
 ```
 
-## 📄 Export PDF
+## ✨ Features
 
-1. Ouvrez le CV dans le navigateur
-2. Appuyez sur `Cmd+P` (Mac) ou `Ctrl+P` (Windows/Linux)
-3. Sélectionnez "Enregistrer en PDF"
-4. Ajustez les marges si nécessaire
-
-## 🌐 Versions
-
-- **Français** : `http://localhost:3000/`
-- **Anglais** : `http://localhost:3000/en`
-
-## 🔍 Test ATS
-
-Votre CV est déjà optimisé pour ATS, mais vous pouvez le tester avec :
-
-### Option 1 : Outils en Ligne (Recommandé - Pas d'installation)
-- **ResumeATS** : https://resumeats.io (100% gratuit, pas d'inscription)
-- **Woberry** : https://www.woberry.com/ats-resume-checker
-- **ATSScan** : https://www.atsscan.com
-
-### Option 2 : Script Local
-```bash
-# Vérifier la structure ATS
-node ats-checker.js
-```
-
-### Option 3 : OpenCATS (Nécessite Docker)
-Voir `README_OPENCATS.md` pour l'installation.
-
-**Pour des alternatives sans Docker, voir `ATS_TESTING_ALTERNATIVES.md`**
-
-## ✨ Fonctionnalités
-
-- ✅ Optimisé pour ATS (Schema.org, HTML sémantique)
-- ✅ Version française et anglaise
-- ✅ Mode collapse/expand pour les sections
-- ✅ Export PDF optimisé
-- ✅ Responsive design
-- ✅ Print-friendly
+- 🌐 French & English versions
+- ✏️ Edit mode with live preview
+- 📊 SQLite database for persistence  
+- 🎨 Glassmorphism design
+- 📱 Responsive & print-friendly
+- 🔍 ATS-optimized (Schema.org markup)
 
 ## 📁 Structure
 
 ```
 app/
-  components/
-    CV.js              # Version française
-    CV-en.js           # Version anglaise
-    Header.js           # En-tête avec photo
-    Experience.js       # Expériences professionnelles
-    Skills.js           # Compétences
-    Education.js        # Formation
-    Certifications.js   # Certifications
-    Languages.js        # Langues
-    Activities.js       # Activités
-    AboutCV.js          # À propos
+  components/     # CV sections (Header, Experience, Skills, etc.)
+  contexts/       # React contexts (Language, Edit, Collapse)
+  api/            # API routes (save, migrate)
+data/
+  cv-data.json    # CV content (FR/EN, short/long versions)
+  cv.db           # SQLite database
 ```
 
-## 🛠️ Technologies
+## 📝 Editing Content
 
-- Next.js 15+
-- React 19
+1. Run `npm run dev`
+2. Click the edit icon in the header
+3. Edit any text directly
+4. Click save to persist changes
+
+## 📄 PDF Export
+
+Press `Cmd+P` (Mac) or `Ctrl+P` and save as PDF.
+
+## 🛠️ Tech Stack
+
+- Next.js 15+ / React 19
 - Tailwind CSS
-- PostCSS
-
-## 📝 Modification du Contenu
-
-Voir `INSTRUCTIONS.md` pour les instructions détaillées.
-
-## 🎯 Optimisations ATS
-
-Voir `ATS_OPTIMIZATION.md` pour la liste complète des optimisations.
+- SQLite (better-sqlite3)
+- Lucide Icons

@@ -1,20 +1,21 @@
-import { getAllCVData } from '@/lib/cv-db'
+import fs from 'fs'
+import path from 'path'
 import { LanguageProviderClient } from './LanguageProviderClient'
 
-export default async function LanguageProviderWrapper({ children }) {
-  // Charger les données depuis SQLite côté serveur
-  let initialData = null
+// Read JSON file synchronously on server
+function getInitialData() {
   try {
-    initialData = getAllCVData()
-    // Si les données sont vides, retourner null
-    if (initialData && (!initialData.fr || Object.keys(initialData.fr).length === 0) && 
-        (!initialData.en || Object.keys(initialData.en).length === 0)) {
-      initialData = null
-    }
+    const dataPath = path.join(process.cwd(), 'data', 'cv-data.json')
+    const data = fs.readFileSync(dataPath, 'utf8')
+    return JSON.parse(data)
   } catch (error) {
-    console.error('Error loading initial CV data:', error)
-    initialData = null
+    console.error('Error loading cv-data.json:', error)
+    return null
   }
+}
+
+export default async function LanguageProviderWrapper({ children }) {
+  const initialData = getInitialData()
 
   return (
     <LanguageProviderClient initialData={initialData}>
@@ -22,4 +23,3 @@ export default async function LanguageProviderWrapper({ children }) {
     </LanguageProviderClient>
   )
 }
-

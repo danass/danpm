@@ -37,4 +37,85 @@
     margin-bottom: 0;
     border-width: 0;
  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  @page {
+    margin: 0.5cm;
+    size: A4;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  html, body {
+    height: auto;
+    overflow: visible !important;
+  }
+  
+  body {
+    font-size: 10pt;
+    line-height: 1.3;
+    background: white !important;
+  }
+  
+  /* Hide non-CV elements */
+  .print\\:hidden,
+  .pdf-exclude,
+  header button,
+  header .flex.items-center.gap-2 {
+    display: none !important;
+  }
+  
+  /* Remove glassmorphism for print */
+  .backdrop-blur-xl,
+  .backdrop-blur-sm {
+    backdrop-filter: none !important;
+  }
+  
+  /* Ensure continuous flow without page breaks */
+  article, section, div, p, li, h1, h2, h3, h4 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  /* Keep sections together */
+  .print-avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  /* Remove shadows and borders */
+  .shadow-lg, .shadow-xl, .shadow-2xl {
+    box-shadow: none !important;
+  }
+  
+  /* Full width */
+  .max-w-7xl, .max-w-4xl {
+    max-width: 100% !important;
+  }
+  
+  /* Compact spacing */
+  .space-y-10 > * + * {
+    margin-top: 0.75rem !important;
+  }
+  
+  .space-y-5 > * + * {
+    margin-top: 0.5rem !important;
+  }
+  
+  /* Ensure text is black */
+  h1, h2, h3, h4, p, li, span {
+    color: #1e293b !important;
+  }
+  
+  /* Links without underline */
+  a {
+    text-decoration: none !important;
+    color: #1e293b !important;
+  }
 } 
