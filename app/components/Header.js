@@ -45,15 +45,15 @@ export default function Header() {
 
   return (
     <>
-      <header className={`print-avoid-break border-b border-slate-200 ${isCompact ? 'pb-4' : 'pb-8'}`} itemScope itemType="https://schema.org/Person">
+      <header className="print-avoid-break border-b border-slate-200 pb-8" itemScope itemType="https://schema.org/Person">
         <div className="flex items-start gap-8">
           <div className="flex-shrink-0">
             <Image
               src="/portrait.jpg"
               alt="Daniel Assayag"
-              width={isCompact ? 100 : 140}
-              height={isCompact ? 100 : 140}
-              className={`rounded-full object-cover border-4 border-white shadow-lg print:!border-white print:shadow-none print:outline-none cursor-pointer hover:scale-105 transition-transform print:cursor-default print:hover:scale-100 ${isCompact ? 'w-[100px] h-[100px]' : 'w-[140px] h-[140px]'}`}
+              width={140}
+              height={140}
+              className="rounded-full object-cover border-4 border-white shadow-lg print:!border-white print:shadow-none print:outline-none cursor-pointer hover:scale-105 transition-transform print:cursor-default print:hover:scale-100 w-[140px] h-[140px]"
               itemProp="image"
               priority
               onClick={() => setIsImageExpanded(true)}
@@ -61,7 +61,7 @@ export default function Header() {
           </div>
           <div className="flex-1 pt-2">
             <div className="flex items-center justify-between mb-2">
-              <h1 className={`${isCompact ? 'text-4xl' : 'text-5xl'} font-light text-slate-900 tracking-tight`} itemProp="name">
+              <h1 className="text-5xl font-light text-slate-900 tracking-tight" itemProp="name">
                 <EditableText
                   value={t.header?.name || "Daniel Assayag"}
                   onChange={(val) => {
@@ -74,36 +74,16 @@ export default function Header() {
               <div className="flex items-center gap-2 print:hidden">
                 {isEditMode && <SaveButton />}
 
-                <button
-                  onClick={async () => {
-                    // Download PDF from server (Puppeteer renders it properly)
-                    try {
-                      const baseUrl = window.location.origin
-                      const response = await fetch(`/api/pdf?baseUrl=${encodeURIComponent(baseUrl)}`)
-
-                      if (!response.ok) throw new Error('PDF generation failed')
-
-                      const blob = await response.blob()
-                      const url = URL.createObjectURL(blob)
-                      const a = document.createElement('a')
-                      a.href = url
-                      a.download = 'Daniel_Assayag_CV.pdf'
-                      document.body.appendChild(a)
-                      a.click()
-                      document.body.removeChild(a)
-                      URL.revokeObjectURL(url)
-                    } catch (error) {
-                      console.error('PDF download error:', error)
-                      alert('Erreur lors du téléchargement du PDF')
-                    }
-                  }}
+                <a
+                  href="/Daniel_Assayag_CV.pdf"
+                  download="Daniel_Assayag_CV.pdf"
                   className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200 px-3 py-2 rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 print:hidden"
                   aria-label={language === 'fr' ? 'Télécharger PDF' : 'Download PDF'}
                   title={language === 'fr' ? 'Télécharger en PDF' : 'Download as PDF'}
                 >
                   <Printer className="h-4 w-4" />
                   <span className="text-xs">PDF</span>
-                </button>
+                </a>
 
                 <button
                   onClick={() => setIsContactOpen(true)}
@@ -128,25 +108,6 @@ export default function Header() {
                 )}
 
                 <button
-                  onClick={toggleCompact}
-                  className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200 px-3 py-2 rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
-                  aria-label={isCompact ? (language === 'fr' ? 'Mode normal' : 'Normal mode') : (language === 'fr' ? 'Mode compact' : 'Compact mode')}
-                  title={isCompact ? (language === 'fr' ? 'Mode normal' : 'Normal mode') : (language === 'fr' ? 'Mode compact' : 'Compact mode')}
-                >
-                  {isCompact ? (
-                    <>
-                      <Maximize2 className="h-4 w-4" />
-                      <span className="text-xs">{language === 'fr' ? 'Normal' : 'Normal'}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Minimize2 className="h-4 w-4" />
-                      <span className="text-xs">{language === 'fr' ? 'Compact' : 'Compact'}</span>
-                    </>
-                  )}
-                </button>
-
-                <button
                   onClick={toggleLanguage}
                   className="text-3xl hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 rounded-md p-2 hover:bg-slate-100 active:bg-slate-200"
                   aria-label={language === 'fr' ? 'Switch to English' : 'Passer en français'}
@@ -156,7 +117,7 @@ export default function Header() {
                 </button>
               </div>
             </div>
-            <p className={`font-light ${isCompact ? 'text-xl' : 'text-2xl'} text-slate-600 ${isCompact ? 'mb-4' : 'mb-6'}`} itemProp="jobTitle">
+            <p className="font-light text-2xl text-slate-600 mb-6" itemProp="jobTitle">
               <EditableText
                 value={t.header.jobTitle}
                 onChange={handleJobTitleChange}

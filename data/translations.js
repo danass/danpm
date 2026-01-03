@@ -41,7 +41,7 @@ export const translations = {
       expand: "Expand"
     },
     aboutCV: {
-      madeWith: "Made with"
+      madeWith: "Formatted with"
     }
   }
 }

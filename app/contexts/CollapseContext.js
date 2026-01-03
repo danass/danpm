@@ -6,17 +6,12 @@ const CollapseContext = createContext()
 
 export function CollapseProvider({ children }) {
   const [isCollapsed, setIsCollapsed] = useState(false)
-  const [isCompact, setIsCompact] = useState(false)
 
   useEffect(() => {
     // Récupérer l'état depuis localStorage ou utiliser false par défaut
     const savedCollapse = localStorage.getItem('cv-collapsed')
     if (savedCollapse === 'true') {
       setIsCollapsed(true)
-    }
-    const savedCompact = localStorage.getItem('cv-compact')
-    if (savedCompact === 'true') {
-      setIsCompact(true)
     }
   }, [])
 
@@ -28,16 +23,8 @@ export function CollapseProvider({ children }) {
     })
   }
 
-  const toggleCompact = () => {
-    setIsCompact(prev => {
-      const newValue = !prev
-      localStorage.setItem('cv-compact', newValue.toString())
-      return newValue
-    })
-  }
-
   return (
-    <CollapseContext.Provider value={{ isCollapsed, toggleCollapse, isCompact, toggleCompact }}>
+    <CollapseContext.Provider value={{ isCollapsed, toggleCollapse }}>
       {children}
     </CollapseContext.Provider>
   )
