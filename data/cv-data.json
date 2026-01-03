@@ -210,14 +210,14 @@
     "header": {
       "name": "Daniel Assayag",
       "jobTitle": "Product Manager",
-      "location": "Paris, France",
+      "location": "Paris, 5th arrondissement, France",
       "email": "dan@danpm.com",
       "linkedin": "linkedin.com/in/daniel-assayag",
       "github": "github.com/danass"
     },
     "profile": {
       "title": "Professional Summary",
-      "description": "Product Manager specialized in legacy system modernization and large-scale product optimization. Expert in technical specification writing, Product Ops, and data-driven design. Advanced technical background (React, SQL, API) enabling seamless collaboration with engineering teams."
+      "description": "Product Manager specialized in legacy system modernization and product optimization. Expert in technical specification writing, Product Ops, and data-driven design. Strong technical understanding (machine learning, SQL, API) and university teaching experience, enabling effective collaboration with engineering teams (data, dev, and devops). User sensitivity enhanced by artistic training and a design-centered, user experience-focused approach."
     },
     "experience": {
       "title": "Experience"
@@ -232,32 +232,29 @@
           {
             "title": "Back-Office Migration & Product Modernization",
             "achievements": [
-              "Led migration of legacy back-office to modern system for ~200 internal users (Customer Care, Sales, Marketing, Ops, PM). Delivered ~80 features and optimized critical modules: Users, Homes, Exchanges, permissions, internal workflows",
-              "Large-scale product experience: 400k users impacted (260k active members + new member flow + 2500 Collection). Managing 2.5 million created accounts",
-              "Feature prioritization: in-depth business surveys, prioritization matrix (business impact, frequency, complexity, dependencies), phased roadmap with progressive releases",
-              "Operational support for 5 developers (2 internal + 3 external): ticket writing, technical clarification, investigation, problem resolution, functional arbitration",
-              "Complete specifications (120 structured Jira tickets): Context, Business rules, Design, Acceptance criteria, edge case documentation, annotated screenshots, workflows",
-              "Intensive use of generative AI to accelerate design, mockup creation, and ticket production (3x faster)",
-              "Complete redesign of Roles & Permissions system: business survey, rationalization, \"least privilege\" architecture, 40% reduction in unnecessary permissions"
+              "<b>Successful back-office migration</b> enabling management of 5 million accounts and 265k customers. Ensured operational continuity for 200 internal users (Customer Care, Sales, Marketing, Ops, PM) during transition to new technology. Delivered in 3 months: 12 pages, 80+ key features and optimization of critical processes: user management, homes, exchanges, search, and permissions. Improved user interface and added search filters for more intuitive navigation.",
+              "<b>Organization and facilitation of agile rituals</b>: Daily standups, Sprint Review and Sprint Retrospective (1 per sprint), Refinement (2 per sprint), and Steering Committee (1 per month). Proactive setup of pre-production environments and a feedback channel synchronized with Jira via an integrated Slack form, enabling collection and processing of feedback from a selected beta-testing team, identifying and fixing approximately thirty bugs and missing features, while ensuring transparent tracking via statuses (resolved, in progress, etc.)",
+              "<b>Prioritization and integration of additional features</b> (10) in the back-office: conducting in-depth business surveys and user interviews, using a prioritization matrix in collaboration with stakeholders, creating a phased roadmap with progressive releases (e.g., migration of existing features and addition of new features like sorting in exchange tabs and coupons, instant data synchronization, bulk guestpoints management and user session inheritance to track agent modifications, eliminating manual agent name entry)",
+              "<b>Operational support for 5 developers</b> (2 internal + 3 external): writing and resolving 340+ tickets (including 57 epics) related to BO migration: daily discussions to help with technical clarification, investigation and resolution of all issues, functional arbitration, testing and creation of automation tools for test account creation.",
+              "<b>Intensive use of generative AI</b> to accelerate design, mockup creation, and ticket production, enabling on-time delivery of BO project with reduced team."
             ]
           },
           {
-            "title": "Collection Product Manager (Premium Homes) - 40 features delivered, 2500 clients",
+            "title": "Collection Product Manager (Premium Homes) - 8 NEW features delivered, 2500 clients",
             "achievements": [
-              "<strong>+716% Collection visibility</strong>: Homepage revamp (2,508 → 20,458 homes displayed). Collection badge on home cards. New touchpoints (+25% exposure via banners)",
-              "Operational support for 4 internal developers with another PM: ticket writing, technical clarification, investigation, rapid problem resolution (e.g., cron diagnosis in 15 min)",
-              "Design and creation of features for alternative home search using AI-tested home categories",
-              "Application funnel revamp: multi-step application with cancellation, save/resume, automated eligibility verification, status tracking, contextual notifications. Completion rate: 87%",
-              "Cross-squad coordination: Payment Squad for free trial integration, User Squad for Auth0 authentication",
-              "Data-driven algorithm for Collection eligibility and home ranking. Data investigation on 8000 offline Collection homes"
+              "<strong>+716% Collection visibility</strong>: Homepage revamp (2,508 → 20,458 homes displayed). Collection badge on home cards. Creation of new touchpoints (+25% exposure via banners)",
+              "<b>Operational support for 4 internal developers</b> in collaboration with another Product Manager: writing 20+ tickets per month, technical clarification and investigation to quickly resolve issues.",
+              "<b>Creation of new home categories</b> (e.g., large bay windows, exceptional views, infinity pools) based on photo analysis via AI algorithm, followed by model retraining to ensure consistent results. Discovery phase in progress to evaluate potential impact on user experience.",
+              "<b>Partial revamp of application funnel</b>: implementation of key features like application cancellation, save/resume, and status tracking. Maintaining completion rate with approximately 200 monthly applications. Project nearing completion with additional features planned, such as automated eligibility verification and free-trial.",
+              "<b>Cross-squad coordination</b>: Collaboration with Payment Squad for integration of 15-day free trial payment for Home Exchange Collection product, and with User Squad for Auth0 authentication and registration implementation, enabling users to log in via third-party platforms.",
+              "<b>Ranking algorithm optimization</b> for Collection homes. Improved result presentation logic for Collection users, moving to clear hierarchy (Collection homes, eligible homes without subscription, then Free Trial homes). Direct impact on user experience and facilitating connections."
             ]
           },
           {
-            "title": "Product Ops & Process",
+            "title": "Product Ops, Operations & Process",
             "achievements": [
-              "Innovative Slack→Jira automation: automated workflow collecting user feedback, automatic ticket creation/linking, progress tracking visible in Slack. First of its kind at HomeExchange",
-              "Request management system: separation of bugs (#bug-report) and features (#run-bo-requests), improved response time for 4 business teams",
-              "Staging account creation tools: automation of testing and development processes"
+              "<b>Automated reporting system</b> on Slack: automated workflow (Jira integration) collecting user feedback, automatic ticket creation/linking, progress tracking visible in Slack. Approximately 50 tickets created automatically, all processed (resolved or integrated into roadmap). Centralization and tracking of requests for 200 back-office users.",
+              "<b>Creation of account management automation tools</b> in test environment (staging): 80% reduction in account creation time (from 4-5 minutes to 15 seconds), enabling creation of 10-15 accounts per session, and significant error reduction through systematization of account types and automated state updates."
             ]
           }
         ]
@@ -268,7 +265,7 @@
         "period": "2022 - 2024",
         "location": "Paris",
         "achievements": [
-          "Created SaaS for diploma authentication/certification for training organizations. MVC architecture, Next.js backend API, PostgreSQL/Prisma databases",
+          "Created authentication/certification SaaS for training organizations. MVC architecture, Next.js backend API, PostgreSQL/Prisma databases",
           "Features delivered: diploma authentication, RNCP API integration, attendance system, student management, diploma generation and customization. 100+ diplomas issued to date"
         ]
       },
@@ -279,7 +276,7 @@
         "location": "Paris",
         "achievements": [
           "Designed Circular Designer program and Qualiopi certification skills framework",
-          "Evaluation and follow-up of 30 learners. Design Thinking instruction"
+          "Evaluation and monitoring of 30 learners. Design Thinking instruction"
         ]
       },
       {
@@ -288,9 +285,9 @@
         "period": "2016 - 2020",
         "location": "Paris",
         "achievements": [
-          "\"Learning by Doing\" courses: supporting students (education sciences, biology, EdTech master) on FabLab projects",
-          "Student projects: design, digital fabrication (3D printers, laser cutters), electronics, programming, CNC machining",
-          "Created Airtable management interface (CRM) for equipment loans, reservations, and course sessions"
+          "Teaching \"Learning by Doing\" courses: supporting students (education sciences, biology, EdTech master) on projects using FabLab tools",
+          "Projects completed with students: design, digital fabrication (3D printers, laser cutters), electronics, programming, CNC machining",
+          "Created Airtable management interface (CRM) to track equipment loans, reservations, courses and course sessions"
         ]
       }
     ],
@@ -302,7 +299,9 @@
           "Impact/Effort Framework",
           "User Discovery",
           "Cross-Squad Coordination",
-          "Jira Expert (343+ tickets)",
+          {
+            "name": "Jira"
+          },
           "Scrum/Agile"
         ]
       },
@@ -353,33 +352,47 @@
           "details": "< 10% acceptance rate"
         },
         {
-          "degree": "National Diploma in Visual Arts (Honors)",
+          "degree": "Graduated with Jury Honors",
           "institution": "ENSBA Paris",
           "period": "2010 - 2015",
           "details": ""
         },
         {
-          "degree": "Bachelor in Modern Literature",
+          "degree": "Bachelor's in Modern Literature",
           "institution": "Sorbonne",
           "period": "2005 - 2008",
           "details": ""
         }
       ],
-      "additional": []
+      "additional": [
+        {
+          "degree": "Post-production and Image Processing",
+          "institution": "Les Gobelins, Paris",
+          "period": "2008 - 2010",
+          "details": ""
+        },
+        {
+          "degree": "Agroforestry Training",
+          "institution": "SIL Agroforesterie",
+          "period": "2023",
+          "details": "QGIS, agroforestry project design, sustainable hedgerow management"
+        }
+      ]
     },
     "certifications": {
       "title": "Certifications",
       "data": [
         {
-          "name": "IBM Agile Development & Scrum",
+          "name": "IBM Agile Development and Scrum",
           "issuer": "IBM"
         },
         {
           "name": "Product Management For UX People",
-          "issuer": "Packt"
+          "issuer": "Packt",
+          "url": "https://www.coursera.org/account/accomplishments/verify/YW4BJ2WNZUYZ"
         },
         {
-          "name": "Noé PM",
+          "name": "Noé (admitted)",
           "issuer": "École des Product Managers"
         },
         {
@@ -390,11 +403,14 @@
     },
     "languages": {
       "title": "Languages",
-      "text": "French: Bilingual | English: Bilingual | Spanish: Beginner | Driving License"
+      "text": "<div>English: Bilingual&nbsp;</div>"
     },
     "activities": {
-      "title": "Activities",
-      "text": "Photography | Brazilian Jiu-Jitsu Blue Belt | Coding"
+      "title": "Other",
+      "text": "<div>Artistic practices</div><div>Brazilian Jiu-Jitsu Blue Belt</div><div>Driving License</div>"
+    },
+    "additional": {
+      "title": "Additional Information"
     }
   }
 }
