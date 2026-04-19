@@ -2,15 +2,18 @@
 
 import { Mail, Linkedin, Github, Sparkles } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ContactModal from './ContactModal'
 
 export default function Footer() {
     const { t, language } = useLanguage()
     const [isContactOpen, setIsContactOpen] = useState(false)
+    const [currentYear, setCurrentYear] = useState(2026)
     const stackInfo = "Next.js 15+, React 19, Tailwind CSS, PostCSS | ATS-friendly, Schema.org metadata, Print-optimized"
 
-    const currentYear = new Date().getFullYear()
+    useEffect(() => {
+        setCurrentYear(new Date().getFullYear())
+    }, [])
 
     return (
         <footer className="mt-20 pb-8 print:hidden">

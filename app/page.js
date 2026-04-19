@@ -1,12 +1,8 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import CV from './components/CV'
 import Footer from './components/Footer'
-
-const CoverLetterGenerator = dynamic(() => import('./components/CoverLetterGenerator'), {
-  ssr: false,
-})
+import CoverLetterGenerator from './components/CoverLetterGenerator'
 
 export default function Home() {
   return (

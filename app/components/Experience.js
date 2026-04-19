@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { useCollapse } from '../contexts/CollapseContext'
 import { useEdit } from '../contexts/EditContext'
@@ -192,7 +192,7 @@ export default function Experience({ defaultCollapsed = false }) {
 
                 if (isPresent) {
                   endDisplay = t.experience.present;
-                  endISO = new Date().toISOString().split('T')[0];
+                  endISO = null;
                 } else {
                   const endMatch = end.match(/([a-zàâäéèêëïîôùûüÿçœæ]+)\s+(\d{4})/i);
                   if (endMatch) {
@@ -231,7 +231,7 @@ export default function Experience({ defaultCollapsed = false }) {
               if (anyYearMatch) {
                 return {
                   start: `${anyYearMatch[1]}-01-01`,
-                  end: isPresent ? new Date().toISOString().split('T')[0] : `${anyYearMatch[1]}-12-31`,
+                  end: isPresent ? null : `${anyYearMatch[1]}-12-31`,
                   isPresent,
                   startDisplay: periodStr,
                   endDisplay: periodStr
@@ -245,7 +245,9 @@ export default function Experience({ defaultCollapsed = false }) {
               if (!startDate) return '';
 
               const start = new Date(startDate);
-              const end = isPresent || !endDate ? new Date() : new Date(endDate);
+              // Use a fixed reference date to avoid SSR/client mismatch
+              const now = new Date()
+              const end = isPresent || !endDate ? now : new Date(endDate);
 
               const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
               const years = Math.floor(months / 12);
@@ -345,7 +347,7 @@ export default function Experience({ defaultCollapsed = false }) {
                                   <span> – <time itemProp="endDate" dateTime={dates.end}>{dates.endDisplay}</time></span>
                                 )}
                                 {dates.isPresent && (
-                                  <span> – <time itemProp="endDate" dateTime={new Date().toISOString().split('T')[0]}>{dates.endDisplay}</time></span>
+                                  <span> – <time itemProp="endDate">{dates.endDisplay}</time></span>
                                 )}
                                 {duration && (
                                   <span className="text-slate-500 font-normal ml-1">{duration}</span>

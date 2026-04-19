@@ -1,23 +1,32 @@
 if (typeof window !== 'undefined') {
-  // Defer PostHog init until after page is interactive
   const initPostHog = () => {
     import('posthog-js').then(({ default: posthog }) => {
       posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
         api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
         defaults: '2025-11-30',
+        disable_session_recording: true,
+        autocapture: false,
+        capture_pageview: true,
+        capture_pageleave: true,
         loaded: (ph) => {
-          // Disable session recording to reduce JS payload
-          if (process.env.NEXT_PUBLIC_POSTHOG_DISABLE_RECORDING === 'true') {
-            ph.opt_out_of_session_recording()
-          }
+          ph.opt_out_of_session_recording()
         },
       })
     })
   }
 
+  // Wait until page is fully loaded, then defer to idle time
+  const scheduleInit = () => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initPostHog, { timeout: 8000 })
+    } else {
+      setTimeout(initPostHog, 5000)
+    }
+  }
+
   if (document.readyState === 'complete') {
-    setTimeout(initPostHog, 2000)
+    scheduleInit()
   } else {
-    window.addEventListener('load', () => setTimeout(initPostHog, 2000))
+    window.addEventListener('load', scheduleInit)
   }
 }
