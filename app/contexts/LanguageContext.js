@@ -6,11 +6,15 @@ import { translations } from '../../data/translations'
 const LanguageContext = createContext()
 
 export function LanguageProvider({ children, initialData }) {
-  const [language, setLanguage] = useState(() => {
-    if (typeof window === 'undefined') return 'fr'
+  const [language, setLanguage] = useState('fr')
+
+  // Hydrate language from localStorage after mount to avoid SSR mismatch
+  useEffect(() => {
     const savedLanguage = localStorage.getItem('cv-language')
-    return (savedLanguage === 'fr' || savedLanguage === 'en') ? savedLanguage : 'fr'
-  })
+    if (savedLanguage === 'en') {
+      setLanguage('en')
+    }
+  }, [])
 
   // Use initialData from SSR - no async loading needed!
   const [cvData, setCvData] = useState(initialData)
