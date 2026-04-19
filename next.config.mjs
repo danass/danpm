@@ -38,6 +38,21 @@ const nextConfig = {
         {
           source: '/(.*)',
           headers: [
+            {
+              key: 'Content-Security-Policy',
+              value: [
+                "default-src 'self'",
+                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://eu-assets.i.posthog.com https://eu.i.posthog.com",
+                "style-src 'self' 'unsafe-inline'",
+                "img-src 'self' data: blob: https://*.homeexchange.com https://image.homeexchange.fr https://cdn-images.homeexchange.com",
+                "font-src 'self'",
+                "connect-src 'self' https://eu.i.posthog.com https://eu-assets.i.posthog.com",
+                "frame-ancestors 'none'",
+                "base-uri 'self'",
+                "form-action 'self'",
+                "require-trusted-types-for 'script'",
+              ].join('; '),
+            },
             { key: 'X-Content-Type-Options', value: 'nosniff' },
             { key: 'X-Frame-Options', value: 'DENY' },
             { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
