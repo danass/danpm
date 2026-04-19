@@ -50,7 +50,6 @@ const nextConfig = {
                 "frame-ancestors 'none'",
                 "base-uri 'self'",
                 "form-action 'self'",
-                "require-trusted-types-for 'script'",
               ].join('; '),
             },
             { key: 'X-Content-Type-Options', value: 'nosniff' },
