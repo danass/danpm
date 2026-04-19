@@ -8,9 +8,6 @@ if (typeof window !== 'undefined') {
         autocapture: false,
         capture_pageview: true,
         capture_pageleave: true,
-        loaded: (ph) => {
-          ph.opt_out_of_session_recording()
-        },
       })
     })
   }
