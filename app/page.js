@@ -316,6 +316,18 @@ export default function Home() {
                 <span className="what">Chiffrer les gains d&rsquo;une automatisation avant de la lancer (heures, euros, scénarios)</span>
                 <span className="gain">1 page interactive</span>
               </li>
+              <li>
+                <span className="what">Suivre en direct la satisfaction et les demandes des agents, branché sur Slack</span>
+                <span className="gain">1 tableau de bord</span>
+              </li>
+              <li>
+                <span className="what">Déclencher une pull request automatique depuis un ticket étiqueté « ai-ready »</span>
+                <span className="gain">du ticket à la PR</span>
+              </li>
+              <li>
+                <span className="what">Mesurer l&rsquo;adoption des outils IA de l&rsquo;équipe produit</span>
+                <span className="gain">1 dashboard</span>
+              </li>
             </ul>
           </article>
         </section>

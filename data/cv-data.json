@@ -117,52 +117,67 @@
     ],
     "skills": [
       {
-        "category": "Product Leadership & Methodologies",
+        "category": "Product & Delivery",
         "skills": [
-          "Roadmap Stratégique",
-          "Framework Impact/Effort",
-          "Discovery Utilisateur",
-          "Coordination Cross-Squads",
-          {
-            "name": "Jira"
-          },
-          "Scrum/Agile"
+          "Roadmap stratégique",
+          "Priorisation impact/effort",
+          "Discovery et interviews utilisateurs",
+          "Spécifications rédigées depuis le code",
+          "Coordination cross-squads",
+          "Scrum / Agile",
+          "Jira (tickets, automations, administration)"
         ]
       },
       {
-        "category": "Soft Skills",
+        "category": "Data & Analytics",
         "skills": [
-          "Communication contextuelle",
-          "Alignement stakeholders",
-          "Priorisation & timing",
-          "Résolution proactive de problèmes"
+          "SQL (PostgreSQL, MySQL, Athena)",
+          "Metabase, Omni",
+          "PostHog (plans de tracking, insights, surveys)",
+          "Harvestr (feedback produit)",
+          "Mesure d'impact, scénarios FTE"
         ]
       },
       {
-        "category": "TECH FLUENCY",
+        "category": "Tech",
         "skills": [
-          "React, Next.js",
+          "React, Next.js, Node.js",
           "PostgreSQL, Prisma",
-          "Design & Architecture API",
-          "Datadog",
-          "AWS",
-          "Git"
+          "Design et architecture d'API",
+          "Auth0 (rôles, provisioning)",
+          "Docker (stack locale complète)",
+          "AWS (S3, Athena)",
+          "Git, GitLab CI",
+          "Stripe, Braintree (intégrations paiement)",
+          "Datadog"
+        ]
+      },
+      {
+        "category": "IA & Automatisation",
+        "skills": [
+          "Claude Code (skills, agents, MCP)",
+          "Workflows multi-agents",
+          "Automations Slack et Jira",
+          "Puppeteer",
+          "Iterable (campagnes CRM)"
         ]
       },
       {
         "category": "Design & UX",
         "skills": [
-          "Design de Produits",
+          "Design de produits",
           "Recherche UX",
-          "Figma"
+          "Figma",
+          "Prototypage code-first"
         ]
       },
       {
-        "category": "Outils & Automatisation",
+        "category": "Soft skills",
         "skills": [
-          "Notion",
-          "Slack",
-          "IA Générative"
+          "Communication et alignement stakeholders",
+          "Arbitrages de scope explicites",
+          "Priorisation et timing",
+          "Résolution proactive de problèmes"
         ]
       }
     ],
@@ -214,10 +229,6 @@
           "name": "Product Management For UX People",
           "issuer": "Packt",
           "url": "https://www.coursera.org/account/accomplishments/verify/YW4BJ2WNZUYZ"
-        },
-        {
-          "name": "Noé (admis)",
-          "issuer": "École des Product Managers"
         },
         {
           "name": "Airtable Certified Builder",
@@ -355,52 +366,67 @@
     ],
     "skills": [
       {
-        "category": "Product Leadership & Methodologies",
+        "category": "Product & Delivery",
         "skills": [
-          "Strategic Roadmap",
-          "Impact/Effort Framework",
-          "User Discovery",
-          "Cross-Squad Coordination",
-          {
-            "name": "Jira"
-          },
-          "Scrum/Agile"
+          "Strategic roadmap",
+          "Impact/effort prioritization",
+          "User discovery and interviews",
+          "Specs written from the codebase",
+          "Cross-squad coordination",
+          "Scrum / Agile",
+          "Jira (tickets, automations, administration)"
         ]
       },
       {
-        "category": "Soft Skills",
+        "category": "Data & Analytics",
         "skills": [
-          "Contextual Communication",
-          "Stakeholder Alignment",
-          "Prioritization & Timing",
-          "Proactive Problem Solving"
+          "SQL (PostgreSQL, MySQL, Athena)",
+          "Metabase, Omni",
+          "PostHog (tracking plans, insights, surveys)",
+          "Harvestr (product feedback)",
+          "Impact measurement, FTE scenarios"
         ]
       },
       {
-        "category": "TECH FLUENCY",
+        "category": "Tech",
         "skills": [
-          "React, Next.js",
+          "React, Next.js, Node.js",
           "PostgreSQL, Prisma",
-          "API Design & Architecture",
-          "Datadog",
-          "AWS",
-          "Git"
+          "API design and architecture",
+          "Auth0 (roles, provisioning)",
+          "Docker (full local stack)",
+          "AWS (S3, Athena)",
+          "Git, GitLab CI",
+          "Stripe, Braintree (payment integrations)",
+          "Datadog"
+        ]
+      },
+      {
+        "category": "AI & Automation",
+        "skills": [
+          "Claude Code (skills, agents, MCP)",
+          "Multi-agent workflows",
+          "Slack and Jira automations",
+          "Puppeteer",
+          "Iterable (CRM campaigns)"
         ]
       },
       {
         "category": "Design & UX",
         "skills": [
-          "Product Design",
-          "UX Research",
-          "Figma"
+          "Product design",
+          "UX research",
+          "Figma",
+          "Code-first prototyping"
         ]
       },
       {
-        "category": "Tools & Automation",
+        "category": "Soft skills",
         "skills": [
-          "Notion",
-          "Slack",
-          "Generative AI"
+          "Stakeholder communication and alignment",
+          "Explicit scope arbitration",
+          "Prioritization and timing",
+          "Proactive problem solving"
         ]
       }
     ],
@@ -452,10 +478,6 @@
           "name": "Product Management For UX People",
           "issuer": "Packt",
           "url": "https://www.coursera.org/account/accomplishments/verify/YW4BJ2WNZUYZ"
-        },
-        {
-          "name": "Noé (admitted)",
-          "issuer": "École des Product Managers"
         },
         {
           "name": "Airtable Certified Builder",
