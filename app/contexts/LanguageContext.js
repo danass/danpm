@@ -139,6 +139,7 @@ export function LanguageProvider({ children, initialData }) {
       certifications: langData.certifications || {},
       languages: langData.languages || {},
       activities: langData.activities || {},
+      metrics: langData.metrics || [],
       aboutCV: uiLabels.aboutCV || {},
       sections: uiLabels.sections || {}
     }

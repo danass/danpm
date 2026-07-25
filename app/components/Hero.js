@@ -1,6 +1,6 @@
 'use client'
 
-import { Rocket, Zap, BarChart3 } from 'lucide-react'
+import { Shield, Gauge, Code } from 'lucide-react'
 
 export default function Hero() {
     return (
@@ -18,43 +18,43 @@ export default function Hero() {
 
                     {/* Main Tagline */}
                     <h3 className="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl text-slate-800 mb-6">
-                        Je transforme les systèmes legacy en produits modernes, performants et scalables.
+                        Je transforme le back-office et les outils internes en levier d'efficacité opérationnelle mesurable.
                     </h3>
 
                     {/* Sub-tagline */}
                     <p className="text-base text-slate-600 font-light leading-relaxed md:text-lg mb-12">
-                        Expert en <strong className="text-slate-800">Product Ops</strong> et <strong className="text-slate-800">Engineering</strong>, je fais le pont entre les besoins business complexes et l'excellence technique. De la migration de back-offices critiques à l'optimisation de produits à grande échelle.
+                        PM <strong className="text-slate-800">Operations</strong> et <strong className="text-slate-800">Product Ops</strong>, je fais le pont entre les besoins support/business et l'exécution technique. Du <strong className="text-slate-800">trust &amp; safety</strong> à l'automatisation du support, jusqu'au code que j'écris moi-même quand c'est le plus rapide.
                     </p>
 
                     {/* Key Pillars */}
                     <div className="grid gap-6 md:grid-cols-3">
                         <div className="rounded-2xl bg-slate-50 p-6 border border-slate-200 hover:border-slate-300 hover:bg-slate-100/50 transition-all duration-300">
                             <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-100 text-blue-600 mb-6">
-                                <Rocket className="h-6 w-6" />
+                                <Shield className="h-6 w-6" />
                             </div>
-                            <h4 className="text-lg font-semibold text-slate-800 mb-3">Modernisation & Migration</h4>
+                            <h4 className="text-lg font-semibold text-slate-800 mb-3">Trust &amp; Safety</h4>
                             <p className="text-sm text-slate-600 leading-relaxed font-light">
-                                Transition fluide de systèmes obsolètes vers des architectures modernes sans interruption de service.
-                            </p>
-                        </div>
-
-                        <div className="rounded-2xl bg-slate-50 p-6 border border-slate-200 hover:border-slate-300 hover:bg-slate-100/50 transition-all duration-300">
-                            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-purple-100 text-purple-600 mb-6">
-                                <Zap className="h-6 w-6" />
-                            </div>
-                            <h4 className="text-lg font-semibold text-slate-800 mb-3">Product Ops & IA</h4>
-                            <p className="text-sm text-slate-600 leading-relaxed font-light">
-                                Optimisation des workflows et utilisation de l'IA générative pour accélérer la conception (vitesse ×3).
+                                Automatisation de la lutte anti-fraude et migration vers le Core, sans interruption de service.
                             </p>
                         </div>
 
                         <div className="rounded-2xl bg-slate-50 p-6 border border-slate-200 hover:border-slate-300 hover:bg-slate-100/50 transition-all duration-300">
                             <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 mb-6">
-                                <BarChart3 className="h-6 w-6" />
+                                <Gauge className="h-6 w-6" />
                             </div>
-                            <h4 className="text-lg font-semibold text-slate-800 mb-3">Data-Driven Design</h4>
+                            <h4 className="text-lg font-semibold text-slate-800 mb-3">Efficacité opérationnelle</h4>
                             <p className="text-sm text-slate-600 leading-relaxed font-light">
-                                Conception de fonctionnalités basées sur l'analyse de données pour maximiser l'impact utilisateur.
+                                Réduction du temps humain côté support : refund automatisé, recherche de remplacement, Resolution Center.
+                            </p>
+                        </div>
+
+                        <div className="rounded-2xl bg-slate-50 p-6 border border-slate-200 hover:border-slate-300 hover:bg-slate-100/50 transition-all duration-300">
+                            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-purple-100 text-purple-600 mb-6">
+                                <Code className="h-6 w-6" />
+                            </div>
+                            <h4 className="text-lg font-semibold text-slate-800 mb-3">AI-native &amp; hands-on</h4>
+                            <p className="text-sm text-slate-600 leading-relaxed font-light">
+                                Outillage IA pour l'équipe produit (Product OS) et développement direct quand c'est le plus rapide.
                             </p>
                         </div>
                     </div>

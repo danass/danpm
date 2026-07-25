@@ -7,6 +7,7 @@ import Education from './Education'
 import Additional from './Additional'
 import ProfileSection from './ProfileSection'
 import Hero from './Hero'
+import ImpactMetrics from './ImpactMetrics'
 import GlassCard from './GlassCard'
 import ProjectsShowcase from './ProjectsShowcase'
 import { useCollapse } from '../contexts/CollapseContext'
@@ -26,6 +27,8 @@ export default function CV() {
           <GlassCard className="p-4 sm:p-6 md:p-8 lg:p-10 print:bg-white print:shadow-none print:border-none print:p-0">
             <div className="print-avoid-break">
               <Header />
+
+              <ImpactMetrics />
 
               <div className="mt-12 space-y-10">
                 <ProfileSection />
