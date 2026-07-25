@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import '../editorial.css'
+import ContactTrigger from '../components/EditorialContact'
 
 export const metadata = {
   title: 'CV · Daniel Assayag',
@@ -41,7 +42,8 @@ export default function CVPage() {
           <h1>{h.name || 'Daniel Assayag'}</h1>
           <p className="role">{h.jobTitle || 'Product Manager'}</p>
           <div className="cv-contact">
-            {h.email && <a href={`mailto:${h.email}`}>{h.email}</a>}
+            <ContactTrigger className="as-link" label="Me contacter" />
+            <span className="print-only" id="pdf-contact"></span>
             {h.linkedin && <a href={`https://${h.linkedin}`} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
             {h.github && <a href={`https://${h.github}`} target="_blank" rel="noopener noreferrer">GitHub</a>}
             {h.location && <span>{h.location}</span>}
@@ -140,7 +142,7 @@ export default function CVPage() {
         </section>
 
         <footer>
-          <a href={`mailto:${h.email || 'dan@danpm.com'}`}>{h.email || 'dan@danpm.com'}</a>
+          <ContactTrigger className="as-link" label="Me contacter" />
           <a href="/">danpm.com</a>
           <span>{h.location || 'Paris'}</span>
         </footer>

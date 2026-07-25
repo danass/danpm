@@ -1,4 +1,5 @@
 import './editorial.css'
+import ContactTrigger from './components/EditorialContact'
 
 export const metadata = {
   title: 'Daniel Assayag · Product Manager',
@@ -353,11 +354,11 @@ export default function Home() {
             qui livre en semaines, et qui ouvre le code quand c&rsquo;est plus rapide ?
             Écrivez-moi.
           </p>
-          <a className="cta" href="mailto:dan@danpm.com">Écrivez-moi · dan@danpm.com</a>
+          <ContactTrigger className="cta" label="Écrivez-moi" />
         </section>
 
         <footer id="contact">
-          <a href="mailto:dan@danpm.com">dan@danpm.com</a>
+          <ContactTrigger className="as-link" label="Me contacter" />
           <a href="https://linkedin.com/in/daniel-assayag" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/danass" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span>Paris</span>

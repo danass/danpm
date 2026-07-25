@@ -28,6 +28,14 @@ try {
   const page = await browser.newPage()
   await page.emulateMediaType('print')
   await page.goto(`${baseUrl}/cv`, { waitUntil: 'networkidle0', timeout: 30000 })
+  // L'email n'est pas dans le DOM du site (anti-scraping) : on l'injecte
+  // uniquement dans le PDF, via le span .print-only #pdf-contact.
+  const injected = await page.evaluate(() => {
+    const el = document.getElementById('pdf-contact')
+    if (el) el.textContent = 'dan@danpm.com'
+    return el ? el.textContent : null
+  })
+  console.log(`Email injecté dans le PDF : ${injected}`)
   await page.pdf({
     path: outPath,
     format: 'A4',

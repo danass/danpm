@@ -2,12 +2,18 @@ import nodemailer from 'nodemailer'
 
 export async function POST(request) {
     try {
-        const { name, email, subject, message } = await request.json()
+        const { name, email, subject, message, website } = await request.json()
 
-        // Validate input
-        if (!name || !email || !subject || !message) {
+        // Honeypot : les bots remplissent le champ caché, on répond OK sans envoyer
+        if (website) {
+            return Response.json({ success: true })
+        }
+
+        // Validate input (subject optionnel, défaut ci-dessous)
+        if (!name || !email || !message) {
             return Response.json({ error: 'Tous les champs sont requis' }, { status: 400 })
         }
+        const finalSubject = subject || 'Contact via danpm.com'
 
         // Create transporter with SMTP settings for danpm.com
         // Using common SMTP ports: 587 (TLS), 465 (SSL), or 25
@@ -27,15 +33,17 @@ export async function POST(request) {
         // Email content
         const mailOptions = {
             from: `"CV Contact Form" <${process.env.SMTP_USER}>`,
-            to: process.env.SMTP_USER,
+            // Destinataires multiples via CONTACT_TO (séparés par des virgules),
+            // ex : "dan@danpm.com, adresse-perso@..." — configuré en env, pas en dur (repo public)
+            to: process.env.CONTACT_TO || 'dan@danpm.com',
             replyTo: email,
-            subject: `[CV Contact] ${subject}`,
+            subject: `[CV Contact] ${finalSubject}`,
             text: `
 Nouveau message depuis le CV:
 
 Nom: ${name}
 Email: ${email}
-Sujet: ${subject}
+Sujet: ${finalSubject}
 
 Message:
 ${message}
@@ -54,7 +62,7 @@ ${message}
     </tr>
     <tr>
       <td style="padding: 8px 0; color: #64748b;"><strong>Sujet:</strong></td>
-      <td style="padding: 8px 0; color: #1e293b;">${subject}</td>
+      <td style="padding: 8px 0; color: #1e293b;">${finalSubject}</td>
     </tr>
   </table>
   <div style="margin-top: 20px; padding: 20px; background: #f8fafc; border-radius: 8px;">
