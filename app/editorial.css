@@ -89,6 +89,16 @@
 .edito .tools .what { flex: 1; }
 .edito .tools .gain { white-space: nowrap; color: var(--blue); font-variant-numeric: tabular-nums; font-size: 16px; }
 
+.edito .feat-group { margin-top: 30px; }
+.edito .feat-group h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px; line-height: 1; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--blue); font-weight: 600; margin: 0 0 4px;
+}
+.edito .feat-group ul { list-style: none; margin: 0; padding: 0; max-width: 60ch; }
+.edito .feat-group li { padding: 9px 0; border-bottom: 1px solid var(--hair); font-size: 16px; }
+.edito .feat-group li:last-child { border-bottom: none; }
+
 .edito dl { margin: 36px 0 0; padding: 0; }
 .edito dl > div {
   display: flex; gap: 20px; align-items: baseline;

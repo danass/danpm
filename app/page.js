@@ -59,16 +59,19 @@ export default function Home() {
             <p>
               Des fraudeurs contactent nos membres pour les faire payer hors de la plateforme.
               Avant l&rsquo;automatisation, un agent envoyait environ 1 500 messages
-              d&rsquo;alerte par mois, à la main, et environ un tiers des cas était couvert.
-              J&rsquo;ai fait automatiser la détection et l&rsquo;alerte de bout en bout, puis
-              suivi chaque semaine le volume traité par le système.
+              d&rsquo;alerte par mois, à la main. Un tiers des cas était couvert, et ce
+              traitement représentait environ 3 250 heures de travail par an. J&rsquo;ai fait
+              automatiser la chaîne complète : quand un agent marque un compte comme frauduleux,
+              le système alerte tous les membres en contact, bloque le compte, retire ses
+              annonces et invalide ses sessions.
             </p>
             <p>
-              En mai 2026, une vague de scam d&rsquo;une ampleur inédite a visé nos membres :
-              14 500 tentatives en quelques jours. Le système les a détectées et mitigées
-              automatiquement : messages d&rsquo;alerte envoyés, comptes bloqués, conversations
-              traitées. L&rsquo;équipe support n&rsquo;a pas eu besoin de renfort. La direction a
-              repris ces chiffres dans son dossier investisseurs.
+              La mise en production a eu lieu fin avril. Une semaine plus tard, la plus grosse
+              vague de scam que la plateforme ait connue a frappé : 14 500 tentatives reçues par
+              les membres. En dix jours, le système a déclenché 13 407 traitements automatiques
+              et envoyé 44 278 messages d&rsquo;alerte. L&rsquo;équipe support n&rsquo;a pas eu
+              besoin de renfort. La direction a repris ces chiffres dans son dossier
+              investisseurs.
             </p>
             <p>
               Je pilote maintenant la migration de ce système vers notre nouvelle architecture,
@@ -118,9 +121,139 @@ export default function Home() {
               J&rsquo;ai observé les équipes support, chiffré le coût de ce geste, puis spécifié
               un bouton qui exécute tout d&rsquo;un coup, avec les garde-fous nécessaires pour un
               acte de paiement : seuls les rôles autorisés le voient, et chaque remboursement est
-              tracé avec son auteur. Six semaines entre la demande du support et la mise en
-              production.
+              tracé avec son auteur. Les tickets ont été écrits à partir de l&rsquo;analyse du
+              code existant, et le développement a démarré trois jours après.
             </p>
+          </article>
+
+          <article className="story">
+            <p className="tag">Clubs</p>
+            <h2>Réparer l&rsquo;adhésion aux clubs, puis outiller leur gestion</h2>
+            <div className="stat">
+              <b>58 000</b>
+              <span>membres dans le plus grand club</span>
+            </div>
+            <p>
+              HomeExchange héberge des clubs de membres, dont certains très gros. Un bug
+              empêchait les membres de rejoindre un club. J&rsquo;ai identifié la cause : le
+              cookie d&rsquo;inscription était posé sur un domaine, la connexion se faisait sur
+              un autre, l&rsquo;adhésion ne se finalisait jamais. Nous avons reconstruit le
+              parcours : vérification d&rsquo;éligibilité par email avec un lien à usage unique,
+              connexion, confirmation, points de bienvenue.
+            </p>
+            <p>
+              En parallèle, la gestion des clubs est devenue un écran du back-office : créer,
+              modifier, traduire en 11 langues, convertir un club en groupe, supprimer avec
+              export des membres. Avant, chaque création de club était une demande faite aux
+              développeurs. Sur la gouvernance, j&rsquo;ai préparé et animé une session
+              d&rsquo;alignement avec 22 participants de toutes les équipes. Décision : pas de
+              refonte cette année, des itérations courtes, un nettoyage de la base, et une
+              discovery financée pour la suite.
+            </p>
+          </article>
+
+          <article className="story">
+            <p className="tag">Litiges</p>
+            <h2>Reprendre le Resolution Center, développé par un prestataire externe</h2>
+            <div className="stat">
+              <b>1,13 j</b>
+              <span>résolution médiane des litiges en juin</span>
+            </div>
+            <p>
+              Le Resolution Center gère les litiges et les garanties de dépôt entre membres. Il
+              a été développé par un prestataire externe dont la mission se termine. J&rsquo;ai
+              repris le domaine : suivi des indicateurs mensuels, arbitrage des demandes,
+              coordination de la fin de contrat, passage en mode maintenance.
+            </p>
+            <p>
+              En juin : 1 456 litiges traités, 86 % de satisfaction, 1,13 jour de résolution
+              médiane, le meilleur niveau depuis le lancement. J&rsquo;ai aussi fait aboutir la
+              création automatique d&rsquo;un dossier de litige quand un hôte annule un séjour :
+              l&rsquo;équipe support n&rsquo;a plus à le créer à la main.
+            </p>
+          </article>
+
+          <article className="story">
+            <p className="tag">Accès &amp; RGPD</p>
+            <h2>327 comptes internes avaient un accès complet au back-office</h2>
+            <div className="stat">
+              <b>327</b>
+              <span>comptes à accès complet identifiés par l&rsquo;audit</span>
+            </div>
+            <p>
+              Un audit mené avec un cabinet spécialisé RGPD a établi que 327 collaborateurs
+              disposaient d&rsquo;un accès complet au back-office, quel que soit leur métier.
+              J&rsquo;ai pris le sujet. Le prérequis technique, permettre plusieurs rôles par
+              compte, a été livré en juillet sur toute la chaîne d&rsquo;authentification.
+            </p>
+            <p>
+              La suite est en cours : des droits par fonctionnalité (le bouton de remboursement
+              n&rsquo;est visible que des rôles autorisés), une règle d&rsquo;attribution
+              systématique à l&rsquo;arrivée d&rsquo;un agent, et le nettoyage de la liste des
+              comptes : accès des prestataires partis supprimés, revue triée par dernière
+              connexion.
+            </p>
+          </article>
+        </section>
+
+        <section id="livre">
+          <p className="eyebrow">Livré entre avril et juillet 2026</p>
+
+          <article className="story">
+            <p>
+              113 tickets livrés en quinze semaines, une quarantaine de fonctionnalités, avec
+              deux développeurs. Les principales, par domaine :
+            </p>
+
+            <div className="feat-group">
+              <h3>Anti-fraude</h3>
+              <ul>
+                <li>Traitement d&rsquo;un compte frauduleux en un clic : alertes à tous les membres en contact, blocage, retrait des annonces, sessions invalidées</li>
+                <li>Relance possible après une attaque sans jamais envoyer deux fois le même message</li>
+                <li>Alerte renforcée sur les ajouts massifs de points</li>
+              </ul>
+            </div>
+
+            <div className="feat-group">
+              <h3>Comptes membres</h3>
+              <ul>
+                <li>Motif obligatoire et tracé à la désactivation d&rsquo;un compte</li>
+                <li>Statut CRM visible sur la fiche membre, resynchronisation automatique à la réactivation</li>
+                <li>Chaque action d&rsquo;un agent sur un abonnement est enregistrée avec son auteur</li>
+              </ul>
+            </div>
+
+            <div className="feat-group">
+              <h3>GuestPoints (la monnaie interne)</h3>
+              <ul>
+                <li>Valeur par nuit éditable directement, sans passer par un développeur</li>
+                <li>Import en masse sécurisé : prévisualisation, erreurs bloquantes, import par email</li>
+              </ul>
+            </div>
+
+            <div className="feat-group">
+              <h3>Photos et annonces</h3>
+              <ul>
+                <li>Export des photos originales d&rsquo;un logement en un clic (avant : un ticket développeur avec VPN et scripts)</li>
+                <li>Suppression de toutes les photos en une action, plein écran en qualité maximale</li>
+              </ul>
+            </div>
+
+            <div className="feat-group">
+              <h3>Transparence pour le support</h3>
+              <ul>
+                <li>Taux de réponse expliqué : les agents voient la décomposition du calcul et peuvent répondre aux membres</li>
+                <li>Contenu des étiquettes visible au survol : trois clics économisés, des centaines de fois par jour</li>
+              </ul>
+            </div>
+
+            <div className="feat-group">
+              <h3>Qualité</h3>
+              <ul>
+                <li>Infrastructure de tests unitaires du back-office, huit chantiers</li>
+                <li>Plan de mesure d&rsquo;usage complet : chaque fonctionnalité livrée est suivie</li>
+              </ul>
+            </div>
           </article>
         </section>
 
@@ -163,6 +296,14 @@ export default function Home() {
                 <span className="what">Prévenir les agents concernés par un changement, depuis les données d&rsquo;usage</span>
                 <span className="gain">1 commande</span>
               </li>
+              <li>
+                <span className="what">Traiter en masse une liste de comptes frauduleux</span>
+                <span className="gain">utilisé pendant la vague de mai</span>
+              </li>
+              <li>
+                <span className="what">Chiffrer les gains d&rsquo;une automatisation avant de la lancer (heures, euros, scénarios)</span>
+                <span className="gain">1 page interactive</span>
+              </li>
             </ul>
           </article>
         </section>
@@ -172,10 +313,12 @@ export default function Home() {
           <dl>
             <div><dt>Comptes gérés par le back-office</dt><dd>5 millions</dd></div>
             <div><dt>Utilisateurs internes quotidiens</dt><dd>200</dd></div>
-            <div><dt>Tickets livrés depuis février 2025</dt><dd>340+</dd></div>
+            <div><dt>Tickets livrés depuis février 2025</dt><dd>340+, dont 113 entre avril et juillet 2026</dd></div>
             <div><dt>Couverture automatique des cas de fraude</dt><dd>~100 % (contre ~30 %)</dd></div>
-            <div><dt>Messages d&rsquo;alerte manuels par mois</dt><dd>1 500 → quasi zéro</dd></div>
-            <div><dt>Résolution médiane des litiges</dt><dd>1,1 jour</dd></div>
+            <div><dt>Messages d&rsquo;alerte envoyés pendant la vague de mai</dt><dd>44 278 en dix jours</dd></div>
+            <div><dt>Traitement manuel de la fraude, avant</dt><dd>3 250 heures par an</dd></div>
+            <div><dt>Satisfaction interne du back-office</dt><dd>8,3/10, contre 6,2 avant</dd></div>
+            <div><dt>Résolution médiane des litiges</dt><dd>1,13 jour</dd></div>
           </dl>
         </section>
 
