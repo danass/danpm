@@ -53,7 +53,7 @@
             "achievements": [
               "<b>Reprise de l'ownership produit du Resolution Center</b> (litiges & garanties de dépôt) après transfert depuis un prestataire externe : passage en mode maintenance et création automatique d'incidents à l'annulation par l'hôte. CSAT 86%, temps de résolution médian 1,13 jour.",
               "<b>Refund d'adhésion automatisé dans le back-office</b> : conception de l'epic et de l'orchestration (remboursement PSP via microservice Payment, rôle granulaire, event analytics, résolution automatique du ticket support). ~28 jours-homme/an économisés côté support (63% des remboursements).",
-              "<b>Automatisation de la recherche de remplacement</b> : envoi de messages en masse via l'outil support à partir de la recherche multi-filtres, pour accélérer l'accompagnement des membres (11 608 cas sur 12 mois, résolution médiane 97,8h)."
+              "<b>Automatisation de la recherche de remplacement après annulation</b> (co-lead avec la designer, livraison visée fin 2026) : ~7 000 tickets et 3 500 heures d'agent par an, aujourd'hui traités en se connectant au compte du membre. Cible : recherche multi-filtres et prise de contact en masse au nom de HomeExchange, lancée depuis le dossier d'incident créé automatiquement."
             ]
           },
           {
@@ -303,7 +303,7 @@
             "achievements": [
               "<b>Took over product ownership of the Resolution Center</b> (disputes & deposit guarantees) after transfer from an external vendor: moved to maintenance mode and automated incident creation on host cancellation. CSAT 86%, median resolution time 1.13 days.",
               "<b>Automated membership refunds in the back-office</b>: designed the epic and orchestration (PSP refund via the Payment microservice, granular role, analytics event, automatic support-ticket resolution). ~28 person-days/year saved on the support side (63% of all refunds).",
-              "<b>Replacement-search automation</b>: batch messaging through the support tool based on multi-filter search, to speed up member assistance (11,608 cases over 12 months, 97.8h median resolution)."
+              "<b>Replacement-search automation after a cancellation</b> (co-lead with the designer, delivery targeted end of 2026): ~7,000 tickets and 3,500 agent hours per year, currently handled by logging into the member's account. Target: multi-filter search and batch outreach as HomeExchange, launched from the automatically created incident case."
             ]
           },
           {

@@ -131,6 +131,35 @@ export default function Home() {
           </article>
 
           <article className="story">
+            <p className="tag">Annulations</p>
+            <h2>Automatiser la recherche de remplacement après une annulation</h2>
+            <div className="stat">
+              <b>3 500 h</b>
+              <span>de temps agent par an sur ces recherches</span>
+            </div>
+            <p>
+              Quand un hôte annule un séjour, un agent aide le membre à retrouver un logement :
+              il se connecte au compte du membre, refait la recherche et écrit aux hôtes un par
+              un, à sa place. Environ 7 000 tickets par an, 3 500 heures de temps agent, quatre
+              jours de résolution médiane. Et le pire résultat du support quand personne ne
+              répond : 18 % des cas se terminent sans réponse, avec la satisfaction la plus
+              basse de toutes les catégories.
+            </p>
+            <p>
+              J&rsquo;ai chiffré le problème en croisant les données support et les données
+              internes, et identifié le goulot : pas le jugement de l&rsquo;agent, la portée et
+              la vitesse de la prise de contact. La solution en construction : une recherche
+              multi-filtres branchée sur le moteur interne, et des messages envoyés en masse au
+              nom de HomeExchange, plus au nom du membre. Le dossier d&rsquo;annulation se crée
+              déjà automatiquement ; la recherche de remplacement se lancera depuis ce dossier.
+            </p>
+            <p>
+              Je co-pilote la discovery avec notre designer : entretiens d&rsquo;agents en cours,
+              parcours dessiné, livraison visée avant la fin de l&rsquo;année.
+            </p>
+          </article>
+
+          <article className="story">
             <p className="tag">Clubs</p>
             <h2>Réparer l&rsquo;adhésion aux clubs, puis outiller leur gestion</h2>
             <div className="stat">
