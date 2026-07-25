@@ -271,12 +271,20 @@ export default function Home() {
               histoires de cette page sortent de là.
             </p>
             <p>
-              J&rsquo;ai la codebase de l&rsquo;entreprise clonée en local. J&rsquo;écris mes
-              spécifications à partir du code réel, pas de suppositions : je vérifie ce qui
-              existe, je pointe les fichiers concernés, et les tickets arrivent aux développeurs
-              déjà cadrés. Quand une idée mérite d&rsquo;être testée, je code d&rsquo;abord un
-              prototype. Et chaque fonctionnalité livrée dans le back-office embarque un suivi
-              d&rsquo;usage et des droits limités aux bons rôles.
+              Les repos du back-office, de l&rsquo;API et de la couche d&rsquo;accès sont clonés
+              en local. Avant de rédiger un ticket, je lis le code : chaque règle métier que
+              j&rsquo;annonce est vérifiée dans le source, et les tickets arrivent aux
+              développeurs déjà cadrés, avec le suivi d&rsquo;usage et les droits d&rsquo;accès
+              exigés dès la spécification. Sur les sujets incertains, je code d&rsquo;abord un
+              prototype branché sur des données réelles : le pré-remplissage d&rsquo;annonce et
+              la page de recherche ont existé en prototype avant d&rsquo;être spécifiés.
+            </p>
+            <p>
+              Je teste chaque ticket livré sur l&rsquo;environnement de test de sa branche, le
+              ticket et le code ouverts à côté, et je décris les anomalies au timestamp près
+              depuis un enregistrement d&rsquo;écran. Pour les chiffres, je construis mes
+              requêtes SQL sur les schémas réels des tables, et je ne retiens un résultat que
+              quand deux sources concordent.
             </p>
             <p>Quand un geste revient trop souvent, j&rsquo;en fais un outil :</p>
             <ul className="tools">
