@@ -42,7 +42,7 @@ export default function Home() {
           </p>
           <p className="cvline">
             <a href="/Daniel_Assayag_CV.pdf">Télécharger le CV (PDF)</a>
-            <a href="/cv">Version interactive</a>
+            <a href="/cv">CV complet en ligne</a>
           </p>
         </div>
 
