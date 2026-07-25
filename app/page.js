@@ -37,8 +37,8 @@ export default function Home() {
             et régler le problème. <b>Parfois j&rsquo;écris les specs, parfois j&rsquo;écris le code.</b>
           </p>
           <p>
-            Les trois histoires qui suivent viennent de mes notes de semaine, pas
-            d&rsquo;une plaquette.
+            Les histoires qui suivent sont tirées de mes comptes-rendus de semaine.
+            Les chiffres sont réels.
           </p>
           <p className="cvline">
             <a href="/Daniel_Assayag_CV.pdf">Télécharger le CV (PDF)</a>
@@ -51,52 +51,45 @@ export default function Home() {
 
           <article className="story">
             <p className="tag">Anti-fraude</p>
-            <h2>Le mois où 14 500 arnaques sont arrivées d&rsquo;un coup</h2>
+            <h2>En mai, les membres ont reçu 14 500 tentatives de scam. Toutes ont été mitigées automatiquement.</h2>
             <div className="stat">
-              <b>0</b>
-              <span>embauche nécessaire pour absorber l&rsquo;attaque</span>
+              <b>14 500</b>
+              <span>tentatives de scam mitigées pendant la vague de mai</span>
             </div>
-            <p className="kicker">
-              Une attaque de fraude massive, c&rsquo;est le genre d&rsquo;événement qui met une
-              équipe support à genoux. La nôtre n&rsquo;a rien senti.
+            <p>
+              Des fraudeurs contactent nos membres pour les faire payer hors de la plateforme.
+              Avant l&rsquo;automatisation, un agent envoyait environ 1 500 messages
+              d&rsquo;alerte par mois, à la main, et environ un tiers des cas était couvert.
+              J&rsquo;ai fait automatiser la détection et l&rsquo;alerte de bout en bout, puis
+              suivi chaque semaine le volume traité par le système.
             </p>
             <p>
-              Des arnaqueurs contactent nos membres pour les attirer hors de la plateforme.
-              Pendant longtemps, la défense a tenu sur une personne : à peu près 1 500 messages
-              d&rsquo;alerte par mois, envoyés à la main, et un cas sur trois couvert. On a pris
-              le problème à l&rsquo;envers : détecter et alerter automatiquement, et regarder
-              chaque semaine ce que la machine absorbait à notre place.
+              En mai 2026, une vague de scam d&rsquo;une ampleur inédite a visé nos membres :
+              14 500 tentatives en quelques jours. Le système les a détectées et mitigées
+              automatiquement : messages d&rsquo;alerte envoyés, comptes bloqués, conversations
+              traitées. L&rsquo;équipe support n&rsquo;a pas eu besoin de renfort. La direction a
+              repris ces chiffres dans son dossier investisseurs.
             </p>
             <p>
-              En mai, une attaque comme on n&rsquo;en avait jamais vue est tombée : 14 500 cas
-              en quelques jours. Le système a tout encaissé. Pas d&rsquo;heures sup, personne
-              laissé sans réponse. La direction a repris ces chiffres dans son dossier
-              investisseurs.
-            </p>
-            <p>
-              La suite est moins spectaculaire mais plus délicate : déplacer ce système vers
-              notre nouvelle architecture pendant qu&rsquo;il tourne. La règle, posée en réunion,
-              tient en une phrase : les fraudeurs ne prennent pas de vacances, donc la bascule
-              se fera sans interruption.
+              Je pilote maintenant la migration de ce système vers notre nouvelle architecture,
+              pendant qu&rsquo;il tourne. La contrainte fixée en réunion d&rsquo;architecture :
+              aucune interruption de service pendant la bascule, parce que les attaques ne
+              s&rsquo;arrêtent pas.
             </p>
           </article>
 
           <article className="story">
             <p className="tag">Back-office</p>
-            <h2>Reconstruire l&rsquo;avion en plein vol, avec deux développeurs</h2>
+            <h2>Reconstruire le back-office sans jamais l&rsquo;arrêter</h2>
             <div className="stat">
               <b>8,3<small>/10</small></b>
               <span>satisfaction interne, contre 6,2 avant</span>
             </div>
-            <p className="kicker">
-              Cinq millions de comptes, 200 personnes dedans huit heures par jour, et
-              interdiction d&rsquo;arrêter la machine pour la remplacer.
-            </p>
             <p>
-              À mon arrivée, le back-office était l&rsquo;outil que tout le monde subissait :
-              lent, incomplet, impossible à faire évoluer. Personne ne se battait pour reprendre
-              ce chantier, parce qu&rsquo;il fallait le mener sans jamais bloquer le support, les
-              ventes ni le marketing, qui vivaient dedans.
+              Le back-office gère 5 millions de comptes. 200 personnes du support, des ventes et
+              du marketing y travaillent chaque jour. L&rsquo;ancien outil était lent, incomplet
+              et impossible à faire évoluer. Il fallait le remplacer sans jamais bloquer les
+              équipes qui l&rsquo;utilisaient.
             </p>
             <p>
               Avec deux développeurs, on l&rsquo;a remplacé page par page : 340 tickets,
@@ -110,30 +103,23 @@ export default function Home() {
 
           <article className="story">
             <p className="tag">Support</p>
-            <h2>Cinq minutes d&rsquo;humain, 380 fois par mois</h2>
+            <h2>Automatiser un remboursement qui prenait cinq minutes, 380 fois par mois</h2>
             <div className="stat">
               <b>28 j-h</b>
               <span>rendus au support chaque année</span>
             </div>
-            <p className="kicker">
-              Les meilleurs sujets produit ne sont pas dans la roadmap. Ils sont dans les gestes
-              que le support répète sans se plaindre.
+            <p>
+              Rembourser une adhésion demandait cinq étapes manuelles : ouvrir la console de
+              paiement, désactiver l&rsquo;abonnement, retirer les points, noter le cas dans un
+              tableur, répondre au ticket. Cinq minutes par cas, 380 cas par mois, avec des
+              erreurs régulières.
             </p>
             <p>
-              Rembourser une adhésion, c&rsquo;était cinq étapes : ouvrir la console de paiement,
-              désactiver l&rsquo;abonnement, retirer les points, noter le cas dans un tableur,
-              répondre au ticket. Cinq minutes d&rsquo;attention humaine, 380 fois par mois, avec
-              les erreurs qui vont avec.
-            </p>
-            <p>
-              J&rsquo;ai regardé les équipes support faire, chiffré ce que ça coûtait, puis
-              spécifié un bouton qui fait tout d&rsquo;un coup, avec les garde-fous qu&rsquo;exige
-              un acte d&rsquo;argent : seuls les bons rôles le voient, et on sait toujours qui a
-              remboursé quoi. Six semaines entre la demande et la mise en production.
-            </p>
-            <p>
-              C&rsquo;est ça, pour moi, le métier : un problème mesuré, une solution livrée vite,
-              une trace propre.
+              J&rsquo;ai observé les équipes support, chiffré le coût de ce geste, puis spécifié
+              un bouton qui exécute tout d&rsquo;un coup, avec les garde-fous nécessaires pour un
+              acte de paiement : seuls les rôles autorisés le voient, et chaque remboursement est
+              tracé avec son auteur. Six semaines entre la demande du support et la mise en
+              production.
             </p>
           </article>
         </section>
@@ -142,20 +128,24 @@ export default function Home() {
           <p className="eyebrow">Méthode</p>
 
           <article className="story">
-            <h2>Ma mémoire est un système, pas un effort</h2>
-            <p className="kicker">
-              Un PM d&rsquo;opérations voit passer des centaines de sujets par semaine. La
-              question n&rsquo;est pas de tout retenir : c&rsquo;est de ne rien laisser mourir.
+            <h2>Comment je travaille</h2>
+            <p>
+              Des centaines de sujets passent chaque semaine : bugs, demandes, décisions,
+              incidents. Chaque vendredi, un compte-rendu reconstitue ce que l&rsquo;équipe a
+              livré. Des agents IA que j&rsquo;ai configurés compilent nos conversations, nos
+              tickets, notre code et les transcriptions de réunions en un document daté. Un
+              sujet ouvert y revient de semaine en semaine, jusqu&rsquo;à sa résolution. Les
+              histoires de cette page sortent de là.
             </p>
             <p>
-              Chaque vendredi, un compte-rendu reconstitue ce que l&rsquo;équipe a livré :
-              décisions, chiffres, incidents, sujets ouverts. Des agents IA que j&rsquo;ai
-              configurés compilent nos conversations, nos tickets, notre code et les
-              transcriptions de réunions en un document daté. Un sujet ouvert y revient de
-              semaine en semaine, jusqu&rsquo;à sa résolution. Les histoires de cette page
-              sortent de là.
+              J&rsquo;ai la codebase de l&rsquo;entreprise clonée en local. J&rsquo;écris mes
+              spécifications à partir du code réel, pas de suppositions : je vérifie ce qui
+              existe, je pointe les fichiers concernés, et les tickets arrivent aux développeurs
+              déjà cadrés. Quand une idée mérite d&rsquo;être testée, je code d&rsquo;abord un
+              prototype. Et chaque fonctionnalité livrée dans le back-office embarque un suivi
+              d&rsquo;usage et des droits limités aux bons rôles.
             </p>
-            <p>Et quand un geste revient trop souvent, j&rsquo;en fais un outil :</p>
+            <p>Quand un geste revient trop souvent, j&rsquo;en fais un outil :</p>
             <ul className="tools">
               <li>
                 <span className="what">Créer un compte de test complet</span>
@@ -192,9 +182,9 @@ export default function Home() {
         <section className="outro">
           <p className="eyebrow">Travailler ensemble</p>
           <p>
-            Si vous cherchez un product manager qui préfère un problème mesuré à une roadmap
-            théorique, qui livre en semaines plutôt qu&rsquo;en trimestres, et qui ouvre le code
-            quand ça va plus vite : parlons-nous.
+            Vous cherchez un product manager qui mesure les problèmes avant de les résoudre,
+            qui livre en semaines, et qui ouvre le code quand c&rsquo;est plus rapide ?
+            Écrivez-moi.
           </p>
           <a className="cta" href="mailto:dan@danpm.com">Écrivez-moi · dan@danpm.com</a>
         </section>
