@@ -75,9 +75,9 @@ export default function Home() {
             </p>
             <p>
               Je pilote maintenant la migration de ce système vers notre nouvelle architecture,
-              pendant qu&rsquo;il tourne. La contrainte fixée en réunion d&rsquo;architecture :
-              aucune interruption de service pendant la bascule, parce que les attaques ne
-              s&rsquo;arrêtent pas.
+              pendant qu&rsquo;il tourne : la première partie est migrée et démontrée en interne.
+              La contrainte fixée en réunion d&rsquo;architecture : aucune interruption de
+              service pendant la bascule, parce que les attaques ne s&rsquo;arrêtent pas.
             </p>
           </article>
 
@@ -118,11 +118,13 @@ export default function Home() {
               erreurs régulières.
             </p>
             <p>
-              J&rsquo;ai observé les équipes support, chiffré le coût de ce geste, puis spécifié
-              un bouton qui exécute tout d&rsquo;un coup, avec les garde-fous nécessaires pour un
-              acte de paiement : seuls les rôles autorisés le voient, et chaque remboursement est
-              tracé avec son auteur. Les tickets ont été écrits à partir de l&rsquo;analyse du
-              code existant, et le développement a démarré trois jours après.
+              J&rsquo;ai observé les équipes support, chiffré le coût du geste, puis spécifié le
+              bouton qui exécute tout en une action : remboursement sur la plateforme de
+              paiement, désactivation de l&rsquo;abonnement, reprise des points, réponse au
+              membre. Seuls les rôles autorisés le voient, chaque remboursement est tracé avec
+              son auteur. Deux minutes par cas au lieu de cinq : 28 jours-homme rendus au
+              support chaque année. Les tickets ont été écrits depuis l&rsquo;analyse du code
+              existant ; le développement a démarré trois jours après.
             </p>
           </article>
 
@@ -139,7 +141,8 @@ export default function Home() {
               cookie d&rsquo;inscription était posé sur un domaine, la connexion se faisait sur
               un autre, l&rsquo;adhésion ne se finalisait jamais. Nous avons reconstruit le
               parcours : vérification d&rsquo;éligibilité par email avec un lien à usage unique,
-              connexion, confirmation, points de bienvenue.
+              connexion, confirmation, points de bienvenue. Les membres peuvent à nouveau
+              rejoindre un club.
             </p>
             <p>
               En parallèle, la gestion des clubs est devenue un écran du back-office : créer,
@@ -187,11 +190,11 @@ export default function Home() {
               compte, a été livré en juillet sur toute la chaîne d&rsquo;authentification.
             </p>
             <p>
-              La suite est en cours : des droits par fonctionnalité (le bouton de remboursement
+              Le programme est lancé : des droits par fonctionnalité (le bouton de remboursement
               n&rsquo;est visible que des rôles autorisés), une règle d&rsquo;attribution
               systématique à l&rsquo;arrivée d&rsquo;un agent, et le nettoyage de la liste des
-              comptes : accès des prestataires partis supprimés, revue triée par dernière
-              connexion.
+              comptes : accès des prestataires partis supprimés, revue complète triée par
+              dernière connexion.
             </p>
           </article>
         </section>
@@ -240,8 +243,9 @@ export default function Home() {
             </div>
 
             <div className="feat-group">
-              <h3>Transparence pour le support</h3>
+              <h3>Support</h3>
               <ul>
+                <li>Remboursement d&rsquo;une adhésion en une action, tracé et limité aux rôles autorisés</li>
                 <li>Taux de réponse expliqué : les agents voient la décomposition du calcul et peuvent répondre aux membres</li>
                 <li>Contenu des étiquettes visible au survol : trois clics économisés, des centaines de fois par jour</li>
               </ul>
