@@ -25,6 +25,7 @@ export default function Home() {
             <a href="#travail">Travail</a>
             <a href="#methode">Méthode</a>
             <a href="#reperes">Repères</a>
+            <a href="/cv">CV</a>
             <a href="#contact">Contact</a>
           </nav>
         </header>
