@@ -15,18 +15,19 @@ export async function POST(request) {
         }
         const finalSubject = subject || 'Contact via danpm.com'
 
+        if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+            throw new Error('SMTP_USER / SMTP_PASS manquants (variables d\'environnement non configurées)')
+        }
+
         // Create transporter with SMTP settings for danpm.com
-        // Using common SMTP ports: 587 (TLS), 465 (SSL), or 25
+        // Default host/port match the OVH MX Plan SMTP relay (the mailbox behind danpm.com's MX records)
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST || 'mail.danpm.com',
-            port: parseInt(process.env.SMTP_PORT || '587'),
-            secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+            host: process.env.SMTP_HOST || 'ssl0.ovh.net',
+            port: parseInt(process.env.SMTP_PORT || '465'),
+            secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : true,
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS
-            },
-            tls: {
-                rejectUnauthorized: false
             }
         })
 

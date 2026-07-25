@@ -91,7 +91,8 @@
         "location": "Paris",
         "achievements": [
           "Création SaaS d'authentification/certification pour organismes de formation. Architecture MVC, API backend Next.js, bases PostgreSQL/Prisma",
-          "Features livrées : authentification des diplômes, intégration API RNCP, système d'émargement, gestion des étudiants, génération des diplômes, édition et personnalisation des diplômes. Plus de 100 diplômes émis à ce jour"
+          "Features livrées : authentification des diplômes, intégration API RNCP, système d'émargement, gestion des étudiants, génération des diplômes, édition et personnalisation des diplômes. Plus de 100 diplômes émis à ce jour",
+          "Référencé sur data.gouv.fr : <a href=\"https://www.data.gouv.fr/dataservices/diplome-app-api-de-recherche-rncp\" target=\"_blank\" rel=\"noopener noreferrer\">API de recherche RNCP</a> et <a href=\"https://www.data.gouv.fr/reuses/diplome-app-recherche-de-titres-rncp\" target=\"_blank\" rel=\"noopener noreferrer\">Recherche de titres RNCP</a>"
         ]
       },
       {
@@ -341,7 +342,8 @@
         "location": "Paris",
         "achievements": [
           "Created authentication/certification SaaS for training organizations. MVC architecture, Next.js backend API, PostgreSQL/Prisma databases",
-          "Features delivered: diploma authentication, RNCP API integration, attendance system, student management, diploma generation and customization. 100+ diplomas issued to date"
+          "Features delivered: diploma authentication, RNCP API integration, attendance system, student management, diploma generation and customization. 100+ diplomas issued to date",
+          "Listed on data.gouv.fr (French open data portal): <a href=\"https://www.data.gouv.fr/dataservices/diplome-app-api-de-recherche-rncp\" target=\"_blank\" rel=\"noopener noreferrer\">RNCP search API</a> and <a href=\"https://www.data.gouv.fr/reuses/diplome-app-recherche-de-titres-rncp\" target=\"_blank\" rel=\"noopener noreferrer\">RNCP title search reuse</a>"
         ]
       },
       {
