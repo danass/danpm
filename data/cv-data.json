@@ -13,7 +13,7 @@
       { "value": "~100%", "label": "Couverture de la détection anti-scam (vs ~30%)" },
       { "value": "~28 j-h/an", "label": "Temps support économisé (refund automatisé)" },
       { "value": "441", "label": "Tickets clos, équipe de 5 devs" },
-      { "value": "1,13 j", "label": "Résolution médiane au Resolution Center" },
+      { "value": "~3 250 h/an", "label": "Temps de traitement manuel de la fraude économisé" },
       { "value": "+716%", "label": "Visibilité des maisons Collection" }
     ],
     "profile": {
@@ -263,7 +263,7 @@
       { "value": "~100%", "label": "Anti-scam detection coverage (from ~30%)" },
       { "value": "~28 pd/yr", "label": "Support time saved (automated refunds)" },
       { "value": "441", "label": "Tickets closed, team of 5 devs" },
-      { "value": "1.13 d", "label": "Median resolution at the Resolution Center" },
+      { "value": "~3,250 h/yr", "label": "Manual fraud-handling time saved" },
       { "value": "+716%", "label": "Collection homes visibility" }
     ],
     "profile": {
