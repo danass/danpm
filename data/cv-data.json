@@ -12,7 +12,7 @@
       { "value": "+33%", "label": "CSAT du nouveau back-office (8.3 vs 6.2)" },
       { "value": "~100%", "label": "Couverture de la détection anti-scam (vs ~30%)" },
       { "value": "~28 j-h/an", "label": "Temps support économisé (refund automatisé)" },
-      { "value": "340+", "label": "Tickets livrés, équipe de 5 devs" },
+      { "value": "441", "label": "Tickets clos, équipe de 5 devs" },
       { "value": "1,13 j", "label": "Résolution médiane au Resolution Center" },
       { "value": "+716%", "label": "Visibilité des maisons Collection" }
     ],
@@ -34,9 +34,10 @@
             "title": "Migration du Back-Office & Modernisation Produit",
             "achievements": [
               "<b>Migration réussie du back-office</b> permettant la gestion de 5 millions de comptes et 265k clients. Assurance d'une continuité opérationnelle pour 200 utilisateurs internes (Customer Care, Sales, Marketing, Ops, PM) lors du passage à une nouvelle technologie. Livraison en 3 mois de 12 pages, +80 fonctionnalités clés et optimisation des processus critiques : gestion des utilisateurs, maisons, échanges, recherche et permissions. Amélioration de l'interface utilisateur et ajout de filtres de recherche pour une navigation plus intuitive.",
-              "<b>Organisation et animation de rituels agiles</b> : Daily quotidiens, Sprint Review et Sprint Retrospective (1 par sprint), Affinage (2 par sprint), et Copil (1 par mois). Mise en place proactive d'environnements de pré-production et d'un canal de feedback synchronisé avec Jira via un formulaire Slack intégré, permettant de traiter les retours d'une équipe de beta-testeurs sélectionnée, d'identifier et de corriger une trentaine de bugs et fonctionnalités manquantes, tout en assurant un suivi transparent via des statuts (résolu, en cours, etc.)",
+              "<b>Un process réduit, un delivery élevé</b> : un daily hybride, une rétrospective toutes les six semaines, le reste en asynchrone (Looms, écrits, canaux dédiés). Le temps de réunion économisé va à la livraison : la roadmap trimestrielle est régulièrement dépassée, et des sujets ajoutés en cours de trimestre sont livrés dans le même trimestre.",
+              "<b>Environnements de pré-production et canal de feedback</b> synchronisé avec Jira via un formulaire Slack : une trentaine de bugs et fonctionnalités manquantes identifiés et corrigés avec une équipe de beta-testeurs interne, suivi transparent par statuts (résolu, en cours).",
               "<b>Priorisation et intégration de fonctionnalités</b> supplémentaires (10) dans le back-office : réalisation d'enquêtes métier approfondies et d'interviews utilisateurs, utilisation d'une matrice de priorisation en collaboration avec les stakeholders, création d'une roadmap phasée avec des releases progressives (ex: migration des fonctionnalités existantes et ajout de nouvelles features comme le tri dans les onglets d’échanges et des coupons, la synchronisation instantanée de la donnée, la gestion des guestpoints en masse et l'héritage de la session utilisateur pour tracer les modifications des agents, éliminant ainsi la saisie manuelle du nom de l'agent)",
-              "<b>Accompagnement opérationnel de 5 développeurs</b> (2 internes + 3 externes) : rédaction et résolution de 340+ tickets (dont 57 epics) liés à la migration du BO : discussions quotidiennes pour aider à la clarification technique, investigation et résolution de tous les  problèmes, arbitrage fonctionnel, testing et création d'outils d'automatisation pour la création de comptes de testing.",
+              "<b>Accompagnement opérationnel de 5 développeurs</b> (2 internes + 3 externes) : rédaction et résolution de 441 tickets (dont 30 epics) sur le back-office et les outils internes : discussions quotidiennes pour aider à la clarification technique, investigation et résolution de tous les  problèmes, arbitrage fonctionnel, testing et création d'outils d'automatisation pour la création de comptes de testing.",
               "<b>Utilisation intensive de l'IA générative </b>pour accélérer la conception, la création de maquettes et la production de tickets, permettant une  livraison sans retard du projet BO en équipe réduite."
             ]
           },
@@ -159,7 +160,7 @@
           "Workflows multi-agents",
           "Automations Slack et Jira",
           "Puppeteer",
-          "Iterable (campagnes CRM)"
+          "Iterable (emails déclenchés par événement)"
         ]
       },
       {
@@ -261,7 +262,7 @@
       { "value": "+33%", "label": "New back-office CSAT (8.3 vs 6.2)" },
       { "value": "~100%", "label": "Anti-scam detection coverage (from ~30%)" },
       { "value": "~28 pd/yr", "label": "Support time saved (automated refunds)" },
-      { "value": "340+", "label": "Tickets delivered, team of 5 devs" },
+      { "value": "441", "label": "Tickets closed, team of 5 devs" },
       { "value": "1.13 d", "label": "Median resolution at the Resolution Center" },
       { "value": "+716%", "label": "Collection homes visibility" }
     ],
@@ -283,9 +284,10 @@
             "title": "Back-Office Migration & Product Modernization",
             "achievements": [
               "<b>Successful back-office migration</b> enabling management of 5 million accounts and 265k customers. Ensured operational continuity for 200 internal users (Customer Care, Sales, Marketing, Ops, PM) during transition to new technology. Delivered in 3 months: 12 pages, 80+ key features and optimization of critical processes: user management, homes, exchanges, search, and permissions. Improved user interface and added search filters for more intuitive navigation.",
-              "<b>Organization and facilitation of agile rituals</b>: Daily standups, Sprint Review and Sprint Retrospective (1 per sprint), Refinement (2 per sprint), and Steering Committee (1 per month). Proactive setup of pre-production environments and a feedback channel synchronized with Jira via an integrated Slack form, enabling collection and processing of feedback from a selected beta-testing team, identifying and fixing approximately thirty bugs and missing features, while ensuring transparent tracking via statuses (resolved, in progress, etc.)",
+              "<b>Minimal process, high delivery</b>: one hybrid daily, a retrospective every six weeks, everything else async (Looms, written updates, dedicated channels). Meeting time saved goes to shipping: the quarterly roadmap is regularly exceeded, and topics added mid-quarter ship within the same quarter.",
+              "<b>Pre-production environments and a feedback channel</b> synchronized with Jira via a Slack form: about thirty bugs and missing features identified and fixed with an internal beta-testing team, transparent tracking via statuses (resolved, in progress).",
               "<b>Prioritization and integration of additional features</b> (10) in the back-office: conducting in-depth business surveys and user interviews, using a prioritization matrix in collaboration with stakeholders, creating a phased roadmap with progressive releases (e.g., migration of existing features and addition of new features like sorting in exchange tabs and coupons, instant data synchronization, bulk guestpoints management and user session inheritance to track agent modifications, eliminating manual agent name entry)",
-              "<b>Operational support for 5 developers</b> (2 internal + 3 external): writing and resolving 340+ tickets (including 57 epics) related to BO migration: daily discussions to help with technical clarification, investigation and resolution of all issues, functional arbitration, testing and creation of automation tools for test account creation.",
+              "<b>Operational support for 5 developers</b> (2 internal + 3 external): writing and resolving 441 tickets (including 30 epics) across the back-office and internal tools: daily discussions to help with technical clarification, investigation and resolution of all issues, functional arbitration, testing and creation of automation tools for test account creation.",
               "<b>Intensive use of generative AI</b> to accelerate design, mockup creation, and ticket production, enabling on-time delivery of BO project with reduced team."
             ]
           },
@@ -408,7 +410,7 @@
           "Multi-agent workflows",
           "Slack and Jira automations",
           "Puppeteer",
-          "Iterable (CRM campaigns)"
+          "Iterable (event-triggered emails)"
         ]
       },
       {

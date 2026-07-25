@@ -32,10 +32,11 @@ export default function Home() {
         <div className="intro">
           <h1>Je construis les outils qui font tourner HomeExchange en coulisses.</h1>
           <p>
-            Chez HomeExchange, 200 personnes ouvrent chaque matin un outil dont on ne parle
-            jamais : le back-office. C&rsquo;est mon produit. Mon travail : repérer là où
-            l&rsquo;entreprise perd du temps, de l&rsquo;argent ou la confiance de ses membres,
-            et régler le problème. <b>Parfois j&rsquo;écris les specs, parfois j&rsquo;écris le code.</b>
+            Chez HomeExchange, 125 personnes ouvrent chaque jour ouvré un outil dont on ne parle
+            jamais : le back-office. 349 l&rsquo;ont utilisé sur les trente derniers jours.
+            C&rsquo;est mon produit. Mon travail : repérer là où l&rsquo;entreprise perd du
+            temps, de l&rsquo;argent ou la confiance de ses membres, et régler le problème.
+            <b> Parfois j&rsquo;écris les specs, parfois j&rsquo;écris le code.</b>
           </p>
           <p>
             Les histoires qui suivent sont tirées de mes comptes-rendus de semaine.
@@ -90,10 +91,10 @@ export default function Home() {
               <span>satisfaction interne, contre 6,2 avant</span>
             </div>
             <p>
-              Le back-office gère 5 millions de comptes. 200 personnes du support, des ventes et
-              du marketing y travaillent chaque jour. L&rsquo;ancien outil était lent, incomplet
-              et impossible à faire évoluer. Il fallait le remplacer sans jamais bloquer les
-              équipes qui l&rsquo;utilisaient.
+              Le back-office gère 5 millions de comptes. 349 personnes du support, des ventes et
+              du marketing l&rsquo;ont utilisé sur les trente derniers jours, 125 chaque jour
+              ouvré. L&rsquo;ancien outil était lent, incomplet et impossible à faire évoluer.
+              Il fallait le remplacer sans jamais bloquer les équipes qui l&rsquo;utilisaient.
             </p>
             <p>
               Avec deux développeurs, on l&rsquo;a remplacé page par page : 340 tickets,
@@ -268,6 +269,13 @@ export default function Home() {
           <article className="story">
             <h2>Comment je travaille</h2>
             <p>
+              Le process d&rsquo;équipe est réduit au minimum : un daily hybride, une
+              rétrospective toutes les six semaines, le reste en asynchrone (Looms, écrits,
+              canaux dédiés). Le temps de réunion va à la livraison : la roadmap trimestrielle
+              est régulièrement dépassée, et les sujets ajoutés en cours de route sont livrés
+              eux aussi.
+            </p>
+            <p>
               Des centaines de sujets passent chaque semaine : bugs, demandes, décisions,
               incidents. Chaque vendredi, un compte-rendu reconstitue ce que l&rsquo;équipe a
               livré. Des agents IA que j&rsquo;ai configurés compilent nos conversations, nos
@@ -337,13 +345,12 @@ export default function Home() {
           <p className="eyebrow">Repères</p>
           <dl>
             <div><dt>Comptes gérés par le back-office</dt><dd>5 millions</dd></div>
-            <div><dt>Utilisateurs internes quotidiens</dt><dd>200</dd></div>
-            <div><dt>Tickets livrés depuis février 2025</dt><dd>340+, dont 113 entre avril et juillet 2026</dd></div>
+            <div><dt>Utilisateurs internes du back-office</dt><dd>125 par jour ouvré, 349 sur 30 jours</dd></div>
+            <div><dt>Tickets clos depuis février 2025</dt><dd>441, dont 30 epics</dd></div>
             <div><dt>Couverture automatique des cas de fraude</dt><dd>~100 % (contre ~30 %)</dd></div>
-            <div><dt>Messages d&rsquo;alerte envoyés pendant la vague de mai</dt><dd>44 278 en dix jours</dd></div>
-            <div><dt>Traitement manuel de la fraude, avant</dt><dd>3 250 heures par an</dd></div>
+            <div><dt>Temps de traitement manuel de la fraude économisé</dt><dd>~3 250 heures par an</dd></div>
+            <div><dt>Alertes anti-fraude envoyées automatiquement aux membres (vague de mai)</dt><dd>44 278 en dix jours</dd></div>
             <div><dt>Satisfaction interne du back-office</dt><dd>8,3/10, contre 6,2 avant</dd></div>
-            <div><dt>Résolution médiane des litiges</dt><dd>1,13 jour</dd></div>
           </dl>
         </section>
 
