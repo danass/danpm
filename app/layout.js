@@ -7,14 +7,14 @@ import LanguageSetter from './components/LanguageSetter'
 import { Toaster } from './components/ui/toaster'
 
 export const metadata = {
-  title: 'Daniel Assayag - Product Manager | CV',
-  description: 'Product Manager junior avec expertise en product strategy, roadmap planning, user research, A/B testing, agile methodology, stakeholder management, et collaboration cross-fonctionnelle. Spécialisé dans la gestion de produits technologiques.',
-  keywords: 'Product Manager, Product Management, Product Strategy, Roadmap Planning, User Research, A/B Testing, Agile, Scrum, Stakeholder Management, PRD, Product Requirements, KPIs, Metrics, Product Analytics, User Experience, Product Discovery, Backlog Management, Sprint Planning',
+  title: 'Daniel Assayag · Product Manager',
+  description: "Product manager de la squad Operations chez HomeExchange. Back-office, outils internes, anti-fraude, automatisation du support. Des histoires tirées de mes notes de semaine, pas d'une plaquette.",
+  keywords: 'Product Manager, Product Ops, Operations, Back-office, Outils internes, Anti-fraude, Automatisation, Trust and Safety, HomeExchange, Paris',
   authors: [{ name: 'Daniel Assayag' }],
   creator: 'Daniel Assayag',
   openGraph: {
-    title: 'Daniel Assayag - Product Manager | CV',
-    description: 'Product Manager junior spécialisé dans la gestion de produits technologiques',
+    title: 'Daniel Assayag · Product Manager',
+    description: 'Je construis les outils qui font tourner HomeExchange en coulisses.',
     type: 'profile',
     locale: 'fr_FR',
   },

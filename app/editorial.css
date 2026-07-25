@@ -1,0 +1,123 @@
+/* Editorial homepage — palette papier/encre/bleu, serif système */
+.edito {
+  --paper: #FBFBF9;
+  --ink: #191A1C;
+  --soft: #63666B;
+  --hair: #E7E6E1;
+  --blue: #234A70;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.68;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.edito ::selection { background: #F5DE6B; }
+
+.edito .page { max-width: 660px; margin: 0 auto; padding: 0 24px; }
+
+.edito .top {
+  display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap;
+  padding: 44px 0 0;
+}
+.edito .name { font-size: 18px; letter-spacing: .01em; }
+.edito .top nav {
+  margin-left: auto; display: flex; gap: 22px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px; line-height: 1;
+}
+.edito .top nav a { color: var(--soft); text-decoration: none; }
+.edito .top nav a:hover { color: var(--ink); }
+
+.edito .intro { padding: 78px 0 0; }
+.edito h1 {
+  font-size: clamp(30px, 5vw, 42px); line-height: 1.22; font-weight: 500;
+  letter-spacing: -.01em; margin: 0; text-wrap: balance;
+}
+.edito .intro p { color: var(--soft); font-size: 18.5px; margin: 26px 0 0; max-width: 58ch; }
+.edito .intro p b { color: var(--ink); font-weight: 600; }
+.edito .cvline {
+  margin-top: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px; line-height: 1;
+}
+.edito .cvline a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); padding-bottom: 2px; }
+.edito .cvline a:hover { opacity: .75; }
+.edito .cvline a + a { margin-left: 22px; }
+
+.edito section { margin-top: 96px; padding-top: 44px; border-top: 1px solid var(--hair); }
+.edito .eyebrow {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px; line-height: 1; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft); margin: 0;
+}
+
+.edito .story { margin-top: 52px; }
+.edito .story:first-of-type { margin-top: 40px; }
+.edito .tag {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px; line-height: 1; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--blue); margin: 0 0 10px;
+}
+.edito .story h2 {
+  font-size: 25px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3;
+  margin: 0 0 6px; text-wrap: balance;
+}
+.edito .stat { float: right; margin: 4px 0 10px 28px; text-align: right; }
+.edito .stat b {
+  display: block; font-size: 38px; font-weight: 500; letter-spacing: -.02em;
+  line-height: 1; font-variant-numeric: tabular-nums; color: var(--blue);
+}
+.edito .stat b small { font-size: 22px; }
+.edito .stat span {
+  display: block; margin-top: 6px; max-width: 120px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px; line-height: 1.45; color: var(--soft);
+}
+.edito .story p { margin: 14px 0 0; max-width: 60ch; }
+.edito .story p.kicker { color: var(--soft); font-style: italic; }
+.edito .story::after { content: ""; display: block; clear: both; }
+
+.edito .tools { list-style: none; margin: 22px 0 0; padding: 0; max-width: 60ch; }
+.edito .tools li {
+  padding: 13px 0; border-bottom: 1px solid var(--hair);
+  display: flex; gap: 14px; align-items: baseline;
+}
+.edito .tools li:last-child { border-bottom: none; }
+.edito .tools .what { flex: 1; }
+.edito .tools .gain { white-space: nowrap; color: var(--blue); font-variant-numeric: tabular-nums; font-size: 16px; }
+
+.edito dl { margin: 36px 0 0; padding: 0; }
+.edito dl > div {
+  display: flex; gap: 20px; align-items: baseline;
+  padding: 13px 0; border-bottom: 1px solid var(--hair);
+}
+.edito dl > div:last-child { border-bottom: none; }
+.edito dt { flex: 1; color: var(--soft); font-size: 16px; }
+.edito dd { margin: 0; font-variant-numeric: tabular-nums; font-size: 17px; }
+
+.edito .outro p { margin: 26px 0 0; max-width: 58ch; font-size: 18.5px; }
+.edito .outro .cta {
+  display: inline-block; margin-top: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px; line-height: 1;
+  color: var(--blue); text-decoration: none;
+  border-bottom: 1px solid var(--blue); padding-bottom: 2px;
+}
+.edito .outro .cta:hover { opacity: .75; }
+
+.edito footer {
+  margin-top: 96px; border-top: 1px solid var(--hair); padding: 36px 0 72px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px; line-height: 1.7; color: var(--soft);
+  display: flex; gap: 22px; flex-wrap: wrap;
+}
+.edito footer a { color: var(--ink); text-decoration: none; }
+.edito footer a:hover { color: var(--blue); }
+
+@media (max-width: 560px) {
+  .edito .stat { float: none; margin: 14px 0 4px; text-align: left; }
+  .edito .stat span { max-width: none; }
+}
