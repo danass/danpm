@@ -216,16 +216,12 @@ export default function Home() {
 
           <article className="story">
             <p className="tag">Accès &amp; RGPD</p>
-            <h2>327 comptes internes avaient un accès complet au back-office</h2>
-            <div className="stat">
-              <b>327</b>
-              <span>comptes à accès complet identifiés par l&rsquo;audit</span>
-            </div>
+            <h2>Remettre de l&rsquo;ordre dans les rôles et les accès du back-office</h2>
             <p>
-              Un audit mené avec un cabinet spécialisé RGPD a établi que 327 collaborateurs
-              disposaient d&rsquo;un accès complet au back-office, quel que soit leur métier.
-              J&rsquo;ai pris le sujet. Le prérequis technique, permettre plusieurs rôles par
-              compte, a été livré en juillet sur toute la chaîne d&rsquo;authentification.
+              Historiquement, les collaborateurs internes disposaient du même accès complet au
+              back-office, quel que soit leur métier. J&rsquo;ai pris le sujet, avec un
+              accompagnement RGPD : le prérequis technique, permettre plusieurs rôles par
+              compte, est en place sur toute la chaîne d&rsquo;authentification depuis juillet.
             </p>
             <p>
               Les droits par fonctionnalité sont en place : le bouton de remboursement

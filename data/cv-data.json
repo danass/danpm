@@ -59,7 +59,7 @@
           {
             "title": "Granularité des rôles (RGPD) & Product Ops augmentée par l'IA",
             "achievements": [
-              "<b>Granularité des rôles du back-office</b> (327 collaborateurs internes y ont accès) : rôles multiples Auth0, décorrélation des périmètres Resolution Center / back-office, accompagnement RGPD avec un cabinet spécialisé (principe de moindre privilège).",
+              "<b>Granularité des rôles du back-office</b> (un accès complet identique pour tous les collaborateurs internes, historiquement) : rôles multiples Auth0, décorrélation des périmètres Resolution Center / back-office, accompagnement RGPD avec un cabinet spécialisé (principe de moindre privilège).",
               "<b>Outillage IA pour l'équipe produit</b> : contribution à un « Product OS » (20 skills + 5 agents en production) et POC de pré-remplissage d'annonces à partir de photos et de vidéos (extraction et scoring automatiques de keyframes).",
               "<b>Développement direct (hands-on)</b> quand c'est le plus rapide : outil interne de création de comptes de test (provisioning Auth0-first), audit de sécurité (XSS), requêtes SQL analytiques (Metabase), et moteur d'agrégation automatique des comptes-rendus hebdomadaires."
             ]
@@ -309,7 +309,7 @@
           {
             "title": "Role granularity (GDPR) & AI-augmented Product Ops",
             "achievements": [
-              "<b>Back-office role granularity</b> (327 internal staff have access): Auth0 multiple roles, decorrelation of Resolution Center / back-office scopes, GDPR support with a specialized firm (least-privilege principle).",
+              "<b>Back-office role granularity</b> (historically the same full access for all internal staff): Auth0 multiple roles, decorrelation of Resolution Center / back-office scopes, GDPR support with a specialized firm (least-privilege principle).",
               "<b>AI tooling for the product team</b>: contribution to a Product OS (20 skills + 5 agents in production) and a POC for pre-filling listings from photos and videos (automatic keyframe extraction and scoring).",
               "<b>Hands-on development</b> when it's the fastest path: internal test-account creation tool (Auth0-first provisioning), security audit (XSS), analytical SQL queries (Metabase), and an automated engine to aggregate the weekly recaps."
             ]
