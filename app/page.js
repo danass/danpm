@@ -315,6 +315,12 @@ export default function Home() {
               histoires de cette page sortent de là.
             </p>
             <p>
+              Ce qui est livré aux agents est documenté pour les agents : un inventaire des
+              fonctionnalités du back-office, et une FAQ en vidéos courtes, quinze Looms classés
+              par thème (bloquer un compte et tracer le motif, éditer un échange, gérer les
+              coupons).
+            </p>
+            <p>
               Les repos du back-office, de l&rsquo;API et de la couche d&rsquo;accès sont clonés
               en local. Avant de rédiger un ticket, je lis le code : chaque règle métier que
               j&rsquo;annonce est vérifiée dans le source, et les tickets arrivent aux
