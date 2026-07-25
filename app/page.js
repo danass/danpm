@@ -71,9 +71,9 @@ export default function Home() {
               La mise en production a eu lieu fin avril. Une semaine plus tard, la plus grosse
               vague de scam que la plateforme ait connue a frappé : 14 500 tentatives reçues par
               les membres. En dix jours, le système a déclenché 13 407 traitements automatiques
-              et envoyé 44 278 messages d&rsquo;alerte. L&rsquo;équipe support n&rsquo;a pas eu
-              besoin de renfort. La direction a repris ces chiffres dans son dossier
-              investisseurs.
+              et envoyé 44 278 messages d&rsquo;alerte. La direction a repris ces chiffres dans
+              son dossier investisseurs, et l&rsquo;a résumé ainsi au webinaire d&rsquo;entreprise
+              de juillet : zéro travail manuel pendant l&rsquo;attaque.
             </p>
             <p>
               Je pilote maintenant la migration de ce système vers notre nouvelle architecture,
@@ -150,10 +150,12 @@ export default function Home() {
               En parallèle, la gestion des clubs est devenue un écran du back-office : créer,
               modifier, traduire en 11 langues, convertir un club en groupe, supprimer avec
               export des membres. Avant, chaque création de club était une demande faite aux
-              développeurs. Sur la gouvernance, j&rsquo;ai préparé et animé une session
-              d&rsquo;alignement avec 22 participants de toutes les équipes. Décision : pas de
-              refonte cette année, des itérations courtes, un nettoyage de la base, et une
-              discovery financée pour la suite.
+              développeurs ; le marketing lance maintenant ses tests de partenariats en
+              autonomie, et c&rsquo;est l&rsquo;une des livraisons présentées au webinaire
+              d&rsquo;entreprise de juillet. Sur la gouvernance, j&rsquo;ai préparé et animé une
+              session d&rsquo;alignement avec 22 participants de toutes les équipes. Décision :
+              pas de refonte cette année, des itérations courtes, un nettoyage de la base, et
+              une discovery financée pour la suite.
             </p>
           </article>
 
@@ -161,20 +163,22 @@ export default function Home() {
             <p className="tag">Litiges</p>
             <h2>Reprendre le Resolution Center, développé par un prestataire externe</h2>
             <div className="stat">
-              <b>1,13 j</b>
-              <span>résolution médiane des litiges en juin</span>
+              <b>1 456</b>
+              <span>litiges gérés dans l&rsquo;outil en juin</span>
             </div>
             <p>
-              Le Resolution Center gère les litiges et les garanties de dépôt entre membres. Il
-              a été développé par un prestataire externe dont la mission se termine. J&rsquo;ai
-              repris le domaine : suivi des indicateurs mensuels, arbitrage des demandes,
-              coordination de la fin de contrat, passage en mode maintenance.
+              Le Resolution Center gère les litiges et les garanties de dépôt entre membres. Sa
+              deuxième phase a remplacé le Google Sheet des incidents : la gestion des incidents
+              et des compensations se fait depuis le back-office, connectée à Zendesk, y compris
+              les échanges avec les membres et l&rsquo;équipe finance.
             </p>
             <p>
-              En juin : 1 456 litiges traités, 86 % de satisfaction, 1,13 jour de résolution
-              médiane, le meilleur niveau depuis le lancement. J&rsquo;ai aussi fait aboutir la
-              création automatique d&rsquo;un dossier de litige quand un hôte annule un séjour :
-              l&rsquo;équipe support n&rsquo;a plus à le créer à la main.
+              L&rsquo;outil a été développé par un prestataire externe dont la mission se
+              termine : j&rsquo;ai repris le domaine. Suivi des indicateurs mensuels, arbitrage
+              des demandes, coordination de la fin de contrat, passage en mode maintenance. En
+              juin, 1 456 litiges y ont été traités, avec 86 % de satisfaction. J&rsquo;ai aussi
+              fait aboutir la création automatique d&rsquo;un dossier quand un hôte annule un
+              séjour : l&rsquo;équipe support n&rsquo;a plus à le créer à la main.
             </p>
           </article>
 
