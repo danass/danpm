@@ -53,7 +53,7 @@
             "achievements": [
               "<b>Reprise de l'ownership produit du Resolution Center</b> (litiges & garanties de dépôt) après transfert depuis un prestataire externe : passage en mode maintenance et création automatique d'incidents à l'annulation par l'hôte. CSAT 86%, temps de résolution médian 1,13 jour.",
               "<b>Refund d'adhésion automatisé dans le back-office</b> : conception de l'epic et de l'orchestration (remboursement PSP via microservice Payment, rôle granulaire, event analytics, résolution automatique du ticket support). ~28 jours-homme/an économisés côté support (63% des remboursements).",
-              "<b>Automatisation de la recherche de remplacement après annulation</b> (co-lead avec la designer, livraison visée fin 2026) : ~7 000 tickets et 3 500 heures d'agent par an, aujourd'hui traités en se connectant au compte du membre. Cible : recherche multi-filtres et prise de contact en masse au nom de HomeExchange, lancée depuis le dossier d'incident créé automatiquement."
+              "<b>Automatisation de la recherche de remplacement après annulation</b> (co-lead avec la designer) : ~7 000 tickets et 3 500 heures d'agent par an, traités auparavant en se connectant au compte du membre. Recherche multi-filtres et prise de contact en masse au nom de HomeExchange, lancée depuis le dossier d'incident créé automatiquement."
             ]
           },
           {
@@ -69,8 +69,8 @@
             "achievements": [
               "<strong>+716% de visibilité Collection</strong> : Revamp homepage (2 508 → 20 458 maisons exposées). Badge Collection sur cartes maisons. Création de nouveaux touchpoints (+25% exposition via bannières)",
               "<b>Accompagnement opérationnel de 4 développeurs</b> <b>en interne</b> en collaboration avec un autre Product Manager : rédaction de +20 tickets par mois, clarification technique et investigation pour résoudre rapidement les problèmes.",
-              "<b>Création de nouvelles catégories de maisons</b> (ex. grandes baies vitrées, vues exceptionnelles, piscines à debordement) à partir de l'analyse de photos via un algorithme d'IA, suivi du réentraînement du modèle pour garantir des résultats cohérents. Phase de discovery en cours pour évaluer l'impact potentiel sur l'expérience utilisateur.",
-              "<b>Revamp partiel du funnel de candidature</b> : implémentation de fonctionnalités clés comme l'annulation de candidature, la sauvegarde/reprise, et le suivi de statut. Maintien d'un taux de complétion avec environ 200 candidatures mensuelles. Projet en cours d'achèvement avec des fonctionnalités supplémentaires prévues, telles que la vérification d'éligibilité automatisée et le free-trial.",
+              "<b>Création de nouvelles catégories de maisons</b> (ex. grandes baies vitrées, vues exceptionnelles, piscines à debordement) à partir de l'analyse de photos via un algorithme d'IA, suivi du réentraînement du modèle pour garantir des résultats cohérents.",
+              "<b>Revamp partiel du funnel de candidature</b> : implémentation de fonctionnalités clés comme l'annulation de candidature, la sauvegarde/reprise, et le suivi de statut. Maintien d'un taux de complétion avec environ 200 candidatures mensuelles. Fonctionnalités complémentaires livrées : vérification d'éligibilité automatisée et free-trial.",
               "<b>Coordination avec les squads</b> : Collaboration avec le Squad Paiement pour l'intégration du paiement de la version d'essai gratuite de 15 jours du produit Home Exchange Collection, et avec le Squad User pour l'implémentation de l'authentification et de l'inscription via Auth0, permettant aux utilisateurs de se connecter via des plateformes tierces.",
               "<b>Optimisation de l'algorithme de ranking</b> pour les maisons Collection. Amélioration de la logique de présentation des résultats pour les utilisateurs Collection, passant à une hiérarchisation claire (maisons Collection, maisons éligibles sans abonnement, puis maisons Free Trial). Impact direct sur l'expérience utilisateur et la facilitation des mises en relation."
             ]
@@ -303,7 +303,7 @@
             "achievements": [
               "<b>Took over product ownership of the Resolution Center</b> (disputes & deposit guarantees) after transfer from an external vendor: moved to maintenance mode and automated incident creation on host cancellation. CSAT 86%, median resolution time 1.13 days.",
               "<b>Automated membership refunds in the back-office</b>: designed the epic and orchestration (PSP refund via the Payment microservice, granular role, analytics event, automatic support-ticket resolution). ~28 person-days/year saved on the support side (63% of all refunds).",
-              "<b>Replacement-search automation after a cancellation</b> (co-lead with the designer, delivery targeted end of 2026): ~7,000 tickets and 3,500 agent hours per year, currently handled by logging into the member's account. Target: multi-filter search and batch outreach as HomeExchange, launched from the automatically created incident case."
+              "<b>Replacement-search automation after a cancellation</b> (co-lead with the designer): ~7,000 tickets and 3,500 agent hours per year, previously handled by logging into the member's account. Multi-filter search and batch outreach as HomeExchange, launched from the automatically created incident case."
             ]
           },
           {
@@ -319,8 +319,8 @@
             "achievements": [
               "<strong>+716% Collection visibility</strong>: Homepage revamp (2,508 → 20,458 homes displayed). Collection badge on home cards. Creation of new touchpoints (+25% exposure via banners)",
               "<b>Operational support for 4 internal developers</b> in collaboration with another Product Manager: writing 20+ tickets per month, technical clarification and investigation to quickly resolve issues.",
-              "<b>Creation of new home categories</b> (e.g., large bay windows, exceptional views, infinity pools) based on photo analysis via AI algorithm, followed by model retraining to ensure consistent results. Discovery phase in progress to evaluate potential impact on user experience.",
-              "<b>Partial revamp of application funnel</b>: implementation of key features like application cancellation, save/resume, and status tracking. Maintaining completion rate with approximately 200 monthly applications. Project nearing completion with additional features planned, such as automated eligibility verification and free-trial.",
+              "<b>Creation of new home categories</b> (e.g., large bay windows, exceptional views, infinity pools) based on photo analysis via AI algorithm, followed by model retraining to ensure consistent results.",
+              "<b>Partial revamp of application funnel</b>: implementation of key features like application cancellation, save/resume, and status tracking. Maintaining completion rate with approximately 200 monthly applications. Follow-up features shipped: automated eligibility verification and free trial.",
               "<b>Cross-squad coordination</b>: Collaboration with Payment Squad for integration of 15-day free trial payment for Home Exchange Collection product, and with User Squad for Auth0 authentication and registration implementation, enabling users to log in via third-party platforms.",
               "<b>Ranking algorithm optimization</b> for Collection homes. Improved result presentation logic for Collection users, moving to clear hierarchy (Collection homes, eligible homes without subscription, then Free Trial homes). Direct impact on user experience and facilitating connections."
             ]

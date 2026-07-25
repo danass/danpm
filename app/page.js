@@ -76,10 +76,10 @@ export default function Home() {
               de juillet : zéro travail manuel pendant l&rsquo;attaque.
             </p>
             <p>
-              Je pilote maintenant la migration de ce système vers notre nouvelle architecture,
-              pendant qu&rsquo;il tourne : la première partie est migrée et démontrée en interne.
-              La contrainte fixée en réunion d&rsquo;architecture : aucune interruption de
-              service pendant la bascule, parce que les attaques ne s&rsquo;arrêtent pas.
+              J&rsquo;ai ensuite piloté la migration de ce système vers notre nouvelle
+              architecture, pendant qu&rsquo;il tournait, avec une contrainte fixée en réunion
+              d&rsquo;architecture : aucune interruption de service, parce que les attaques ne
+              s&rsquo;arrêtent pas.
             </p>
           </article>
 
@@ -126,7 +126,8 @@ export default function Home() {
               membre. Seuls les rôles autorisés le voient, chaque remboursement est tracé avec
               son auteur. Deux minutes par cas au lieu de cinq : 28 jours-homme rendus au
               support chaque année. Les tickets ont été écrits depuis l&rsquo;analyse du code
-              existant ; le développement a démarré trois jours après.
+              existant ; quatre jours plus tard, les premiers remboursements passaient sur
+              Stripe et PayPal.
             </p>
           </article>
 
@@ -148,14 +149,15 @@ export default function Home() {
             <p>
               J&rsquo;ai chiffré le problème en croisant les données support et les données
               internes, et identifié le goulot : pas le jugement de l&rsquo;agent, la portée et
-              la vitesse de la prise de contact. La solution en construction : une recherche
-              multi-filtres branchée sur le moteur interne, et des messages envoyés en masse au
-              nom de HomeExchange, plus au nom du membre. Le dossier d&rsquo;annulation se crée
-              déjà automatiquement ; la recherche de remplacement se lancera depuis ce dossier.
+              la vitesse de la prise de contact. La solution : une recherche multi-filtres
+              branchée sur le moteur interne, et des messages envoyés en masse au nom de
+              HomeExchange, plus au nom du membre. Le dossier d&rsquo;annulation se crée
+              automatiquement ; la recherche de remplacement se lance depuis ce dossier.
             </p>
             <p>
-              Je co-pilote la discovery avec notre designer : entretiens d&rsquo;agents en cours,
-              parcours dessiné, livraison visée avant la fin de l&rsquo;année.
+              Je co-pilote le sujet avec notre designer, à partir d&rsquo;entretiens menés avec
+              les agents. La prise de contact passe d&rsquo;un hôte à la fois à des dizaines en
+              une action, et plus personne n&rsquo;a à se connecter au compte d&rsquo;un membre.
             </p>
           </article>
 
@@ -225,11 +227,10 @@ export default function Home() {
               compte, a été livré en juillet sur toute la chaîne d&rsquo;authentification.
             </p>
             <p>
-              Le programme est lancé : des droits par fonctionnalité (le bouton de remboursement
-              n&rsquo;est visible que des rôles autorisés), une règle d&rsquo;attribution
-              systématique à l&rsquo;arrivée d&rsquo;un agent, et le nettoyage de la liste des
-              comptes : accès des prestataires partis supprimés, revue complète triée par
-              dernière connexion.
+              Les droits par fonctionnalité sont en place : le bouton de remboursement
+              n&rsquo;est visible que des rôles autorisés. Les rôles sont attribués par paires à
+              l&rsquo;arrivée de chaque agent, et la liste des comptes a été nettoyée : accès des
+              prestataires partis supprimés, revue complète triée par dernière connexion.
             </p>
           </article>
         </section>
