@@ -54,6 +54,16 @@
   color: var(--soft); margin: 0;
 }
 
+.edito .story-links { list-style: none; margin: 28px 0 0; padding: 0; max-width: 60ch; }
+.edito .story-links li { border-bottom: 1px solid var(--hair); }
+.edito .story-links li:last-child { border-bottom: none; }
+.edito .story-links a {
+  display: block; padding: 18px 0; color: var(--ink); text-decoration: none;
+  font-size: 19px; line-height: 1.4; text-wrap: balance;
+}
+.edito .story-links a:hover { color: var(--blue); }
+.edito .story-links a .tag { display: block; margin-bottom: 6px; }
+
 .edito .story { margin-top: 52px; }
 .edito .story:first-of-type { margin-top: 40px; }
 .edito .tag {

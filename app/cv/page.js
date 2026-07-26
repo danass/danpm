@@ -34,7 +34,9 @@ export default function CVPage() {
           <span className="name">Daniel Assayag</span>
           <nav aria-label="Navigation">
             <a href="/">Accueil</a>
-            <a href="/Daniel_Assayag_CV.pdf">Télécharger le PDF</a>
+            <a href="/travail">Travail</a>
+            <a href="/cv">CV</a>
+            <a href="#contact">Contact</a>
           </nav>
         </header>
 
@@ -44,6 +46,7 @@ export default function CVPage() {
           <div className="cv-contact">
             <ContactTrigger className="as-link" label="Me contacter" />
             <span className="print-only" id="pdf-contact"></span>
+            <a href="/Daniel_Assayag_CV.pdf">Télécharger le PDF</a>
             {h.linkedin && <a href={`https://${h.linkedin}`} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
             {h.github && <a href={`https://${h.github}`} target="_blank" rel="noopener noreferrer">GitHub</a>}
             {h.location && <span>{h.location}</span>}
@@ -141,7 +144,7 @@ export default function CVPage() {
           </div>
         </section>
 
-        <footer>
+        <footer id="contact">
           <ContactTrigger className="as-link" label="Me contacter" />
           <a href="/">danpm.com</a>
           <span>{h.location || 'Paris'}</span>

@@ -1,5 +1,21 @@
 # Next.js PageSpeed Optimization Directives
 
+## Copy — Adversarial Check: Assert vs. Demonstrate
+
+Before writing any number, count, or trust/quality claim into user-facing copy on this site (CV text, section headers, marketing blurbs), run the Bayesian-signal test: would this exact wording show up whether the underlying claim is true/meaningful or false/decorative? If P(this phrasing | true) ≈ P(this phrasing | false), the signal is null — it does no evidential work, cut it.
+
+- **Decorative numbers** — a count that could be swapped for a different nearby value with no change to what the reader concludes. Examples caught in practice: "Sept histoires" (a count promoted to a headline), "quinze Looms classés par thème", "une quarantaine de fonctionnalités", "22 participants".
+- **Unfalsifiable trust-claims** — a bare assertion of a virtue (accuracy, honesty, rigor) that a fabricated version of the text would state identically. Example caught: "Les chiffres sont réels." — if the numbers weren't real, the sentence would read exactly the same, so it proves nothing. Prefer describing the actual checkable mechanism instead (e.g. "je ne retiens un résultat que quand deux sources concordent").
+- **Genuine impact numbers** — keep these. "14 500 tentatives de scam mitigées", "8,3/10 contre 6,2 avant", "28 j-h rendus au support" are results, not inventory counts or unverifiable reassurance.
+
+Do not add a number or a trust-claim just to sound precise or rigorous — precision is not the same as relevance, and asserting a quality is not the same as demonstrating it. Run this check before presenting any new or edited copy as finished; flag borderline cases instead of silently deciding.
+
+## Copy — Don't Over-Disclose Employer Metrics
+
+When copy cites HomeExchange's internal business metrics (account counts, volumes, revenue), round to vague magnitude ("plusieurs millions") instead of the precise figure ("5 millions") unless the company has already made that exact number public. This is a personal portfolio, not the first public source for someone else's business data.
+
+This is separate from the assert-vs-demonstrate check above: a scale number can be real and non-decorative and still fail the test if it's just stated as a floating credential. Always attach the actual stake — why the scale matters for the story being told — rather than leaving the number to stand alone.
+
 ## Hydration — Zero Mismatch
 
 - NEVER call `new Date()`, `Math.random()`, or any non-deterministic function in the render path of client components. Static pages are built once at deploy time — the client will hydrate with a different value days later.
