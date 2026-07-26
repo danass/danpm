@@ -4,7 +4,7 @@ import ContactTrigger from './components/EditorialContact'
 export const metadata = {
   title: 'Daniel Assayag · Product Manager',
   description:
-    "Product manager de la squad Operations chez HomeExchange. Back-office, outils internes, anti-fraude, automatisation du support. Trois histoires tirées de mes notes de semaine.",
+    "Product manager de la squad Operations chez HomeExchange. Back-office, outils internes, anti-fraude, automatisation du support. Sept histoires tirées de mes notes de semaine.",
   openGraph: {
     title: 'Daniel Assayag · Product Manager',
     description:
@@ -50,11 +50,11 @@ export default function Home() {
         </div>
 
         <section id="travail">
-          <p className="eyebrow">Trois histoires</p>
+          <p className="eyebrow">Sept histoires</p>
 
           <article className="story">
             <p className="tag">Anti-fraude</p>
-            <h2>En mai, les membres ont reçu 14 500 tentatives de scam. Toutes ont été mitigées automatiquement.</h2>
+            <h2>En mai, les membres ont reçu 14 500 tentatives de scam. La quasi-totalité a été mitigée automatiquement.</h2>
             <div className="stat">
               <b>14 500</b>
               <span>tentatives de scam mitigées pendant la vague de mai</span>
@@ -74,12 +74,12 @@ export default function Home() {
               les membres. En dix jours, le système a déclenché 13 407 traitements automatiques
               et envoyé 44 278 messages d&rsquo;alerte. La direction a repris ces chiffres dans
               son dossier investisseurs, et l&rsquo;a résumé ainsi au webinaire d&rsquo;entreprise
-              de juillet : zéro travail manuel pendant l&rsquo;attaque.
+              de juillet : «&nbsp;zéro travail manuel pendant l&rsquo;attaque&nbsp;».
             </p>
             <p>
               J&rsquo;ai ensuite piloté la migration de ce système vers notre nouvelle
-              architecture, pendant qu&rsquo;il tournait, avec une contrainte fixée en réunion
-              d&rsquo;architecture : aucune interruption de service, parce que les attaques ne
+              architecture, pendant qu&rsquo;il tournait, avec une contrainte fixée en comité
+              technique : aucune interruption de service, parce que les attaques ne
               s&rsquo;arrêtent pas.
             </p>
           </article>
@@ -218,10 +218,10 @@ export default function Home() {
             <p className="tag">Accès &amp; RGPD</p>
             <h2>Remettre de l&rsquo;ordre dans les rôles et les accès du back-office</h2>
             <p>
-              Historiquement, les collaborateurs internes disposaient du même accès complet au
-              back-office, quel que soit leur métier. J&rsquo;ai pris le sujet, avec un
-              accompagnement RGPD : le prérequis technique, permettre plusieurs rôles par
-              compte, est en place sur toute la chaîne d&rsquo;authentification depuis juillet.
+              Avec un accompagnement RGPD, j&rsquo;ai fait évoluer le contrôle d&rsquo;accès du
+              back-office vers un modèle par rôle : plusieurs rôles possibles par compte, un
+              prérequis technique en place sur toute la chaîne d&rsquo;authentification depuis
+              juillet.
             </p>
             <p>
               Les droits par fonctionnalité sont en place : le bouton de remboursement
