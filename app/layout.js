@@ -1,10 +1,4 @@
 import './globals.css'
-import LanguageProviderWrapper from './components/LanguageProviderWrapper'
-import { CollapseProvider } from './contexts/CollapseContext'
-import { EditProvider } from './contexts/EditContext'
-import { AIReviewProvider } from './contexts/AIReviewContext'
-import LanguageSetter from './components/LanguageSetter'
-import { Toaster } from './components/ui/toaster'
 
 export const metadata = {
   title: 'Daniel Assayag · Product Manager',
@@ -20,27 +14,11 @@ export const metadata = {
   },
 }
 
-export default async function RootLayout({ children, params, searchParams }) {
-  // Unwrap params and searchParams (Next.js 15 requirement)
-  // They are promises that need to be awaited in server components
-  // Handle undefined values safely
-  if (params) await params
-  if (searchParams) await searchParams
-
+export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body>
-        <LanguageProviderWrapper>
-          <CollapseProvider>
-            <EditProvider>
-              <AIReviewProvider>
-                <LanguageSetter />
-                {children}
-                <Toaster />
-              </AIReviewProvider>
-            </EditProvider>
-          </CollapseProvider>
-        </LanguageProviderWrapper>
+        {children}
       </body>
     </html>
   )
