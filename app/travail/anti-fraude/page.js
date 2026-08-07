@@ -37,11 +37,13 @@ export default function AntiFraude() {
             <p>
               Des fraudeurs contactent nos membres pour les faire payer hors de la plateforme.
               Avant l&rsquo;automatisation, un agent envoyait environ 1 500 messages
-              d&rsquo;alerte par mois, à la main. Un tiers des cas était couvert, et ce
-              traitement représentait environ 3 250 heures de travail par an. J&rsquo;ai fait
-              automatiser la chaîne complète : quand un agent marque un compte comme frauduleux,
-              le système alerte tous les membres en contact, bloque le compte, retire ses
-              annonces et invalide ses sessions.
+              d&rsquo;alerte par mois, à la main, plusieurs minutes ou heures après la
+              détection ; et le marquage «&nbsp;fraudeur&nbsp;» du compte, qui ne déclenchait
+              rien, n&rsquo;était posé que dans un tiers des cas. J&rsquo;ai fait automatiser la
+              chaîne complète : quand un agent marque un compte comme frauduleux, le système
+              alerte tous les membres en contact, bloque le compte, retire ses annonces et
+              invalide ses sessions. Le marquage déclenchant désormais tout le reste, il est
+              devenu systématique, et les membres exposés sont alertés en quelques secondes.
             </p>
             <p>
               La mise en production a eu lieu fin avril. Une semaine plus tard, la plus grosse
@@ -49,7 +51,11 @@ export default function AntiFraude() {
               En dix jours, le système a déclenché 13 407 traitements automatiques
               et envoyé 44 278 messages d&rsquo;alerte. La direction a repris ces chiffres dans
               son dossier investisseurs, et l&rsquo;a résumé ainsi au webinaire d&rsquo;entreprise
-              de juillet : «&nbsp;zéro travail manuel pendant l&rsquo;attaque&nbsp;».
+              de juillet : «&nbsp;zéro travail manuel pendant l&rsquo;attaque&nbsp;». Depuis mai,
+              plus aucun message d&rsquo;alerte n&rsquo;est parti à la main. En temps
+              d&rsquo;agent rendu, le modèle calé sur les chiffres réels de mai donne environ
+              840 heures sur 2026, dont l&rsquo;essentiel pendant l&rsquo;attaque, et environ
+              130 heures sur une année sans vague.
             </p>
             <p>
               J&rsquo;ai ensuite piloté la migration de ce système vers notre nouvelle

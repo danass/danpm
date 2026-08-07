@@ -117,6 +117,14 @@ export default function Travail() {
               requêtes SQL sur les schémas réels des tables, et je ne retiens un résultat que
               quand deux sources concordent.
             </p>
+            <p>
+              Les gains que j&rsquo;annonce suivent la même discipline. Chaque chiffre porte
+              son statut : mesuré (une sortie d&rsquo;outil), modélisé (un volume mesuré
+              multiplié par un temps unitaire), ou hypothèse posée pour être contestée. Et le
+              bilan d&rsquo;impact garde en face les contre-métriques à ne pas dégrader en
+              automatisant, et les contre-exemples : les demandes encore ouvertes y figurent
+              aussi.
+            </p>
             <p>Quand un geste revient trop souvent, j&rsquo;en fais un outil :</p>
             <ul className="tools">
               <li>
@@ -165,8 +173,9 @@ export default function Travail() {
             <div><dt>Comptes gérés par le back-office</dt><dd>plusieurs millions</dd></div>
             <div><dt>Utilisateurs internes du back-office</dt><dd>125 par jour ouvré, 349 sur 30 jours</dd></div>
             <div><dt>Tickets clos depuis février 2025</dt><dd>441, dont 30 epics</dd></div>
-            <div><dt>Couverture automatique des cas de fraude</dt><dd>~100 % (contre ~30 %)</dd></div>
-            <div><dt>Temps de traitement manuel de la fraude économisé</dt><dd>~3 250 heures par an</dd></div>
+            <div><dt>Marquage des comptes frauduleux, déclencheur du traitement automatique</dt><dd>~100 %, contre ~30 % quand il ne déclenchait rien</dd></div>
+            <div><dt>Messages d&rsquo;alerte anti-fraude envoyés à la main</dt><dd>~1 500 par mois → 0 depuis mai</dd></div>
+            <div><dt>Temps rendu par les automatisations livrées en 2026</dt><dd>1 600 à 1 900 heures par an sur bases explicites, jusqu&rsquo;à ~3 400 en comptant la friction d&rsquo;interface, pas encore instrumentée</dd></div>
             <div><dt>Alertes anti-fraude envoyées automatiquement aux membres (vague de mai)</dt><dd>44 278 en dix jours</dd></div>
             <div><dt>Satisfaction interne du back-office</dt><dd>8,3/10, contre 6,2 avant</dd></div>
           </dl>

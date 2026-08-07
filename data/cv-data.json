@@ -10,10 +10,10 @@
     },
     "metrics": [
       { "value": "+33%", "label": "CSAT du nouveau back-office (8.3 vs 6.2)" },
-      { "value": "~100%", "label": "Couverture de la détection anti-scam (vs ~30%)" },
+      { "value": "~100%", "label": "Marquage anti-scam, déclencheur de l'automatisation (vs ~30%)" },
       { "value": "~28 j-h/an", "label": "Temps support économisé (refund automatisé)" },
       { "value": "441", "label": "Tickets clos, équipe de 5 devs" },
-      { "value": "~3 250 h/an", "label": "Temps de traitement manuel de la fraude économisé" },
+      { "value": "1 500 → ~0", "label": "Messages anti-fraude manuels par mois" },
       { "value": "+716%", "label": "Visibilité des maisons Collection" }
     ],
     "profile": {
@@ -44,7 +44,7 @@
           {
             "title": "Trust & Safety : automatisation anti-scam & migration vers le Core",
             "achievements": [
-              "<b>Automatisation de la détection et du traitement des comptes frauduleux</b> : couverture passée d'environ 30% à près de 100%, ~1 500 messages manuels par mois ramenés à quasi zéro, et ~14 500 cas absorbés lors d'une attaque massive sans renfort humain. Modélisation FTE et outil d'impact pour quantifier le gain.",
+              "<b>Automatisation du traitement des comptes frauduleux</b> : le marquage du compte, devenu déclencheur de la chaîne automatique (alerte des membres exposés en secondes, blocage, retrait des annonces), est passé d'environ 30% à près de 100% des cas ; ~1 500 messages manuels par mois ramenés à quasi zéro ; ~14 500 cas absorbés lors d'une attaque massive sans renfort humain. Modélisation FTE calée sur les chiffres réels de l'attaque (~840 h rendues en 2026).",
               "<b>Pilotage de la migration « Scammer-to-Core »</b> (du legacy MySQL vers le Core PostgreSQL) : conception d'un use-case unique consommant les API Core, cut-over synchronisé et zéro interruption de service (~300 scammers flaggés/mois, jusqu'à ~50 000 conversations en pic d'attaque). Coordination cross-équipes (Connect, messagerie)."
             ]
           },
@@ -261,10 +261,10 @@
     },
     "metrics": [
       { "value": "+33%", "label": "New back-office CSAT (8.3 vs 6.2)" },
-      { "value": "~100%", "label": "Anti-scam detection coverage (from ~30%)" },
+      { "value": "~100%", "label": "Anti-scam tagging, the automation trigger (from ~30%)" },
       { "value": "~28 pd/yr", "label": "Support time saved (automated refunds)" },
       { "value": "441", "label": "Tickets closed, team of 5 devs" },
-      { "value": "~3,250 h/yr", "label": "Manual fraud-handling time saved" },
+      { "value": "1,500 → ~0", "label": "Manual anti-fraud messages per month" },
       { "value": "+716%", "label": "Collection homes visibility" }
     ],
     "profile": {
@@ -295,7 +295,7 @@
           {
             "title": "Trust & Safety: anti-scam automation & migration to Core",
             "achievements": [
-              "<b>Automated fraud-account detection and handling</b>: coverage raised from ~30% to nearly 100%, ~1,500 manual messages/month brought down to near zero, and ~14,500 cases absorbed during a large-scale attack with no extra staffing. FTE modeling and an impact tool to quantify the gain.",
+              "<b>Automated fraud-account handling</b>: account tagging, now the trigger of the automated chain (member alerts within seconds, blocking, listing removal), rose from ~30% to nearly 100% of cases; ~1,500 manual messages/month brought down to near zero; ~14,500 cases absorbed during a large-scale attack with no extra staffing. FTE model calibrated on the attack's actuals (~840 h returned in 2026).",
               "<b>Led the Scammer-to-Core migration</b> (from legacy MySQL to the Core PostgreSQL): designed a single use-case consuming the Core APIs, with a synchronized cut-over and zero service interruption (~300 flagged scammers/month, up to ~50,000 conversations during an attack peak). Cross-team coordination (Connect, messaging)."
             ]
           },
