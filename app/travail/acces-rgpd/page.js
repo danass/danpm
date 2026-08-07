@@ -37,10 +37,11 @@ export default function AccesRgpd() {
               juillet.
             </p>
             <p>
-              Les droits par fonctionnalité sont en place : le bouton de remboursement
+              Nous avons décliné les droits par fonctionnalité : le bouton de remboursement
               n&rsquo;est visible que des rôles autorisés. Les rôles sont attribués par paires à
-              l&rsquo;arrivée de chaque agent, et la liste des comptes a été nettoyée : accès des
-              prestataires partis supprimés, revue complète triée par dernière connexion.
+              l&rsquo;arrivée de chaque agent, et j&rsquo;ai nettoyé la liste des comptes :
+              suppression des accès des prestataires partis, revue complète triée par dernière
+              connexion.
             </p>
           </article>
         </section>

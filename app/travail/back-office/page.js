@@ -37,7 +37,7 @@ export default function BackOffice() {
             <p>
               349 personnes du support, des ventes et du marketing l&rsquo;ont utilisé sur les
               trente derniers jours, 125 chaque jour ouvré, pour gérer les comptes de plusieurs
-              millions de membres &mdash; la moindre erreur pendant une refonte se répercute à
+              millions de membres. La moindre erreur pendant une refonte se répercute à
               cette échelle. L&rsquo;ancien outil était lent, incomplet et impossible à faire
               évoluer. Il fallait le remplacer sans jamais bloquer les équipes qui
               l&rsquo;utilisaient.

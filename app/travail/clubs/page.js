@@ -44,9 +44,9 @@ export default function Clubs() {
               rejoindre un club.
             </p>
             <p>
-              En parallèle, la gestion des clubs est devenue un écran du back-office : créer,
-              modifier, traduire en 11 langues, convertir un club en groupe, supprimer avec
-              export des membres. Avant, chaque création de club était une demande faite aux
+              En parallèle, nous avons fait de la gestion des clubs un écran du back-office :
+              créer, modifier, traduire en 11 langues, convertir un club en groupe, supprimer
+              avec export des membres. Avant, chaque création de club était une demande faite aux
               développeurs ; le marketing lance maintenant ses tests de partenariats en
               autonomie, et c&rsquo;est l&rsquo;une des livraisons présentées au webinaire
               d&rsquo;entreprise de juillet. Sur la gouvernance, j&rsquo;ai préparé et animé une

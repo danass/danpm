@@ -46,7 +46,7 @@ export default function Support() {
               paiement, désactivation de l&rsquo;abonnement, reprise des points, réponse au
               membre. Seuls les rôles autorisés le voient, chaque remboursement est tracé avec
               son auteur. Deux minutes par cas au lieu de cinq : 28 jours-homme rendus au
-              support chaque année. Les tickets ont été écrits depuis l&rsquo;analyse du code
+              support chaque année. J&rsquo;ai écrit les tickets depuis l&rsquo;analyse du code
               existant ; quatre jours plus tard, les premiers remboursements passaient sur
               Stripe et PayPal.
             </p>
