@@ -4,7 +4,7 @@ import ContactTrigger from '../../components/EditorialContact'
 export const metadata = {
   title: 'Anti-fraude · Daniel Assayag',
   description:
-    "Automatiser la réponse à la fraude chez HomeExchange, avant la plus grosse vague de scam que la plateforme ait connue.",
+    "Automatiser la réponse à la fraude chez HomeExchange, une semaine avant la plus grosse vague de scam que la plateforme ait connue.",
 }
 
 export default function AntiFraude() {
@@ -29,39 +29,32 @@ export default function AntiFraude() {
         <section>
           <article className="story">
             <p className="tag">Anti-fraude</p>
-            <h2>Automatiser la réponse à la fraude, avant la plus grosse vague que la plateforme ait connue</h2>
+            <h2>Automatiser la réponse à la fraude une semaine avant la plus grosse vague de scam</h2>
             <div className="stat">
-              <b>14 500</b>
-              <span>tentatives de scam mitigées pendant la vague de mai</span>
+              <b>14&nbsp;538</b>
+              <span>scammers traités pendant la vague (avril-mai)</span>
             </div>
             <p>
               Des fraudeurs contactent nos membres pour les faire payer hors de la plateforme.
-              Avant l&rsquo;automatisation, un agent envoyait environ 1 500 messages
-              d&rsquo;alerte par mois, à la main, plusieurs minutes ou heures après la
-              détection ; et le marquage «&nbsp;fraudeur&nbsp;» du compte, qui ne déclenchait
-              rien, n&rsquo;était posé que dans un tiers des cas. J&rsquo;ai fait automatiser la
-              chaîne complète : quand un agent marque un compte comme frauduleux, le système
-              alerte tous les membres en contact, bloque le compte, retire ses annonces et
-              invalide ses sessions. Le marquage déclenchant désormais tout le reste, il est
-              devenu systématique, et les membres exposés sont alertés en quelques secondes.
+              Avant l&rsquo;automatisation, les agents envoyaient environ 1&nbsp;900 messages
+              d&rsquo;alerte par mois, à la main, et le tag scammer n&rsquo;était posé que sur
+              environ 30 % des cas ; le process fraude complet pesait 13&nbsp;000 tickets et
+              3&nbsp;250 heures par an. J&rsquo;ai spécifié l&rsquo;automatisation de la chaîne :
+              quand un agent marque un compte comme frauduleux, le système alerte tous les
+              membres en contact, bloque le compte, retire ses annonces et invalide ses
+              sessions.
             </p>
             <p>
-              La mise en production a eu lieu fin avril. Une semaine plus tard, la plus grosse
-              vague de scam que la plateforme ait connue a frappé : 14 500 tentatives détectées.
-              En dix jours, le système a déclenché 13 407 traitements automatiques
-              et envoyé 44 278 messages d&rsquo;alerte. La direction a repris ces chiffres dans
-              son dossier investisseurs, et l&rsquo;a résumé ainsi au webinaire d&rsquo;entreprise
-              de juillet : «&nbsp;zéro travail manuel pendant l&rsquo;attaque&nbsp;». Depuis mai,
-              plus aucun message d&rsquo;alerte n&rsquo;est parti à la main. En temps
-              d&rsquo;agent rendu, le modèle calé sur les chiffres réels de mai donne environ
-              840 heures sur 2026, dont l&rsquo;essentiel pendant l&rsquo;attaque, et environ
-              130 heures sur une année sans vague.
+              La mise en production a eu lieu fin avril. Une semaine plus tard, la vague a
+              frappé : ~15&nbsp;000 tickets côté support. Neuf scammers traités sur dix
+              l&rsquo;ont été sans qu&rsquo;un agent les déclenche, et ~45&nbsp;000 messages
+              d&rsquo;alerte sont partis automatiquement dans le mois. Les alertes envoyées à
+              la main sont passées d&rsquo;environ 1&nbsp;900 à une cinquantaine par mois.
             </p>
             <p>
               J&rsquo;ai ensuite piloté la migration de ce système vers notre nouvelle
               architecture, pendant qu&rsquo;il tournait, avec une contrainte fixée en comité
-              technique : aucune interruption de service, parce que les attaques ne
-              s&rsquo;arrêtent pas.
+              technique : aucune interruption de service.
             </p>
           </article>
         </section>

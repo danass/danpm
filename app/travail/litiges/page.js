@@ -31,22 +31,23 @@ export default function Litiges() {
             <p className="tag">Litiges</p>
             <h2>Reprendre le Resolution Center, développé par un prestataire externe</h2>
             <div className="stat">
-              <b>1 456</b>
-              <span>litiges gérés dans l&rsquo;outil en juin</span>
+              <b>86 %</b>
+              <span>de satisfaction membre sur les litiges en juin</span>
             </div>
             <p>
-              Le Resolution Center gère les litiges et les garanties de dépôt entre membres. Sa
-              deuxième phase a remplacé le Google Sheet des incidents : la gestion des incidents
-              et des compensations se fait depuis le back-office, connectée à Zendesk, y compris
-              les échanges avec les membres et l&rsquo;équipe finance.
+              Le Resolution Center gère les litiges et les garanties de dépôt entre membres,
+              depuis le back-office, connecté à Zendesk. Sa deuxième phase a remplacé le
+              Google Sheet où vivaient les incidents : incidents et compensations se gèrent
+              dans l&rsquo;outil, échanges avec les membres et l&rsquo;équipe finance compris.
             </p>
             <p>
-              L&rsquo;outil a été développé par un prestataire externe dont la mission se
-              termine : j&rsquo;ai repris le domaine. Suivi des indicateurs mensuels, arbitrage
-              des demandes, coordination de la fin de contrat, passage en mode maintenance. En
-              juin, 1 456 litiges y ont été traités, avec 86 % de satisfaction. J&rsquo;ai aussi
-              fait aboutir la création automatique d&rsquo;un dossier quand un hôte annule un
-              séjour : l&rsquo;équipe support n&rsquo;a plus à le créer à la main.
+              L&rsquo;outil avait été développé par un prestataire externe dont la mission se
+              terminait ; j&rsquo;ai repris le domaine : indicateurs mensuels, arbitrage des
+              demandes, coordination de la fin de contrat, passage en mode maintenance. La
+              satisfaction membre tient à 86 % en juin, et les virements du Resolution Center
+              tournent à ~230 par mois. J&rsquo;ai aussi livré la création automatique
+              d&rsquo;un dossier quand un hôte annule un séjour : l&rsquo;équipe support
+              n&rsquo;a plus à le créer à la main.
             </p>
           </article>
         </section>

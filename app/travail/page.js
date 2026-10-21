@@ -4,7 +4,7 @@ import ContactTrigger from '../components/EditorialContact'
 export const metadata = {
   title: 'Travail · Daniel Assayag',
   description:
-    "Ce qui s'est vraiment passé chez HomeExchange, tiré de mes comptes-rendus de semaine : anti-fraude, refonte du back-office, automatisation du support. Et la méthode derrière.",
+    "Huit histoires tirées de mes comptes-rendus de semaine chez HomeExchange : anti-fraude, refonte du back-office, automatisation du support. Et la méthode.",
 }
 
 export default function Travail() {
@@ -23,7 +23,7 @@ export default function Travail() {
         </header>
 
         <div className="intro">
-          <h1>Ce qui s&rsquo;est vraiment passé.</h1>
+          <h1>Et au quotidien, ça ressemble à ça.</h1>
         </div>
 
         <section id="travail">
@@ -32,19 +32,19 @@ export default function Travail() {
             <li>
               <a href="/travail/anti-fraude">
                 <span className="tag">Anti-fraude</span>
-                Automatiser la réponse à la fraude, avant la plus grosse vague que la plateforme ait connue
+                Automatiser la réponse à la fraude une semaine avant la plus grosse vague de scam
               </a>
             </li>
             <li>
               <a href="/travail/back-office">
                 <span className="tag">Back-office</span>
-                Reconstruire le back-office sans jamais l&rsquo;arrêter
+                Reconstruire le back-office pendant que 200 agents l&rsquo;utilisent
               </a>
             </li>
             <li>
               <a href="/travail/support">
                 <span className="tag">Support</span>
-                Automatiser un remboursement qui prenait cinq minutes, 380 fois par mois
+                Ramener un remboursement de neuf minutes à un clic
               </a>
             </li>
             <li>
@@ -71,6 +71,12 @@ export default function Travail() {
                 Remettre de l&rsquo;ordre dans les rôles et les accès du back-office
               </a>
             </li>
+            <li>
+              <a href="/travail/staging-wizard">
+                <span className="tag">Outils internes</span>
+                Créer un compte de test HomeExchange complet en 15 secondes
+              </a>
+            </li>
           </ul>
         </section>
 
@@ -82,24 +88,22 @@ export default function Travail() {
             <p>
               Le process d&rsquo;équipe est réduit au minimum : un daily hybride, une
               rétrospective toutes les six semaines, le reste en asynchrone (Looms, écrits,
-              canaux dédiés). Le temps de réunion va à la livraison : la roadmap trimestrielle
-              est régulièrement dépassée, et les sujets ajoutés en cours de route sont livrés
-              eux aussi.
+              canaux dédiés).
             </p>
             <p>
-              Des centaines de sujets passent chaque semaine : bugs, demandes, décisions,
-              incidents. Chaque vendredi, un compte-rendu reconstitue ce que l&rsquo;équipe a
-              livré, généré par un système que j&rsquo;ai construit moi-même : des agents
-              Claude Code, un par étape du process produit (cadrage, idéation, spec, ticket,
-              plan de tracking, revue de code), qui compilent nos conversations,
-              nos tickets, notre code et les transcriptions de réunions en un document daté. Un
-              sujet ouvert y revient de semaine en semaine, jusqu&rsquo;à sa résolution. Les
-              histoires de cette page sortent de là.
+              Chaque vendredi, un compte-rendu reconstitue ce que l&rsquo;équipe a livré dans
+              la semaine : bugs, demandes, décisions, incidents. Il est généré par un système
+              que j&rsquo;ai construit : des agents Claude Code, un par étape du process
+              produit (cadrage, idéation, spec, ticket, plan de tracking, revue de code), qui
+              compilent nos conversations, nos tickets, notre code et les transcriptions de
+              réunions en un document daté. Un sujet ouvert y revient de semaine en semaine,
+              jusqu&rsquo;à sa résolution. Les histoires de cette page en sortent.
             </p>
             <p>
-              Ce qui est livré aux agents est documenté pour les agents : un inventaire des
-              fonctionnalités du back-office, et une FAQ en vidéos courtes, classées par thème
-              (bloquer un compte et tracer le motif, éditer un échange, gérer les coupons).
+              Chaque livraison destinée aux agents du support est documentée pour eux : un
+              inventaire des fonctionnalités du back-office, et une FAQ en vidéos courtes,
+              classées par thème (bloquer un compte et tracer le motif, éditer un échange,
+              gérer les coupons).
             </p>
             <p>
               Les repos du back-office, de l&rsquo;API et de la couche d&rsquo;accès sont clonés
@@ -117,23 +121,15 @@ export default function Travail() {
               requêtes SQL sur les schémas réels des tables, et je ne retiens un résultat que
               quand deux sources concordent.
             </p>
-            <p>
-              Les gains que j&rsquo;annonce suivent la même discipline. Chaque chiffre porte
-              son statut : mesuré (une sortie d&rsquo;outil), modélisé (un volume mesuré
-              multiplié par un temps unitaire), ou hypothèse posée pour être contestée. Et le
-              bilan d&rsquo;impact garde en face les contre-métriques à ne pas dégrader en
-              automatisant, et les contre-exemples : les demandes encore ouvertes y figurent
-              aussi.
-            </p>
             <p>Quand un geste revient trop souvent, j&rsquo;en fais un outil :</p>
             <ul className="tools">
               <li>
-                <span className="what">Créer un compte de test complet</span>
+                <a href="/travail/staging-wizard" className="what">Créer un compte de test complet</a>
                 <span className="gain">5 min → 15 s</span>
               </li>
               <li>
                 <span className="what">Collecter et suivre les retours des 200 agents, reliés aux tickets</span>
-                <span className="gain">≈ 50 tickets traités</span>
+                <span className="gain">55 remontées, 43 corrigées</span>
               </li>
               <li>
                 <span className="what">Compiler le compte-rendu hebdomadaire</span>
@@ -171,12 +167,11 @@ export default function Travail() {
           <p className="eyebrow">Repères</p>
           <dl>
             <div><dt>Comptes gérés par le back-office</dt><dd>plusieurs millions</dd></div>
-            <div><dt>Utilisateurs internes du back-office</dt><dd>125 par jour ouvré, 349 sur 30 jours</dd></div>
-            <div><dt>Tickets clos depuis février 2025</dt><dd>441, dont 30 epics</dd></div>
-            <div><dt>Marquage des comptes frauduleux, déclencheur du traitement automatique</dt><dd>~100 %, contre ~30 % quand il ne déclenchait rien</dd></div>
-            <div><dt>Messages d&rsquo;alerte anti-fraude envoyés à la main</dt><dd>~1 500 par mois → 0 depuis mai</dd></div>
-            <div><dt>Temps rendu par les automatisations livrées en 2026</dt><dd>1 600 à 1 900 heures par an sur bases explicites, jusqu&rsquo;à ~3 400 en comptant la friction d&rsquo;interface, pas encore instrumentée</dd></div>
-            <div><dt>Alertes anti-fraude envoyées automatiquement aux membres (vague de mai)</dt><dd>44 278 en dix jours</dd></div>
+            <div><dt>Agents ayant ouvert le back-office sur un mois</dt><dd>213 (518 utilisateurs uniques)</dd></div>
+            <div><dt>Tickets clos sur les projets de la squad (sept. 2025 → juil. 2026)</dt><dd>432</dd></div>
+            <div><dt>Couverture du tag scammer</dt><dd>~30 % → ~100 %</dd></div>
+            <div><dt>Heures d&rsquo;agent économisées par l&rsquo;automatisation scam en 2026</dt><dd>~844, dont 722 pendant la vague</dd></div>
+            <div><dt>Messages d&rsquo;alerte scam envoyés pendant le mois de la vague</dt><dd>~45&nbsp;000</dd></div>
             <div><dt>Satisfaction interne du back-office</dt><dd>8,3/10, contre 6,2 avant</dd></div>
           </dl>
         </section>

@@ -8,7 +8,7 @@ export const metadata = {
   creator: 'Daniel Assayag',
   openGraph: {
     title: 'Daniel Assayag · Product Manager',
-    description: 'Je construis les outils qui font tourner HomeExchange en coulisses.',
+    description: 'Je construis le back-office et les outils internes de HomeExchange.',
     type: 'profile',
     locale: 'fr_FR',
   },

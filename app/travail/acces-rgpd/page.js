@@ -31,17 +31,16 @@ export default function AccesRgpd() {
             <p className="tag">Accès &amp; RGPD</p>
             <h2>Remettre de l&rsquo;ordre dans les rôles et les accès du back-office</h2>
             <p>
-              Avec un accompagnement RGPD, j&rsquo;ai fait évoluer le contrôle d&rsquo;accès du
-              back-office vers un modèle par rôle : plusieurs rôles possibles par compte, un
-              prérequis technique en place sur toute la chaîne d&rsquo;authentification depuis
-              juillet.
+              Accompagné d&rsquo;un cabinet spécialisé RGPD, j&rsquo;ai fait passer le
+              contrôle d&rsquo;accès du back-office à un modèle par rôles : un compte peut
+              cumuler plusieurs rôles, et toute la chaîne d&rsquo;authentification le supporte.
             </p>
             <p>
-              Nous avons décliné les droits par fonctionnalité : le bouton de remboursement
-              n&rsquo;est visible que des rôles autorisés. Les rôles sont attribués par paires à
-              l&rsquo;arrivée de chaque agent, et j&rsquo;ai nettoyé la liste des comptes :
-              suppression des accès des prestataires partis, revue complète triée par dernière
-              connexion.
+              Les droits se règlent fonctionnalité par fonctionnalité : les premières actions
+              sensibles sont gatées côté interface, le reste est spécifié et en développement.
+              Les rôles sont attribués dès l&rsquo;arrivée de chaque agent, et la liste des
+              comptes a été nettoyée : accès des prestataires partis supprimés, revue complète
+              triée par dernière connexion.
             </p>
           </article>
         </section>

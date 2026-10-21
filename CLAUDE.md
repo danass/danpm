@@ -107,3 +107,35 @@ async headers() {
 - SEO: 100
 - TBT: < 200ms
 - CLS: 0
+
+## Copie (règle du 2026-10-20)
+
+Constat : la copie des pages éditoriales sonnait « générée » — codas rythmiques
+(« sans jamais l'arrêter », « en un clic »), fragments à deux points
+(« La solution : … », « Résultat : … », « Décision : … »), dramatisation en
+subordonnée (« un outil dont on ne parle jamais »), tricolons (« du temps, de
+l'argent ou la confiance »), et des contresens (« tentatives mitigées »,
+« en un clic » pour un outil à modules).
+
+Interdits dans les h1/h2, les titres de `story-links`, les `<span>` de `.stat`
+et les figcaptions :
+- coda apposée après virgule qui passe le **test de permutation** (si on peut la
+  coller sur un autre sujet de la page et que ça reste plausible, elle ne porte
+  aucune information : la supprimer) ;
+- fragment nominal introduit par deux points en début de phrase (« Résultat : »,
+  « La solution : ») — écrire une phrase avec un verbe conjugué ;
+- tiret cadratin — préférer parenthèses, deux-points ou deux phrases ;
+- remplisseurs (« en un clic », « au même endroit », « sans surprise ») —
+  écrire le mécanisme ou le chiffre réel ;
+- anglicismes (« mitigé » ne veut pas dire mitigated).
+
+Tolérés : les énumérations porteuses d'information (listes d'étapes, d'outils),
+une phrase courte de chute par page maximum (« C'est mon produit. »), le
+parallélisme des titres du catalogue `story-links`.
+
+Zéro nouveau claim : chaque chiffre écrit doit déjà exister dans le corps de la
+page ou dans les repères de /travail. Les `<title>`/`description` SEO ne se
+changent qu'avec accord explicite.
+
+Vérification : `python3 ~/.claude/skills/copy-tics/scan.py app/ --prose`
+(ignorer api/migrate, Header.js, Hero.js/CV.js legacy).
