@@ -34,8 +34,7 @@ export default function Home() {
           <p>
             Je conçois avec les utilisateurs finaux, j&rsquo;écris des specs au plus près du
             code et j&rsquo;accompagne les décisions d&rsquo;architecture, technique et produit.
-            Je tiens mes roadmaps, et l&rsquo;impact de chaque projet est chiffré dans les
-            histoires ci-dessous.
+            Je tiens mes roadmaps, et l&rsquo;impact de chaque projet est chiffré.
           </p>
           <p className="cvline">
             <a href="/Daniel_Assayag_CV.pdf">Télécharger le CV (PDF)</a>
@@ -103,8 +102,9 @@ export default function Home() {
         <section className="outro">
           <p className="eyebrow">Travailler ensemble</p>
           <p>
-            Si vous avez un back-office qui ralentit vos équipes ou du support à automatiser,
-            écrivez-moi.
+            Si vous avez besoin de tracer une vision pour embrayer une migration,
+            d&rsquo;avoir de l&rsquo;impact sur ce qui est livré et de tenir les timelines de vos
+            ambitions, écrivez-moi.
           </p>
           <ContactTrigger className="cta" label="Écrivez-moi" />
         </section>
