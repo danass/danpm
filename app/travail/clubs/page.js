@@ -32,7 +32,7 @@ export default function Clubs() {
             <h2>Réparer l&rsquo;adhésion aux clubs, puis outiller leur gestion</h2>
             <div className="stat">
               <b>86</b>
-              <span>clubs, ~220&nbsp;000 adhésions en base</span>
+              <span>clubs, des centaines de milliers d&rsquo;adhésions en base</span>
             </div>
             <p>
               HomeExchange héberge des clubs de membres. Un bug empêchait de les rejoindre ;

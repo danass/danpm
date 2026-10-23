@@ -37,7 +37,7 @@ export default function Annulations() {
             <p>
               Quand un hôte annule un séjour, un agent aide le membre à retrouver un logement :
               il se connecte au compte du membre, refait la recherche et écrit aux hôtes un par
-              un, à sa place. Près de 30&nbsp;000 annulations d&rsquo;hôte par an, environ
+              un, à sa place. Des dizaines de milliers d&rsquo;annulations d&rsquo;hôte par an, environ
               11&nbsp;300 cas avec une vraie recherche, 34 minutes de temps agent mesuré par
               cas. Et la pire note de satisfaction du flux tombe à 58,7 % quand le remplacement
               proposé est refusé.
@@ -48,7 +48,7 @@ export default function Annulations() {
               vitesse de la prise de contact. J&rsquo;ai donc spécifié une recherche
               multi-filtres branchée sur le moteur interne, et des messages envoyés en masse
               au nom de HomeExchange plutôt qu&rsquo;au nom du membre : aujourd&rsquo;hui,
-              ~175&nbsp;000 messages par an sont écrits par des agents depuis le compte
+              des centaines de milliers de messages par an sont écrits par des agents depuis le compte
               d&rsquo;un membre. Le dossier d&rsquo;annulation se crée automatiquement ; la
               recherche de remplacement se lancera depuis ce dossier.
             </p>
