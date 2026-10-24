@@ -13,8 +13,7 @@
       { "value": "9/10", "label": "Marquage anti-scam, déclencheur de l'automatisation (vs ~30%)" },
       { "value": "~28 j-h/an", "label": "Temps support économisé (refund automatisé)" },
       { "value": "441", "label": "Tickets clos, équipe de 5 devs" },
-      { "value": "1 900 → ~50", "label": "Messages anti-fraude manuels par mois" },
-      { "value": "+716%", "label": "Visibilité des maisons Collection" }
+      { "value": "1 900 → ~50", "label": "Messages anti-fraude manuels par mois" }
     ],
     "profile": {
       "title": "Résumé Professionnel",
@@ -67,7 +66,7 @@
           {
             "title": "Product Manager de Collection (Maisons d'exception) - 8 NOUVELLES features livrées, 2 500 clients",
             "achievements": [
-              "<strong>+716% de visibilité Collection</strong> : Revamp homepage (2 508 → 20 458 maisons exposées). Badge Collection sur cartes maisons. Création de nouveaux touchpoints (+25% exposition via bannières)",
+              "<strong>Exposition des maisons Collection</strong> : revamp de la homepage (2 508 → 20 458 maisons affichées), badge Collection sur les cartes, nouveaux emplacements en bannière",
               "<b>Accompagnement opérationnel de 4 développeurs</b> <b>en interne</b> en collaboration avec un autre Product Manager : rédaction de +20 tickets par mois, clarification technique et investigation pour résoudre rapidement les problèmes.",
               "<b>Création de nouvelles catégories de maisons</b> (ex. grandes baies vitrées, vues exceptionnelles, piscines à débordement) à partir de l'analyse de photos via un algorithme d'IA, suivi du réentraînement du modèle pour garantir des résultats cohérents.",
               "<b>Revamp partiel du funnel de candidature</b> : implémentation de fonctionnalités clés comme l'annulation de candidature, la sauvegarde/reprise, et le suivi de statut. Maintien d'un taux de complétion avec environ 200 candidatures mensuelles. Fonctionnalités complémentaires livrées : vérification d'éligibilité automatisée et free-trial.",
@@ -264,8 +263,7 @@
       { "value": "9/10", "label": "Anti-scam tagging, the automation trigger (from ~30%)" },
       { "value": "~28 pd/yr", "label": "Support time saved (automated refunds)" },
       { "value": "441", "label": "Tickets closed, team of 5 devs" },
-      { "value": "1,900 → ~50", "label": "Manual anti-fraud messages per month" },
-      { "value": "+716%", "label": "Collection homes visibility" }
+      { "value": "1,900 → ~50", "label": "Manual anti-fraud messages per month" }
     ],
     "profile": {
       "title": "Professional Summary",
@@ -318,7 +316,7 @@
           {
             "title": "Collection Product Manager (Premium Homes) - 8 NEW features delivered, 2,500 clients",
             "achievements": [
-              "<strong>+716% Collection visibility</strong>: Homepage revamp (2,508 → 20,458 homes displayed). Collection badge on home cards. Creation of new touchpoints (+25% exposure via banners)",
+              "<strong>Collection homes exposure</strong>: homepage revamp (2,508 → 20,458 homes displayed), Collection badge on home cards, new banner placements",
               "<b>Operational support for 4 internal developers</b> in collaboration with another Product Manager: writing 20+ tickets per month, technical clarification and investigation to quickly resolve issues.",
               "<b>Creation of new home categories</b> (e.g., large bay windows, exceptional views, infinity pools) based on photo analysis via AI algorithm, followed by model retraining to ensure consistent results.",
               "<b>Partial revamp of application funnel</b>: implementation of key features like application cancellation, save/resume, and status tracking. Maintaining completion rate with approximately 200 monthly applications. Follow-up features shipped: automated eligibility verification and free trial.",
