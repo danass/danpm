@@ -22,7 +22,7 @@
         "label": "Temps support économisé (refund automatisé)"
       },
       {
-        "value": "441",
+        "value": "~440",
         "label": "Tickets clos, équipe de 5 devs"
       },
       {
@@ -55,7 +55,7 @@
           {
             "title": "Trust & Safety : automatisation anti-scam & migration vers le Core",
             "achievements": [
-              "<b>844 heures d'agent rendues en 2026</b> (0,5 FTE), dont 722 sur le seul mois de la vague de mai. En marquant un compte, l'agent déclenche désormais toute la chaîne : alerte des membres exposés en <b>secondes</b>, blocage, retrait des annonces. <b>Couverture du marquage ~30 % → ~100 %</b>, <b>1 900 → ~55 messages d'alerte manuels par mois</b>, <b>14 538 scammers traités</b> dont neuf sur dix sans qu'un agent ait à déclencher quoi que ce soit.",
+              "<b>Plus de 800 heures d'agent rendues en 2026</b> (près d'un mi-temps), dont 700 sur le seul mois de la vague de mai. En marquant un compte, l'agent déclenche désormais toute la chaîne : alerte des membres exposés en <b>secondes</b>, blocage, retrait des annonces. <b>Couverture du marquage ~30 % → ~100 %</b>, <b>1 900 → ~55 messages d'alerte manuels par mois</b>, <b>~14 500 scammers traités</b> dont neuf sur dix sans qu'un agent ait à déclencher quoi que ce soit.",
               "<b>Migration « Scammer-to-Core »</b> (legacy MySQL → Core PostgreSQL) pendant que le système tournait, avec une contrainte posée en comité technique : <b>aucune interruption de service</b>. Cut-over synchronisé, coordination Connect et messagerie."
             ]
           },
@@ -63,14 +63,14 @@
             "title": "Resolution Center & efficacité opérationnelle du support",
             "achievements": [
               "<b>Resolution Center repris d'un prestataire externe</b> (litiges et garanties de dépôt) : <b>CSAT 86 %</b>, passage en maintenance maîtrisée et création automatique d'incidents à l'annulation par l'hôte.",
-              "<b>Remboursement d'adhésion en un clic</b> : j'ai mesuré le geste ticket par ticket — <b>9 minutes par dossier</b>, <b>~1 150 heures d'agent par an</b> en jeu tous motifs confondus — puis spécifié l'epic et l'orchestration (PSP via microservice Payment, rôle dédié, traçabilité, clôture automatique du ticket). En cours de livraison.",
-              "<b>Recherche de remplacement après annulation</b> : <b>11 300 cas par an</b> avec recherche réelle, <b>34 minutes mesurées par cas</b>, <b>6 100 à 8 000 heures d'agent</b> en jeu — automatiser la seule recherche en libère <b>~2 500</b>. Recherche multi-filtres et prise de contact en masse au nom de HomeExchange, là où l'agent écrivait depuis le compte du membre."
+              "<b>Remboursement d'adhésion en un clic</b> : j'ai mesuré le geste ticket par ticket — <b>9 minutes par dossier</b>, <b>plus de mille heures d'agent par an</b> en jeu tous motifs confondus — puis spécifié l'epic et l'orchestration (PSP via microservice Payment, rôle dédié, traçabilité, clôture automatique du ticket). En cours de livraison.",
+              "<b>Recherche de remplacement après annulation</b> : <b>~11 000 cas par an</b> avec recherche réelle, <b>une demi-heure mesurée par cas</b>, <b>6 000 à 8 000 heures d'agent</b> en jeu — automatiser la seule recherche en libère <b>~2 500</b>. Recherche multi-filtres et prise de contact en masse au nom de HomeExchange, là où l'agent écrivait depuis le compte du membre."
             ]
           },
           {
             "title": "Granularité des rôles (RGPD) & Product Ops augmentée par l'IA",
             "achievements": [
-              "<b>Granularité des rôles</b> dans un back-office où chaque collaborateur interne avait historiquement le même accès complet : <b>8 600 gestes sensibles par mois</b>, <b>4 actions protégées sur une soixantaine</b>. Rôles multiples Auth0, séparation Resolution Center / back-office, cadrage RGPD avec un cabinet spécialisé. L'enjeu est l'exposition, pas le temps gagné.",
+              "<b>Granularité des rôles</b> dans un back-office où chaque collaborateur interne avait historiquement le même accès complet : <b>~8 500 gestes sensibles par mois</b>, <b>4 actions protégées sur une soixantaine</b>. Rôles multiples Auth0, séparation Resolution Center / back-office, cadrage RGPD avec un cabinet spécialisé. L'enjeu est l'exposition, pas le temps gagné.",
               "<b>Outillage IA de l'équipe produit</b> : contribution à un « Product OS » en production, et POC de pré-remplissage d'annonces à partir de photos et de vidéos (extraction et scoring automatiques de keyframes).",
               "<b>Hands-on quand c'est le plus rapide</b> : audit de sécurité (XSS), requêtes analytiques Metabase, et agrégation automatique des comptes-rendus hebdomadaires de l'équipe."
             ]
@@ -78,7 +78,7 @@
           {
             "title": "Product Manager de Collection (Maisons d'exception)",
             "achievements": [
-              "<b>Exposition des maisons Collection</b> : revamp de la homepage (2 508 → 20 458 maisons affichées), badge sur les cartes, nouveaux emplacements en bannière, et création de catégories (grandes baies vitrées, vues exceptionnelles, piscines à débordement) à partir de l'analyse des photos du parc.",
+              "<b>Exposition des maisons Collection</b> : revamp de la homepage (2 500 → plus de 20 000 maisons affichées), badge sur les cartes, nouveaux emplacements en bannière, et création de catégories (grandes baies vitrées, vues exceptionnelles, piscines à débordement) à partir de l'analyse des photos du parc.",
               "<b>Funnel de candidature</b> : annulation, sauvegarde et reprise, suivi de statut, vérification d'éligibilité automatisée et essai gratuit, sur environ 200 candidatures mensuelles.",
               "<b>Ranking et coordination inter-squads</b> : hiérarchisation des résultats (Collection, éligibles sans abonnement, essai gratuit), paiement de l'essai de 15 jours avec le squad Paiement, authentification Auth0 avec le squad User. Quatre développeurs accompagnés avec un autre PM."
             ]
@@ -281,7 +281,7 @@
         "label": "Support time saved (automated refunds)"
       },
       {
-        "value": "441",
+        "value": "~440",
         "label": "Tickets closed, team of 5 devs"
       },
       {
@@ -314,7 +314,7 @@
           {
             "title": "Trust & Safety: anti-scam automation & migration to Core",
             "achievements": [
-              "<b>844 agent hours returned in 2026</b> (0.5 FTE), 722 of them in the single month of the May wave. Tagging an account now fires the whole chain: exposed members alerted in <b>seconds</b>, account blocked, listings pulled. <b>Tag coverage ~30% → ~100%</b>, <b>1,900 → ~55 manual alert messages per month</b>, <b>14,538 scammers handled</b> — nine in ten without an agent triggering anything.",
+              "<b>Over 800 agent hours returned in 2026</b> (close to half a full-time role), 700 of them in the single month of the May wave. Tagging an account now fires the whole chain: exposed members alerted in <b>seconds</b>, account blocked, listings pulled. <b>Tag coverage ~30% → ~100%</b>, <b>1,900 → ~55 manual alert messages per month</b>, <b>~14,500 scammers handled</b> — nine in ten without an agent triggering anything.",
               "<b>\"Scammer-to-Core\" migration</b> (legacy MySQL → Core PostgreSQL) while the system was running, under a constraint set in technical committee: <b>zero service interruption</b>. Synchronized cut-over, Connect and messaging coordination."
             ]
           },
@@ -322,14 +322,14 @@
             "title": "Resolution Center & support operational efficiency",
             "achievements": [
               "<b>Took over the Resolution Center</b> from an external vendor (disputes and deposit guarantees): <b>86% CSAT</b>, controlled maintenance mode and automatic incident creation on host cancellation.",
-              "<b>One-click membership refund</b>: I measured the task ticket by ticket — <b>9 minutes per case</b>, <b>~1,150 agent hours a year</b> at stake across all reasons — then specified the epic and its orchestration (PSP via Payment microservice, dedicated role, traceability, automatic ticket closure). Currently shipping.",
-              "<b>Replacement search after cancellation</b>: <b>11,300 cases a year</b> involving a real search, <b>34 measured minutes per case</b>, <b>6,100 to 8,000 agent hours</b> at stake — automating the search alone frees <b>~2,500</b>. Multi-filter search and bulk outreach under the HomeExchange name, where agents used to write from the member's own account."
+              "<b>One-click membership refund</b>: I measured the task ticket by ticket — <b>9 minutes per case</b>, <b>over a thousand agent hours a year</b> at stake across all reasons — then specified the epic and its orchestration (PSP via Payment microservice, dedicated role, traceability, automatic ticket closure). Currently shipping.",
+              "<b>Replacement search after cancellation</b>: <b>~11,000 cases a year</b> involving a real search, <b>half an hour measured per case</b>, <b>6,000 to 8,000 agent hours</b> at stake — automating the search alone frees <b>~2,500</b>. Multi-filter search and bulk outreach under the HomeExchange name, where agents used to write from the member's own account."
             ]
           },
           {
             "title": "Role granularity (GDPR) & AI-augmented Product Ops",
             "achievements": [
-              "<b>Role granularity</b> in a back-office where every internal staff member historically held the same full access: <b>8,600 sensitive actions a month</b>, <b>4 protected actions out of roughly sixty</b>. Multiple Auth0 roles, Resolution Center / back-office separation, GDPR work with a specialist firm. The stake is exposure, not hours saved.",
+              "<b>Role granularity</b> in a back-office where every internal staff member historically held the same full access: <b>~8,500 sensitive actions a month</b>, <b>4 protected actions out of roughly sixty</b>. Multiple Auth0 roles, Resolution Center / back-office separation, GDPR work with a specialist firm. The stake is exposure, not hours saved.",
               "<b>AI tooling for the product team</b>: contributed to a production \"Product OS\", and a proof of concept pre-filling listings from photos and videos (automatic keyframe extraction and scoring).",
               "<b>Hands-on when it's the fastest path</b>: security audit (XSS), Metabase analytics queries, and automatic aggregation of the team's weekly reports."
             ]
@@ -337,7 +337,7 @@
           {
             "title": "Collection Product Manager (Premium Homes)",
             "achievements": [
-              "<b>Collection homes exposure</b>: homepage revamp (2,508 → 20,458 homes displayed), badge on home cards, new banner placements, and new categories (floor-to-ceiling windows, exceptional views, infinity pools) built from analysis of the portfolio's photos.",
+              "<b>Collection homes exposure</b>: homepage revamp (2,500 → over 20,000 homes displayed), badge on home cards, new banner placements, and new categories (floor-to-ceiling windows, exceptional views, infinity pools) built from analysis of the portfolio's photos.",
               "<b>Application funnel</b>: cancellation, save and resume, status tracking, automated eligibility check and free trial, across roughly 200 monthly applications.",
               "<b>Ranking and cross-squad coordination</b>: result hierarchy (Collection, eligible without subscription, free trial), 15-day trial payment with the Payment squad, Auth0 authentication with the User squad. Four developers supported alongside another PM."
             ]
