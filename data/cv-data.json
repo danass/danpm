@@ -64,7 +64,7 @@
             "achievements": [
               "<b>Resolution Center repris d'un prestataire externe</b> (litiges et garanties de dépôt) : <b>CSAT 86 %</b>, passage en maintenance maîtrisée et création automatique d'incidents à l'annulation par l'hôte.",
               "<b>Remboursement d'adhésion en un clic</b> : j'ai mesuré le geste ticket par ticket — <b>9 minutes par dossier</b>, <b>~1 150 heures d'agent par an</b> en jeu tous motifs confondus — puis spécifié l'epic et l'orchestration (PSP via microservice Payment, rôle dédié, traçabilité, clôture automatique du ticket). En cours de livraison.",
-              "<b>Recherche de remplacement après annulation</b> (co-lead avec la designer) : <b>11 300 cas par an</b> avec recherche réelle, <b>34 minutes mesurées par cas</b>, <b>6 100 à 8 000 heures d'agent</b> en jeu — automatiser la seule recherche en libère <b>~2 500</b>. Recherche multi-filtres et prise de contact en masse au nom de HomeExchange, là où l'agent écrivait depuis le compte du membre."
+              "<b>Recherche de remplacement après annulation</b> : <b>11 300 cas par an</b> avec recherche réelle, <b>34 minutes mesurées par cas</b>, <b>6 100 à 8 000 heures d'agent</b> en jeu — automatiser la seule recherche en libère <b>~2 500</b>. Recherche multi-filtres et prise de contact en masse au nom de HomeExchange, là où l'agent écrivait depuis le compte du membre."
             ]
           },
           {
@@ -323,7 +323,7 @@
             "achievements": [
               "<b>Took over the Resolution Center</b> from an external vendor (disputes and deposit guarantees): <b>86% CSAT</b>, controlled maintenance mode and automatic incident creation on host cancellation.",
               "<b>One-click membership refund</b>: I measured the task ticket by ticket — <b>9 minutes per case</b>, <b>~1,150 agent hours a year</b> at stake across all reasons — then specified the epic and its orchestration (PSP via Payment microservice, dedicated role, traceability, automatic ticket closure). Currently shipping.",
-              "<b>Replacement search after cancellation</b> (co-lead with the designer): <b>11,300 cases a year</b> involving a real search, <b>34 measured minutes per case</b>, <b>6,100 to 8,000 agent hours</b> at stake — automating the search alone frees <b>~2,500</b>. Multi-filter search and bulk outreach under the HomeExchange name, where agents used to write from the member's own account."
+              "<b>Replacement search after cancellation</b>: <b>11,300 cases a year</b> involving a real search, <b>34 measured minutes per case</b>, <b>6,100 to 8,000 agent hours</b> at stake — automating the search alone frees <b>~2,500</b>. Multi-filter search and bulk outreach under the HomeExchange name, where agents used to write from the member's own account."
             ]
           },
           {
