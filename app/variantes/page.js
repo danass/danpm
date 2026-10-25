@@ -10,6 +10,7 @@ import '../variantes.css'
 import { TopNav, SiteFooter, FOOTER_HOME } from '@/app/components/edito/Page'
 import { Intro, CvLine, Section, Eyebrow } from '@/app/components/edito/Blocks'
 import { StoryLinks, Stat, Tools, Facts, Outro } from '@/app/components/edito/Story'
+import { Figure, Serie, Barres, Cote, Parts } from '@/app/components/edito/Charts'
 import { pageClasses } from '@/app/components/edito/variant'
 import { grotesk, literata } from '@/app/fonts'
 import { STORIES } from '@/data/stories'
@@ -68,6 +69,14 @@ const BLOCKS = [
   { id: 'mark', key: 'mark', title: 'Couleur de marque', intro: 'Niveau page. La couleur que les variantes « marquées » utilisent (carré du kicker, chiffres, bouton plein, bandeau). Encre par défaut : rien ne change tant qu\'aucune variante ne l\'appelle.',
     variants: [['v0', 'encre'], ['bleu', '#12327E, 11,8:1 sur blanc'], ['vert', '#15573C, 8,5:1 sur blanc']],
     render: (v) => <Sample page={{ mark: v }}><Section eyebrow="Anti-fraude" eyebrowVariant="carre"><Stat variant="grand" value="1 900 → ~55" label="messages d’alerte manuels par mois" /></Section><Outro variant="plein" eyebrow="Travailler ensemble" cta="Écrivez-moi">{OUTRO_TEXT}</Outro></Sample> },
+  { id: 'charts', key: 'charts', title: 'Graphes', intro: 'Quatre formes pour dire un résultat. Ce ne sont pas des variantes de style mais des composants à données ; ils prennent la couleur de marque sur l’après.',
+    variants: [['serie', 'une grandeur dans le temps, avec l’événement qui la fait basculer'], ['cote', 'un avant et un après, cotés'], ['parts', 'une proportion, en carrés'], ['barres', 'une valeur par période, avec une plage pour ce qu’on ne détaille pas']],
+    render: (v) => <Sample><div className="gal-pad">
+      {v === 'serie' && <Figure caption="Messages d’alerte envoyés à la main, par mois." status="mesuré"><Serie points={[{x:0,y:1900},{x:.74,y:1900},{x:.8,y:55},{x:1,y:55}]} event={{ x: .74, text: 'mise en production' }} yLabels={[{x:0,y:1900,text:'~1 900 / mois'},{x:1,y:55,text:'~55 / mois',anchor:'end'}]} labels={[{x:0,text:'nov. 2024'},{x:1,text:'sept. 2026'}]} /></Figure>}
+      {v === 'cote' && <Figure caption="Couverture du tag scammer." status="mesuré"><Cote avant={{label:'AVANT',value:30,text:'~30 %'}} apres={{label:'APRÈS',value:100,text:'~100 %'}} delta="le tag devient le déclencheur" /></Figure>}
+      {v === 'parts' && <Figure caption="Scammers traités sans déclenchement par un agent." status="mesuré"><Parts total={10} filled={9} text="9 sur 10" sub="sans déclenchement par un agent" /></Figure>}
+      {v === 'barres' && <Figure caption="Tags scammer posés par mois." status="mesuré"><Barres band={{span:3,min:45,max:84,text:'45 à 84',label:'oct. 2025 → mars 2026'}} bars={[{label:'juin',value:263,mark:true},{label:'juil.',value:144,mark:true},{label:'août',value:124,mark:true},{label:'sept.',value:103,mark:true}]} /></Figure>}
+    </div></Sample> },
   { id: 'top', key: 'top', title: 'En-tête', intro: 'Le nom et la navigation, sous un filet.',
     variants: [['v0', 'tel quel'], ['points', 'liens séparés par un point médian'], ['cartouche', 'le nom en cartouche inversé'], ['fin', 'filet d’un pixel, plus d’air, navigation plus petite et plus espacée']],
     render: (v) => <Sample><TopNav variant={v} /><div className="gal-pad" /></Sample> },

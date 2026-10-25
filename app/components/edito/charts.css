@@ -1,0 +1,35 @@
+/* Les graphes : encre, filets, texte du site. var(--mark) est l'encre par
+   défaut, et prend la couleur de marque si une variante de page la pose. */
+.edito .chart { margin: 22px 0 6px; }
+.edito .chart figcaption { margin-top: 8px; font-size: 12px; color: var(--mut); line-height: 1.45; max-width: 60ch; }
+.edito .chart figcaption small { font-size: 12px; }
+.edito .charts-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.edito .charts-2 .chart { min-width: 0; }
+@media (max-width: 640px) { .edito .charts-2 { grid-template-columns: 1fr; } }
+
+.edito .chart-svg { display: block; width: 100%; height: auto; overflow: visible; font-family: inherit; }
+.edito .chart-svg text { fill: var(--fg); }
+.edito .chart-svg .lbl { font-size: 12px; fill: var(--mut); font-weight: 500; }
+.edito .chart-svg .val { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.edito .chart-svg .val.mut { fill: var(--mut); font-weight: 500; }
+.edito .chart-svg .num { font-size: 22px; font-weight: 700; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.edito .chart-svg .mark, .edito .chart-svg text.mark { fill: var(--mark); }
+.edito .chart-svg .axis { stroke: var(--line); stroke-width: 1.5; }
+.edito .chart-svg .line { fill: none; stroke: var(--fg); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.edito .chart-svg .event { stroke: var(--mut); stroke-width: 1; stroke-dasharray: 3 3; }
+.edito .chart-svg .dot { fill: var(--bg); stroke: var(--fg); stroke-width: 3; }
+.edito .chart-svg .bar { fill: var(--fg); }
+.edito .chart-svg .bar.mark { fill: var(--mark); }
+.edito .chart-svg .band { fill: var(--fg); opacity: .12; }
+.edito .chart-svg .dim { stroke: var(--mark); stroke-width: 1.5; fill: none; }
+.edito .chart-svg .sq { fill: none; stroke: var(--fg); stroke-width: 1.5; }
+.edito .chart-svg .sq.mark { fill: var(--mark); stroke: var(--mark); }
+.edito .cote .num.mark { fill: var(--mark); }
+
+/* Sur mobile, le SVG se réduit à la largeur de l'écran : les libellés en
+   unités de viewBox deviennent trop petits. On les grossit d'autant. */
+@media (max-width: 640px) {
+  .edito .chart-svg .lbl { font-size: 16px; }
+  .edito .chart-svg .val { font-size: 17px; }
+  .edito .chart-svg .num { font-size: 26px; }
+}
