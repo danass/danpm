@@ -8,12 +8,17 @@ export function vc(base, key, override) {
   return v === 'v0' ? base : `${base} v-${v}`
 }
 
-// Les classes de niveau page (police, espace, couleur de marque).
+// Les classes de niveau page. Espace et couleur de marque sont restés en v0 :
+// seule la police garde une alternative.
+
+// Le nom résolu d'une variante, pour les composants qui changent de balisage.
+export function vname(key, override) {
+  return override ?? V[key] ?? 'v0'
+}
+
 export function pageClasses(override = {}) {
   const pick = (k) => override[k] ?? V[k] ?? 'v0'
   const out = []
   if (pick('font') !== 'v0')  out.push(`font-${pick('font')}`)
-  if (pick('space') !== 'v0') out.push(`space-${pick('space')}`)
-  if (pick('mark') !== 'v0')  out.push(`mark-${pick('mark')}`)
   return out
 }

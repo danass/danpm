@@ -6,7 +6,7 @@ import '../../editorial.css'
 import '../../variantes.css'
 import ContactTrigger from '../EditorialContact'
 import { vc, pageClasses } from './variant'
-import { grotesk, literata } from '../../fonts'
+import { grotesk } from '../../fonts'
 
 export function TopNav({ ariaLabel = 'Navigation', variant }) {
   return (
@@ -50,7 +50,7 @@ export const FOOTER_HOME = [
 // `v` : surcharge ponctuelle de la table d'assemblage, pour la galerie.
 export default function Page({ navLabel = 'Navigation', footer = FOOTER_SITE, v = {}, children }) {
   const extra = pageClasses(v)
-  const fontVars = extra.some((c) => c.startsWith('font-')) ? ` ${grotesk.variable} ${literata.variable}` : ''
+  const fontVars = extra.some((c) => c.startsWith('font-')) ? ` ${grotesk.variable}` : ''
   const cls = ['edito', ...extra].join(' ') + fontVars
   return (
     <div className={cls}>

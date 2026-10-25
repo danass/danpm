@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import ContactTrigger from '../EditorialContact'
 import { Eyebrow } from './Blocks'
-import { vc } from './variant'
+import { vc, vname } from './variant'
 
 export function StoryLinks({ stories, variant }) {
   return (
@@ -53,7 +53,23 @@ export function Shot({ src, alt, width, height, children }) {
 
 // Un outil par ligne : ce qu'il fait, ce qu'il rapporte. Avec `href`, le
 // libellé devient un lien vers l'histoire.
+// Le gain « avant → après » est découpé dès qu'on sort de v0, pour que les
+// variantes puissent dessiner le passage. En v0 il reste une seule chaîne.
+function Gain({ text, split }) {
+  if (!split) return <span className="gain">{text}</span>
+  const [from, to] = String(text).split(/\s*→\s*/)
+  if (to === undefined) return <span className="gain"><span className="to">{from}</span></span>
+  return (
+    <span className="gain">
+      <span className="from">{from}</span>
+      <span className="arrow" aria-hidden="true">→</span>
+      <span className="to">{to}</span>
+    </span>
+  )
+}
+
 export function Tools({ items, variant }) {
+  const split = vname('tools', variant) !== 'v0'
   return (
     <ul className={vc('tools', 'tools', variant)}>
       {items.map((t, i) => (
@@ -61,7 +77,7 @@ export function Tools({ items, variant }) {
           {t.href
             ? <a href={t.href} className="what">{t.what}</a>
             : <span className="what">{t.what}</span>}
-          <span className="gain">{t.gain}</span>
+          <Gain text={t.gain} split={split} />
         </li>
       ))}
     </ul>

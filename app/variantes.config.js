@@ -1,24 +1,20 @@
 // La table d'assemblage. Chaque composant du site lit ici la variante qu'il
-// doit prendre. « v0 » est la version actuelle, celle d'avant les variantes.
+// doit prendre. « v0 » est la version actuelle.
 //
 // Pour assembler : remplacer un « v0 » par le nom d'une variante vue dans la
-// galerie (npm run dev, puis /variantes). Un composant à la fois, puis on
-// regarde, puis on garde ou on revient. Rien d'autre à toucher.
+// galerie (npm run dev, puis /variantes). Un composant à la fois.
+// Espace et couleur de marque sont restés en v0 et n'ont plus d'alternative.
 export const V = {
-  // Niveau page : s'appliquent à tout, partout.
-  font:  'v0',   // v0 système · grotesk · titres-serif
-  space: 'v0',   // v0 · serre · aere
-  mark:  'v0',   // v0 encre · bleu · vert  (la couleur que les variantes marquées utilisent)
+  font:       'v0',   // v0 système · grotesk
 
-  // Composants.
-  top:        'v0',   // v0 · points · cartouche · fin
-  intro:      'v0',   // v0 · grand · marque · deux-tons
-  eyebrow:    'v0',   // v0 · carre · filet · pastille
-  section:    'v0',   // v0 · fin · double · sans-filet
-  storyLinks: 'v0',   // v0 · tag-en-ligne · numerotes · grille
-  stat:       'v0',   // v0 · grand · encadre · inverse
-  tools:      'v0',   // v0 · pointilles · pastille · gain-d-abord
-  facts:      'v0',   // v0 · grandes-valeurs · pointilles · deux-colonnes
-  outro:      'v0',   // v0 · plein · fleche · bandeau
-  footer:     'v0',   // v0 · points · empile · massif
+  top:        'v0',   // points-fin · points-fin-casse · points-fin-haut
+  intro:      'v0',   // marque · deux-tons · marque-deux-tons · marque-fin · deux-tons-inverse
+  eyebrow:    'v0',   // filet · filet-gris · filet-court · filet-devant
+  section:    'v0',   // sans-filet · sans-filet-64 · sans-filet-128
+  storyLinks: 'v0',   // tag-texte · tag-barre · tag-colonne · tag-apres
+  stat:       'v0',   // inverse · encadre · inverse-grand · encadre-fin · encadre-large
+  tools:      'v0',   // gain-d-abord · barre · fleche · colonnes
+  facts:      'v0',   // deux-colonnes · grandes-valeurs · entre-deux · entre-deux-filet
+  outro:      'v0',   // fleche · fleche-grand · fleche-texte
+  footer:     'v0',   // massif · massif-points · massif-court
 }
