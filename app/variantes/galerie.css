@@ -1,0 +1,28 @@
+/* La galerie : un cadre neutre autour de chaque échantillon, pour comparer
+   les variantes d'un composant côte à côte. Ne touche pas au site. */
+.gal { font: 14px/1.5 -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; color: #111; background: #ECECEA; min-height: 100vh; }
+.gal-wrap { display: grid; grid-template-columns: 220px 1fr; gap: 40px; max-width: 1240px; margin: 0 auto; padding: 32px 24px 120px; }
+.gal-nav { position: sticky; top: 24px; align-self: start; }
+.gal-nav h1 { font-size: 15px; margin: 0 0 4px; }
+.gal-nav p { margin: 0 0 18px; color: #666; font-size: 12px; }
+.gal-nav a { display: block; color: #111; text-decoration: none; padding: 5px 0; border-top: 1px solid #d6d6d2; font-size: 13px; }
+.gal-nav a:hover { text-decoration: underline; }
+.gal-nav code { font: 11px/1 ui-monospace, Menlo, monospace; color: #666; }
+.gal-block { margin-top: 56px; }
+.gal-block:first-child { margin-top: 0; }
+.gal-block > h2 { font-size: 22px; margin: 0; letter-spacing: -.01em; }
+.gal-block > h2 code { font: 13px/1 ui-monospace, Menlo, monospace; background: #fff; padding: 3px 6px; margin-left: 10px; vertical-align: 3px; }
+.gal-block > p { margin: 6px 0 0; color: #555; max-width: 64ch; }
+.gal-var { margin-top: 18px; }
+.gal-var h3 { font-size: 12px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: .06em; display: flex; gap: 10px; align-items: baseline; }
+.gal-var h3 code { font: 12px/1 ui-monospace, Menlo, monospace; background: #111; color: #fff; padding: 4px 7px; text-transform: none; letter-spacing: 0; }
+.gal-var h3 span { font-weight: 400; color: #666; text-transform: none; letter-spacing: 0; }
+.gal-sample { background: #fff; padding: 0 20px; overflow: hidden; }
+.gal-sample .edito { font-size: 15px; min-height: 0; }
+.gal-sample .page { max-width: 680px; margin: 0; padding: 0; }
+.gal-sample section { margin-top: 28px; }
+.gal-sample .intro { padding-top: 28px; }
+.gal-sample .outro.v-bandeau { margin-left: -20px; margin-right: -20px; }
+.gal-sample footer { padding-bottom: 24px; margin-top: 28px; }
+.gal-pad { padding: 20px 0 24px; }
+@media (max-width: 760px) { .gal-wrap { grid-template-columns: 1fr; } .gal-nav { position: static; } }

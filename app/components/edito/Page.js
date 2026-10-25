@@ -1,12 +1,16 @@
 // Le squelette commun aux onze pages : la coquille .edito/.page, l'en-tête et
 // le pied. Même balisage qu'avant, rien de plus, rien de moins. C'est la
-// version 0 : les variantes viendront dessus, elles ne la remplacent pas.
+// version 0 : les variantes viennent dessus par des classes, elles ne la
+// remplacent pas.
 import '../../editorial.css'
+import '../../variantes.css'
 import ContactTrigger from '../EditorialContact'
+import { vc, pageClasses } from './variant'
+import { grotesk, literata } from '../../fonts'
 
-export function TopNav({ ariaLabel = 'Navigation' }) {
+export function TopNav({ ariaLabel = 'Navigation', variant }) {
   return (
-    <header className="top">
+    <header className={vc('top', 'top', variant)}>
       <span className="name">Daniel Assayag</span>
       <nav aria-label={ariaLabel}>
         <a href="/">Accueil</a>
@@ -20,9 +24,10 @@ export function TopNav({ ariaLabel = 'Navigation' }) {
 
 // `links` : la liste après « Me contacter ». Un objet {href, label, external}
 // devient un lien, une chaîne devient un simple <span>.
-export function SiteFooter({ links }) {
+export function SiteFooter({ links, variant }) {
+  const cls = vc('', 'footer', variant).trim()
   return (
-    <footer id="contact">
+    <footer id="contact" className={cls || undefined}>
       <ContactTrigger className="as-link" label="Me contacter" />
       {links.map((l, i) =>
         typeof l === 'string'
@@ -42,13 +47,17 @@ export const FOOTER_HOME = [
   'Paris',
 ]
 
-export default function Page({ navLabel = 'Navigation', footer = FOOTER_SITE, children }) {
+// `v` : surcharge ponctuelle de la table d'assemblage, pour la galerie.
+export default function Page({ navLabel = 'Navigation', footer = FOOTER_SITE, v = {}, children }) {
+  const extra = pageClasses(v)
+  const fontVars = extra.some((c) => c.startsWith('font-')) ? ` ${grotesk.variable} ${literata.variable}` : ''
+  const cls = ['edito', ...extra].join(' ') + fontVars
   return (
-    <div className="edito">
+    <div className={cls}>
       <div className="page">
-        <TopNav ariaLabel={navLabel} />
+        <TopNav ariaLabel={navLabel} variant={v.top} />
         {children}
-        <SiteFooter links={footer} />
+        <SiteFooter links={footer} variant={v.footer} />
       </div>
     </div>
   )
