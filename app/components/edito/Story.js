@@ -96,9 +96,11 @@ export function Facts({ items, variant }) {
   )
 }
 
-export function Outro({ eyebrow, cta, variant, eyebrowVariant, children }) {
+// L'appel final est aussi une section : il prend la variante de section en
+// plus de la sienne, sinon il garde son filet quand les autres l'ont perdu.
+export function Outro({ eyebrow, cta, variant, eyebrowVariant, sectionVariant, children }) {
   return (
-    <section className={vc('outro', 'outro', variant)}>
+    <section className={vc(vc('outro', 'outro', variant), 'section', sectionVariant)}>
       <Eyebrow variant={eyebrowVariant}>{eyebrow}</Eyebrow>
       <p>{children}</p>
       <ContactTrigger className="cta" label={cta} />

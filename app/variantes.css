@@ -23,8 +23,10 @@
 .edito .top.v-points-fin-haut .name { font-size: 15px; }
 
 /* ── Intro : retenus = marque, deux-tons ────────────────────────────────── */
-.edito .intro.v-marque h1::before,
-.edito .intro.v-marque-deux-tons h1::before { content: ""; display: block; width: 48px; height: 4px; background: var(--mark); margin-bottom: 22px; }
+.edito .intro.v-marque h1::before { content: ""; display: block; width: 48px; height: 4px; background: var(--mark); margin-bottom: 22px; }
+/* Combinée aux deux tons, la marque sort du titre : un ::before dans le h1
+   deviendrait sa « première ligne », et le gris tomberait sur une ligne vide. */
+.edito .intro.v-marque-deux-tons::before { content: ""; display: block; width: 48px; height: 4px; background: var(--mark); margin-bottom: 22px; }
 .edito .intro.v-marque-fin h1::before { content: ""; display: block; width: 32px; height: 2px; background: var(--mark); margin-bottom: 18px; }
 .edito .intro.v-deux-tons h1::first-line,
 .edito .intro.v-marque-deux-tons h1::first-line { color: var(--mut); }
