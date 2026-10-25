@@ -64,11 +64,11 @@ const STAT = { tag: 'Anti-fraude', value: '1 900 → ~55', label: 'messages d’
 const R = 'retenu', N = 'nouveau'
 
 const BLOCKS = [
-  { id: 'font', key: 'font', title: 'Police', intro: 'Niveau page. Système retenu pour l’instant, Grotesk laissée en alternative.',
+  { id: 'font', key: 'font', title: 'Police', intro: 'Système retenue. Grotesk reste en alternative, sans conviction pour l’instant.',
     variants: [['v0', 'système (Helvetica / San Francisco)', R], ['grotesk', 'Schibsted Grotesk partout']],
     render: (v) => <Sample page={{ font: v }}><Intro>{INTRO}</Intro><Section eyebrow="Histoires"><StoryLinks stories={STORIES.slice(0, 3)} /></Section></Sample> },
 
-  { id: 'charts', key: 'charts', title: 'Graphes', intro: 'Les quatre formes, toutes retenues. Ce sont des composants à données, pas des variantes de style.',
+  { id: 'charts', key: 'charts', title: 'Graphes', intro: 'Les quatre formes, retenues. Composants à données, pas variantes de style.',
     variants: [['serie', 'une grandeur dans le temps, avec la bascule marquée', R], ['cote', 'un avant et un après, cotés', R], ['parts', 'une proportion, en carrés', R], ['barres', 'une valeur par période, avec une plage pour ce qu’on ne détaille pas', R]],
     render: (v) => <Sample><div className="gal-pad">
       {v === 'serie' && <Figure caption="Messages d’alerte envoyés à la main, par mois." status="mesuré"><Serie points={[{x:0,y:1900},{x:.74,y:1900},{x:.8,y:55},{x:1,y:55}]} event={{ x: .74, text: 'mise en production' }} yLabels={[{x:0,y:1900,text:'~1 900 / mois'},{x:1,y:55,text:'~55 / mois',anchor:'end'}]} labels={[{x:0,text:'nov. 2024'},{x:1,text:'sept. 2026'}]} /></Figure>}
@@ -77,44 +77,44 @@ const BLOCKS = [
       {v === 'barres' && <Figure caption="Tags scammer posés par mois." status="mesuré"><Barres band={{span:3,min:45,max:84,text:'45 à 84',label:'oct. 2025 → mars 2026'}} bars={[{label:'juin',value:263,mark:true},{label:'juil.',value:144,mark:true},{label:'août',value:124,mark:true},{label:'sept.',value:103,mark:true}]} /></Figure>}
     </div></Sample> },
 
-  { id: 'top', key: 'top', title: 'En-tête', intro: 'Retenu : un mélange de « points » et de « fin ». Le voici, et deux voisins.',
-    variants: [['v0', 'tel quel'], ['points-fin', 'filet d’un pixel, navigation fine et espacée, séparée par des points', N], ['points-fin-casse', 'la même, en casse normale : la navigation cesse de crier', N], ['points-fin-haut', 'la même, avec plus de hauteur et un nom un peu plus présent', N]],
+  { id: 'top', key: 'top', title: 'En-tête', intro: 'Retenu : points-fin-haut.',
+    variants: [['v0', 'avant les variantes'], ['points-fin-haut', 'filet d’un pixel, navigation fine à points, plus de hauteur', R], ['points-fin-haut-casse', 'la même, navigation en casse normale', N], ['points-fin-haut-air', 'la même, sans filet : l’air seul sépare', N]],
     render: (v) => <Sample><TopNav variant={v} /><div className="gal-pad" /></Sample> },
 
-  { id: 'intro', key: 'intro', title: 'Intro', intro: 'Retenus : marque, deux tons. Plus leur combinaison et deux écarts.',
-    variants: [['v0', 'tel quel'], ['marque', 'un trait de 48 px au-dessus du titre', R], ['deux-tons', 'la première ligne du titre en gris', R], ['marque-deux-tons', 'les deux ensemble', N], ['marque-fin', 'un trait plus court et plus fin, 32 × 2 px', N], ['deux-tons-inverse', 'l’inverse : la première ligne en encre, la suite en gris', N]],
+  { id: 'intro', key: 'intro', title: 'Intro', intro: 'Retenu : la marque, avec les deux tons inversés.',
+    variants: [['v0', 'avant les variantes'], ['marque-deux-tons-inverse', 'trait de 48 px, première ligne en encre, la suite en gris', R], ['marque-fin-deux-tons-inverse', 'le même, trait plus discret (32 × 2)', N], ['marque-deux-tons-inverse-grand', 'le même, titre à 64 px', N]],
     render: (v) => <Sample><Intro variant={v}>{INTRO}</Intro><div className="gal-pad" /></Sample> },
 
-  { id: 'eyebrow', key: 'eyebrow', title: 'Kicker', intro: 'Retenu : filet. Trois façons de le poser.',
-    variants: [['v0', 'tel quel'], ['filet', 'un filet qui court jusqu’au bord', R], ['filet-gris', 'le même filet, en gris clair', N], ['filet-court', 'un filet de 40 px seulement', N], ['filet-devant', 'le filet avant le mot, pas après', N]],
+  { id: 'eyebrow', key: 'eyebrow', title: 'Kicker', intro: 'Retenu : un filet court et gris, devant le mot.',
+    variants: [['v0', 'avant les variantes'], ['filet-court-gris-devant', 'filet gris de 40 px devant', R], ['filet-court-encre-devant', 'le même filet, en noir', N], ['filet-long-gris-devant', 'filet gris de 80 px', N]],
     render: (v) => <Sample><div className="gal-pad"><Eyebrow variant={v}>Histoires</Eyebrow></div></Sample> },
 
-  { id: 'section', key: 'section', title: 'Section', intro: 'Retenu : sans filet. Trois respirations.',
-    variants: [['v0', 'filet de 2 px'], ['sans-filet', '96 px d’espace', R], ['sans-filet-64', '64 px : plus serré', N], ['sans-filet-128', '128 px : plus aéré', N]],
+  { id: 'section', key: 'section', title: 'Section', intro: 'Retenu : sans filet, 128 px.',
+    variants: [['v0', 'filet de 2 px'], ['sans-filet-128', '128 px d’espace', R], ['sans-filet-104', '104 px : un peu plus serré', N], ['sans-filet-160', '160 px : encore plus aéré', N]],
     render: (v) => <Sample><Section variant={v} eyebrow="Histoires"><StoryLinks stories={STORIES.slice(0, 2)} /></Section><Section variant={v} eyebrow="Repères"><Facts items={FACTS.slice(0, 2)} /></Section><div className="gal-pad" /></Sample> },
 
-  { id: 'storyLinks', key: 'storyLinks', title: 'Liste d’histoires', intro: 'Le tag sur la ligne du titre, comme tu l’as aimé, mais sans pastille.',
-    variants: [['v0', 'tag au-dessus du titre'], ['tag-texte', 'le tag en gris, suivi du titre', N], ['tag-barre', 'TAG / titre', N], ['tag-colonne', 'le tag dans une colonne fixe, les titres alignés', N], ['tag-apres', 'le titre d’abord, le tag au bout de la ligne', N]],
+  { id: 'storyLinks', key: 'storyLinks', title: 'Liste d’histoires', intro: 'Retenu : le titre d’abord, le tag au bout de la ligne.',
+    variants: [['v0', 'tag au-dessus du titre'], ['tag-apres', 'tag en capitales grises au bout de la ligne', R], ['tag-apres-casse', 'le tag en casse normale', N], ['tag-apres-fleche', 'le tag suivi d’une flèche', N]],
     render: (v) => <Sample><Section eyebrow="Histoires"><StoryLinks stories={STORIES.slice(0, 4)} variant={v} /></Section><div className="gal-pad" /></Sample> },
 
-  { id: 'stat', key: 'stat', title: 'Chiffre d’ouverture', intro: 'Retenus : inversé, encadré. Une variante de chaque, plus marquée ou plus légère.',
-    variants: [['v0', 'tel quel'], ['inverse', 'bloc inversé', R], ['encadre', 'cadre de 2 px', R], ['inverse-grand', 'inversé, chiffre à 56 px, libellé dessous', N], ['encadre-fin', 'cadre d’un pixel', N], ['encadre-large', 'cadre sur toute la largeur', N]],
+  { id: 'stat', key: 'stat', title: 'Chiffre d’ouverture', intro: 'Retenu : inversé, en grand.',
+    variants: [['v0', 'avant les variantes'], ['inverse-grand', 'bloc inversé, chiffre à 56 px, libellé dessous', R], ['inverse-geant', 'le chiffre à 80 px', N], ['inverse-ligne', 'chiffre et libellé sur la même ligne', N]],
     render: (v) => <Sample><div className="gal-pad"><p className="tag">{STAT.tag}</p><Stat variant={v} value={STAT.value} label={STAT.label} /></div></Sample> },
 
-  { id: 'tools', key: 'tools', title: 'Outils', intro: 'Retenu : gain d’abord. Et trois manières de dessiner le passage d’un état à l’autre (« 5 min → 15 s »). Un gain sans avant reste tel quel.',
-    variants: [['v0', 'tel quel'], ['gain-d-abord', 'le gain à gauche', R], ['barre', 'l’avant barré et gris, l’après en gras', N], ['fleche', 'l’avant petit, une flèche tracée, l’après en grand', N], ['colonnes', 'avant | → | après, alignés comme un tableau', N]],
+  { id: 'tools', key: 'tools', title: 'Outils', intro: 'Retenu : colonnes alignées, avant | → | après.',
+    variants: [['v0', 'avant les variantes'], ['colonnes', 'avant gris, flèche, après en gras, alignés', R], ['colonnes-barre', 'les colonnes, l’avant barré', N], ['colonnes-trace', 'les colonnes, la flèche devient un trait fléché', N]],
     render: (v) => <Sample><div className="gal-pad"><Tools items={TOOLS} variant={v} /></div></Sample> },
 
-  { id: 'facts', key: 'facts', title: 'Repères', intro: 'Retenu : entre « deux colonnes » et « grandes valeurs ». Les deux, et le point d’équilibre.',
-    variants: [['v0', 'tel quel'], ['deux-colonnes', 'deux colonnes, valeur à 24 px', R], ['grandes-valeurs', 'une colonne, valeur à 20 px', R], ['entre-deux', 'deux colonnes, valeur à 20 px', N], ['entre-deux-filet', 'la même, chaque repère ouvert par un filet', N]],
+  { id: 'facts', key: 'facts', title: 'Repères', intro: 'Retenu : grandes valeurs.',
+    variants: [['v0', 'avant les variantes'], ['grandes-valeurs', 'valeurs à 20 px', R], ['grandes-valeurs-24', 'valeurs à 24 px', N], ['grandes-valeurs-gris', 'libellé gris et plus petit, la valeur porte seule', N]],
     render: (v) => <Sample><div className="gal-pad"><Facts items={FACTS} variant={v} /></div></Sample> },
 
-  { id: 'outro', key: 'outro', title: 'Appel final', intro: 'Retenu : flèche. Plus grande, ou c’est la phrase qui grandit.',
-    variants: [['v0', 'bouton à bord'], ['fleche', 'un lien souligné avec une flèche', R], ['fleche-grand', 'le lien à 28 px', N], ['fleche-texte', 'la phrase à 22 px, le lien à 18', N]],
+  { id: 'outro', key: 'outro', title: 'Appel final', intro: 'Retenu : la phrase en grand, le lien fléché.',
+    variants: [['v0', 'avant les variantes'], ['fleche-texte', 'phrase à 22 px, lien à 18', R], ['fleche-texte-26', 'phrase à 26 px', N], ['fleche-texte-lien', 'phrase à 22, lien à 24', N]],
     render: (v) => <Sample><Outro variant={v} eyebrow="Travailler ensemble" cta="Écrivez-moi">{OUTRO_TEXT}</Outro><div className="gal-pad" /></Sample> },
 
-  { id: 'footer', key: 'footer', title: 'Pied', intro: 'Retenu : massif.',
-    variants: [['v0', 'tel quel'], ['massif', 'filet de 6 px', R], ['massif-points', 'filet de 6 px, éléments séparés par des points', N], ['massif-court', 'le filet épais ne fait que 96 px', N]],
+  { id: 'footer', key: 'footer', title: 'Pied', intro: 'Retenu : filet épais court, points entre les éléments.',
+    variants: [['v0', 'avant les variantes'], ['massif-court-points', 'filet de 96 × 6 px, points', R], ['massif-court-48', 'filet de 48 px', N], ['massif-court-air', 'plus d’air entre le filet et les liens', N]],
     render: (v) => <Sample><SiteFooter links={FOOTER_HOME} variant={v} /></Sample> },
 ]
 
@@ -125,7 +125,7 @@ export default function Galerie() {
       <div className="gal-wrap">
         <nav className="gal-nav">
           <h1>Variantes</h1>
-          <p>Chaque composant, de v0 au plus marqué. On assemble dans <code>app/variantes.config.js</code>.</p>
+          <p>Pour chaque composant : la v0, le choix retenu (en ligne), deux voisines. On assemble dans <code>app/variantes.config.js</code>.</p>
           {BLOCKS.map((b) => <a key={b.id} href={`#${b.id}`}>{b.title} <code>{b.key}</code></a>)}
         </nav>
         <main>

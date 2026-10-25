@@ -3,141 +3,115 @@
    ou une classe de niveau page sur .edito. Aucune règle ne s'applique à la
    version 0 : sans classe, rien ne change.
 
-   Tour 2 (25 oct.) : ne restent que les variantes retenues par Daniel, et
-   autour de chacune, deux ou trois voisines avec un léger écart.
+   Tour 4 (25 oct.) : ne restent que le choix retenu par Daniel pour chaque
+   composant (c'est la mise en page en ligne, voir variantes.config.js) et
+   deux voisines de ce choix. Tout le reste a été retiré.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-.edito { --mark: var(--fg); }
+.edito { --mark: var(--fg); --grey-rule: #CFCFCF; }
+
+/* Correctif hors variantes : le kicker de l'appel final héritait de la
+   taille des paragraphes du bloc (« .outro p »), 16 px puis 22 px. */
+.edito .outro .eyebrow,
+.edito .outro[class*="v-"] .eyebrow { font-size: 11px; line-height: 1; letter-spacing: .06em; max-width: none; }
 
 /* ── Police ─────────────────────────────────────────────────────────────── */
 .edito.font-grotesk { font-family: var(--font-grotesk), -apple-system, 'Helvetica Neue', Arial, sans-serif; }
 
-/* ── En-tête : retenu = un mélange de « points » et de « fin » ──────────── */
-.edito .top[class*="v-points-fin"] { border-bottom-width: 1px; padding: 34px 0 18px; }
+/* ── En-tête · retenu : points-fin-haut ─────────────────────────────────── */
+.edito .top[class*="v-points-fin"] { border-bottom-width: 1px; padding: 48px 0 26px; }
+.edito .top[class*="v-points-fin"] .name { font-size: 15px; }
 .edito .top[class*="v-points-fin"] nav { gap: 0; font-size: 11px; letter-spacing: .1em; }
 .edito .top[class*="v-points-fin"] nav a + a::before { content: "·"; color: var(--mut); margin: 0 12px; letter-spacing: 0; }
-/* casse normale : la navigation cesse de crier */
-.edito .top.v-points-fin-casse nav { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 500; }
-/* haut : le nom et la navigation respirent, le filet descend */
-.edito .top.v-points-fin-haut { padding: 48px 0 26px; }
-.edito .top.v-points-fin-haut .name { font-size: 15px; }
+/* casse : la même hauteur, la navigation en casse normale */
+.edito .top.v-points-fin-haut-casse nav { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 500; }
+/* sans filet : plus de filet sous l'en-tête, l'air seul sépare */
+.edito .top.v-points-fin-haut-air { border-bottom: none; padding-bottom: 8px; }
 
-/* ── Intro : retenus = marque, deux-tons ────────────────────────────────── */
-.edito .intro.v-marque h1::before { content: ""; display: block; width: 48px; height: 4px; background: var(--mark); margin-bottom: 22px; }
-/* Combinée aux deux tons, la marque sort du titre : un ::before dans le h1
-   deviendrait sa « première ligne », et le gris tomberait sur une ligne vide. */
-.edito .intro.v-marque-deux-tons::before { content: ""; display: block; width: 48px; height: 4px; background: var(--mark); margin-bottom: 22px; }
-.edito .intro.v-marque-fin h1::before { content: ""; display: block; width: 32px; height: 2px; background: var(--mark); margin-bottom: 18px; }
-.edito .intro.v-deux-tons h1::first-line,
-.edito .intro.v-marque-deux-tons h1::first-line { color: var(--mut); }
-/* inverse : le début en encre, la suite en gris, c'est la fin qui s'efface */
-.edito .intro.v-deux-tons-inverse h1 { color: var(--mut); }
-.edito .intro.v-deux-tons-inverse h1::first-line { color: var(--fg); }
+/* ── Intro · retenu : marque-deux-tons-inverse ──────────────────────────── */
+.edito .intro[class*="v-marque"]::before { content: ""; display: block; width: 48px; height: 4px; background: var(--mark); margin-bottom: 22px; }
+.edito .intro[class*="v-marque"] h1 { color: var(--mut); }
+.edito .intro[class*="v-marque"] h1::first-line { color: var(--fg); }
+/* fin : un trait plus discret, 32 × 2 */
+.edito .intro.v-marque-fin-deux-tons-inverse::before { width: 32px; height: 2px; margin-bottom: 18px; }
+/* grand : le titre monte à 64 px, le contraste des deux tons s'entend mieux */
+.edito .intro.v-marque-deux-tons-inverse-grand h1 { font-size: clamp(36px, 7vw, 64px); letter-spacing: -.03em; line-height: 1; }
 
-/* ── Kicker : retenu = filet ────────────────────────────────────────────── */
+/* ── Kicker · retenu : filet-court-gris-devant ──────────────────────────── */
 .edito .eyebrow[class*="v-filet"] { display: flex; align-items: center; gap: 12px; }
-.edito .eyebrow.v-filet::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-.edito .eyebrow.v-filet-gris::after { content: ""; flex: 1; height: 1px; background: #CFCFCF; }
-.edito .eyebrow.v-filet-court::after { content: ""; width: 40px; height: 1px; background: var(--line); }
-.edito .eyebrow.v-filet-devant::before { content: ""; width: 24px; height: 1px; background: var(--line); }
+.edito .eyebrow[class*="v-filet"]::before { content: ""; width: 40px; height: 1px; background: var(--grey-rule); flex: none; }
+/* encre : le même filet court, en noir */
+.edito .eyebrow.v-filet-court-encre-devant::before { background: var(--line); }
+/* long : le filet gris s'allonge à 80 px */
+.edito .eyebrow.v-filet-long-gris-devant::before { width: 80px; }
 
-/* ── Section : retenu = sans filet ──────────────────────────────────────── */
+/* ── Section · retenu : sans-filet-128 ──────────────────────────────────── */
 .edito section[class*="v-sans-filet"] { border-top: none; padding-top: 0; }
-.edito section.v-sans-filet { margin-top: 96px; }
-.edito section.v-sans-filet-64 { margin-top: 64px; }
 .edito section.v-sans-filet-128 { margin-top: 128px; }
+.edito section.v-sans-filet-104 { margin-top: 104px; }
+.edito section.v-sans-filet-160 { margin-top: 160px; }
 
-/* ── Liste d'histoires : le tag sur la ligne du titre, sans pastille ────── */
-.edito .story-links[class*="v-tag-"] a .tag { display: inline; margin: 0; }
-/* texte : le tag en gris, suivi du titre */
-.edito .story-links.v-tag-texte a .tag { margin-right: 10px; }
-/* barre : TAG / titre */
-.edito .story-links.v-tag-barre a .tag::after { content: "/"; color: var(--mut); margin: 0 10px; font-weight: 400; }
-/* colonne : le tag dans une colonne fixe, les titres alignés */
-.edito .story-links.v-tag-colonne a { display: grid; grid-template-columns: 128px 1fr; gap: 12px; align-items: baseline; }
-.edito .story-links.v-tag-colonne a .tag { display: block; }
-/* après : le titre d'abord, le tag au bout de la ligne */
-.edito .story-links.v-tag-apres a { display: flex; gap: 16px; align-items: baseline; }
-.edito .story-links.v-tag-apres a .tag { order: 2; margin-left: auto; white-space: nowrap; }
+/* ── Liste d'histoires · retenu : tag-apres ─────────────────────────────── */
+.edito .story-links[class*="v-tag-apres"] a { display: flex; gap: 16px; align-items: baseline; }
+.edito .story-links[class*="v-tag-apres"] a .tag { order: 2; margin: 0 0 0 auto; white-space: nowrap; }
+/* casse : le tag en casse normale, gris, sans capitales */
+.edito .story-links.v-tag-apres-casse a .tag { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 500; }
+/* flèche : le tag suivi d'une flèche, l'invitation à cliquer au bout de la ligne */
+.edito .story-links.v-tag-apres-fleche a .tag::after { content: "  →"; letter-spacing: 0; color: var(--fg); }
 @media (max-width: 560px) {
-  .edito .story-links.v-tag-colonne a { grid-template-columns: 1fr; gap: 4px; }
-  .edito .story-links.v-tag-apres a { flex-direction: column; gap: 4px; }
-  .edito .story-links.v-tag-apres a .tag { order: 0; margin-left: 0; }
+  .edito .story-links[class*="v-tag-apres"] a { flex-direction: column; gap: 4px; }
+  .edito .story-links[class*="v-tag-apres"] a .tag { order: 0; margin-left: 0; }
 }
 
-/* ── Chiffre d'ouverture : retenus = inverse, encadré ───────────────────── */
-.edito .stat.v-inverse,
-.edito .stat.v-inverse-grand { background: var(--mark); color: var(--bg); padding: 14px 18px; border-bottom: none; }
-.edito .stat.v-inverse b, .edito .stat.v-inverse span,
-.edito .stat.v-inverse-grand b, .edito .stat.v-inverse-grand span { color: var(--bg); }
-.edito .stat.v-inverse span, .edito .stat.v-inverse-grand span { opacity: .8; }
-.edito .stat.v-inverse-grand { display: block; padding: 20px 22px 18px; }
-.edito .stat.v-inverse-grand b { display: block; font-size: 56px; }
-.edito .stat.v-inverse-grand span { display: block; margin-top: 8px; font-size: 13px; max-width: none; }
-.edito .stat.v-encadre { display: inline-flex; border: 2px solid var(--line); padding: 12px 16px; }
-.edito .stat.v-encadre-fin { display: inline-flex; border: 1px solid var(--line); padding: 12px 16px; }
-.edito .stat.v-encadre-large { display: flex; border: 2px solid var(--line); padding: 16px 18px; }
+/* ── Chiffre d'ouverture · retenu : inverse-grand ───────────────────────── */
+.edito .stat[class*="v-inverse"] { display: block; background: var(--mark); color: var(--bg); padding: 20px 22px 18px; border-bottom: none; }
+.edito .stat[class*="v-inverse"] b, .edito .stat[class*="v-inverse"] span { color: var(--bg); }
+.edito .stat[class*="v-inverse"] b { display: block; font-size: 56px; }
+.edito .stat[class*="v-inverse"] span { display: block; margin-top: 8px; font-size: 13px; max-width: none; opacity: .8; }
+/* géant : le chiffre à 80 px */
+.edito .stat.v-inverse-geant b { font-size: clamp(48px, 11vw, 80px); letter-spacing: -.03em; }
+/* ligne : chiffre et libellé sur la même ligne, le bloc reste haut */
+.edito .stat.v-inverse-ligne { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.edito .stat.v-inverse-ligne span { margin-top: 0; max-width: 30ch; }
 
-/* ── Outils : retenu = gain d'abord ; et le passage d'un état à l'autre ─── */
-.edito .tools[class*="v-"] .gain .arrow { margin: 0 6px; color: var(--mut); font-weight: 400; }
-.edito .tools.v-gain-d-abord li { display: grid; grid-template-columns: 150px 1fr; gap: 14px; }
-.edito .tools.v-gain-d-abord .gain { order: -1; white-space: normal; color: var(--mark); }
-/* barre : l'avant barré, en gris ; l'après en gras */
-.edito .tools.v-barre li { display: grid; grid-template-columns: 170px 1fr; gap: 14px; }
-.edito .tools.v-barre .gain { order: -1; white-space: normal; }
-.edito .tools.v-barre .from { color: var(--mut); font-weight: 400; text-decoration: line-through; text-decoration-thickness: 1px; }
-.edito .tools.v-barre .arrow { display: none; }
-.edito .tools.v-barre .to { margin-left: 8px; }
-/* flèche : l'avant petit et gris, une flèche longue, l'après en grand */
-.edito .tools.v-fleche li { display: grid; grid-template-columns: 210px 1fr; gap: 16px; align-items: center; }
-.edito .tools.v-fleche .gain { order: -1; display: flex; align-items: center; white-space: nowrap; }
-.edito .tools.v-fleche .from { font-size: 12px; font-weight: 500; color: var(--mut); }
-.edito .tools.v-fleche .arrow { flex: 1; height: 1px; background: var(--line); color: transparent; position: relative; margin: 0 8px; min-width: 18px; }
-.edito .tools.v-fleche .arrow::after { content: ""; position: absolute; right: -1px; top: -3px; border: 3.5px solid transparent; border-left: 6px solid var(--line); border-right: 0; }
-.edito .tools.v-fleche .to { font-size: 17px; letter-spacing: -.01em; }
-/* colonnes : avant | → | après, alignés d'une ligne à l'autre comme un tableau */
-.edito .tools.v-colonnes li { display: grid; grid-template-columns: 1fr 260px; gap: 14px; }
-.edito .tools.v-colonnes .gain { display: grid; grid-template-columns: 1fr 22px 1fr; align-items: baseline; white-space: normal; }
-.edito .tools.v-colonnes .from { color: var(--mut); font-weight: 500; text-align: right; }
-.edito .tools.v-colonnes .arrow { margin: 0; text-align: center; }
-.edito .tools.v-colonnes .gain > .to:only-child { grid-column: 3; }
+/* ── Outils · retenu : colonnes ─────────────────────────────────────────── */
+.edito .tools[class*="v-colonnes"] li { display: grid; grid-template-columns: 1fr 260px; gap: 14px; }
+.edito .tools[class*="v-colonnes"] .gain { display: grid; grid-template-columns: 1fr 26px 1fr; align-items: baseline; white-space: normal; }
+.edito .tools[class*="v-colonnes"] .from { color: var(--mut); font-weight: 500; text-align: right; }
+.edito .tools[class*="v-colonnes"] .arrow { text-align: center; color: var(--mut); font-weight: 400; }
+.edito .tools[class*="v-colonnes"] .gain > .to:only-child { grid-column: 3; }
+/* barré : dans les colonnes, l'avant barré */
+.edito .tools.v-colonnes-barre .from { text-decoration: line-through; text-decoration-thickness: 1px; }
+/* tracé : la flèche du milieu devient un trait fléché */
+.edito .tools.v-colonnes-trace .arrow { font-size: 0; height: 1px; background: var(--line); position: relative; align-self: center; margin: 0 4px; }
+.edito .tools.v-colonnes-trace .arrow::after { content: ""; position: absolute; right: -1px; top: -3px; border: 3.5px solid transparent; border-left: 6px solid var(--line); border-right: 0; }
 @media (max-width: 560px) {
-  .edito .tools[class*="v-"] li { grid-template-columns: 1fr; gap: 4px; }
-  .edito .tools.v-colonnes .gain { grid-template-columns: auto 22px auto; justify-content: start; }
+  .edito .tools[class*="v-colonnes"] li { grid-template-columns: 1fr; gap: 4px; }
+  .edito .tools[class*="v-colonnes"] .gain { grid-template-columns: auto 26px auto; justify-content: start; }
 }
 
-/* ── Repères : entre deux colonnes et grandes valeurs ───────────────────── */
-.edito dl.v-grandes-valeurs dd { font-size: 20px; letter-spacing: -.01em; color: var(--mark); }
-.edito dl[class*="v-deux-colonnes"], .edito dl[class*="v-entre-deux"] { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
-.edito dl[class*="v-deux-colonnes"] > div, .edito dl[class*="v-entre-deux"] > div { display: block; padding: 14px 0; }
-.edito dl[class*="v-deux-colonnes"] dt, .edito dl[class*="v-entre-deux"] dt { font-size: 12px; color: var(--mut); }
-.edito dl.v-deux-colonnes dd { font-size: 24px; margin-top: 4px; white-space: normal; color: var(--mark); }
-/* entre-deux : la grille de deux colonnes, la valeur à 20 px */
-.edito dl[class*="v-entre-deux"] dd { font-size: 20px; letter-spacing: -.01em; margin-top: 4px; white-space: normal; }
-/* filet : chaque repère ouvert par un filet, plus de filet en bas */
-.edito dl.v-entre-deux-filet > div { border-bottom: none; border-top: 1px solid var(--line); }
-@media (max-width: 600px) { .edito dl[class*="v-deux-colonnes"], .edito dl[class*="v-entre-deux"] { grid-template-columns: 1fr; } }
+/* ── Repères · retenu : grandes-valeurs ─────────────────────────────────── */
+.edito dl[class*="v-grandes-valeurs"] dd { font-size: 20px; letter-spacing: -.01em; color: var(--mark); }
+/* 24 : un cran au-dessus */
+.edito dl.v-grandes-valeurs-24 dd { font-size: 24px; }
+/* gris : le libellé passe en gris et en petit, la valeur porte seule */
+.edito dl.v-grandes-valeurs-gris dt { color: var(--mut); font-size: 13px; }
 
-/* ── Appel final : retenu = flèche ──────────────────────────────────────── */
-.edito .outro[class*="v-fleche"] .cta { border: none; padding: 0; background: none; text-transform: none; letter-spacing: -.01em; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+/* ── Appel final · retenu : fleche-texte ────────────────────────────────── */
+.edito .outro[class*="v-fleche"] .cta { border: none; padding: 0; background: none; font-size: 18px; text-transform: none; letter-spacing: -.01em; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
 .edito .outro[class*="v-fleche"] .cta::after { content: " →"; }
 .edito .outro[class*="v-fleche"] .cta:hover { background: none; color: var(--mut); }
-.edito .outro.v-fleche .cta { font-size: 18px; }
-.edito .outro.v-fleche-grand .cta { font-size: 28px; text-underline-offset: 7px; text-decoration-thickness: 3px; }
-/* texte : la phrase elle-même passe en grand, le lien reste à 18 px */
-.edito .outro.v-fleche-texte p { font-size: 22px; line-height: 1.4; letter-spacing: -.01em; max-width: 34ch; }
-.edito .outro.v-fleche-texte .cta { font-size: 18px; }
+.edito .outro[class*="v-fleche-texte"] p:not(.eyebrow) { font-size: 22px; line-height: 1.4; letter-spacing: -.01em; max-width: 34ch; }
+/* 26 : la phrase encore un cran au-dessus */
+.edito .outro.v-fleche-texte-26 p:not(.eyebrow) { font-size: 26px; line-height: 1.3; }
+/* lien : la phrase à 22, le lien monte à 24 */
+.edito .outro.v-fleche-texte-lien .cta { font-size: 24px; text-underline-offset: 6px; }
 
-/* ── Pied : retenu = massif ─────────────────────────────────────────────── */
-.edito footer[class*="v-massif"] { border-top-width: 6px; padding-top: 26px; }
-.edito footer.v-massif-points { gap: 0; }
-.edito footer.v-massif-points > * + *::before { content: "·"; display: inline-block; margin: 0 10px; color: var(--mut); }
-/* court : le filet épais ne fait que 96 px, le reste de la ligne est vide */
-.edito footer.v-massif-court { border-top: none; position: relative; }
-.edito footer.v-massif-court::before { content: ""; position: absolute; top: 0; left: 0; width: 96px; height: 6px; background: var(--line); }
-
-/* Corrections du rendu des outils : la flèche tracée remplace le caractère,
-   et un gain sans « avant » garde la taille et l'alignement ordinaires. */
-.edito .tools.v-fleche .gain .arrow { font-size: 0; }
-.edito .tools.v-fleche .gain > .to:only-child { font-size: 14px; letter-spacing: 0; }
-.edito .tools.v-barre .gain > .to:only-child { margin-left: 0; }
+/* ── Pied · retenu : massif-court-points ────────────────────────────────── */
+.edito footer[class*="v-massif-court"] { border-top: none; position: relative; gap: 0; padding-top: 26px; }
+.edito footer[class*="v-massif-court"]::before { content: ""; position: absolute; top: 0; left: 0; width: 96px; height: 6px; background: var(--line); }
+.edito footer[class*="v-massif-court"] > * + *::before { content: "·"; display: inline-block; margin: 0 10px; color: var(--mut); }
+/* 48 : le filet épais encore plus court */
+.edito footer.v-massif-court-48::before { width: 48px; }
+/* air : plus d'espace entre le filet et les liens */
+.edito footer.v-massif-court-air { padding-top: 40px; }

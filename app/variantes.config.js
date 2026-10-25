@@ -1,20 +1,20 @@
-// La table d'assemblage. Chaque composant du site lit ici la variante qu'il
-// doit prendre. « v0 » est la version actuelle.
+// La table d'assemblage : la mise en page du site. Chaque composant lit ici
+// la variante qu'il prend. « v0 » est la version d'avant les variantes.
 //
-// Pour assembler : remplacer un « v0 » par le nom d'une variante vue dans la
-// galerie (npm run dev, puis /variantes). Un composant à la fois.
-// Espace et couleur de marque sont restés en v0 et n'ont plus d'alternative.
+// Valeurs actuelles = les choix de Daniel (25 oct. 2026). Les commentaires
+// listent les deux voisines proposées pour chacun, visibles dans la galerie
+// (npm run dev, puis /variantes).
 export const V = {
-  font:       'v0',   // v0 système · grotesk
+  font:       'v0',                          // · grotesk
 
-  top:        'v0',   // points-fin · points-fin-casse · points-fin-haut
-  intro:      'v0',   // marque · deux-tons · marque-deux-tons · marque-fin · deux-tons-inverse
-  eyebrow:    'v0',   // filet · filet-gris · filet-court · filet-devant
-  section:    'v0',   // sans-filet · sans-filet-64 · sans-filet-128
-  storyLinks: 'v0',   // tag-texte · tag-barre · tag-colonne · tag-apres
-  stat:       'v0',   // inverse · encadre · inverse-grand · encadre-fin · encadre-large
-  tools:      'v0',   // gain-d-abord · barre · fleche · colonnes
-  facts:      'v0',   // deux-colonnes · grandes-valeurs · entre-deux · entre-deux-filet
-  outro:      'v0',   // fleche · fleche-grand · fleche-texte
-  footer:     'v0',   // massif · massif-points · massif-court
+  top:        'points-fin-haut',             // · points-fin-haut-casse · points-fin-haut-air
+  intro:      'marque-deux-tons-inverse',    // · marque-fin-deux-tons-inverse · marque-deux-tons-inverse-grand
+  eyebrow:    'filet-court-gris-devant',     // · filet-court-encre-devant · filet-long-gris-devant
+  section:    'sans-filet-128',              // · sans-filet-104 · sans-filet-160
+  storyLinks: 'tag-apres',                   // · tag-apres-casse · tag-apres-fleche
+  stat:       'inverse-grand',               // · inverse-geant · inverse-ligne
+  tools:      'colonnes',                    // · colonnes-barre · colonnes-trace
+  facts:      'grandes-valeurs',             // · grandes-valeurs-24 · grandes-valeurs-gris
+  outro:      'fleche-texte',                // · fleche-texte-26 · fleche-texte-lien
+  footer:     'massif-court-points',         // · massif-court-48 · massif-court-air
 }
