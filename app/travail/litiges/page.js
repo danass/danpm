@@ -1,32 +1,35 @@
 import StoryPage from '@/app/components/edito/StoryPage'
+import { langMeta } from '@/lib/i18n'
 
 export const metadata = {
-  title: 'Litiges · Daniel Assayag',
+  title: 'Disputes · Daniel Assayag',
   description:
-    "Reprendre le Resolution Center HomeExchange, développé par un prestataire externe.",
+    "Taking over the HomeExchange Resolution Center, built by an external vendor.",
+  ...langMeta('en', '/travail/litiges'),
 }
 
-export default function Litiges() {
+export default function Disputes() {
   return (
     <StoryPage
-      tag={<>Litiges</>}
-      title={<>Reprendre le Resolution Center, développé par un prestataire externe</>}
-      stat={{ value: <>86 %</>, label: <>de satisfaction membre sur les litiges en juin</> }}
+      lang="en"
+      slug="litiges"
+      tag={<>Disputes</>}
+      title={<>Taking over the Resolution Center, built by an external vendor</>}
+      stat={{ value: <>86%</>, label: <>member satisfaction on disputes in June</> }}
     >
       <p>
-        Le Resolution Center gère les litiges et les garanties de dépôt entre membres,
-        depuis le back-office, connecté à Zendesk. Sa deuxième phase a remplacé le
-        Google Sheet où vivaient les incidents : incidents et compensations se gèrent
-        dans l&rsquo;outil, échanges avec les membres et l&rsquo;équipe finance compris.
+        The Resolution Center handles disputes and deposit guarantees between members,
+        from the back-office, connected to Zendesk. Its second phase replaced the Google
+        Sheet where incidents used to live: incidents and compensations are managed in
+        the tool, including exchanges with members and the finance team.
       </p>
       <p>
-        L&rsquo;outil avait été développé par un prestataire externe dont la mission se
-        terminait ; j&rsquo;ai repris le domaine : indicateurs mensuels, arbitrage des
-        demandes, coordination de la fin de contrat, passage en mode maintenance. La
-        satisfaction membre tient à 86 % en juin, et les virements du Resolution Center
-        tournent à ~230 par mois. J&rsquo;ai aussi livré la création automatique
-        d&rsquo;un dossier quand un hôte annule un séjour : l&rsquo;équipe support
-        n&rsquo;a plus à le créer à la main.
+        The tool had been built by an external vendor whose engagement was ending; I took
+        over the domain: monthly metrics, request arbitration, coordinating the end of
+        the contract, moving to maintenance mode. Member satisfaction held at 86% in
+        June, and Resolution Center payouts run at ~230 a month. I also shipped automatic
+        case creation when a host cancels a stay: the support team no longer has to
+        create it by hand.
       </p>
     </StoryPage>
   )

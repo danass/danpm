@@ -1,22 +1,23 @@
 import './globals.css'
 
 export const metadata = {
+  metadataBase: new URL('https://www.danpm.com'),
   title: 'Daniel Assayag · Product Manager',
-  description: "Product manager de la squad Operations chez HomeExchange. Back-office, outils internes, anti-fraude, automatisation du support. Des histoires tirées de mes notes de semaine, pas d'une plaquette.",
-  keywords: 'Product Manager, Product Ops, Operations, Back-office, Outils internes, Anti-fraude, Automatisation, Trust and Safety, HomeExchange, Paris',
+  description: "Product manager of the Operations squad at HomeExchange. Back-office, internal tools, fraud prevention, support automation. Stories drawn from my weekly notes, not from a brochure.",
+  keywords: 'Product Manager, Product Ops, Operations, Back-office, Internal tools, Fraud prevention, Automation, Trust and Safety, HomeExchange, Paris',
   authors: [{ name: 'Daniel Assayag' }],
   creator: 'Daniel Assayag',
   openGraph: {
     title: 'Daniel Assayag · Product Manager',
-    description: 'J\'automatise les tâches opérationnelles de HomeExchange.',
+    description: 'I automate the operational tasks of HomeExchange.',
     type: 'profile',
-    locale: 'fr_FR',
+    locale: 'en_US',
   },
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
+    <html lang="en">
       <body>
         {children}
       </body>

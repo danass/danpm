@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import { UI } from '@/lib/i18n'
 
-export default function ContactTrigger({ label = 'Me contacter', className = '' }) {
+export default function ContactTrigger({ label, className = '', lang = 'fr' }) {
+  const t = UI[lang]
   const [open, setOpen] = useState(false)
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
@@ -37,7 +39,7 @@ export default function ContactTrigger({ label = 'Me contacter', className = '' 
           setStatus('idle')
         }}
       >
-        {label}
+        {label || t.contactMe}
       </button>
 
       {open && (
@@ -45,34 +47,34 @@ export default function ContactTrigger({ label = 'Me contacter', className = '' 
           className="modal-overlay"
           role="dialog"
           aria-modal="true"
-          aria-label="Formulaire de contact"
+          aria-label={t.form}
           onClick={(e) => {
             if (e.target === e.currentTarget) setOpen(false)
           }}
         >
           <div className="modal-panel">
-            <button className="modal-close" onClick={() => setOpen(false)} aria-label="Fermer">
+            <button className="modal-close" onClick={() => setOpen(false)} aria-label={t.close}>
               ×
             </button>
 
             {status === 'sent' ? (
               <div>
-                <h2>Message envoyé</h2>
-                <p className="modal-note">Je vous répondrai par email.</p>
+                <h2>{t.sent}</h2>
+                <p className="modal-note">{t.sentNote}</p>
               </div>
             ) : (
               <form onSubmit={onSubmit}>
-                <h2>Écrivez-moi</h2>
+                <h2>{t.writeMe}</h2>
                 <label>
-                  Votre nom
+                  {t.yourName}
                   <input name="name" required autoComplete="name" />
                 </label>
                 <label>
-                  Votre email
+                  {t.yourEmail}
                   <input name="email" type="email" required autoComplete="email" />
                 </label>
                 <label>
-                  Message
+                  {t.message}
                   <textarea name="message" rows={6} required />
                 </label>
                 {/* Honeypot anti-bot : caché aux humains */}
@@ -85,11 +87,11 @@ export default function ContactTrigger({ label = 'Me contacter', className = '' 
                 />
                 {status === 'error' && (
                   <p className="modal-error">
-                    L&rsquo;envoi a échoué. Réessayez, ou contactez-moi via LinkedIn.
+                    {t.error}
                   </p>
                 )}
                 <button type="submit" className="modal-send" disabled={status === 'sending'}>
-                  {status === 'sending' ? 'Envoi…' : 'Envoyer'}
+                  {status === 'sending' ? t.sending : t.send}
                 </button>
               </form>
             )}

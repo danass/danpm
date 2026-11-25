@@ -10,3 +10,15 @@ export const STORIES = [
   { slug: 'acces-rgpd',     tag: 'Accès & RGPD',   title: 'Remettre de l’ordre dans les rôles et les accès du back-office' },
   { slug: 'staging-wizard', tag: 'Outils internes', title: 'Créer un compte de test HomeExchange complet en 15 secondes' },
 ]
+
+// Les mêmes histoires en anglais, mêmes slugs.
+export const STORIES_EN = [
+  { slug: 'anti-fraude',    tag: 'Fraud',          title: 'Automating the fraud response one week before the biggest scam wave' },
+  { slug: 'back-office',    tag: 'Back-office',    title: 'Rebuilding the back-office while 200 agents use it' },
+  { slug: 'support',        tag: 'Support',        title: 'Turning a nine-minute refund into one click' },
+  { slug: 'annulations',    tag: 'Cancellations',  title: 'Automating the replacement search after a cancellation' },
+  { slug: 'clubs',          tag: 'Clubs',          title: 'Fixing club membership, then tooling club management' },
+  { slug: 'litiges',        tag: 'Disputes',       title: 'Taking over the Resolution Center, built by an external vendor' },
+  { slug: 'acces-rgpd',     tag: 'Access & GDPR',  title: 'Bringing order to back-office roles and access' },
+  { slug: 'staging-wizard', tag: 'Internal tools', title: 'Creating a complete HomeExchange test account in 15 seconds' },
+]

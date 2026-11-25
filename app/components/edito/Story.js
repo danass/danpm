@@ -4,13 +4,14 @@ import Image from 'next/image'
 import ContactTrigger from '../EditorialContact'
 import { Eyebrow } from './Blocks'
 import { vc, vname } from './variant'
+import { localize } from '@/lib/i18n'
 
-export function StoryLinks({ stories, variant }) {
+export function StoryLinks({ stories, variant, lang = 'fr' }) {
   return (
     <ul className={vc('story-links', 'storyLinks', variant)}>
       {stories.map((s) => (
         <li key={s.slug}>
-          <a href={`/travail/${s.slug}`}>
+          <a href={localize(lang, `/travail/${s.slug}`)}>
             <span className="tag">{s.tag}</span>
             {s.title}
           </a>
@@ -98,12 +99,12 @@ export function Facts({ items, variant }) {
 
 // L'appel final est aussi une section : il prend la variante de section en
 // plus de la sienne, sinon il garde son filet quand les autres l'ont perdu.
-export function Outro({ eyebrow, cta, variant, eyebrowVariant, sectionVariant, children }) {
+export function Outro({ eyebrow, cta, variant, eyebrowVariant, sectionVariant, lang = 'fr', children }) {
   return (
     <section className={vc(vc('outro', 'outro', variant), 'section', sectionVariant)}>
       <Eyebrow variant={eyebrowVariant}>{eyebrow}</Eyebrow>
       <p>{children}</p>
-      <ContactTrigger className="cta" label={cta} />
+      <ContactTrigger className="cta" label={cta} lang={lang} />
     </section>
   )
 }

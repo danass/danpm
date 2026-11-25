@@ -3,12 +3,13 @@
 import Page from './Page'
 import { Intro, CvLine, Section } from './Blocks'
 import { Story } from './Story'
+import { UI, localize } from '@/lib/i18n'
 
-export default function StoryPage({ tag, title, stat, children }) {
+export default function StoryPage({ tag, title, stat, lang = 'fr', slug, children }) {
   return (
-    <Page>
+    <Page lang={lang} path={slug ? `/travail/${slug}` : undefined}>
       <Intro>
-        <CvLine><a href="/travail">← Toutes les histoires</a></CvLine>
+        <CvLine><a href={localize(lang, '/travail')}>{UI[lang].allStories}</a></CvLine>
       </Intro>
       <Section>
         <Story tag={tag} title={title} stat={stat}>

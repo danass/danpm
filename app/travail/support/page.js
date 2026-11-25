@@ -1,35 +1,36 @@
 import StoryPage from '@/app/components/edito/StoryPage'
+import { langMeta } from '@/lib/i18n'
 
 export const metadata = {
   title: 'Support · Daniel Assayag',
   description:
-    "Ramener un remboursement de neuf minutes à un clic, chez HomeExchange.",
+    "Turning a nine-minute refund into one click, at HomeExchange.",
+  ...langMeta('en', '/travail/support'),
 }
 
 export default function Support() {
   return (
     <StoryPage
+      lang="en"
+      slug="support"
       tag={<>Support</>}
-      title={<>Ramener un remboursement de neuf minutes à un clic</>}
-      stat={{ value: <>625 h</>, label: <>de travail support par an en jeu sur ce seul geste</> }}
+      title={<>Turning a nine-minute refund into one click</>}
+      stat={{ value: <>625 h</>, label: <>of support work a year at stake on this single task</> }}
     >
       <p>
-        Rembourser une adhésion demande cinq étapes manuelles : ouvrir la console de
-        paiement, désactiver l&rsquo;abonnement, retirer les points, noter le cas dans un
-        tableur, répondre au ticket. Le temps déclaré était de cinq minutes par cas.
-        Je l&rsquo;ai mesuré, ticket par ticket, sur les traces Zendesk et back-office :
-        neuf minutes en moyenne, ~376 cas par mois, et 87 % des remboursements exécutés
-        par cinq personnes.
+        Refunding a membership takes five manual steps: open the payment console,
+        deactivate the subscription, remove the points, log the case in a spreadsheet,
+        reply to the ticket. The reported time was five minutes per case. I measured it,
+        ticket by ticket, from Zendesk and back-office traces: nine minutes on average,
+        ~376 cases a month, and 87% of refunds carried out by five people.
       </p>
       <p>
-        J&rsquo;ai chiffré le coût du geste (environ 625 heures par an sur le seul
-        périmètre des remboursements à 14 jours, ~1&nbsp;150 tous motifs confondus), puis
-        spécifié le bouton qui exécute tout en une action : remboursement sur la
-        plateforme de paiement, désactivation de l&rsquo;abonnement, reprise des points,
-        réponse au membre. Seuls les rôles autorisés le verront, et chaque remboursement
-        sera tracé avec son auteur. Les tickets ont été écrits depuis l&rsquo;analyse du
-        code existant ; l&rsquo;endpoint de paiement a été codé en moins d&rsquo;une
-        journée, et la V1 est en cours de livraison.
+        I put a cost on the task (about 625 hours a year for 14-day refunds alone, ~1,150
+        across all reasons), then specified the button that does it all in one action:
+        refund on the payment platform, subscription deactivation, points reversal, reply
+        to the member. Only authorized roles will see it, and every refund will be logged
+        with its author. The tickets were written from an analysis of the existing code;
+        the payment endpoint was coded in under a day, and V1 is currently shipping.
       </p>
     </StoryPage>
   )

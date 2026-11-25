@@ -1,16 +1,18 @@
 // Les blocs du CV. Les données viennent de data/cv-data.json ; ici on ne fait
 // que les poser, avec le balisage que la feuille de style connaît.
 import ContactTrigger from '../EditorialContact'
+import { UI } from '@/lib/i18n'
 
-export function CvHead({ header: h, summary }) {
+export function CvHead({ header: h, summary, lang = 'fr' }) {
+  const t = UI[lang]
   return (
     <div className="cv-head">
       <h1>{h.name || 'Daniel Assayag'}</h1>
       <p className="role">{h.jobTitle || 'Product Manager'}</p>
       <div className="cv-contact">
-        <ContactTrigger className="as-link" label="Me contacter" />
+        <ContactTrigger className="as-link" label={t.contactMe} lang={lang} />
         <span className="print-only" id="pdf-contact"></span>
-        <a href="/Daniel_Assayag_CV.pdf">Télécharger le PDF</a>
+        <a href={t.pdfFile}>{t.pdf}</a>
         {h.linkedin && <a href={`https://${h.linkedin}`} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
         {h.github && <a href={`https://${h.github}`} target="_blank" rel="noopener noreferrer">GitHub</a>}
         {h.location && <span>{h.location}</span>}

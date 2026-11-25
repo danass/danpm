@@ -1,49 +1,51 @@
 import Page, { FOOTER_HOME } from '@/app/components/edito/Page'
 import { Intro, CvLine, Section } from '@/app/components/edito/Blocks'
 import { StoryLinks, Outro } from '@/app/components/edito/Story'
-import { STORIES } from '@/data/stories'
+import { STORIES_EN } from '@/data/stories'
+import { langMeta } from '@/lib/i18n'
 
 export const metadata = {
   title: 'Daniel Assayag · Product Manager',
   description:
-    "Product manager de la squad Operations chez HomeExchange. Back-office, outils internes, anti-fraude, automatisation du support.",
+    "Product manager of the Operations squad at HomeExchange. Back-office, internal tools, fraud prevention, support automation.",
   openGraph: {
     title: 'Daniel Assayag · Product Manager',
     description:
-      "J'automatise les tâches opérationnelles de HomeExchange.",
+      "I automate the operational tasks of HomeExchange.",
     type: 'profile',
-    locale: 'fr_FR',
+    locale: 'en_US',
+    alternateLocale: 'fr_FR',
   },
+  alternates: langMeta('en', '/').alternates,
 }
 
 export default function Home() {
   return (
-    <Page navLabel="Navigation principale" footer={FOOTER_HOME}>
+    <Page navLabel="Main navigation" footer={FOOTER_HOME} lang="en" path="/">
 
       <Intro>
-        <h1 className="ton-nom">J'automatise les tâches opérationnelles de <span className="nom">HomeExchange</span>.</h1>
+        <h1 className="ton-nom">I automate the operational tasks of <span className="nom">HomeExchange</span>.</h1>
         <p>
-          Je conçois avec les utilisateurs finaux, j&rsquo;écris des specs au plus près du
-          code et j&rsquo;accompagne les décisions d&rsquo;architecture, technique et produit.
-          Je tiens mes roadmaps, et l&rsquo;impact de chaque projet est chiffré.
+          I design with end users, write specs as close to the code as possible, and
+          support architecture, technical and product decisions. I stick to my
+          roadmaps, and every project&rsquo;s impact is quantified.
         </p>
         <CvLine>
-          <a href="/Daniel_Assayag_CV.pdf">Télécharger le CV (PDF)</a>
-          <a href="/cv">CV complet en ligne</a>
+          <a href="/Daniel_Assayag_CV.pdf">Download the CV (PDF)</a>
+          <a href="/cv">Full CV online</a>
         </CvLine>
       </Intro>
 
-      <Section id="apercu" eyebrow="Histoires">
-        <StoryLinks stories={STORIES} />
+      <Section id="apercu" eyebrow="Stories">
+        <StoryLinks stories={STORIES_EN} lang="en" />
         <CvLine>
-          <a href="/travail">La méthode et les repères chiffrés →</a>
+          <a href="/travail">The method and the key figures →</a>
         </CvLine>
       </Section>
 
-      <Outro eyebrow="Travailler ensemble" cta="Écrivez-moi">
-        Si vous avez besoin de tracer une vision pour embrayer une migration,
-        d&rsquo;avoir de l&rsquo;impact sur ce qui est livré et de tenir les timelines de vos
-        ambitions, écrivez-moi.
+      <Outro eyebrow="Working together" cta="Write to me" lang="en">
+        If you need someone to set the vision that gets a migration moving, to make
+        what ships count, and to keep your ambitions on schedule, write to me.
       </Outro>
 
     </Page>

@@ -1,41 +1,44 @@
 import StoryPage from '@/app/components/edito/StoryPage'
+import { langMeta } from '@/lib/i18n'
 
 export const metadata = {
-  title: 'Annulations · Daniel Assayag',
+  title: 'Cancellations · Daniel Assayag',
   description:
-    "Automatiser la recherche de remplacement après une annulation d'hôte chez HomeExchange.",
+    "Automating the replacement search after a host cancellation at HomeExchange.",
+  ...langMeta('en', '/travail/annulations'),
 }
 
-export default function Annulations() {
+export default function Cancellations() {
   return (
     <StoryPage
-      tag={<>Annulations</>}
-      title={<>Automatiser la recherche de remplacement après une annulation</>}
-      stat={{ value: <>~7&nbsp;000 h</>, label: <>de temps agent par an, mesuré (6&nbsp;120 à 8&nbsp;050)</> }}
+      lang="en"
+      slug="annulations"
+      tag={<>Cancellations</>}
+      title={<>Automating the replacement search after a cancellation</>}
+      stat={{ value: <>~7,000 h</>, label: <>of agent time a year, measured (6,120 to 8,050)</> }}
     >
       <p>
-        Quand un hôte annule un séjour, un agent aide le membre à retrouver un logement :
-        il se connecte au compte du membre, refait la recherche et écrit aux hôtes un par
-        un, à sa place. Des dizaines de milliers d&rsquo;annulations d&rsquo;hôte par an, environ
-        11&nbsp;300 cas avec une vraie recherche, 34 minutes de temps agent mesuré par
-        cas. Et la pire note de satisfaction du flux tombe à 58,7 % quand le remplacement
-        proposé est refusé.
+        When a host cancels a stay, an agent helps the member find another home: they log
+        into the member&rsquo;s account, redo the search and write to hosts one by one,
+        on the member&rsquo;s behalf. Tens of thousands of host cancellations a year,
+        about 11,300 cases with a real search, 34 minutes of measured agent time per
+        case. And the flow&rsquo;s worst satisfaction score falls to 58.7% when the
+        proposed replacement is turned down.
       </p>
       <p>
-        J&rsquo;ai chiffré le problème en croisant les données support et les données
-        internes, et identifié le goulot : le nombre d&rsquo;hôtes contactés et la
-        vitesse de la prise de contact. J&rsquo;ai donc spécifié une recherche
-        multi-filtres branchée sur le moteur interne, et des messages envoyés en masse
-        au nom de HomeExchange plutôt qu&rsquo;au nom du membre : aujourd&rsquo;hui,
-        des centaines de milliers de messages par an sont écrits par des agents depuis le compte
-        d&rsquo;un membre. Le dossier d&rsquo;annulation se crée automatiquement ; la
-        recherche de remplacement se lancera depuis ce dossier.
+        I sized the problem by cross-referencing support data with internal data, and
+        found the bottleneck: how many hosts get contacted, and how fast. So I specified
+        a multi-filter search wired to the internal engine, and bulk messages sent in
+        HomeExchange&rsquo;s name rather than the member&rsquo;s: today, hundreds of
+        thousands of messages a year are written by agents from a member&rsquo;s account.
+        The cancellation case is now created automatically; the replacement search will
+        start from that case.
       </p>
       <p>
-        Je co-pilote le sujet avec notre designer, à partir d&rsquo;entretiens menés avec
-        les agents. Automatiser la seule recherche libérerait déjà ~2&nbsp;500 heures par
-        an ; l&rsquo;objectif est la prise de contact par dizaines en une action, sans que
-        personne n&rsquo;ait à entrer dans le compte d&rsquo;un membre.
+        I co-lead the topic with our designer, based on interviews with agents.
+        Automating the search alone would already free ~2,500 hours a year; the goal is
+        contacting hosts by the dozen in one action, without anyone having to enter a
+        member&rsquo;s account.
       </p>
     </StoryPage>
   )

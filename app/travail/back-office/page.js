@@ -1,33 +1,35 @@
 import StoryPage from '@/app/components/edito/StoryPage'
+import { langMeta } from '@/lib/i18n'
 
 export const metadata = {
   title: 'Back-office · Daniel Assayag',
   description:
-    "Reconstruire le back-office HomeExchange page par page, pendant que 200 agents l'utilisent, avec deux développeurs.",
+    "Rebuilding the HomeExchange back-office page by page, while 200 agents use it, with two developers.",
+  ...langMeta('en', '/travail/back-office'),
 }
 
 export default function BackOffice() {
   return (
     <StoryPage
+      lang="en"
+      slug="back-office"
       tag={<>Back-office</>}
-      title={<>Reconstruire le back-office pendant que 200 agents l&rsquo;utilisent</>}
-      stat={{ value: <>8,3<small>/10</small></>, label: <>satisfaction interne, contre 6,2 avant</> }}
+      title={<>Rebuilding the back-office while 200 agents use it</>}
+      stat={{ value: <>8.3<small>/10</small></>, label: <>internal satisfaction, up from 6.2</> }}
     >
       <p>
-        Plus de 200 agents l&rsquo;ouvrent chaque mois (518 utilisateurs uniques en
-        septembre) pour gérer les comptes des membres.
-        L&rsquo;ancien outil était lent, incomplet et impossible à faire évoluer. Il
-        fallait le remplacer sans bloquer les équipes.
+        More than 200 agents open it every month (518 unique users in September) to
+        manage member accounts. The old tool was slow, incomplete and impossible to
+        evolve. It had to be replaced without blocking the teams.
       </p>
       <p>
-        Avec deux développeurs, on l&rsquo;a remplacé page par page, des agents recrutés
-        comme bêta-testeurs et leurs retours branchés directement sur nos tickets. En
-        trois mois, 26 fonctionnalités demandées par les agents ont été livrées, les
-        signalements d&rsquo;anomalies sont passés de 35 par mois à moins de 2, et la
-        satisfaction interne est montée de 6,2 à 8,3 sur 10. L&rsquo;outil peut de
-        nouveau évoluer : chaque automatisation s&rsquo;y installe désormais, et le
-        contrôle d&rsquo;accès par rôles, cadré avec un cabinet spécialisé RGPD, s&rsquo;y
-        déploie fonctionnalité par fonctionnalité.
+        With two developers, we replaced it page by page, with agents recruited as beta
+        testers and their feedback wired straight into our tickets. In three months, 26
+        features requested by agents shipped, anomaly reports went from 35 a month to
+        fewer than 2, and internal satisfaction rose from 6.2 to 8.3 out of 10. The tool
+        can evolve again: every automation now lands there, and role-based access
+        control, scoped with a specialist GDPR firm, is being rolled out feature by
+        feature.
       </p>
     </StoryPage>
   )
