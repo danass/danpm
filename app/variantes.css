@@ -32,6 +32,9 @@
 .edito .intro[class*="v-marque"]::before { content: ""; display: block; width: 48px; height: 4px; background: var(--mark); margin-bottom: 22px; }
 .edito .intro[class*="v-marque"] h1 { color: var(--mut); }
 .edito .intro[class*="v-marque"] h1::first-line { color: var(--fg); }
+/* le nom seul en gris : le reste du titre garde le ton plein */
+.edito .intro[class*="v-marque"] h1.ton-nom { color: var(--fg); }
+.edito .intro[class*="v-marque"] h1.ton-nom .nom { color: var(--mut); }
 /* fin : un trait plus discret, 32 × 2 */
 .edito .intro.v-marque-fin-deux-tons-inverse::before { width: 32px; height: 2px; margin-bottom: 18px; }
 /* grand : le titre monte à 64 px, le contraste des deux tons s'entend mieux */
