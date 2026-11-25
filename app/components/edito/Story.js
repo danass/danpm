@@ -103,7 +103,7 @@ export function Outro({ eyebrow, cta, variant, eyebrowVariant, sectionVariant, l
   return (
     <section className={vc(vc('outro', 'outro', variant), 'section', sectionVariant)}>
       <Eyebrow variant={eyebrowVariant}>{eyebrow}</Eyebrow>
-      <p>{children}</p>
+      {children ? <p>{children}</p> : null}
       <ContactTrigger className="cta" label={cta} lang={lang} />
     </section>
   )

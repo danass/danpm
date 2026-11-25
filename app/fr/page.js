@@ -45,11 +45,7 @@ export default function Home() {
         </CvLine>
       </Section>
 
-      <Outro eyebrow="Travailler ensemble" cta="Écrivez-moi">
-        Si vous avez besoin de tracer une vision pour embrayer une migration,
-        d&rsquo;avoir de l&rsquo;impact sur ce qui est livré et de tenir les timelines de vos
-        ambitions, écrivez-moi.
-      </Outro>
+      <Outro eyebrow="Travailler ensemble" cta="Écrivez-moi" />
 
     </Page>
   )
