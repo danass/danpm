@@ -47,47 +47,51 @@
           {
             "title": "Migration du Back-Office & Modernisation Produit",
             "achievements": [
-              "<b>Migration du back-office</b> qui gère plusieurs millions de comptes, sans interruption pour les ~200 agents qui l'utilisent chaque jour : <b>satisfaction interne 6,2 → 8,3/10</b> (enquête auprès des agents), <b>signalements d'anomalies 35/mois → 0 à 2</b>, et 26 fonctionnalités réclamées par les agents livrées en trois mois.",
-              "<b>Les agents comme bêta-testeurs</b> : enquêtes métier, interviews, matrice de priorisation avec les parties prenantes, roadmap phasée. Canal de feedback Slack synchronisé avec Jira — le ticket se crée et se suit tout seul.",
-              "<b>Cinq développeurs accompagnés</b> (2 internes, 3 externes), process réduit à ce qui sert : daily hybride, rétrospective toutes les six semaines, tout le reste en asynchrone."
+              "<b>Migration du back-office</b> de plusieurs millions de comptes sans interruption, portant la satisfaction interne des ~200 agents de <b>6,2 à 8,3/10</b>.",
+              "<b>Stabilisation du nouveau back-office</b>, ramenant les signalements d'anomalies de <b>35 par mois à 2 au plus</b>.",
+              "<b>Discovery auprès des agents</b> (enquêtes, interviews, matrice de priorisation), débouchant sur <b>26 fonctionnalités</b> livrées en trois mois.",
+              "<b>Accompagnement de cinq développeurs</b> (2 internes, 3 externes), avec un process réduit au daily et à une rétrospective toutes les six semaines."
             ]
           },
           {
             "title": "Trust & Safety : automatisation anti-scam & migration vers le Core",
             "achievements": [
-              "<b>Plus de 800 heures d'agent rendues en 2026</b> (près d'un mi-temps), dont 700 sur le seul mois de la vague de mai. En marquant un compte, l'agent déclenche désormais toute la chaîne : alerte des membres exposés en <b>secondes</b>, blocage, retrait des annonces. <b>Couverture du marquage ~30 % → ~100 %</b>, <b>1 900 → ~55 messages d'alerte manuels par mois</b>, <b>~14 500 scammers traités</b> dont neuf sur dix sans qu'un agent ait à déclencher quoi que ce soit.",
-              "<b>Migration « Scammer-to-Core »</b> (legacy MySQL → Core PostgreSQL) pendant que le système tournait, avec une contrainte posée en comité technique : <b>aucune interruption de service</b>. Cut-over synchronisé, coordination Connect et messagerie."
+              "<b>Automatisation de la chaîne anti-scam</b> (alerte, blocage, retrait des annonces), rendant <b>plus de 800 heures d'agent</b> en 2026, dont 700 sur la vague de mai.",
+              "<b>Extension du marquage des comptes frauduleux</b>, déclencheur de l'automatisation, portant sa couverture de <b>~30 % à ~100 %</b>.",
+              "<b>Alerte des membres exposés en quelques secondes</b>, ramenant les messages d'alerte manuels de <b>1 900 à ~55 par mois</b>.",
+              "<b>Traitement de ~14 500 scammers</b> depuis la mise en production, dont neuf sur dix sans intervention d'un agent.",
+              "<b>Migration « Scammer-to-Core »</b> du MySQL legacy vers le Core PostgreSQL, menée en production <b>sans interruption de service</b>."
             ]
           },
           {
             "title": "Resolution Center & efficacité opérationnelle du support",
             "achievements": [
-              "<b>Resolution Center repris d'un prestataire externe</b> (litiges et garanties de dépôt) : <b>CSAT 86 %</b>, passage en maintenance maîtrisée et création automatique d'incidents à l'annulation par l'hôte.",
-              "<b>Remboursement d'adhésion en un clic</b> : j'ai mesuré le geste ticket par ticket — <b>9 minutes par dossier</b>, <b>plus de mille heures d'agent par an</b> en jeu tous motifs confondus — puis spécifié l'epic et l'orchestration (PSP via microservice Payment, rôle dédié, traçabilité, clôture automatique du ticket). En cours de livraison.",
-              "<b>Recherche de remplacement après annulation</b> : <b>~11 000 cas par an</b> avec recherche réelle, <b>une demi-heure mesurée par cas</b>, <b>6 000 à 8 000 heures d'agent</b> en jeu — automatiser la seule recherche en libère <b>~2 500</b>. Recherche multi-filtres et prise de contact en masse au nom de HomeExchange, là où l'agent écrivait depuis le compte du membre."
+              "<b>Reprise du Resolution Center</b> d'un prestataire externe (litiges, garanties de dépôt, incidents créés à l'annulation par l'hôte), maintenu à un <b>CSAT de 86 %</b>.",
+              "<b>Mesure et spécification du remboursement d'adhésion</b> (9 minutes par dossier), visant <b>plus de mille heures d'agent par an</b>. En cours de livraison.",
+              "<b>Refonte de la recherche de remplacement</b> après annulation (multi-filtres, contact en masse au nom de HomeExchange), visant <b>~2 500 heures d'agent</b> par an sur ~11 000 cas."
             ]
           },
           {
             "title": "Granularité des rôles (RGPD) & Product Ops augmentée par l'IA",
             "achievements": [
-              "<b>Granularité des rôles</b> dans un back-office où chaque collaborateur interne avait historiquement le même accès complet : <b>~8 500 gestes sensibles par mois</b>, <b>4 actions protégées sur une soixantaine</b>. Rôles multiples Auth0, séparation Resolution Center / back-office, cadrage RGPD avec un cabinet spécialisé. L'enjeu est l'exposition, pas le temps gagné.",
-              "<b>Outillage IA de l'équipe produit</b> : contribution à un « Product OS » en production, et POC de pré-remplissage d'annonces à partir de photos et de vidéos (extraction et scoring automatiques de keyframes).",
-              "<b>Hands-on quand c'est le plus rapide</b> : audit de sécurité (XSS), requêtes analytiques Metabase, et agrégation automatique des comptes-rendus hebdomadaires de l'équipe."
+              "<b>Granularité des rôles du back-office</b> (rôles Auth0, cadrage RGPD avec un cabinet spécialisé), pour restreindre ~8 500 gestes sensibles par mois ouverts à tous.",
+              "<b>POC de pré-remplissage d'annonces</b> à partir de photos et de vidéos, par extraction et scoring automatiques de keyframes.",
+              "<b>Outillage IA de l'équipe produit</b> : « Product OS » en production et agrégation automatique des comptes-rendus hebdomadaires."
             ]
           },
           {
             "title": "Product Manager de Collection (Maisons d'exception)",
             "achievements": [
-              "<b>Exposition des maisons Collection</b> : revamp de la homepage (2 500 → plus de 20 000 maisons affichées), badge sur les cartes, nouveaux emplacements en bannière, et création de catégories (grandes baies vitrées, vues exceptionnelles, piscines à débordement) à partir de l'analyse des photos du parc.",
-              "<b>Funnel de candidature</b> : annulation, sauvegarde et reprise, suivi de statut, vérification d'éligibilité automatisée et essai gratuit, sur environ 200 candidatures mensuelles.",
-              "<b>Ranking et coordination inter-squads</b> : hiérarchisation des résultats (Collection, éligibles sans abonnement, essai gratuit), paiement de l'essai de 15 jours avec le squad Paiement, authentification Auth0 avec le squad User. Quatre développeurs accompagnés avec un autre PM."
+              "<b>Refonte de la homepage Collection</b> (badges, bannières, catégories issues de l'analyse des photos du parc), portant les maisons affichées de <b>2 500 à plus de 20 000</b>.",
+              "<b>Refonte du funnel de candidature</b> (sauvegarde et reprise, suivi de statut, éligibilité automatisée, essai gratuit) sur ~200 candidatures par mois.",
+              "<b>Ranking et essai gratuit de 15 jours</b>, coordonnés avec les squads Paiement et User, avec quatre développeurs et un autre PM."
             ]
           },
           {
             "title": "Product Ops, Opérations & Process",
             "achievements": [
-              "<b>StagingWizard</b>, codé par moi : un compte de test complet (inscription, logement, abonnement, échange) en <b>15 secondes au lieu de cinq minutes</b>, plusieurs fois par jour, avec la typologie de compte qui correspond au scénario testé.",
-              "<b>Remontées terrain automatisées</b> : un formulaire Slack relié à Jira crée le ticket, le lie et rend son avancement visible dans le canal — une cinquantaine de tickets créés et tous traités, pour les 200 utilisateurs du back-office."
+              "<b>Développement de StagingWizard</b>, ramenant la création d'un compte de test complet de <b>cinq minutes à 15 secondes</b>.",
+              "<b>Formulaire Slack relié à Jira</b> pour les ~200 utilisateurs du back-office, transformant une cinquantaine de remontées en tickets tous traités."
             ]
           }
         ]
@@ -306,47 +310,51 @@
           {
             "title": "Back-Office Migration & Product Modernization",
             "achievements": [
-              "<b>Migrated the back-office</b> that manages several million accounts, with no downtime for the ~200 agents who use it daily: <b>internal satisfaction 6.2 → 8.3/10</b> (agent survey), <b>anomaly reports 35/month → 0 to 2</b>, and 26 agent-requested features shipped in three months.",
-              "<b>Agents as beta testers</b>: field research, interviews, prioritization matrix with stakeholders, phased roadmap. Slack feedback channel wired into Jira — tickets create and track themselves.",
-              "<b>Five developers supported</b> (2 in-house, 3 external), with process cut to what earns its place: hybrid daily, retrospective every six weeks, everything else asynchronous."
+              "<b>Migrated the back-office</b> of several million accounts with no downtime, raising internal satisfaction of ~200 agents from <b>6.2 to 8.3/10</b>.",
+              "<b>Stabilized the new back-office</b>, cutting anomaly reports from <b>35 a month to 2 at most</b>.",
+              "<b>Ran discovery with agents</b> (surveys, interviews, prioritization matrix), leading to <b>26 features</b> shipped in three months.",
+              "<b>Supported five developers</b> (2 in-house, 3 external), with process cut to a daily and a retrospective every six weeks."
             ]
           },
           {
             "title": "Trust & Safety: anti-scam automation & migration to Core",
             "achievements": [
-              "<b>Over 800 agent hours returned in 2026</b> (close to half a full-time role), 700 of them in the single month of the May wave. Tagging an account now fires the whole chain: exposed members alerted in <b>seconds</b>, account blocked, listings pulled. <b>Tag coverage ~30% → ~100%</b>, <b>1,900 → ~55 manual alert messages per month</b>, <b>~14,500 scammers handled</b> — nine in ten without an agent triggering anything.",
-              "<b>\"Scammer-to-Core\" migration</b> (legacy MySQL → Core PostgreSQL) while the system was running, under a constraint set in technical committee: <b>zero service interruption</b>. Synchronized cut-over, Connect and messaging coordination."
+              "<b>Automated the anti-scam chain</b> (alert, block, listing removal), returning <b>over 800 agent hours</b> in 2026, 700 of them during the May wave.",
+              "<b>Extended scammer tagging</b>, the automation trigger, raising its coverage from <b>~30% to ~100%</b>.",
+              "<b>Alerted exposed members within seconds</b>, cutting manual alert messages from <b>1,900 to ~55 a month</b>.",
+              "<b>Handled ~14,500 scammers</b> since release, nine in ten without an agent stepping in.",
+              "<b>Migrated \"Scammer-to-Core\"</b> from legacy MySQL to Core PostgreSQL in production, with <b>zero service interruption</b>."
             ]
           },
           {
             "title": "Resolution Center & support operational efficiency",
             "achievements": [
-              "<b>Took over the Resolution Center</b> from an external vendor (disputes and deposit guarantees): <b>86% CSAT</b>, controlled maintenance mode and automatic incident creation on host cancellation.",
-              "<b>One-click membership refund</b>: I measured the task ticket by ticket — <b>9 minutes per case</b>, <b>over a thousand agent hours a year</b> at stake across all reasons — then specified the epic and its orchestration (PSP via Payment microservice, dedicated role, traceability, automatic ticket closure). Currently shipping.",
-              "<b>Replacement search after cancellation</b>: <b>~11,000 cases a year</b> involving a real search, <b>half an hour measured per case</b>, <b>6,000 to 8,000 agent hours</b> at stake — automating the search alone frees <b>~2,500</b>. Multi-filter search and bulk outreach under the HomeExchange name, where agents used to write from the member's own account."
+              "<b>Took over the Resolution Center</b> from an external vendor (disputes, deposit guarantees, incidents created on host cancellation), holding <b>86% CSAT</b>.",
+              "<b>Measured and specified the membership refund</b> (9 minutes per case), targeting <b>over a thousand agent hours a year</b>. Currently shipping.",
+              "<b>Redesigned replacement search</b> after cancellation (multi-filter, bulk outreach under the HomeExchange name), targeting <b>~2,500 agent hours</b> a year across ~11,000 cases."
             ]
           },
           {
             "title": "Role granularity (GDPR) & AI-augmented Product Ops",
             "achievements": [
-              "<b>Role granularity</b> in a back-office where every internal staff member historically held the same full access: <b>~8,500 sensitive actions a month</b>, <b>4 protected actions out of roughly sixty</b>. Multiple Auth0 roles, Resolution Center / back-office separation, GDPR work with a specialist firm. The stake is exposure, not hours saved.",
-              "<b>AI tooling for the product team</b>: contributed to a production \"Product OS\", and a proof of concept pre-filling listings from photos and videos (automatic keyframe extraction and scoring).",
-              "<b>Hands-on when it's the fastest path</b>: security audit (XSS), Metabase analytics queries, and automatic aggregation of the team's weekly reports."
+              "<b>Back-office role granularity</b> (Auth0 roles, GDPR scoping with a specialist firm), to restrict ~8,500 sensitive actions a month open to everyone.",
+              "<b>Proof of concept pre-filling listings</b> from photos and videos, through automatic keyframe extraction and scoring.",
+              "<b>AI tooling for the product team</b>: a production \"Product OS\" and automatic aggregation of weekly reports."
             ]
           },
           {
             "title": "Collection Product Manager (Premium Homes)",
             "achievements": [
-              "<b>Collection homes exposure</b>: homepage revamp (2,500 → over 20,000 homes displayed), badge on home cards, new banner placements, and new categories (floor-to-ceiling windows, exceptional views, infinity pools) built from analysis of the portfolio's photos.",
-              "<b>Application funnel</b>: cancellation, save and resume, status tracking, automated eligibility check and free trial, across roughly 200 monthly applications.",
-              "<b>Ranking and cross-squad coordination</b>: result hierarchy (Collection, eligible without subscription, free trial), 15-day trial payment with the Payment squad, Auth0 authentication with the User squad. Four developers supported alongside another PM."
+              "<b>Revamped the Collection homepage</b> (badges, banners, categories built from portfolio photo analysis), growing homes displayed from <b>2,500 to over 20,000</b>.",
+              "<b>Rebuilt the application funnel</b> (save and resume, status tracking, automated eligibility, free trial) across ~200 applications a month.",
+              "<b>Ranking and 15-day free trial</b>, coordinated with the Payment and User squads, with four developers and another PM."
             ]
           },
           {
             "title": "Product Ops, Operations & Process",
             "achievements": [
-              "<b>StagingWizard</b>, which I coded: a complete test account (signup, home, subscription, exchange) in <b>15 seconds instead of five minutes</b>, several times a day, with the account type matching the scenario under test.",
-              "<b>Automated field feedback</b>: a Slack form wired into Jira creates the ticket, links it and surfaces its progress in the channel — around fifty tickets created and every one handled, for the 200 back-office users."
+              "<b>Built StagingWizard</b>, cutting creation of a complete test account from <b>five minutes to 15 seconds</b>.",
+              "<b>Slack form wired into Jira</b> for the ~200 back-office users, turning around fifty field reports into tickets, every one handled."
             ]
           }
         ]
