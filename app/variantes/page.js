@@ -30,7 +30,7 @@ const FACTS = [
 ]
 const INTRO = (
   <>
-    <h1>Je construis le back-office et les outils internes de HomeExchange.</h1>
+    <h1>J'automatise les tâches opérationnelles de HomeExchange.</h1>
     <p>Je conçois avec les utilisateurs finaux, j’écris des specs au plus près du code et j’accompagne les décisions d’architecture, technique et produit. Je tiens mes roadmaps, et l’impact de chaque projet est chiffré.</p>
     <CvLine><a href="/Daniel_Assayag_CV.pdf">Télécharger le CV (PDF)</a><a href="/cv">CV complet en ligne</a></CvLine>
   </>

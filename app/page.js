@@ -10,7 +10,7 @@ export const metadata = {
   openGraph: {
     title: 'Daniel Assayag · Product Manager',
     description:
-      "Je construis le back-office et les outils internes de HomeExchange.",
+      "J'automatise les tâches opérationnelles de HomeExchange.",
     type: 'profile',
     locale: 'fr_FR',
   },
@@ -21,7 +21,7 @@ export default function Home() {
     <Page navLabel="Navigation principale" footer={FOOTER_HOME}>
 
       <Intro>
-        <h1>Je construis le back-office et les outils internes de HomeExchange.</h1>
+        <h1>J'automatise les tâches opérationnelles de HomeExchange.</h1>
         <p>
           Je conçois avec les utilisateurs finaux, j&rsquo;écris des specs au plus près du
           code et j&rsquo;accompagne les décisions d&rsquo;architecture, technique et produit.
