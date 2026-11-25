@@ -26,9 +26,11 @@ export default function Home() {
       <Intro>
         <h1 className="ton-nom">J'automatise les tâches opérationnelles de <span className="nom">HomeExchange</span>.</h1>
         <p>
-          Je conçois avec les utilisateurs finaux, j&rsquo;écris des specs au plus près du
-          code et j&rsquo;accompagne les décisions d&rsquo;architecture, technique et produit.
-          Je tiens mes roadmaps, et l&rsquo;impact de chaque projet est chiffré.
+          Je conçois avec ceux qui utilisent les outils : 200 agents bêta-testeurs, une
+          satisfaction interne passée de 6,2 à 8,3/10. Je lis le code avant d&rsquo;écrire
+          un ticket, si bien que chaque règle métier annoncée est vérifiée dans le source.
+          Je chiffre chaque projet avant et après : 844 heures d&rsquo;agent rendues par
+          l&rsquo;automatisation anti-fraude en 2026.
         </p>
         <CvLine>
           <a href="/Daniel_Assayag_CV_fr.pdf">Télécharger le CV (PDF)</a>

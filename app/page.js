@@ -26,9 +26,11 @@ export default function Home() {
       <Intro>
         <h1 className="ton-nom">I automate the operational tasks of <span className="nom">HomeExchange</span>.</h1>
         <p>
-          I design with end users, write specs as close to the code as possible, and
-          support architecture, technical and product decisions. I stick to my
-          roadmaps, and every project&rsquo;s impact is quantified.
+          I design with the people who use the tools: 200 agents as beta testers,
+          internal satisfaction up from 6.2 to 8.3/10. I read the code before writing a
+          ticket, so every business rule I state is checked in the source. I quantify
+          each project before and after: 844 agent hours returned by the fraud
+          automation in 2026.
         </p>
         <CvLine>
           <a href="/Daniel_Assayag_CV.pdf">Download the CV (PDF)</a>
