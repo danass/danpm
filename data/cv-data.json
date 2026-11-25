@@ -32,7 +32,7 @@
     ],
     "profile": {
       "title": "Résumé Professionnel",
-      "description": "Product Manager. Je transforme le back-office et les outils internes en levier d'efficacité opérationnelle mesurable : de la lutte anti-fraude (automatisation puis migration vers le Core) à la réduction du temps de traitement côté support, en passant par la modernisation d'un back-office critique (plusieurs millions de comptes). Profil hybride : je rédige les specs, pilote les développeurs et code moi-même quand c'est le plus rapide (outils internes, SQL, sécurité, outillage IA). Sensibilité produit et design issue d'une formation artistique."
+      "description": "Product Manager. Je transforme le back-office et les outils internes en levier d'efficacité opérationnelle mesurable : de la lutte anti-fraude (automatisation puis migration vers le Core) à la réduction du temps de traitement côté support, en passant par la modernisation d'un back-office critique. Profil hybride : je rédige les specs, pilote les développeurs et code moi-même quand c'est le plus rapide (outils internes, SQL, sécurité, outillage IA). Sensibilité produit et design issue d'une formation artistique."
     },
     "experience": {
       "title": "Expérience"
@@ -47,7 +47,7 @@
           {
             "title": "Migration du Back-Office & Modernisation Produit",
             "achievements": [
-              "<b>Migration du back-office</b> de plusieurs millions de comptes sans interruption, portant la satisfaction interne des ~200 agents de <b>6,2 à 8,3/10</b>.",
+              "<b>Migration du back-office</b> sans interruption, portant la satisfaction interne des ~200 agents de <b>6,2 à 8,3/10</b>.",
               "<b>Stabilisation du nouveau back-office</b>, ramenant les signalements d'anomalies de <b>35 par mois à 2 au plus</b>.",
               "<b>Discovery auprès des agents</b> (enquêtes, interviews, matrice de priorisation), débouchant sur <b>26 fonctionnalités</b> livrées en trois mois.",
               "<b>Accompagnement de cinq développeurs</b> (2 internes, 3 externes), avec un process réduit au daily et à une rétrospective toutes les six semaines."
@@ -295,7 +295,7 @@
     ],
     "profile": {
       "title": "Professional Summary",
-      "description": "Product Manager. I turn the back-office and internal tools into measurable operational leverage: from fraud defense (automation then migration to the Core) to cutting support handling time, and modernizing a critical back-office (several million accounts). A hybrid profile: I write the specs, lead the developers, and ship code myself when it's the fastest path (internal tools, SQL, security, AI tooling). Product and design sensibility rooted in an artistic background."
+      "description": "Product Manager. I turn the back-office and internal tools into measurable operational leverage: from fraud defense (automation then migration to the Core) to cutting support handling time, and modernizing a critical back-office. A hybrid profile: I write the specs, lead the developers, and ship code myself when it's the fastest path (internal tools, SQL, security, AI tooling). Product and design sensibility rooted in an artistic background."
     },
     "experience": {
       "title": "Experience"
@@ -310,7 +310,7 @@
           {
             "title": "Back-Office Migration & Product Modernization",
             "achievements": [
-              "<b>Migrated the back-office</b> of several million accounts with no downtime, raising internal satisfaction of ~200 agents from <b>6.2 to 8.3/10</b>.",
+              "<b>Migrated the back-office</b> with no downtime, raising internal satisfaction of ~200 agents from <b>6.2 to 8.3/10</b>.",
               "<b>Stabilized the new back-office</b>, cutting anomaly reports from <b>35 a month to 2 at most</b>.",
               "<b>Ran discovery with agents</b> (surveys, interviews, prioritization matrix), leading to <b>26 features</b> shipped in three months.",
               "<b>Supported five developers</b> (2 in-house, 3 external), with process cut to a daily and a retrospective every six weeks."

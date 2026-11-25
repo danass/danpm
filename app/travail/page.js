@@ -22,7 +22,6 @@ const TOOLS = [
 ]
 
 const FACTS = [
-  { label: 'Comptes gérés par le back-office', value: 'plusieurs millions' },
   { label: 'Agents ayant ouvert le back-office sur un mois', value: '213 (518 utilisateurs uniques)' },
   { label: 'Tickets clos sur les projets de la squad (sept. 2025 → juil. 2026)', value: '432' },
   { label: 'Couverture du tag scammer', value: '~30 % → ~100 %' },

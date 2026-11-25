@@ -15,7 +15,7 @@ export default function BackOffice() {
     >
       <p>
         Plus de 200 agents l&rsquo;ouvrent chaque mois (518 utilisateurs uniques en
-        septembre), pour gérer les comptes de plusieurs millions de membres.
+        septembre) pour gérer les comptes des membres.
         L&rsquo;ancien outil était lent, incomplet et impossible à faire évoluer. Il
         fallait le remplacer sans bloquer les équipes.
       </p>
