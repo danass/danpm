@@ -25,10 +25,6 @@ export default function Home() {
 
       <Intro>
         <h1 className="ton-nom">I automate the operational tasks of <span className="nom">HomeExchange</span>.</h1>
-        <p>
-          I design with the people who use the tools, read the code before writing a
-          ticket, and measure the impact of every project.
-        </p>
         <CvLine>
           <a href="/Daniel_Assayag_CV.pdf">Download the CV (PDF)</a>
           <a href="/cv">Full CV online</a>
