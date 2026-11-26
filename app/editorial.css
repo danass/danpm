@@ -253,8 +253,35 @@
   .edito { font-size: 11.5px; background: #fff; }
   .edito .page { max-width: 100%; padding: 0; }
   .edito .cv-head { padding: 0; }
-  .edito section { margin-top: 22px; padding-top: 10px; }
-  .edito .cv-exp { margin-top: 18px; }
-  .edito .cv-sub { break-inside: avoid; margin-top: 14px; padding-top: 7px; }
-  .edito .cv-ach li { padding: 4px 0; font-size: 11px; }
+  /* PDF du CV : une hiérarchie à quatre niveaux (section, expérience,
+     sous-section, puce), un seul filet par expérience, pas de filet entre
+     les puces. Les variantes d'écran (marge de 128 px) sont neutralisées. */
+  .edito section, .edito section[class*="v-sans-filet"] { margin-top: 24px !important; padding-top: 0; }
+  .edito footer { display: none !important; }
+  .edito .cv-summary { margin-top: 14px; font-size: 12px; }
+  .edito .cv-exp { margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--line); }
+  .edito .cv-exp:first-of-type { margin-top: 10px; }
+  .edito .cv-exp-top h3 { font-size: 14px; }
+  .edito .cv-exp-top .pos { font-size: 11px; color: var(--mut); margin-top: 1px; }
+  .edito .cv-exp-top .when { font-size: 9.5px; line-height: 1.45; }
+  .edito .cv-sub, .edito .cv-sub:first-of-type { margin-top: 14px; padding-top: 0; border-top: none; break-inside: avoid; }
+  .edito .cv-exp-top { break-after: avoid; break-inside: avoid; }
+  .edito .cv-exp > ul.cv-ach { break-before: avoid; }
+  .edito .cv-exp:not(:first-of-type) { break-inside: avoid; }
+  .edito .cv-sub h4 { font-size: 8.5px; margin-bottom: 3px; }
+  .edito ul.cv-ach { margin-top: 3px !important; }
+  .edito .cv-ach li {
+    position: relative; border-bottom: none; padding: 1.5px 0 1.5px 11px;
+    font-size: 10.5px; line-height: 1.45;
+  }
+  .edito .cv-ach li::before { content: "–"; position: absolute; left: 0; color: var(--mut); }
+  .edito .cv-skillrow { padding: 4px 0; border-bottom: none; }
+  .edito .cv-skillrow h4 { font-size: 8.5px; }
+  .edito .cv-skillrow p { margin-top: 1px; font-size: 10.5px; }
+  .edito dl { margin-top: 8px; }
+  .edito dl > div { padding: 3px 0; border-bottom: none; }
+  .edito dt { font-size: 10.5px; }
+  .edito dd { font-size: 10.5px; font-weight: 400; color: var(--mut); }
+  .edito .cv-html { margin-top: 8px !important; font-size: 10.5px; }
+  .edito .cv-html div { margin-top: 1px; }
 }

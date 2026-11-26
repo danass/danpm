@@ -31,7 +31,7 @@ export default function CvPage({ lang = 'fr' }) {
   const certifications = (cv.certifications?.data || []).map((c, i) => ({ key: i, term: c.name, detail: c.issuer }))
 
   return (
-    <Page lang={lang} path="/cv" footer={[{ href: '/', label: 'danpm.com' }, h.location || 'Paris']}>
+    <Page lang={lang} path="/cv" hideName footer={[{ href: '/', label: 'danpm.com' }, h.location || 'Paris']}>
 
       <CvHead header={h} summary={cv.profile?.description} lang={lang} />
 

@@ -11,11 +11,12 @@ import { UI, localize } from '@/lib/i18n'
 
 // `path` : le chemin de la page sans préfixe de langue, pour le lien vers
 // l'autre langue. Sans `path`, pas de lien (la galerie /variantes).
-export function TopNav({ ariaLabel = 'Navigation', variant, lang = 'fr', path }) {
+export function TopNav({ ariaLabel = 'Navigation', variant, lang = 'fr', path, hideName = false }) {
   const t = UI[lang]
   return (
     <header className={vc('top', 'top', variant)}>
-      <span className="name">Daniel Assayag</span>
+      {/* Le span reste vide sur /cv (le nom y est déjà le titre) pour garder la mise en page. */}
+      <span className="name">{hideName ? null : 'Daniel Assayag'}</span>
       <nav aria-label={ariaLabel}>
         <a href={localize(lang, '/')}>{t.home}</a>
         <a href={localize(lang, '/travail')}>{t.work}</a>
@@ -53,14 +54,14 @@ export const FOOTER_HOME = [
 ]
 
 // `v` : surcharge ponctuelle de la table d'assemblage, pour la galerie.
-export default function Page({ navLabel = 'Navigation', footer = FOOTER_SITE, v = {}, lang = 'fr', path, children }) {
+export default function Page({ navLabel = 'Navigation', footer = FOOTER_SITE, v = {}, lang = 'fr', path, hideName = false, children }) {
   const extra = pageClasses(v)
   const fontVars = extra.some((c) => c.startsWith('font-')) ? ` ${grotesk.variable}` : ''
   const cls = ['edito', ...extra].join(' ') + fontVars
   return (
     <div className={cls} lang={lang}>
       <div className="page">
-        <TopNav ariaLabel={navLabel} variant={v.top} lang={lang} path={path} />
+        <TopNav ariaLabel={navLabel} variant={v.top} lang={lang} path={path} hideName={hideName} />
         {children}
         <SiteFooter links={footer} variant={v.footer} lang={lang} />
       </div>
