@@ -42,7 +42,7 @@ try {
     path: outPath,
     format: 'A4',
     printBackground: false,
-    margin: { top: '14mm', bottom: '14mm', left: '14mm', right: '14mm' },
+    margin: { top: '11mm', bottom: '11mm', left: '14mm', right: '14mm' },
   })
   console.log(`PDF écrit : ${outPath}`)
   await page.close()
