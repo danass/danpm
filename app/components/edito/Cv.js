@@ -10,9 +10,9 @@ export function CvHead({ header: h, summary, lang = 'fr' }) {
       <h1>{h.name || 'Daniel Assayag'}</h1>
       <p className="role">{h.jobTitle || 'Product Manager'}</p>
       <div className="cv-contact">
-        <ContactTrigger className="as-link" label={t.contactMe} lang={lang} />
+        <ContactTrigger className="as-link no-print" label={t.contactMe} lang={lang} />
         <span className="print-only" id="pdf-contact"></span>
-        <a href={t.pdfFile}>{t.pdf}</a>
+        <a href={t.pdfFile} className="no-print">{t.pdf}</a>
         {h.linkedin && <a href={`https://${h.linkedin}`} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
         {h.github && <a href={`https://${h.github}`} target="_blank" rel="noopener noreferrer">GitHub</a>}
         {h.location && <span>{h.location}</span>}
