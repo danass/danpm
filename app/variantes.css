@@ -30,6 +30,8 @@
 
 /* ── Intro · retenu : marque-deux-tons-inverse ──────────────────────────── */
 .edito .intro[class*="v-marque"]::before { content: ""; display: block; width: 48px; height: 4px; background: var(--mark); margin-bottom: 22px; }
+/* Daniel, 26 nov. 2026 : pas de trait au-dessus du titre sur le site. */
+.edito .intro.v-marque-deux-tons-inverse::before { display: none; }
 .edito .intro[class*="v-marque"] h1 { color: var(--mut); }
 .edito .intro[class*="v-marque"] h1::first-line { color: var(--fg); }
 /* le nom seul en gris : le reste du titre garde le ton plein */
